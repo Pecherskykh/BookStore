@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookStore.BusinessLogic.Init;
 using BookStore.DataAccess.AppContext;
 using BookStore.DataAccess.Entities.Enums;
+using BookStore.DataAccess.Initialization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,17 +31,14 @@ namespace Book_Store
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<ApplicationContext>(options =>
-               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationContext>()
-                .AddDefaultTokenProviders();
+            Initializer.Init(services, Configuration.GetConnectionString("DefaultConnection"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseInitialization initializer)
         {
+            initializer.StartInit();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

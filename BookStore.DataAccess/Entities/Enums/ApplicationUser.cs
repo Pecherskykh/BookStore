@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BookStore.DataAccess.Entities.Enums
 {
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser<long>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

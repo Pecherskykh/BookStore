@@ -1,4 +1,5 @@
 ﻿
+using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Entities.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.DataAccess.AppContext
 {
-    public class ApplicationContext : IdentityDbContext<ApplicationUser, IdentityRole, string>
+    public class ApplicationContext : IdentityDbContext<ApplicationUser, Role, long>
     {
         public DbSet<Author> Authors { get; set; }
         public DbSet<AuthorInPrintingEdition> AuthorInPrintingEditions { get; set; }
