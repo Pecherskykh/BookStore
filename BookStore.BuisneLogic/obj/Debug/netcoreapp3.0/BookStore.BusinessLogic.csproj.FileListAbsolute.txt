@@ -1,0 +1,11 @@
+C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.BuisneLogic\bin\Debug\netcoreapp3.0\BookStore.BusinessLogic.deps.json
+C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.BuisneLogic\bin\Debug\netcoreapp3.0\BookStore.BusinessLogic.dll
+C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.BuisneLogic\bin\Debug\netcoreapp3.0\BookStore.BusinessLogic.pdb
+C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.BuisneLogic\bin\Debug\netcoreapp3.0\BookStore.DataAccess.dll
+C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.BuisneLogic\bin\Debug\netcoreapp3.0\BookStore.DataAccess.pdb
+C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.BuisneLogic\obj\Debug\netcoreapp3.0\BookStore.BusinessLogic.csprojAssemblyReference.cache
+C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.BuisneLogic\obj\Debug\netcoreapp3.0\BookStore.BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.BuisneLogic\obj\Debug\netcoreapp3.0\BookStore.BusinessLogic.AssemblyInfo.cs
+C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.BuisneLogic\obj\Debug\netcoreapp3.0\BookStore.BusinessLogic.csproj.CopyComplete
+C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.BuisneLogic\obj\Debug\netcoreapp3.0\BookStore.BusinessLogic.dll
+C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.BuisneLogic\obj\Debug\netcoreapp3.0\BookStore.BusinessLogic.pdb

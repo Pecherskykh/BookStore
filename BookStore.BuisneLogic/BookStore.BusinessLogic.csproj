@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Interfaces\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Models\Authors\" />
+    <Folder Include="Models\Base\" />
+    <Folder Include="Models\Enums\" />
+    <Folder Include="Models\Users\" />
+    <Folder Include="Models\PrintingEditions\" />
+    <Folder Include="Models\Payments\" />
+    <Folder Include="Models\Orders\" />
+    <Folder Include="Services\Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookStore.DataAccess\BookStore.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>
