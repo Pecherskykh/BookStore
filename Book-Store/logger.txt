@@ -1,0 +1,13 @@
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Executing endpoint 'Book_Store.Controllers.HomeController.Index (Book-Store)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 88.4666ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 110.13980000000001ms
+Executed endpoint 'Book_Store.Controllers.HomeController.Index (Book-Store)'
+Error
+Connection ID "18374686494167138350", Request ID "8000002f-0003-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Request finished in 276.1241ms 200 text/html; charset=utf-8

@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Interfaces\" />
     <Folder Include="Helpers\" />
     <Folder Include="Models\Authors\" />
     <Folder Include="Models\Base\" />
@@ -14,7 +13,6 @@
     <Folder Include="Models\PrintingEditions\" />
     <Folder Include="Models\Payments\" />
     <Folder Include="Models\Orders\" />
-    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
 
   <ItemGroup>
