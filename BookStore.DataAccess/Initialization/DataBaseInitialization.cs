@@ -1,6 +1,7 @@
 ﻿using BookStore.DataAccess.AppContext;
 using BookStore.DataAccess.Entities.Enums;
 using Microsoft.AspNetCore.Identity;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration.FileExtensions;
 using Microsoft.Extensions.Configuration.Json;
@@ -28,54 +29,46 @@ namespace BookStore.DataAccess.Initialization
 
         public void StartInit()
         {
-            InitializationApplicationUser();
-            /*InitializationAuthors();
-            InitializationAuthorInPrintingEdition();            
-            InitializationOrder();
-            InitializationOrderItem();
-            InitializationPayment();
-            InitializationPrintingEdition();*/
+            InitializationRoles();
+            InitializationAdmin();
+            InitializationAuthors();
+            InitializationPrintingEdition();
         }
 
-        public void InitializationApplicationUser()
+        public void InitializationRoles()
         {
-            var role = new Role();
-            role.Name = "Admin";
-            _roleManager.CreateAsync(role).GetAwaiter().GetResult();
-
-            var role1 = new Role();
-            role1.Name = "User";
-            _roleManager.CreateAsync(role1).GetAwaiter().GetResult();
-
-            List<ApplicationUser> users = new List<ApplicationUser>()
-                {
-                    new ApplicationUser { Email = "model.Email4", UserName = "model.Email2",  FirstName = "FirstName2", LastName = "LastName2"},
-                    new ApplicationUser { Email = "model.Email7", UserName = "model.Email3",  FirstName = "FirstName2", LastName = "LastName2" },
-                };
-
-            foreach (ApplicationUser user in users)
+            List<Role> roles = new List<Role>()
             {
-                var result = _userManager.CreateAsync(user).GetAwaiter().GetResult();
-                if(result.Succeeded)
-                {
-                    _userManager.AddToRoleAsync(user, role.Name).GetAwaiter();
-                }
-            }           
+                new Role{Name = "Admin"},
+                new Role{Name = "User"}
+            };
+
+            foreach (Role role in roles)
+            {
+                _roleManager.CreateAsync(role).GetAwaiter().GetResult();
+            }          
+        }
+
+        public void InitializationAdmin()
+        {
+            ApplicationUser admin = new ApplicationUser { Email = "admin@mail.com", UserName = "Admin", FirstName = "Admin", LastName = "Admin" };
+
+            var result = _userManager.CreateAsync(admin).GetAwaiter().GetResult();
+            if (result.Succeeded)
+            {
+                _userManager.AddToRoleAsync(admin, "Admin").GetAwaiter().GetResult();
+            }
         }
 
         public void InitializationAuthors()
         {
-                   
-                List<Author> authors = new List<Author>()
-                {
-                    new Author { Name = "Name1" },
-                    new Author { Name = "Name2" }
-                };               
-
-                foreach(Author author in authors)
-                    _applicationContext.Authors.Add(author);
+            long amountAuthors = _applicationContext.Authors.Count();
+            if (amountAuthors == 0)
+            {
+                Author author = new Author { Name = "Author" };
+                _applicationContext.Authors.Add(author);
                 _applicationContext.SaveChanges();
-
+            }
         }
 
         public void InitializationAuthorInPrintingEdition()
@@ -137,16 +130,21 @@ namespace BookStore.DataAccess.Initialization
 
         public void InitializationPrintingEdition()
         {
- 
-                List<PrintingEdition> printingEditions = new List<PrintingEdition>()
+            long amountPrintingEdition = _applicationContext.PrintingEditions.Count();
+            if (amountPrintingEdition == 0)
+            {
+                PrintingEdition printingEdition = new PrintingEdition
                 {
-                    new PrintingEdition { Description = "fdf" },
-                    new PrintingEdition{ Description = "fdf" }
+                    Title = "Title",
+                    Description = "fdf",
+                    Price = 25,
+                    Status = "Status",
+                    Currency = "Currency",
+                    Type = "Type"
                 };
-
-                foreach (PrintingEdition printingEdition in printingEditions)
-                    _applicationContext.PrintingEditions.Add(printingEdition);
+                _applicationContext.PrintingEditions.Add(printingEdition);
                 _applicationContext.SaveChanges();
+            }
         }
     }
 }
