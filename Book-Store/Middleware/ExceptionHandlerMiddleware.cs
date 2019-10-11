@@ -1,16 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System;
-using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using System.IO;
+using BookStore.BusinessLogic.Common;
 
-namespace BookStore.BusinessLogic.Common
+namespace Book_Store.Middlewaren
 {
     public sealed class ExceptionHandlerMiddleware
-    {        
+    {
         private readonly RequestDelegate _next;
         private readonly ILogger _logger;
         public ExceptionHandlerMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
@@ -24,19 +21,10 @@ namespace BookStore.BusinessLogic.Common
             try
             {
                 await _next(context);
-                throw new Exception();
             }
             catch (Exception exception)
             {
-                try
-                {
-                    _logger.LogError(0, exception, "Error");
-                }
-                catch (Exception innerException)
-                {
-                    _logger.LogError(0, innerException, "Ошибка обработки исключения");
-                }
-                throw;
+                _logger.LogError(0, exception, "Error");
             }
         }
     }

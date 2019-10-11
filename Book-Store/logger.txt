@@ -5,9 +5,91 @@ Request starting HTTP/2.0 GET https://localhost:44360/
 Executing endpoint 'Book_Store.Controllers.HomeController.Index (Book-Store)'
 Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
 Executing ViewResult, running view Index.
-Executed ViewResult - view Index executed in 88.4666ms.
-Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 110.13980000000001ms
+Executed ViewResult - view Index executed in 90.3217ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 110.6992ms
 Executed endpoint 'Book_Store.Controllers.HomeController.Index (Book-Store)'
 Error
-Connection ID "18374686494167138350", Request ID "8000002f-0003-ff00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
-Request finished in 276.1241ms 200 text/html; charset=utf-8
+Connection ID "18302628895834243106", Request ID "80000023-0002-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+Request finished in 278.6655ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 80.6684ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 97.53410000000001ms
+Request finished in 178.9429ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44360/home/index  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 17.6734ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 2029.3047000000001ms
+Request finished in 2064.8362ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 117.2513ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 135.3868ms
+Request finished in 248.5731ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.3896ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 101.69290000000001ms
+Request finished in 199.4973ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 86.4747ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 107.0565ms
+Request finished in 217.22330000000002ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 81.2676ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 100.818ms
+Request finished in 199.61430000000001ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 87.08630000000001ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 106.0018ms
+Request finished in 226.7948ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 151.401ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 191.6619ms
+Request finished in 440.9947ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.5843ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 107.9736ms
+Request finished in 228.71300000000002ms 200 text/html; charset=utf-8

@@ -5,10 +5,10 @@ using System.Text;
 
 namespace BookStore.BusinessLogic.Common.Interfaces
 {
-    interface ILogger
+    public interface ILogger
     {
-        public IDisposable BeginScope<TState>(TState state);
-        public bool IsEnabled(LogLevel logLevel);
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter);
+        IDisposable BeginScope<TState>(TState state);
+        bool IsEnabled(LogLevel logLevel);
+        void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter);
     }
 }

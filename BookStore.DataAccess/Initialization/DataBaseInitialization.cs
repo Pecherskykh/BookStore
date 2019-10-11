@@ -2,15 +2,7 @@
 using BookStore.DataAccess.Entities.Enums;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration.FileExtensions;
-using Microsoft.Extensions.Configuration.Json;
-using Microsoft.Extensions.Configuration;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using BookStore.DataAccess.Entities;
 
 namespace BookStore.DataAccess.Initialization
@@ -37,13 +29,13 @@ namespace BookStore.DataAccess.Initialization
 
         public void InitializationRoles()
         {
-            List<Role> roles = new List<Role>()
+            var roles = new List<Role>()
             {
                 new Role{Name = "Admin"},
                 new Role{Name = "User"}
             };
 
-            foreach (Role role in roles)
+            foreach (var role in roles)
             {
                 _roleManager.CreateAsync(role).GetAwaiter().GetResult();
             }          
@@ -51,7 +43,13 @@ namespace BookStore.DataAccess.Initialization
 
         public void InitializationAdmin()
         {
-            ApplicationUser admin = new ApplicationUser { Email = "admin@mail.com", UserName = "Admin", FirstName = "Admin", LastName = "Admin" };
+            var admin = new ApplicationUser 
+            { 
+                Email = "admin@mail.com",
+                UserName = "Admin",
+                FirstName = "Admin",
+                LastName = "Admin"
+            };
 
             var result = _userManager.CreateAsync(admin).GetAwaiter().GetResult();
             if (result.Succeeded)
@@ -65,7 +63,10 @@ namespace BookStore.DataAccess.Initialization
             long amountAuthors = _applicationContext.Authors.Count();
             if (amountAuthors == 0)
             {
-                Author author = new Author { Name = "Author" };
+                var author = new Author
+                { 
+                    Name = "Author"
+                };
                 _applicationContext.Authors.Add(author);
                 _applicationContext.SaveChanges();
             }
@@ -74,9 +75,13 @@ namespace BookStore.DataAccess.Initialization
         public void InitializationAuthorInPrintingEdition()
         {
  
-                List<AuthorInPrintingEdition> authorInPrintingEditions = new List<AuthorInPrintingEdition>()
+                var authorInPrintingEditions = new List<AuthorInPrintingEdition>()
                 {
-                    new AuthorInPrintingEdition { AuthorId = 4, PrintingEditionId = 1 },
+                    new AuthorInPrintingEdition 
+                    { 
+                        AuthorId = 4, 
+                        PrintingEditionId = 1
+                    },
                     new AuthorInPrintingEdition { AuthorId = 4, PrintingEditionId = 1 }
                 };
 
@@ -86,65 +91,24 @@ namespace BookStore.DataAccess.Initialization
 
         }
 
-        public void InitializationOrder()
-        {
-
-                List<Order> orders = new List<Order>()
-                {
-                    new Order{ UserId = 7, PaymentId = 8 },
-                    new Order{ UserId = 7, PaymentId = 8 }
-                };
-
-                foreach (Order order in orders)
-                    _applicationContext.Orders.Add(order);
-                _applicationContext.SaveChanges();
-        }
-
-        public void InitializationOrderItem()
-        {
-
-                List<OrderItem> orderItems = new List<OrderItem>()
-                {
-                    new OrderItem{ OrderId = 2, PrintingEditionId = 4 },
-                    new OrderItem{ OrderId = 2, PrintingEditionId = 4 }
-                };
-
-                foreach (OrderItem orderItem in orderItems)
-                    _applicationContext.OrderItems.Add(orderItem);
-                _applicationContext.SaveChanges();
-        }
-
-        public void InitializationPayment()
-        {
-
-                List<Payment> payments = new List<Payment>()
-                {
-                    new Payment{ TransactionId = 2 },
-                    new Payment{ TransactionId = 2 }
-                };
-
-                foreach (Payment payment in payments)
-                    _applicationContext.Payments.Add(payment);
-                _applicationContext.SaveChanges();
-        }
-
         public void InitializationPrintingEdition()
         {
             long amountPrintingEdition = _applicationContext.PrintingEditions.Count();
-            if (amountPrintingEdition == 0)
+            if (amountPrintingEdition > 0)
             {
-                PrintingEdition printingEdition = new PrintingEdition
-                {
-                    Title = "Title",
-                    Description = "fdf",
-                    Price = 25,
-                    Status = "Status",
-                    Currency = "Currency",
-                    Type = "Type"
-                };
-                _applicationContext.PrintingEditions.Add(printingEdition);
-                _applicationContext.SaveChanges();
+                return;
             }
+            PrintingEdition printingEdition = new PrintingEdition
+            {
+                Title = "Title",
+                Description = "fdf",
+                Price = 25,
+                Status = "Status",
+                Currency = "Currency",
+                Type = "Type"
+            };
+            _applicationContext.PrintingEditions.Add(printingEdition);
+            _applicationContext.SaveChanges();
         }
     }
 }

@@ -8,11 +8,11 @@ namespace BookStore.BusinessLogic.Common
 {
     public class FileLogger : ILogger
     {
-        private string filePath;
+        private readonly string _filePath;
         private object _lock = new object();
         public FileLogger(string path)
         {
-            filePath = path;
+            _filePath = path;
         }
         public IDisposable BeginScope<TState>(TState state)
         {
@@ -30,7 +30,11 @@ namespace BookStore.BusinessLogic.Common
             {
                 lock (_lock)
                 {
-                    File.AppendAllText(filePath, formatter(state, exception) + Environment.NewLine);
+                    try
+                    {
+                        File.AppendAllText(_filePath, state + Environment.NewLine);
+                    }
+                    catch { }
                 }
             }
         }

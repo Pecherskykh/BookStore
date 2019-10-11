@@ -16,7 +16,7 @@ namespace BookStore.BusinessLogic.Init
         public static void Init(IServiceCollection services, string connectionString)
         {
             services.AddDbContext<ApplicationContext>(options =>
-   options.UseSqlServer(connectionString));
+                options.UseSqlServer(connectionString));
 
             services.AddIdentity<ApplicationUser, Role>()
                 .AddEntityFrameworkStores<ApplicationContext>()
