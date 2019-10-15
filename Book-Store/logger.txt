@@ -93,3 +93,240 @@ Executing ViewResult, running view Index.
 Executed ViewResult - view Index executed in 83.5843ms.
 Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 107.9736ms
 Request finished in 228.71300000000002ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 109.96730000000001ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 133.5098ms
+Request starting HTTP/2.0 GET https://localhost:44360/css/site.css  
+The file /lib/jquery/dist/jquery.min.js was not modified
+The file /js/site.js was not modified
+The file /css/site.css was not modified
+Request starting HTTP/2.0 GET https://localhost:44360/lib/bootstrap/dist/js/bootstrap.bundle.min.js  
+Request finished in 90.2542ms 304 application/javascript
+Request finished in 98.8812ms 304 text/css
+Request finished in 295.6446ms 200 text/html; charset=utf-8
+Request finished in 137.71890000000002ms 304 application/javascript
+Request starting HTTP/2.0 GET https://localhost:44360/lib/bootstrap/dist/css/bootstrap.min.css  
+Request finished in 82.902ms 304 application/javascript
+Request finished in 194.85680000000002ms 304 text/css
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 90.31110000000001ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 110.14890000000001ms
+Request finished in 236.8314ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 88.44250000000001ms.
+Request starting HTTP/2.0 GET https://localhost:44360/lib/bootstrap/dist/css/bootstrap.min.css  
+Request starting HTTP/2.0 GET https://localhost:44360/lib/bootstrap/dist/js/bootstrap.bundle.min.js  
+Request starting HTTP/2.0 GET https://localhost:44360/lib/jquery/dist/jquery.min.js  
+Request starting HTTP/2.0 GET https://localhost:44360/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+Request finished in 288.7341ms 200 text/html; charset=utf-8
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\css\site.css'
+Request finished in 159.2243ms 200 text/css
+Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\lib\jquery\dist\jquery.min.js'
+Request finished in 233.74550000000002ms 200 application/javascript
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 82.7543ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 101.58640000000001ms
+Request finished in 206.4538ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 87.2628ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 108.1789ms
+Request finished in 214.5061ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.7155ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 106.3133ms
+Request finished in 216.27880000000002ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 82.3306ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 107.2089ms
+Request finished in 228.3545ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 85.1615ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 104.3254ms
+Request finished in 230.55100000000002ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.2955ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 103.0724ms
+Request finished in 226.4838ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 85.117ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 103.8601ms
+Request finished in 230.7235ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 88.8892ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 110.17370000000001ms
+Request finished in 252.87550000000002ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 85.3741ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 110.31230000000001ms
+Request finished in 248.1245ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44360/api/account/confirmEmail?userId={id}&token={token}  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller Book_Store.Controllers.AccountController (Book-Store).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 80.2662ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 102.8058ms
+Request finished in 260.71590000000003ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44360/api/account/confirmEmail?userId=id&token=token  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller Book_Store.Controllers.AccountController (Book-Store).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.3137ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 109.62190000000001ms
+Request finished in 233.78560000000002ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44360/api/account/confirmEmail?userId=id&token=token  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller Book_Store.Controllers.AccountController (Book-Store).
+Executing HttpStatusCodeResult, setting HTTP status code 200
+Executed action Book_Store.Controllers.AccountController.ConfirmEmail (Book-Store) in 44.075ms
+Request finished in 113.0331ms 200 
+Request starting HTTP/2.0 GET https://localhost:44360/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\favicon.ico'
+Request finished in 50.4568ms 200 image/x-icon
+Request starting HTTP/2.0 GET https://localhost:44360/api/account/confirmEmail?userId=id&token=token  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller Book_Store.Controllers.AccountController (Book-Store).
+Executing HttpStatusCodeResult, setting HTTP status code 200
+Executed action Book_Store.Controllers.AccountController.ConfirmEmail (Book-Store) in 21.3384ms
+Request finished in 63.752700000000004ms 200 
+Request starting HTTP/2.0 GET https://localhost:44360/  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 17.648300000000003ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 35.0118ms
+Request finished in 69.1298ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.593ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 108.0998ms
+Request finished in 248.80100000000002ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44360/api/account/confirmEmail?userId=%7Bid%7D&token=%7Btoken%7D  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller Book_Store.Controllers.AccountController (Book-Store).
+Executing HttpStatusCodeResult, setting HTTP status code 200
+Executed action Book_Store.Controllers.AccountController.ConfirmEmail (Book-Store) in 45.6909ms
+Request finished in 130.76930000000002ms 200 
+Request starting HTTP/2.0 GET https://localhost:44360/api/account/confirmEmail?userId=id&token=token  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller Book_Store.Controllers.AccountController (Book-Store).
+Executing HttpStatusCodeResult, setting HTTP status code 200
+Executed action Book_Store.Controllers.AccountController.ConfirmEmail (Book-Store) in 17.862000000000002ms
+Request finished in 58.5842ms 200 
+Request starting HTTP/2.0 GET https://localhost:44360/api/account/confirmEmail?userId=%7Bid%7D&token=%7Btoken%7D  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller Book_Store.Controllers.AccountController (Book-Store).
+Executing HttpStatusCodeResult, setting HTTP status code 200
+Executed action Book_Store.Controllers.AccountController.ConfirmEmail (Book-Store) in 18.7007ms
+Request finished in 56.1402ms 200 
+Request starting HTTP/2.0 GET https://localhost:44360/api/account/confirmEmail?userId=%7Bid%7D&token=%7Btoken%7D  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller Book_Store.Controllers.AccountController (Book-Store).
+Executing HttpStatusCodeResult, setting HTTP status code 200
+Executed action Book_Store.Controllers.AccountController.ConfirmEmail (Book-Store) in 24.3582ms
+Request finished in 69.9996ms 200 
+Request starting HTTP/2.0 GET https://localhost:44360/api/account/confirmEmail?userId=%7Bid%7D&token=%7Btoken%7D  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller Book_Store.Controllers.AccountController (Book-Store).
+Executing HttpStatusCodeResult, setting HTTP status code 200
+Executed action Book_Store.Controllers.AccountController.ConfirmEmail (Book-Store) in 12.856100000000001ms
+Request finished in 46.7243ms 200 
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 88.6803ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 107.6162ms
+Request finished in 241.5338ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44360/api/account/confirmEmail?userId=%7Bid%7D&token=%7Btoken%7D  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller Book_Store.Controllers.AccountController (Book-Store).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/2.0 GET https://localhost:44360/api/account/confirmEmail?userId=%7Bid%7D&token=%7Btoken%7D  
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller Book_Store.Controllers.AccountController (Book-Store).
+Executing ViewResult, running view Index.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.3669ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 98.06580000000001ms
+Request finished in 236.21720000000002ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44360/api/account/confirmEmail?userId=Id&token=token  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller Book_Store.Controllers.AccountController (Book-Store).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 78.7692ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 97.3875ms
+Request finished in 239.8009ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44360/api/account/confirmEmail?userId=19&token=CfDJ8LG63Tzu3lBAq/ueePg5EcDIGlL2NCyYx2bxL4T+rhkAhXcDTkfnCzN/v07NxLpStQhc0zXbRd7fJcjE3Q2c8+YEOpEamhi0QR2+8OeC4R2XyelCMtGQ2gZwZyN9NtOAtFT7btA1BF8Dmrn9ote+enkFc2FSxubAZtA2gxKrNhv36SFDH69jS4+3Xbw7a8XcnQ==  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller Book_Store.Controllers.AccountController (Book-Store).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 86.3219ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 104.68350000000001ms
+Request finished in 243.7543ms 200 text/html; charset=utf-8

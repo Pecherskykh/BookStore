@@ -16,6 +16,11 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ApplicationContext _applicationContext;
 
+        public UserRepository()
+        {
+
+        }
+
         public UserRepository(UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;

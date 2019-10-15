@@ -1,4 +1,4 @@
-using BookStore.BusinessLogic.Init;
+﻿using BookStore.BusinessLogic.Init;
 using BookStore.DataAccess.Initialization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,6 +8,10 @@ using Book_Store.Middlewaren;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using BookStore.BusinessLogic.Helpers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Book_Store.Helper;
+using Book_Store.Controllers;
 
 namespace Book_Store
 {
@@ -27,20 +31,37 @@ namespace Book_Store
             Initializer.Init(services, Configuration.GetConnectionString("DefaultConnection"));
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddTransient<EmailHelper>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(options =>
+                    {
+                        options.RequireHttpsMetadata = false;
+                        options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            ValidateIssuer = true,
+                            ValidIssuer = AuthOptions.ISSUER,
+                            ValidateAudience = true,
+                            ValidAudience = AuthOptions.AUDIENCE,
+                            ValidateLifetime = true,
+                            IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
+                            ValidateIssuerSigningKey = true,
+                        };
+                    });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseInitialization initializer, ILoggerFactory loggerFactory, EmailHelper mailMessage)
         {
             initializer.StartInit();
 
-            mailMessage.Send();
+            AccountController a = new AccountController(initializer.UserManager);
+            a.Register();
+            //mailMessage.Send();
             app.UseMiddleware<ExceptionHandlerMiddleware>();    
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseMvc(routes =>

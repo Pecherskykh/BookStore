@@ -10,6 +10,7 @@ namespace Book_Store.Middlewaren
     {
         private readonly RequestDelegate _next;
         private readonly ILogger _logger;
+
         public ExceptionHandlerMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
         {
             _next = next;

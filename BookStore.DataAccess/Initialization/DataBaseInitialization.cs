@@ -12,6 +12,8 @@ namespace BookStore.DataAccess.Initialization
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<Role> _roleManager;
         private readonly ApplicationContext _applicationContext;
+        public ApplicationContext Context { get { return _applicationContext; } }
+        public UserManager<ApplicationUser> UserManager { get { return _userManager; } }
         public DataBaseInitialization(UserManager<ApplicationUser> userManager, RoleManager<Role> roleManager, ApplicationContext applicationContext)
         {
             _userManager = userManager;

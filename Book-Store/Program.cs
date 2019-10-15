@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using Book_Store.Helper;
 using BookStore.DataAccess.Initialization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +16,7 @@ namespace Book_Store
     public class Program
     {
         public static void Main(string[] args)
-        {            
+        {
             CreateHostBuilder(args).Build().Run();
         }
 

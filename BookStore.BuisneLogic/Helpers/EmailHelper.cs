@@ -8,13 +8,14 @@ namespace BookStore.BusinessLogic.Helpers
 {
     public class EmailHelper
     {
-        public void Send()
+        public void Send(string message)
         {
             MailAddress from = new MailAddress("testmailproject24@gmail.com", "Name");
             MailAddress to = new MailAddress("oleksandr.pecherskikh@gmail.com");
             System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(from, to);
             m.Subject = "Test";
-            m.Body = "<h2>Message smtp</h2>";
+            m.Body = message;
+            //m.Body = "<h2>Message smtp</h2>";
             m.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.Credentials = new NetworkCredential("testmailproject24@gmail.com", "12345mail");

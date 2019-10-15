@@ -5,6 +5,6 @@ using System.Text;
 namespace BookStore.BusinessLogic.Services
 {
     class AuthorService
-    {
+    {        
     }
 }
