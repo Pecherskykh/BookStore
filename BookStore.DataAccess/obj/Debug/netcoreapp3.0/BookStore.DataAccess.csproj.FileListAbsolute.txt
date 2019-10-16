@@ -5,4 +5,3 @@ C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.DataAccess\obj\Debug\netcoreap
 C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.DataAccess\obj\Debug\netcoreapp3.0\BookStore.DataAccess.AssemblyInfo.cs
 C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.DataAccess\obj\Debug\netcoreapp3.0\BookStore.DataAccess.dll
 C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.DataAccess\obj\Debug\netcoreapp3.0\BookStore.DataAccess.pdb
-C:\Users\Anuitex-180\Desktop\Book-Store\BookStore.DataAccess\obj\Debug\netcoreapp3.0\BookStore.DataAccess.csprojAssemblyReference.cache

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BookStore.BusinessLogic.Services.Interfaces
 {
-    interface IAccountServise
+    public interface IAccountServise
     {
     }
 }

@@ -51,9 +51,6 @@ namespace Book_Store
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseInitialization initializer, ILoggerFactory loggerFactory, EmailHelper mailMessage)
         {
             initializer.StartInit();
-
-            AccountController a = new AccountController(initializer.UserManager);
-            a.Register();
             //mailMessage.Send();
             app.UseMiddleware<ExceptionHandlerMiddleware>();    
 

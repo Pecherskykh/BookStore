@@ -1,7 +1,11 @@
-﻿using BookStore.DataAccess.AppContext;
+﻿using BookStore.BusinessLogic.Services;
+using BookStore.BusinessLogic.Services.Interfaces;
+using BookStore.DataAccess.AppContext;
 using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Initialization;
+using BookStore.DataAccess.Repositories.EFRepositories;
+using BookStore.DataAccess.Repositories.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +29,10 @@ namespace BookStore.BusinessLogic.Init
             services.AddTransient<UserManager<ApplicationUser>>();
             services.AddTransient<RoleManager<Role>>();
             services.AddTransient<DataBaseInitialization>();
+
+            services.AddTransient<IAccountServise, AccountService>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            
         }
     }
 }

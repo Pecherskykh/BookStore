@@ -7,10 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using BookStore.DataAccess.Repositories.Interfaces;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -28,7 +29,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
         public async Task GetAsync(long userId)
         {
-            await _applicationContext.Users.FindAsync(userId);
+            await _userManager.FindByIdAsync(userId.ToString());
         }
 
         public async Task CreateAsync(ApplicationUser user)
@@ -40,7 +41,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
                 if (result.Succeeded)
                 {
                     await _userManager.AddToRoleAsync(user, "User");
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    //await _signInManager.SignInAsync(user, isPersistent: false);
                 }
             }
         }
