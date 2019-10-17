@@ -16,40 +16,50 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ApplicationContext _applicationContext;
+        public UserManager<ApplicationUser> UserManager { get { return _userManager; } }
 
-        public UserRepository()
-        {
-
-        }
-
-        public UserRepository(UserManager<ApplicationUser> userManager)
+        public UserRepository(UserManager<ApplicationUser> userManager, ApplicationContext applicationContext)
         {
             _userManager = userManager;
+            _applicationContext = applicationContext;
         }
 
-        public async Task GetAsync(long userId)
+        public async Task<ApplicationUser> GetAsync(string userId)
         {
-            await _userManager.FindByIdAsync(userId.ToString());
+            return await _userManager.FindByIdAsync(userId);
         }
 
-        public async Task CreateAsync(ApplicationUser user)
+        public async Task<ApplicationUser> GetEmailAsync(string email)
         {
+            return await _userManager.FindByEmailAsync(email);
+        }
+
+        public async Task<ApplicationUser> GetUserNameAndPassword(string userName, string password)
+        {
+            return _applicationContext.Users.FirstOrDefault(u => u.UserName == userName && u.PasswordHash == password);
+        }
+
+        public async Task<bool> CreateAsync(ApplicationUser user)
+        {
+            bool succeeded = false;
             long userAuthors = _applicationContext.Users.Where(u => u.Email == user.Email).Count();
             if(userAuthors < 1)
             {
                 var result = await _userManager.CreateAsync(user);
-                if (result.Succeeded)
+                succeeded = result.Succeeded;
+                if (succeeded)
                 {
                     await _userManager.AddToRoleAsync(user, "User");
                     //await _signInManager.SignInAsync(user, isPersistent: false);
                 }
             }
+            return succeeded;
         }
 
-        public async Task RoleCheckAsync(long userId)
+        public async Task<Role> RoleCheckAsync(long userId)
         {
             long roleId = _applicationContext.UserRoles.FirstOrDefault(r => r.UserId == userId).RoleId;
-            await _applicationContext.Roles.FindAsync(roleId);
+            return await _applicationContext.Roles.FindAsync(roleId);
         }
 
         public async Task AddRoleAsync(long userId, string role)

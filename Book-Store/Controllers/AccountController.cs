@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Threading.Tasks;
-using BookStore.BusinessLogic.Helpers;
-using BookStore.BusinessLogic.Services;
+using Book_Store.Helper;
 using BookStore.BusinessLogic.Services.Interfaces;
-using BookStore.DataAccess.Entities.Enums;
-using BookStore.DataAccess.Repositories.EFRepositories;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 
 namespace Book_Store.Controllers
 {
@@ -16,83 +16,66 @@ namespace Book_Store.Controllers
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
-        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IAccountServise _accountService;
 
-        public AccountController(UserManager<ApplicationUser> userManager, IAccountServise accountService)
+        public AccountController(IAccountServise accountService)
         {
-            _userManager = userManager;
             _accountService = accountService;
         }
 
-        public async Task<IActionResult> Register()
+        [HttpGet("token")]
+        public async Task<IActionResult> Token(string userName, string password)
         {
-            var user = new ApplicationUser { UserName = "Name", Email = "oleksandr.pecherskikh@gmail.com" };
-            var result = _userManager.CreateAsync(user).GetAwaiter().GetResult();
-            if (result.Succeeded)
+            userName = "Name";
+            password = "00000";
+            JwtHelper jwt = new JwtHelper();
+            var user = await _accountService.GetUserNameAndPassword(userName, password);
+            if(user == null)
             {
-                string code = await _userManager.GenerateEmailConfirmationTokenAsync(user);                
-                EmailHelper h = new EmailHelper();
-                h.Send(string.Format("Confirm the registration by clicking on the link: <a href='https://localhost:44360/api/account/confirmEmail?userId={0}&token={1}'>link</a>", user.Id, code));
+                return Ok();
             }
+            var role = await _accountService.RoleCheckAsync(user.Id);
+            if (role == null)
+            {
+                return Ok();
+            }
+            var encodedJwt = jwt.Token(userName, role.Name);
+            var response = new
+            {
+                access_token = encodedJwt,
+                userName = userName
+            };
+            Response.ContentType = "application/json";
+            await Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
             return Ok();
         }
 
-        [HttpPost("testPost")]
-        public async Task<IActionResult> TestPost([FromBody] TestPostModel model)
+        [HttpGet("register")]
+        public async Task<IActionResult> Register()
         {
-            return Ok(model.TestString);
-        }
-
-        [HttpGet("testGet")]
-        public async Task<IActionResult> TestGet()
-        {
-            return Ok("get");
+            await _accountService.Register();
+            return Ok();
         }
 
         [HttpGet("confirmEmail")]
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
-            if (userId == null || token == null)
-            {
-                return Ok("User not found");
-            }
-            try {
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null)
-            {
-                return Ok("User not found");
-            }
-            var result = await _userManager.ConfirmEmailAsync(user, token.Replace(" ", "+"));
-            }
-            catch (Exception ex) {
-                ;
-            }
+            await _accountService.ConfirmEmail(userId, token);
             return Ok();
         }
 
+        [HttpGet("forgotPassword")]
         public async Task<IActionResult> ForgotPassword()
         {
-            var user = _userManager.FindByEmailAsync("oleksandr.pecherskikh@gmail.com").GetAwaiter().GetResult();
-
-            var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-            EmailHelper h = new EmailHelper();
-            h.Send(string.Format("Reset password: <a href='https://localhost:44360/api/account/resetPassword?userId={0}&token={1}&password={2}'>link</a>", user.Id, code, "0000"));
+            await _accountService.ForgotPassword();
             return Ok();
         }
 
         [HttpGet("resetPassword")]
         public async Task<IActionResult> ResetPassword(string userId, string token, string password)
         {
-            var t = token.Replace(" ", "+");
-            var user = _userManager.FindByIdAsync(userId).GetAwaiter().GetResult();
-            var result = await _userManager.ResetPasswordAsync(user, t, password);
+            await _accountService.ResetPassword(userId, token, password);
             return Ok();
         }
-    }
-
-    public class TestPostModel
-    {
-        public string TestString { get; set; }
     }
 }
