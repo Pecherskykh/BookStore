@@ -9,13 +9,12 @@ namespace Book_Store.Helper
 {
     public class AuthOptions
     {
-        public const string ISSUER = "MyAuthServer";
-        public const string AUDIENCE = "http://localhost:51884/";
-        const string KEY = "mysupersecret_secretkey!123";
-        public const int LIFETIME = 1;
+        public const string _issuer = "MyAuthServer";
+        public const string _audience = "http://localhost:52976/";
+        const string _key = "key123_74ABC5555";
         public static SymmetricSecurityKey GetSymmetricSecurityKey()
         {
-            return new SymmetricSecurityKey(Encoding.ASCII.GetBytes(KEY));
+            return new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_key));
         }
     }
 }

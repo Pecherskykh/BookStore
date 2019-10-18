@@ -18,9 +18,10 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         private readonly ApplicationContext _applicationContext;
         public UserManager<ApplicationUser> UserManager { get { return _userManager; } }
 
-        public UserRepository(UserManager<ApplicationUser> userManager, ApplicationContext applicationContext)
+        public UserRepository(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationContext applicationContext)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
             _applicationContext = applicationContext;
         }
 
@@ -34,9 +35,9 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             return await _userManager.FindByEmailAsync(email);
         }
 
-        public async Task<ApplicationUser> GetUserNameAndPassword(string userName, string password)
+        public async Task<ApplicationUser> GetNameAsync(string userName)
         {
-            return _applicationContext.Users.FirstOrDefault(u => u.UserName == userName && u.PasswordHash == password);
+            return await _userManager.FindByNameAsync(userName);
         }
 
         public async Task<bool> CreateAsync(ApplicationUser user)
@@ -72,6 +73,23 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         {
             _applicationContext.Users.Remove(user);
             await _applicationContext.SaveChangesAsync();
+        }
+
+        public async Task<bool> UpdateAsync(ApplicationUser user)
+        {
+            var result = await _userManager.UpdateAsync(user);
+            return result.Succeeded;
+        }
+
+        public async Task<bool> CheckUserAsync(ApplicationUser user, string password, bool lockoutOnFailure)
+        {
+            var result = await _signInManager.CheckPasswordSignInAsync(user, password, lockoutOnFailure);
+            return result.Succeeded;
+        }
+
+        public async Task SignInAsync(ApplicationUser user, bool isPersistent)
+        {
+            await _signInManager.SignInAsync(user, false);
         }
     }
 }

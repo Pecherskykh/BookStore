@@ -32,7 +32,7 @@ namespace BookStore.BusinessLogic.Init
 
             services.AddTransient<IAccountServise, AccountService>();
             services.AddTransient<IUserRepository, UserRepository>();
-            
+            services.AddTransient<IUserService, UserService>();
         }
     }
 }

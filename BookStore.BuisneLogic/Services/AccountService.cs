@@ -6,7 +6,6 @@ using BookStore.DataAccess.Repositories.Interfaces;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.BusinessLogic.Helpers;
 using BookStore.DataAccess.Entities;
-//using Book_Store.Helper;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -31,9 +30,9 @@ namespace BookStore.BusinessLogic.Services
             return await _userRepository.GetEmailAsync(email);
         }
 
-        public async Task<ApplicationUser> GetUserNameAndPassword(string userName, string password)
+        public async Task<ApplicationUser> GetNameAsync(string userName)
         {
-            return await _userRepository.GetUserNameAndPassword(userName, password);
+            return await _userRepository.GetNameAsync(userName);
         }
 
         public async Task<bool> CreateAsync(ApplicationUser user)
@@ -88,13 +87,23 @@ namespace BookStore.BusinessLogic.Services
 
             var code = await _userRepository.UserManager.GeneratePasswordResetTokenAsync(user);
             EmailHelper h = new EmailHelper();
-            h.Send(string.Format("Reset password: <a href='http://localhost:52976/api/account/resetPassword?userId={0}&token={1}&password={2}'>link</a>", user.Id, code, "aQwery01"));
+            h.Send(string.Format("Reset password: <a href='http://localhost:52976/api/account/resetPassword?userId={0}&token={1}&password={2}'>link</a>", user.Id, code, "aQwery01_77775"));
         }
 
         public async Task ResetPassword(string userId, string token, string password)
         {
             var user = await GetAsync(userId);
             var result = await _userRepository.UserManager.ResetPasswordAsync(user, token.Replace(" ", "+"), password);
+        }
+
+        public async Task<bool> CheckUserAsync(ApplicationUser user, string password, bool lockoutOnFailure)
+        {
+            return await _userRepository.CheckUserAsync(user, password, lockoutOnFailure);
+        }
+
+        public async Task SignInAsync(ApplicationUser user, bool isPersistent)
+        {
+            await _userRepository.SignInAsync(user, isPersistent);
         }
     }
 }

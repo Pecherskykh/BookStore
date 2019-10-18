@@ -1,4 +1,5 @@
-﻿using BookStore.DataAccess.AppContext;
+﻿using Book_Store.Helper.Interface;
+using BookStore.DataAccess.AppContext;
 using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Entities.Enums;
 using Microsoft.AspNetCore.Mvc;
@@ -13,24 +14,43 @@ using System.Threading.Tasks;
 
 namespace Book_Store.Helper
 {
-    public class JwtHelper
+    public class JwtHelper : IJwtHelper
     {
-        public async Task<string> Token(string userName, string roleName)
+        public async Task<TokenModel> GenerateToken(ApplicationUser user, string roleName)
         {
-            var claims = new List<Claim>
+            var claimsAccess = new List<Claim>
                 {
-                    new Claim(ClaimsIdentity.DefaultNameClaimType, userName),
-                    new Claim(ClaimsIdentity.DefaultRoleClaimType, roleName)
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim(ClaimTypes.Role, roleName),
+                    new Claim(ClaimTypes.Name, user.UserName),
                 };
 
-            var token = new JwtSecurityToken(
-            issuer: AuthOptions.ISSUER,
-            audience: AuthOptions.AUDIENCE,
-            claims: claims,
+            var claimsRefresh = new List<Claim>
+                {
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+                };
+
+            var tokenAccess = new JwtSecurityToken(
+            issuer: AuthOptions._issuer,
+            audience: AuthOptions._audience,
+            claims: claimsAccess,
             expires: DateTime.Now.AddMinutes(5),
             signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var tokenRefresh = new JwtSecurityToken(
+            issuer: AuthOptions._issuer,
+            audience: AuthOptions._audience,
+            claims: claimsRefresh,
+            expires: DateTime.Now.AddMinutes(60),
+            signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
+
+            return new TokenModel
+            {
+                TokenAccess = new JwtSecurityTokenHandler().WriteToken(tokenAccess),
+                TokenRefresh = new JwtSecurityTokenHandler().WriteToken(tokenRefresh)
+            };
         }
     }
 }

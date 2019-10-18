@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Book_Store.Helper;
 using Book_Store.Controllers;
+using Book_Store.Helper.Interface;
 
 namespace Book_Store
 {
@@ -31,6 +32,7 @@ namespace Book_Store
             Initializer.Init(services, Configuration.GetConnectionString("DefaultConnection"));
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddTransient<EmailHelper>();
+            services.AddTransient<IJwtHelper, JwtHelper>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(options =>
                     {
@@ -38,9 +40,9 @@ namespace Book_Store
                         options.TokenValidationParameters = new TokenValidationParameters
                         {
                             ValidateIssuer = true,
-                            ValidIssuer = AuthOptions.ISSUER,
+                            ValidIssuer = AuthOptions._issuer,
                             ValidateAudience = true,
-                            ValidAudience = AuthOptions.AUDIENCE,
+                            ValidAudience = AuthOptions._audience,
                             ValidateLifetime = true,
                             IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
                             ValidateIssuerSigningKey = true,
