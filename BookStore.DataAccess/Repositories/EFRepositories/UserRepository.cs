@@ -89,6 +89,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
         public async Task SignInAsync(ApplicationUser user, bool isPersistent)
         {
+
             await _signInManager.SignInAsync(user, false);
         }
     }

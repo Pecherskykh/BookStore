@@ -32,11 +32,12 @@ namespace Book_Store.Helper
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
                 };
 
+
             var tokenAccess = new JwtSecurityToken(
             issuer: AuthOptions._issuer,
             audience: AuthOptions._audience,
             claims: claimsAccess,
-            expires: DateTime.Now.AddMinutes(5),
+            expires: DateTime.Now.AddMinutes(1),
             signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
 
             var tokenRefresh = new JwtSecurityToken(

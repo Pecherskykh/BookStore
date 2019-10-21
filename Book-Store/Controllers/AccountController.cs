@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Book_Store.Helper;
@@ -9,6 +10,7 @@ using BookStore.BusinessLogic.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 
@@ -27,8 +29,8 @@ namespace Book_Store.Controllers
             _jwt = jwt;
         }
 
-        [HttpGet("token")]
-        public async Task<IActionResult> Token(string userName, string password)
+        [HttpGet("login")]
+        public async Task<IActionResult> Login(string userName, string password)
         {
             //1.Check user in DB with UserManager
             //2.CheckPasswordSignInAsync
@@ -52,14 +54,10 @@ namespace Book_Store.Controllers
             {
                 return Ok();
             }
+
             var encodedJwt = await _jwt.GenerateToken(user, role.Name);
-            /*var response = new
-            {
-                access_token = encodedJwt,
-                userName = userName
-            };
-            Response.ContentType = "application/json";
-            await Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));*/
+            
+            var lifeTime = new JwtSecurityTokenHandler().ReadToken(encodedJwt.TokenAccess).ValidTo;
             return Ok();
         }
 
@@ -83,19 +81,45 @@ namespace Book_Store.Controllers
             await _accountService.ForgotPassword();
             return Ok();
         }
-
-        [Authorize]
-        [HttpGet("auto")]
-        public async Task<IActionResult> Auto()
-        {            
-            return Ok();
-        }
-
+        
         [HttpGet("resetPassword")]
         public async Task<IActionResult> ResetPassword(string userId, string token, string password)
         {
             await _accountService.ResetPassword(userId, token, password);
             return Ok();
         }
+
+        public async Task<IActionResult> CheckJwtToken(string accessToken, string refreshToken)
+        {
+            var expiresAccess = new JwtSecurityTokenHandler().ReadToken(accessToken).ValidTo;
+
+            if (expiresAccess < DateTime.Now)
+            {
+                await RefreshToken(refreshToken);
+            }
+            return Ok();
+        }
+
+        public async Task<IActionResult> RefreshToken(string refreshToken)
+        {
+            var expires = new JwtSecurityTokenHandler().ReadToken(refreshToken).ValidTo;
+
+            if (expires >= DateTime.Now)
+            {
+                var userId = this.HttpContext.User.Claims
+               .FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
+                var user = await _accountService.GetAsync(userId);
+                var role = await _accountService.RoleCheckAsync(user.Id);
+                var encodedJwt = await _jwt.GenerateToken(user, role.Name);
+            }
+            return Ok();
+        }
+
+        [Authorize]
+        [HttpGet ("testAction")]
+        public async Task<IActionResult> TestAction()
+        {
+            return Ok();
+        }        
     }
 }

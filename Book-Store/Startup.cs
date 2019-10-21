@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using Book_Store.Helper;
 using Book_Store.Controllers;
 using Book_Store.Helper.Interface;
+using System;
 
 namespace Book_Store
 {
@@ -33,8 +34,11 @@ namespace Book_Store
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddTransient<EmailHelper>();
             services.AddTransient<IJwtHelper, JwtHelper>();
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                    .AddJwtBearer(options =>
+            services.AddAuthentication(options =>
+            { 
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
                     {
                         options.RequireHttpsMetadata = false;
                         options.TokenValidationParameters = new TokenValidationParameters
@@ -61,7 +65,7 @@ namespace Book_Store
 
             app.UseRouting();
             app.UseAuthentication();
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseMvc(routes =>
             {

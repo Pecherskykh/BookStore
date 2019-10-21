@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Authors\" />
     <Folder Include="Models\Base\" />
     <Folder Include="Models\Enums\" />
     <Folder Include="Models\Users\" />
