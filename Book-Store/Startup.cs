@@ -14,6 +14,7 @@ using Book_Store.Helper;
 using Book_Store.Controllers;
 using Book_Store.Helper.Interface;
 using System;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Book_Store
 {
@@ -34,6 +35,13 @@ namespace Book_Store
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddTransient<EmailHelper>();
             services.AddTransient<IJwtHelper, JwtHelper>();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/login");
+                });
+
             services.AddAuthentication(options =>
             { 
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

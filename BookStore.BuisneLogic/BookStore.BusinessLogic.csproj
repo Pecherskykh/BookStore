@@ -5,12 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Base\" />
     <Folder Include="Models\Enums\" />
-    <Folder Include="Models\Users\" />
-    <Folder Include="Models\PrintingEditions\" />
     <Folder Include="Models\Payments\" />
-    <Folder Include="Models\Orders\" />
   </ItemGroup>
 
   <ItemGroup>

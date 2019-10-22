@@ -13,6 +13,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+//using RestSharp;
+using System.Web;
+using System.Net;
+using BookStore.DataAccess.Entities.Enums;
 
 namespace Book_Store.Controllers
 {
@@ -32,14 +36,11 @@ namespace Book_Store.Controllers
         [HttpGet("login")]
         public async Task<IActionResult> Login(string userName, string password)
         {
-            //1.Check user in DB with UserManager
-            //2.CheckPasswordSignInAsync
-            //3.SignInAsync
-            //4.Generate tokens
-
-
             userName = "Name";
             password = "aQwery01_77775";
+
+            var users = _accountService.GetAllUsersOrderByUserNameAsync();
+
             var user = await _accountService.GetNameAsync(userName);
             if(user == null)
             {
@@ -55,9 +56,17 @@ namespace Book_Store.Controllers
                 return Ok();
             }
 
-            var encodedJwt = await _jwt.GenerateToken(user, role.Name);
-            
-            var lifeTime = new JwtSecurityTokenHandler().ReadToken(encodedJwt.TokenAccess).ValidTo;
+            var encodedJwt = await _jwt.GenerateTokenModel(user, role.Name);
+
+            HttpContext.Response.Cookies.Append("accessToken", encodedJwt.AccessToken);
+            HttpContext.Response.Cookies.Append("refreshToken", encodedJwt.RefreshToken);
+
+            //var cookies = HttpContext.Response.Headers.Where(x => x.Key == "Set-Cookie").FirstOrDefault().Value;
+
+            //var accessToken = cookies[0];
+            //var refreshToken = cookies[1];
+
+            //var lifeTime = new JwtSecurityTokenHandler().ReadToken(encodedJwt.AccessToken).ValidTo;
             return Ok();
         }
 
@@ -110,7 +119,7 @@ namespace Book_Store.Controllers
                .FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
                 var user = await _accountService.GetAsync(userId);
                 var role = await _accountService.RoleCheckAsync(user.Id);
-                var encodedJwt = await _jwt.GenerateToken(user, role.Name);
+                var encodedJwt = await _jwt.GenerateTokenModel (user, role.Name);
             }
             return Ok();
         }
@@ -119,6 +128,8 @@ namespace Book_Store.Controllers
         [HttpGet ("testAction")]
         public async Task<IActionResult> TestAction()
         {
+            var cookies = HttpContext.Request.Headers.Where(x => x.Key == "Set-Cookie").FirstOrDefault().Value;
+            var token = HttpContext.Request.Headers.Where(x => x.Key == "Authorization").FirstOrDefault().Value;
             return Ok();
         }        
     }

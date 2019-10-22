@@ -89,8 +89,46 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
         public async Task SignInAsync(ApplicationUser user, bool isPersistent)
         {
-
             await _signInManager.SignInAsync(user, false);
+        }
+
+        public async Task<IEnumerable<ApplicationUser>> GetAllUsersOrderByUserNameAsync()
+        {
+            return _applicationContext.Users.OrderBy(u => u.UserName);            
+        }
+
+        public async Task<IQueryable<ApplicationUser>> Filter(string userName, string sortOrder = "User Name", bool active = true, bool blocked = true)
+        {
+            IQueryable<ApplicationUser> users;
+            if (userName != "")
+            {
+                users = _applicationContext.Users.Where(u => u.UserName == userName);
+            }
+            else
+            {
+                users = _applicationContext.Users;
+            }
+            if (active != blocked)
+            {
+                if (active)
+                {
+                    users = users.Where(u => u.LockoutEnabled == false);
+                }
+                else if (blocked)
+                {
+                    users = users.Where(u => u.LockoutEnabled == true);
+                }
+            }
+            switch (sortOrder)
+            {
+                case "User Name":
+                    users = users.OrderBy(u => u.UserName);
+                    break;
+                case "Email":
+                    users = users.OrderBy(u => u.Email);
+                    break;
+            }
+            return users;
         }
     }
 }

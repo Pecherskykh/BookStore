@@ -16,7 +16,7 @@ namespace Book_Store.Helper
 {
     public class JwtHelper : IJwtHelper
     {
-        public async Task<TokenModel> GenerateToken(ApplicationUser user, string roleName)
+        public async Task<TokenModel> GenerateTokenModel(ApplicationUser user, string roleName)
         {
             var claimsAccess = new List<Claim>
                 {
@@ -32,26 +32,25 @@ namespace Book_Store.Helper
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
                 };
 
-
-            var tokenAccess = new JwtSecurityToken(
-            issuer: AuthOptions._issuer,
-            audience: AuthOptions._audience,
-            claims: claimsAccess,
-            expires: DateTime.Now.AddMinutes(1),
-            signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
-
-            var tokenRefresh = new JwtSecurityToken(
-            issuer: AuthOptions._issuer,
-            audience: AuthOptions._audience,
-            claims: claimsRefresh,
-            expires: DateTime.Now.AddMinutes(60),
-            signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
+            var accessToken = await GenerateToken(claimsAccess, 1);
+            var refreshToken = await GenerateToken(claimsRefresh, 60);
 
             return new TokenModel
             {
-                TokenAccess = new JwtSecurityTokenHandler().WriteToken(tokenAccess),
-                TokenRefresh = new JwtSecurityTokenHandler().WriteToken(tokenRefresh)
+                AccessToken = new JwtSecurityTokenHandler().WriteToken(accessToken),
+                RefreshToken = new JwtSecurityTokenHandler().WriteToken(refreshToken)
             };
+        }
+
+        private async Task<JwtSecurityToken> GenerateToken(List<Claim> claims, long expires)
+        {
+            var token = new JwtSecurityToken(
+            issuer: AuthOptions._issuer,
+            audience: AuthOptions._audience,
+            claims: claims,
+            expires: DateTime.Now.AddMinutes(expires),
+            signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
+            return token;
         }
     }
 }

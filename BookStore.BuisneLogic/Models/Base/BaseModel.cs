@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BookStore.DataAccess.Entities.Base
+namespace BookStore.BusinessLogic.Models.Base
 {
-    public class BaseEntity
+    public class BaseModel
     {
         public long Id { get; set; }
         public bool IsRemoved { get; set; }
