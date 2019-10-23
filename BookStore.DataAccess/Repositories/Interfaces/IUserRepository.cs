@@ -1,5 +1,6 @@
 ﻿using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Entities.Enums;
+using BookStore.DataAccess.Models.UesrsFilterModel;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -21,5 +22,6 @@ namespace BookStore.DataAccess.Repositories.Interfaces
         Task AddRoleAsync(long userId, string role);
         Task<bool> CheckUserAsync(ApplicationUser user, string password, bool lockoutOnFailure);
         Task SignInAsync(ApplicationUser user, bool isPersistent);
+        Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilter usersFilter);
     }
 }

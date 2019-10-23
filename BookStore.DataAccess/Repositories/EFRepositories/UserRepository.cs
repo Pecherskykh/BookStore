@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using BookStore.DataAccess.Repositories.Interfaces;
+using BookStore.DataAccess.Models.UesrsFilterModel;
+using static BookStore.DataAccess.Models.UesrsFilterModel.Enums.UesrsFilterEnums;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
@@ -83,7 +85,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
         public async Task<bool> CheckUserAsync(ApplicationUser user, string password, bool lockoutOnFailure)
         {
-            var result = await _signInManager.CheckPasswordSignInAsync(user, password, lockoutOnFailure);
+            var result = await _signInManager.CheckPasswordSignInAsync(user, password, lockoutOnFailure:false);
             return result.Succeeded;
         }
 
@@ -92,37 +94,30 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             await _signInManager.SignInAsync(user, false);
         }
 
-        public async Task<IQueryable<ApplicationUser>> Filter(string userName, string sortOrder = "User Name", bool active = true, bool blocked = true)
+        public async Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilter usersFilter)
         {
-            IQueryable<ApplicationUser> users;
-            if (userName != "")
+            var users = _applicationContext.Users.Select(u => u);
+            if (!string.IsNullOrWhiteSpace(usersFilter.SearchString))
             {
-                users = _applicationContext.Users.Where(u => u.UserName == userName);
-            }
-            else
+                users = users.Where(u => u.UserName == usersFilter.SearchString);
+            }  
+            if (usersFilter.UserActive == UserActive.Active)
             {
-                users = _applicationContext.Users;
+                users = users.Where(u => u.LockoutEnabled == true);
             }
-            if (active != blocked)
+            else if (usersFilter.UserActive == UserActive.Blocked)
             {
-                if (active)
-                {
-                    users = users.Where(u => u.LockoutEnabled == false);
-                }
-                else if (blocked)
-                {
-                    users = users.Where(u => u.LockoutEnabled == true);
-                }
+                users = users.Where(u => u.LockoutEnabled == false);
             }
-            switch (sortOrder)
+            if(usersFilter.Sorted == Sorted.UserName)
             {
-                case "User Name":
-                    users = users.OrderBy(u => u.UserName);
-                    break;
-                case "Email":
-                    users = users.OrderBy(u => u.Email);
-                    break;
+                users = users.OrderBy(u => u.UserName);
             }
+            else if(usersFilter.Sorted == Sorted.Email)
+            {
+                users = users.OrderBy(u => u.Email);
+            }
+            users = users.Skip((usersFilter.PageCount - 1) * usersFilter.PageSize).Take(usersFilter.PageSize);
             return users;
         }
     }

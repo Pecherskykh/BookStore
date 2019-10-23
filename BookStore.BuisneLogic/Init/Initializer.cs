@@ -1,4 +1,6 @@
-﻿using BookStore.BusinessLogic.Services;
+﻿using BookStore.BusinessLogic.Helpers;
+using BookStore.BusinessLogic.Helpers.Interfaces;
+using BookStore.BusinessLogic.Services;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.AppContext;
 using BookStore.DataAccess.Entities;
@@ -26,16 +28,21 @@ namespace BookStore.BusinessLogic.Init
                 .AddEntityFrameworkStores<ApplicationContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddTransient<UserManager<ApplicationUser>>();
+            services.AddTransient<UserManager<ApplicationUser>>(); //group
             services.AddTransient<RoleManager<Role>>();
             services.AddTransient<DataBaseInitialization>();
 
-            services.AddTransient<IAccountServise, AccountService>();
+            services.AddTransient<IEmailHelper, EmailHelper>();
+
             services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<IUserService, UserService>();
             services.AddTransient<IAuthorRepository, AuthorRepository>();
-            services.AddTransient<IAuthorService, AuthorService>();
             services.AddTransient<IOrderItemRepository, OrderItemRepository>();
+            services.AddTransient<IPrintingEditionRepository, PrintingEditionRepository>();
+
+            services.AddTransient<IAccountServise, AccountService>();            
+            services.AddTransient<IUserService, UserService>();            
+            services.AddTransient<IAuthorService, AuthorService>();            
+            services.AddTransient<IPrintingEditorService, PrintingEditorService>();            
         }
     }
 }

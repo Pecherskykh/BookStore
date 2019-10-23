@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Book_Store.Helper
+namespace BookStore.Helper
 {
     public class AuthOptions
     {

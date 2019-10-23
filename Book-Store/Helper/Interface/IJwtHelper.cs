@@ -6,7 +6,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Book_Store.Helper.Interface
+namespace BookStore.Helper.Interface
 {
     public interface IJwtHelper
     {

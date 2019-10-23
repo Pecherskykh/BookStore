@@ -81,10 +81,10 @@ namespace BookStore.DataAccess.Initialization
                 {
                     new AuthorInPrintingEdition 
                     { 
-                        AuthorId = 4, 
+                        AuthorId = 3, 
                         PrintingEditionId = 1
                     },
-                    new AuthorInPrintingEdition { AuthorId = 4, PrintingEditionId = 1 }
+                    //new AuthorInPrintingEdition { AuthorId = 4, PrintingEditionId = 1 }
                 };
 
                 foreach (AuthorInPrintingEdition authorInPrintingEdition in authorInPrintingEditions)
@@ -95,16 +95,16 @@ namespace BookStore.DataAccess.Initialization
 
         public void InitializationPrintingEdition()
         {
-            long amountPrintingEdition = _applicationContext.PrintingEditions.Count();
+            /*long amountPrintingEdition = _applicationContext.PrintingEditions.Count();
             if (amountPrintingEdition > 0)
             {
                 return;
-            }
+            }*/
             PrintingEdition printingEdition = new PrintingEdition
             {
-                Title = "Title",
-                Description = "fdf",
-                Price = 25,
+                Title = "Title5",
+                Description = "Description",
+                Price = 40,
                 Status = "Status",
                 Currency = "Currency",
                 Type = "Type"

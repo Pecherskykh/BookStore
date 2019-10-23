@@ -1,27 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Book_Store.Helper.Interface;
+using BookStore.Helper.Interface;
 using BookStore.BusinessLogic.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Book_Store.Controllers
+namespace BookStore.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
         private readonly IAccountServise _accountService;
-        private readonly IJwtHelper _jwt;
+        private readonly IJwtHelper _jwtHelper;
 
-        public AccountController(IAccountServise accountService, IJwtHelper jwt)
+        public AccountController(IAccountServise accountService, IJwtHelper jwtHelper)
         {
             _accountService = accountService;
-            _jwt = jwt;
+            _jwtHelper = jwtHelper;
         }
 
         [HttpGet("login")]
@@ -42,10 +41,11 @@ namespace Book_Store.Controllers
                 return Ok();
             }
 
-            var encodedJwt = await _jwt.GenerateTokenModel(user, role.Name);
+            var encodedJwt = await _jwtHelper.GenerateTokenModel(user, role.Name);
 
             HttpContext.Response.Cookies.Append("accessToken", encodedJwt.AccessToken);
             HttpContext.Response.Cookies.Append("refreshToken", encodedJwt.RefreshToken);
+            //return Ok(new BaseModel());
             return Ok();
         }
 
@@ -53,6 +53,7 @@ namespace Book_Store.Controllers
         public async Task<IActionResult> Register()
         {
             await _accountService.Register();
+            //return Ok(new BaseModel());
             return Ok();
         }
 
@@ -77,20 +78,20 @@ namespace Book_Store.Controllers
             return Ok();
         }
 
-        public async Task<IActionResult> CheckJwtToken(string accessToken, string refreshToken)
-        {
-            var expiresAccess = new JwtSecurityTokenHandler().ReadToken(accessToken).ValidTo;
+        //public async Task<IActionResult> CheckJwtToken(string accessToken, string refreshToken)
+        //{
+        //    var expiresAccess = new JwtSecurityTokenHandler().ReadToken(accessToken).ValidTo;
 
-            if (expiresAccess < DateTime.Now)
-            {
-                await RefreshToken(refreshToken);
-            }
-            return Ok();
-        }
+        //    if (expiresAccess < DateTime.Now)
+        //    {
+        //        await RefreshToken(refreshToken);
+        //    }
+        //    return Ok();
+        //}
 
         public async Task<IActionResult> RefreshToken(string refreshToken)
         {
-            var expires = new JwtSecurityTokenHandler().ReadToken(refreshToken).ValidTo;
+            var expires = new JwtSecurityTokenHandler().ReadToken(refreshToken).ValidTo; //check token from jwtHelper
 
             if (expires >= DateTime.Now)
             {
@@ -98,7 +99,7 @@ namespace Book_Store.Controllers
                .FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
                 var user = await _accountService.GetAsync(userId);
                 var role = await _accountService.RoleCheckAsync(user.Id);
-                var encodedJwt = await _jwt.GenerateTokenModel (user, role.Name);
+                var encodedJwt = await _jwtHelper.GenerateTokenModel (user, role.Name);
             }
             return Ok();
         }   

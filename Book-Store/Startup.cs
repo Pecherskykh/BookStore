@@ -10,13 +10,13 @@ using Microsoft.Extensions.Logging;
 using BookStore.BusinessLogic.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Book_Store.Helper;
-using Book_Store.Controllers;
-using Book_Store.Helper.Interface;
+using BookStore.Helper;
+using BookStore.Controllers;
+using BookStore.Helper.Interface;
 using System;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
-namespace Book_Store
+namespace BookStore
 {
     public class Startup
     {

@@ -10,7 +10,7 @@ namespace BookStore.BusinessLogic.Services
     public class AccountService : IAccountServise
     {
         private readonly IUserRepository _userRepository;
-
+        //inject EmailHelper
         public object JwtHelper { get; private set; }
 
         public AccountService(IUserRepository userRepository)
@@ -30,7 +30,20 @@ namespace BookStore.BusinessLogic.Services
 
         public async Task<ApplicationUser> GetNameAsync(string userName)
         {
-            return await _userRepository.GetNameAsync(userName);
+            var user = await _userRepository.GetNameAsync(userName);
+            if (user == null)
+            {
+                //return errors
+            }
+            /*var result = await CheckUserAsync(user, "pass");
+            if (!result)
+            {
+                //resturn errors
+            }
+            var role = await RoleCheckAsync(user.Id);
+            //userModel.Role = role;
+            //return userModel;*/
+            return user;
         }
 
         public async Task<bool> CreateAsync(ApplicationUser user)
@@ -55,19 +68,23 @@ namespace BookStore.BusinessLogic.Services
 
         public async Task Register()
         {
-            var user = new ApplicationUser { UserName = "Name", Email = "oleksandr.pecherskikh@gmail.com" };
+            var user = new ApplicationUser
+            { 
+                UserName = "Name",
+                Email = "oleksandr.pecherskikh@gmail.com"
+            };
             var result = await CreateAsync(user);
             if (result)
             {
                 string code = await _userRepository.UserManager.GenerateEmailConfirmationTokenAsync(user);
-                EmailHelper h = new EmailHelper();
+                var h = new EmailHelper();
                 h.Send(string.Format("Confirm the registration by clicking on the link: <a href='http://localhost:52976/api/account/confirmEmail?userId={0}&token={1}'>link</a>", user.Id, code));
             }
         }
 
         public async Task ConfirmEmail(string userId, string token)
         {
-            if (userId == null || token == null)
+            if (userId == null || token == null) //use string.IsNullOrWhileSpace(...)
             {
                 return;
             }
@@ -81,10 +98,12 @@ namespace BookStore.BusinessLogic.Services
 
         public async Task ForgotPassword()
         {
-            ApplicationUser user = await GetEmailAsync("oleksandr.pecherskikh@gmail.com");
+            var user = await GetEmailAsync("oleksandr.pecherskikh@gmail.com"); //remove hardcode
+            //if (user == null)
 
             var code = await _userRepository.UserManager.GeneratePasswordResetTokenAsync(user);
             EmailHelper h = new EmailHelper();
+            //send new password for email
             h.Send(string.Format("Reset password: <a href='http://localhost:52976/api/account/resetPassword?userId={0}&token={1}&password={2}'>link</a>", user.Id, code, "aQwery01_77775"));
         }
 

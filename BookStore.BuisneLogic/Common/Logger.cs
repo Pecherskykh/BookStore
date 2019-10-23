@@ -26,23 +26,20 @@ namespace BookStore.BusinessLogic.Common
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
-            if (formatter != null)
+            if (formatter == null)
             {
-                lock (_lock)
-                {
-                    try
-                    {
-                        File.AppendAllText(_filePath, state + Environment.NewLine);
-                    }
-                    catch { }
-                }
+                return;
+            }
+            lock (_lock)
+            {
+                File.AppendAllText(_filePath, state + Environment.NewLine);
             }
         }
     }
 
     public class FileLoggerProvider : ILoggerProvider
     {
-        private string path;
+        private readonly string path;
         public FileLoggerProvider(string _path)
         {
             path = _path;
