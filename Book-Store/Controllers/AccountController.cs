@@ -4,19 +4,10 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Book_Store.Helper;
 using Book_Store.Helper.Interface;
 using BookStore.BusinessLogic.Services.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
-//using RestSharp;
-using System.Web;
-using System.Net;
-using BookStore.DataAccess.Entities.Enums;
 
 namespace Book_Store.Controllers
 {
@@ -36,11 +27,6 @@ namespace Book_Store.Controllers
         [HttpGet("login")]
         public async Task<IActionResult> Login(string userName, string password)
         {
-            userName = "Name";
-            password = "aQwery01_77775";
-
-            var users = _accountService.GetAllUsersOrderByUserNameAsync();
-
             var user = await _accountService.GetNameAsync(userName);
             if(user == null)
             {
@@ -60,13 +46,6 @@ namespace Book_Store.Controllers
 
             HttpContext.Response.Cookies.Append("accessToken", encodedJwt.AccessToken);
             HttpContext.Response.Cookies.Append("refreshToken", encodedJwt.RefreshToken);
-
-            //var cookies = HttpContext.Response.Headers.Where(x => x.Key == "Set-Cookie").FirstOrDefault().Value;
-
-            //var accessToken = cookies[0];
-            //var refreshToken = cookies[1];
-
-            //var lifeTime = new JwtSecurityTokenHandler().ReadToken(encodedJwt.AccessToken).ValidTo;
             return Ok();
         }
 
@@ -122,15 +101,6 @@ namespace Book_Store.Controllers
                 var encodedJwt = await _jwt.GenerateTokenModel (user, role.Name);
             }
             return Ok();
-        }
-
-        [Authorize]
-        [HttpGet ("testAction")]
-        public async Task<IActionResult> TestAction()
-        {
-            var cookies = HttpContext.Request.Headers.Where(x => x.Key == "Set-Cookie").FirstOrDefault().Value;
-            var token = HttpContext.Request.Headers.Where(x => x.Key == "Authorization").FirstOrDefault().Value;
-            return Ok();
-        }        
+        }   
     }
 }

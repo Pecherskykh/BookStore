@@ -21,6 +21,5 @@ namespace BookStore.DataAccess.Repositories.Interfaces
         Task AddRoleAsync(long userId, string role);
         Task<bool> CheckUserAsync(ApplicationUser user, string password, bool lockoutOnFailure);
         Task SignInAsync(ApplicationUser user, bool isPersistent);
-        Task<IEnumerable<ApplicationUser>> GetAllUsersOrderByUserNameAsync();
     }
 }

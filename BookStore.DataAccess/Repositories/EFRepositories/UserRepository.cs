@@ -92,11 +92,6 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             await _signInManager.SignInAsync(user, false);
         }
 
-        public async Task<IEnumerable<ApplicationUser>> GetAllUsersOrderByUserNameAsync()
-        {
-            return _applicationContext.Users.OrderBy(u => u.UserName);            
-        }
-
         public async Task<IQueryable<ApplicationUser>> Filter(string userName, string sortOrder = "User Name", bool active = true, bool blocked = true)
         {
             IQueryable<ApplicationUser> users;

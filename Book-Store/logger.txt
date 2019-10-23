@@ -5005,3 +5005,13 @@ Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
 FROM [AspNetUsers] AS [a]
 ORDER BY [a].[UserName]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Book_Store.Controllers.HomeController (Book-Store).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 128.2064ms.
+Executed action Book_Store.Controllers.HomeController.Index (Book-Store) in 148.26930000000002ms
+Request finished in 425.15880000000004ms 200 text/html; charset=utf-8

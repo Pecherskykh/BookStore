@@ -1,12 +1,9 @@
 ﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using BookStore.DataAccess.Repositories.EFRepositories;
 using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Repositories.Interfaces;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.BusinessLogic.Helpers;
 using BookStore.DataAccess.Entities;
-using System.Collections.Generic;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -105,12 +102,6 @@ namespace BookStore.BusinessLogic.Services
         public async Task SignInAsync(ApplicationUser user, bool isPersistent)
         {
             await _userRepository.SignInAsync(user, isPersistent);
-        }
-
-        ///
-        public async Task<IEnumerable<ApplicationUser>> GetAllUsersOrderByUserNameAsync()
-        {
-            return await _userRepository.GetAllUsersOrderByUserNameAsync();
         }
     }
 }
