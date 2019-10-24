@@ -5603,3 +5603,657 @@ Executing ViewResult, running view Index.
 Executed ViewResult - view Index executed in 84.5963ms.
 Executed action BookStore.Controllers.HomeController.Index (BookStore) in 109.08070000000001ms
 Request finished in 286.3655ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 135.387ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 159.0598ms
+Request finished in 399.5659ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.299ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 105.1504ms
+Request finished in 283.92470000000003ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 103.97810000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 133.572ms
+Request finished in 333.4741ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/user/test1  
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task Test1() on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Title], [p].[Price], [a0].[Name]
+FROM [AuthorInPrintingEditions] AS [a]
+INNER JOIN [PrintingEditions] AS [p] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 76.5233ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 92.352ms
+Request finished in 281.97470000000004ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.9837ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 102.9255ms
+Request finished in 298.634ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/user/test1  
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task Test1() on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Title], [p].[Price], [a0].[Name]
+FROM [AuthorInPrintingEditions] AS [a]
+INNER JOIN [PrintingEditions] AS [p] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Title], [p].[Price], [a0].[Name]
+FROM [AuthorInPrintingEditions] AS [a]
+INNER JOIN [PrintingEditions] AS [p] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Title], [p].[Price], [a0].[Name]
+FROM [AuthorInPrintingEditions] AS [a]
+INNER JOIN [PrintingEditions] AS [p] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+ORDER BY [p].[Price]
+Executing DbCommand [Parameters=[@__printingEditionsFilterModels_MinPrice_0='?' (DbType = Double), @__printingEditionsFilterModels_MaxPrice_1='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Title], [p].[Price], [a0].[Name]
+FROM [AuthorInPrintingEditions] AS [a]
+INNER JOIN [PrintingEditions] AS [p] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+WHERE (CAST([p].[Price] AS float) >= @__printingEditionsFilterModels_MinPrice_0) AND (CAST([p].[Price] AS float) <= @__printingEditionsFilterModels_MaxPrice_1)
+ORDER BY [p].[Price]
+Executing DbCommand [Parameters=[@__printingEditionsFilterModels_MinPrice_0='?' (DbType = Double), @__printingEditionsFilterModels_MaxPrice_1='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Title], [p].[Price], [a0].[Name]
+FROM [AuthorInPrintingEditions] AS [a]
+INNER JOIN [PrintingEditions] AS [p] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+WHERE (CAST([p].[Price] AS float) >= @__printingEditionsFilterModels_MinPrice_0) AND (CAST([p].[Price] AS float) <= @__printingEditionsFilterModels_MaxPrice_1)
+ORDER BY [p].[Price]
+Executing DbCommand [Parameters=[@__printingEditionsFilterModels_MinPrice_0='?' (DbType = Double), @__printingEditionsFilterModels_MaxPrice_1='?' (DbType = Double), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Title], [p].[Price], [a0].[Name]
+FROM [AuthorInPrintingEditions] AS [a]
+INNER JOIN [PrintingEditions] AS [p] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+WHERE (CAST([p].[Price] AS float) >= @__printingEditionsFilterModels_MinPrice_0) AND (CAST([p].[Price] AS float) <= @__printingEditionsFilterModels_MaxPrice_1)
+ORDER BY [p].[Price]
+OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 80.6723ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 99.4663ms
+Request finished in 270.5151ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/user/test1  
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 31.8872ms
+Request finished in 88.0389ms 415 application/problem+json; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 268
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 30.3748ms
+Request finished in 71.8151ms 415 application/problem+json; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 268
+Request finished in 17.5592ms 404 
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 268
+Request finished in 14.905100000000001ms 404 
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 87.8934ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 139.02190000000002ms
+Request finished in 371.5384ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 0
+Request finished in 18.876ms 404 
+Request starting HTTP/1.1 GET http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task Test1() on controller BookStore.Controllers.UserController (BookStore).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 94.78410000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 120.54780000000001ms
+Request finished in 291.9105ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 268
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 38.0525ms
+Request finished in 89.46990000000001ms 415 application/problem+json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 87.6234ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 112.0942ms
+Request finished in 303.5258ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 268
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 38.7926ms
+Request finished in 94.8598ms 415 application/problem+json; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 268
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 22.9981ms
+Request finished in 99.9201ms 415 application/problem+json; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 268
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 20.830000000000002ms
+Request finished in 58.046800000000005ms 415 application/problem+json; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 268
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 15.5782ms
+Request finished in 54.4159ms 415 application/problem+json; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 268
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 14.7795ms
+Request finished in 49.708600000000004ms 415 application/problem+json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 110.80720000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 133.6321ms
+Request finished in 369.3879ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task Test1() on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 95.6503ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 114.9893ms
+Request finished in 314.70750000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1() on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing ObjectResult, writing value of type 'BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 5828.8027ms
+Request finished in 5874.9116ms 200 application/json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 93.99980000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 119.081ms
+Request finished in 312.8114ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 36.390100000000004ms
+Request finished in 90.6849ms 415 application/problem+json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 92.3664ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 111.1299ms
+Request finished in 339.6822ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 37.3982ms
+Request finished in 95.3422ms 415 application/problem+json; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 16.4711ms
+Request finished in 57.7967ms 415 application/problem+json; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 22.327ms
+Request finished in 77.7445ms 415 application/problem+json; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 14.2949ms
+Request finished in 47.1297ms 415 application/problem+json; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/x-www-form-urlencoded 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Controllers.UserController.Test1 (BookStore) in 15.8527ms
+Request finished in 60.301700000000004ms 415 application/problem+json; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Title], [p].[Price], [p].[Type], [a0].[Name]
+FROM [AuthorInPrintingEditions] AS [a]
+INNER JOIN [PrintingEditions] AS [p] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 82.9432ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 101.1239ms
+Request finished in 305.2191ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Title], [p].[Price], [p].[Type], [a0].[Name]
+FROM [AuthorInPrintingEditions] AS [a]
+INNER JOIN [PrintingEditions] AS [p] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 114.3982ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 139.6208ms
+Request finished in 340.4863ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id] AS [PrintingEditionId], [p].[Title], [p].[Price], [p].[Type], [a0].[Name]
+FROM [AuthorInPrintingEditions] AS [a]
+INNER JOIN [PrintingEditions] AS [p] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 82.7796ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 101.3079ms
+Request finished in 293.01480000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id] AS [PrintingEditionId], [p].[Title], [p].[Price], [p].[Type], [a0].[Name]
+FROM [AuthorInPrintingEditions] AS [a]
+INNER JOIN [PrintingEditions] AS [p] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 126.16560000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 159.6962ms
+Request finished in 482.22200000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id] AS [PrintingEditionId], [p].[Title], [p].[Price], [p].[Type], [a0].[Name]
+FROM [AuthorInPrintingEditions] AS [a]
+INNER JOIN [PrintingEditions] AS [p] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.992ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 103.643ms
+Request finished in 297.9329ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.4711ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 103.1418ms
+Request finished in 292.4897ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Type], [t].[Name], [t].[Id], [t].[Id0], [t].[Id1]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [p].[Id] = [p0].[Id]
+) AS [t]
+ORDER BY [p].[Id], [t].[Id], [t].[Id0], [t].[Id1]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 88.165ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 108.9272ms
+Request finished in 359.56030000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Type], [t].[Name], [t].[Id], [t].[Id0], [t].[Id1]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [p].[Id] = [p0].[Id]
+) AS [t]
+ORDER BY [p].[Id], [t].[Id], [t].[Id0], [t].[Id1]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 77.37870000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 96.3645ms
+Request finished in 264.5989ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Type], [t].[Name], [t].[Id], [t].[Id0], [t].[Id1]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [p].[Id] = [p0].[Id]
+) AS [t]
+ORDER BY [p].[Id], [t].[Id], [t].[Id0], [t].[Id1]
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Type], [t].[Name], [t].[Id], [t].[Id0], [t].[Id1]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [p].[Id] = [p0].[Id]
+) AS [t]
+ORDER BY [p].[Id], [t].[Id], [t].[Id0], [t].[Id1]
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Type], [t].[Name], [t].[Id], [t].[Id0], [t].[Id1]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [p].[Id] = [p0].[Id]
+) AS [t]
+ORDER BY [p].[Price], [p].[Id], [t].[Id], [t].[Id0], [t].[Id1]
+Executing DbCommand [Parameters=[@__printingEditionsFilterModels_MinPrice_0='?' (DbType = Double), @__printingEditionsFilterModels_MaxPrice_1='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Type], [t].[Name], [t].[Id], [t].[Id0], [t].[Id1]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [p].[Id] = [p0].[Id]
+) AS [t]
+WHERE (CAST([p].[Price] AS float) >= @__printingEditionsFilterModels_MinPrice_0) AND (CAST([p].[Price] AS float) <= @__printingEditionsFilterModels_MaxPrice_1)
+ORDER BY [p].[Price], [p].[Id], [t].[Id], [t].[Id0], [t].[Id1]
+Executing DbCommand [Parameters=[@__printingEditionsFilterModels_MinPrice_0='?' (DbType = Double), @__printingEditionsFilterModels_MaxPrice_1='?' (DbType = Double), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Title], [t].[Price], [t].[Type], [t0].[Name], [t0].[Id], [t0].[Id0], [t0].[Id1]
+FROM (
+    SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Type]
+    FROM [PrintingEditions] AS [p]
+    WHERE (CAST([p].[Price] AS float) >= @__printingEditionsFilterModels_MinPrice_0) AND (CAST([p].[Price] AS float) <= @__printingEditionsFilterModels_MaxPrice_1)
+    ORDER BY [p].[Price]
+    OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+) AS [t]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [t].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [t].[Id] = [p0].[Id]
+) AS [t0]
+ORDER BY [t].[Price], [t].[Id], [t0].[Id], [t0].[Id0], [t0].[Id1]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.1683ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 95.11120000000001ms
+Request finished in 264.2884ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 132
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Type], [t].[Name], [t].[Id], [t].[Id0], [t].[Id1]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [p].[Id] = [p0].[Id]
+) AS [t]
+ORDER BY [p].[Id], [t].[Id], [t].[Id0], [t].[Id1]
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Type], [t].[Name], [t].[Id], [t].[Id0], [t].[Id1]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [p].[Id] = [p0].[Id]
+) AS [t]
+ORDER BY [p].[Id], [t].[Id], [t].[Id0], [t].[Id1]
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Type], [t].[Name], [t].[Id], [t].[Id0], [t].[Id1]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [p].[Id] = [p0].[Id]
+) AS [t]
+ORDER BY [p].[Id], [t].[Id], [t].[Id0], [t].[Id1]
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Type], [t].[Name], [t].[Id], [t].[Id0], [t].[Id1]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [p].[Id] = [p0].[Id]
+) AS [t]
+ORDER BY [p].[Id], [t].[Id], [t].[Id0], [t].[Id1]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 80.8164ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 98.91170000000001ms
+Request finished in 267.98240000000004ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.1637ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 100.07090000000001ms
+Request finished in 283.0401ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 150
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__printingEditionsFilterModels_MinPrice_0='?' (DbType = Double), @__printingEditionsFilterModels_MaxPrice_1='?' (DbType = Double), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Title], [t].[Price], [t].[Description], [t].[Type], [t0].[Name], [t0].[Id], [t0].[Id0], [t0].[Id1]
+FROM (
+    SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type]
+    FROM [PrintingEditions] AS [p]
+    WHERE (CAST([p].[Price] AS float) >= @__printingEditionsFilterModels_MinPrice_0) AND (CAST([p].[Price] AS float) <= @__printingEditionsFilterModels_MaxPrice_1)
+    ORDER BY [p].[Price]
+    OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+) AS [t]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [t].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [t].[Id] = [p0].[Id]
+) AS [t0]
+ORDER BY [t].[Price], [t].[Id], [t0].[Id], [t0].[Id0], [t0].[Id1]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 82.9751ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 101.3481ms
+Request finished in 288.74330000000003ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 150
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Name], [t].[Id], [t].[Id0], [t].[Id1]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [p].[Id] = [p0].[Id]
+) AS [t]
+ORDER BY [p].[Id], [t].[Id], [t].[Id0], [t].[Id1]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 78.82820000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 108.3048ms
+Request finished in 303.5562ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 99.4711ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore) in 120.64020000000001ms
+Request finished in 331.7825ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 150
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Name], [t].[Id], [t].[Id0], [t].[Id1]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Name], [a].[Id], [p0].[Id] AS [Id0], [a0].[Id] AS [Id1]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [PrintingEditions] AS [p0] ON CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE [p].[Id] = [p0].[Id]
+) AS [t]
+ORDER BY [p].[Id], [t].[Id], [t].[Id0], [t].[Id1]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.7024ms.
+Request starting HTTP/1.1 GET http://localhost:52976/lib/jquery/dist/jquery.min.js  
+Request starting HTTP/1.1 GET http://localhost:52976/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+Request starting HTTP/1.1 GET http://localhost:52976/lib/bootstrap/dist/js/bootstrap.bundle.min.js  
+Request starting HTTP/1.1 GET http://localhost:52976/css/site.css  
+Request finished in 352.07320000000004ms 200 text/html; charset=utf-8
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\css\site.css'
+Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\js\site.js'
+Request finished in 119.07230000000001ms 200 application/javascript
+Request finished in 176.00320000000002ms 200 text/css
+Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\lib\jquery\dist\jquery.min.js'
+Request finished in 227.0695ms 200 application/javascript
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/test1 application/json 150
+Route matched with {action = "Test1", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test1(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModels) on controller BookStore.Controllers.UserController (BookStore).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None

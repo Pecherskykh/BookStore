@@ -11,14 +11,14 @@ namespace BookStore.DataAccess.Repositories.Interfaces
 {
     public interface IUserRepository
     {
-        UserManager<ApplicationUser> UserManager { get; }
-        Task<ApplicationUser> GetAsync(string userId);
-        Task<ApplicationUser> GetEmailAsync(string email);
-        Task<ApplicationUser> GetNameAsync(string userName);
+        //UserManager<ApplicationUser> UserManager { get; }
+        Task<ApplicationUser> FindByIdAsync(string userId);
+        Task<ApplicationUser> FindByEmailAsync(string email);
+        Task<ApplicationUser> FindByNameAsync(string userName);
         Task<bool> CreateAsync(ApplicationUser user);
         Task<bool> UpdateAsync(ApplicationUser user);
         Task RemoveAsync(ApplicationUser user);
-        Task<Role> RoleCheckAsync(long userId);
+        Task<Role> CheckRoleAsync(long userId);
         Task AddRoleAsync(long userId, string role);
         Task<bool> CheckUserAsync(ApplicationUser user, string password, bool lockoutOnFailure);
         Task SignInAsync(ApplicationUser user, bool isPersistent);

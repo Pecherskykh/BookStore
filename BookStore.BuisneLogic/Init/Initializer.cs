@@ -6,6 +6,7 @@ using BookStore.DataAccess.AppContext;
 using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Initialization;
+using BookStore.DataAccess.Repositories.Base;
 using BookStore.DataAccess.Repositories.EFRepositories;
 using BookStore.DataAccess.Repositories.Interfaces;
 using Microsoft.AspNetCore.Identity;
@@ -42,7 +43,7 @@ namespace BookStore.BusinessLogic.Init
             services.AddTransient<IAccountServise, AccountService>();            
             services.AddTransient<IUserService, UserService>();            
             services.AddTransient<IAuthorService, AuthorService>();            
-            services.AddTransient<IPrintingEditorService, PrintingEditorService>();            
+            services.AddTransient<IPrintingEditorService, PrintingEditorService>();
         }
     }
 }

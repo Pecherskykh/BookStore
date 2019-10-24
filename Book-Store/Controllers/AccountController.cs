@@ -26,20 +26,20 @@ namespace BookStore.Controllers
         [HttpGet("login")]
         public async Task<IActionResult> Login(string userName, string password)
         {
-            var user = await _accountService.GetNameAsync(userName);
-            if(user == null)
+            var user = await _accountService.FindByNameAsync(userName);
+            /*if(user == null)
             {
                 return Ok();
             }
             if(!await _accountService.CheckUserAsync(user, password, false))
             {
                 return Ok();
-            }
-            var role = await _accountService.RoleCheckAsync(user.Id);
-            if (role == null)
+            }*/
+            var role = await _accountService.CheckRoleAsync(user.Id);
+            /*if (role == null)
             {
                 return Ok();
-            }
+            }*/
 
             var encodedJwt = await _jwtHelper.GenerateTokenModel(user, role.Name);
 
@@ -97,8 +97,8 @@ namespace BookStore.Controllers
             {
                 var userId = this.HttpContext.User.Claims
                .FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
-                var user = await _accountService.GetAsync(userId);
-                var role = await _accountService.RoleCheckAsync(user.Id);
+                var user = await _accountService.FindByNameAsync(userId);
+                var role = await _accountService.CheckRoleAsync(user.Id);
                 var encodedJwt = await _jwtHelper.GenerateTokenModel (user, role.Name);
             }
             return Ok();

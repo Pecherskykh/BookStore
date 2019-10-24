@@ -37,18 +37,19 @@ namespace BookStore.Controllers
             var users = await _userService.GetUsersAsync(usersFilter);
         }
 
-        [HttpGet("test1")]
-        public async Task Test1()
+        [HttpPost("test1")]
+        public async Task<IActionResult> Test1(PrintingEditionsFilterModels printingEditionsFilterModels)
         {
-            var printingEditionsFilterModels = new PrintingEditionsFilterModels
+            /*var printingEditionsFilterModels = new PrintingEditionsFilterModels
             {
                 PageCount = 1,
                 PageSize = 10,
                 Sorted = DataAccess.Models.PrintingEditionsFilterModels.Enums.PrintingEditionsFilterEnums.Sorted.LowToHigh,
                 MinPrice = 10,
                 MaxPrice = 30
-            };
+            };*/
             await _printingEditorService.PrintingEditionsAsync(printingEditionsFilterModels);
+            return Ok(printingEditionsFilterModels);
         }
 
         public async Task<IActionResult> BlockAndUnblockUser(string userId)

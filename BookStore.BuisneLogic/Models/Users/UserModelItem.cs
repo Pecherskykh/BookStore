@@ -5,8 +5,9 @@ using System.Text;
 
 namespace BookStore.BusinessLogic.Models.Users
 {
-    public class UserModel : BaseModel
-    {        
+    public class UserModelItem : BaseModel
+    {
+        public long UserId { get; set; }
         public string UserName { get; set; }
         public string NormalizedUserName { get; set; }
         public string Email { get; set; }

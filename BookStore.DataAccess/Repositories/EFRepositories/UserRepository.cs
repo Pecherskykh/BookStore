@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using BookStore.DataAccess.Repositories.Interfaces;
 using BookStore.DataAccess.Models.UesrsFilterModel;
 using static BookStore.DataAccess.Models.UesrsFilterModel.Enums.UesrsFilterEnums;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
@@ -18,7 +19,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ApplicationContext _applicationContext;
-        public UserManager<ApplicationUser> UserManager { get { return _userManager; } }
+        //public UserManager<ApplicationUser> UserManager { get { return _userManager; } }
 
         public UserRepository(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationContext applicationContext)
         {
@@ -27,42 +28,47 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             _applicationContext = applicationContext;
         }
 
-        public async Task<ApplicationUser> GetAsync(string userId)
+        public async Task<ApplicationUser> FindByIdAsync(string userId) //Name GetByIdAsync
         {
             return await _userManager.FindByIdAsync(userId);
         }
 
-        public async Task<ApplicationUser> GetEmailAsync(string email)
+        public async Task<ApplicationUser> FindByEmailAsync(string email)
         {
             return await _userManager.FindByEmailAsync(email);
         }
 
-        public async Task<ApplicationUser> GetNameAsync(string userName)
+        public async Task<ApplicationUser> FindByNameAsync(string userName)
         {
             return await _userManager.FindByNameAsync(userName);
         }
 
         public async Task<bool> CreateAsync(ApplicationUser user)
         {
-            bool succeeded = false;
-            long userAuthors = _applicationContext.Users.Where(u => u.Email == user.Email).Count();
-            if(userAuthors < 1)
+            //bool succeeded = false;
+            var existingUser = await FindByEmailAsync(user.Email);
+            if (user != null)
             {
-                var result = await _userManager.CreateAsync(user);
-                succeeded = result.Succeeded;
-                if (succeeded)
-                {
-                    await _userManager.AddToRoleAsync(user, "User");
-                    //await _signInManager.SignInAsync(user, isPersistent: false);
-                }
+                return false;
             }
-            return succeeded;
+            var result = await _userManager.CreateAsync(user);
+            if (!result.Succeeded)
+            {
+                return result.Succeeded;
+                //await _signInManager.SignInAsync(user, isPersistent: false);
+            }
+            result = await _userManager.AddToRoleAsync(user, "User"); //use const or enum
+            return result.Succeeded;
         }
 
-        public async Task<Role> RoleCheckAsync(long userId)
+        public async Task<Role> CheckRoleAsync(long userId)
         {
-            long roleId = _applicationContext.UserRoles.FirstOrDefault(r => r.UserId == userId).RoleId;
-            return await _applicationContext.Roles.FindAsync(roleId);
+            var identityRole = _applicationContext.UserRoles.Where(r => r.UserId == userId).FirstOrDefault();
+            if (identityRole == null)
+            {
+                return null;
+            }
+            return await _applicationContext.Roles.FindAsync(identityRole.RoleId);
         }
 
         public async Task AddRoleAsync(long userId, string role)
@@ -71,7 +77,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             await _userManager.AddToRoleAsync(user, role);
         }
 
-        public async Task RemoveAsync(ApplicationUser user)
+        public async Task RemoveAsync(ApplicationUser user) //change IsRemoved (update)
         {
             _applicationContext.Users.Remove(user);
             await _applicationContext.SaveChangesAsync();
@@ -91,34 +97,34 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
         public async Task SignInAsync(ApplicationUser user, bool isPersistent)
         {
-            await _signInManager.SignInAsync(user, false);
+            await _signInManager.SignInAsync(user, isPersistent: false);
         }
 
         public async Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilter usersFilter)
         {
-            var users = _applicationContext.Users.Select(u => u);
-            if (!string.IsNullOrWhiteSpace(usersFilter.SearchString))
+            var users = _applicationContext.Users.AsQueryable(); //get only isn't removed
+            if (!string.IsNullOrWhiteSpace(usersFilter.SearchString)) //to lowercase
             {
                 users = users.Where(u => u.UserName == usersFilter.SearchString);
             }  
             if (usersFilter.UserActive == UserActive.Active)
             {
-                users = users.Where(u => u.LockoutEnabled == true);
+                users = users.Where(u => u.LockoutEnabled);
             }
-            else if (usersFilter.UserActive == UserActive.Blocked)
+            if (usersFilter.UserActive == UserActive.Blocked)
             {
-                users = users.Where(u => u.LockoutEnabled == false);
+                users = users.Where(u => !u.LockoutEnabled);
             }
             if(usersFilter.Sorted == Sorted.UserName)
             {
                 users = users.OrderBy(u => u.UserName);
             }
-            else if(usersFilter.Sorted == Sorted.Email)
+            if(usersFilter.Sorted == Sorted.Email)
             {
                 users = users.OrderBy(u => u.Email);
             }
             users = users.Skip((usersFilter.PageCount - 1) * usersFilter.PageSize).Take(usersFilter.PageSize);
-            return users;
+            return await users.ToListAsync();
         }
     }
 }

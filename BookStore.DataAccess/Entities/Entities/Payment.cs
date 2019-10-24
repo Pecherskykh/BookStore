@@ -8,6 +8,5 @@ namespace BookStore.DataAccess.Entities.Enums
     public class Payment : BaseEntity
     {
         public int TransactionId { get; set; }
-        public ICollection<Order> Orders { get; set; }
     }
 }

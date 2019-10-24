@@ -12,13 +12,13 @@ namespace BookStore.DataAccess.Repositories.Base
 {
     public class BaseEFRepository<TEntity> : IBaseEFRepository<TEntity> where TEntity : BaseEntity
     {
-        private readonly DbContext _context;
+        protected readonly ApplicationContext _applicationContext;
         private readonly DbSet<TEntity> _dbSet;
 
-        public BaseEFRepository(DbContext context)
+        public BaseEFRepository(ApplicationContext applicationContext)
         {
-            _context = context;
-            _dbSet = context.Set<TEntity>();
+            _applicationContext = applicationContext;
+            _dbSet = applicationContext.Set<TEntity>();
         }
 
         public async Task<IEnumerable<TEntity>> GetAsync()
@@ -38,17 +38,17 @@ namespace BookStore.DataAccess.Repositories.Base
         public async Task CreateAsync(TEntity item)
         {
             await _dbSet.AddAsync(item);
-            await _context.SaveChangesAsync();
+            await _applicationContext.SaveChangesAsync();
         }
         public async Task UpdateAsync(TEntity item)
         {
-            _context.Entry(item).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            _applicationContext.Entry(item).State = EntityState.Modified;
+            await _applicationContext.SaveChangesAsync();
         }
         public async Task RemoveAsync(TEntity item)
         {
             _dbSet.Remove(item);
-            await _context.SaveChangesAsync();
+            await _applicationContext.SaveChangesAsync();
         }
     }
 }

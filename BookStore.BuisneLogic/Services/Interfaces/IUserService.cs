@@ -1,4 +1,5 @@
-﻿using BookStore.DataAccess.Entities;
+﻿using BookStore.BusinessLogic.Models.Base;
+using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Models.UesrsFilterModel;
 using System;
@@ -10,9 +11,9 @@ namespace BookStore.BusinessLogic.Services.Interfaces
 {
     public interface IUserService
     {
-        Task<bool> CreateAsync(ApplicationUser user);
-        Task<ApplicationUser> GetAsync(string userId);
-        Task<Role> RoleCheckAsync(long userId);
+        Task<BaseModel> CreateAsync(ApplicationUser user);
+        Task<ApplicationUser> FindByIdAsync(string userId);
+        Task<Role> CheckRoleAsync(long userId);
         Task AddRoleAsync(long userId, string role);
         Task<bool> UpdateAsync(ApplicationUser user);
         Task RemoveAsync(ApplicationUser user);

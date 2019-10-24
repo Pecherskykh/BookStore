@@ -12,7 +12,7 @@ namespace BookStore.BusinessLogic.Models.Orders
         public string Currency { get; set; }
         public int Count { get; set; }
         public int PrintingEditionId { get; set; }
-        public PrintingEditionModel PrintingEdition { get; set; }
+        public PrintingEditionModelItem PrintingEdition { get; set; }
         public int OrderId { get; set; }
         public OrderModel Order { get; set; }
     }
