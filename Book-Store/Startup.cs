@@ -33,7 +33,6 @@ namespace BookStore
 
             Initializer.Init(services, Configuration.GetConnectionString("DefaultConnection"));
             services.AddMvc(options => options.EnableEndpointRouting = false);
-            services.AddTransient<EmailHelper>();
             services.AddTransient<IJwtHelper, JwtHelper>();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -62,10 +61,9 @@ namespace BookStore
                     });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseInitialization initializer, ILoggerFactory loggerFactory, EmailHelper mailMessage)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseInitialization initializer, ILoggerFactory loggerFactory)
         {
             initializer.StartInit();
-            //mailMessage.Send();
             app.UseMiddleware<ExceptionHandlerMiddleware>();    
 
             app.UseHttpsRedirection();

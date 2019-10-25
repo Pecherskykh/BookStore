@@ -7,6 +7,7 @@ using BookStore.Helper.Interface;
 using BookStore.BusinessLogic.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using BookStore.BusinessLogic.Models.Base;
 
 namespace BookStore.Controllers
 {
@@ -26,58 +27,41 @@ namespace BookStore.Controllers
         [HttpGet("login")]
         public async Task<IActionResult> Login(string userName, string password)
         {
+            var resultModel = new BaseModel();
             var user = await _accountService.FindByNameAsync(userName);
-            /*if(user == null)
-            {
-                return Ok();
-            }
-            if(!await _accountService.CheckUserAsync(user, password, false))
-            {
-                return Ok();
-            }*/
-            var role = await _accountService.CheckRoleAsync(user.Id);
-            /*if (role == null)
-            {
-                return Ok();
-            }*/
 
-            var encodedJwt = await _jwtHelper.GenerateTokenModel(user, role.Name);
+            var encodedJwt = await _jwtHelper.GenerateTokenModel(user);
+
+            if (encodedJwt == null)
+            {
+                resultModel.Errors.Add("some error");
+                return Ok(resultModel);
+            }
 
             HttpContext.Response.Cookies.Append("accessToken", encodedJwt.AccessToken);
             HttpContext.Response.Cookies.Append("refreshToken", encodedJwt.RefreshToken);
-            //return Ok(new BaseModel());
-            return Ok();
+            return Ok(resultModel);
         }
 
         [HttpGet("register")]
         public async Task<IActionResult> Register()
         {
             await _accountService.Register();
-            //return Ok(new BaseModel());
-            return Ok();
+            return Ok(new BaseModel());
         }
 
         [HttpGet("confirmEmail")]
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
-            await _accountService.ConfirmEmail(userId, token);
-            return Ok();
+            return Ok(await _accountService.ConfirmEmail(userId, token));
         }
 
         [HttpGet("forgotPassword")]
         public async Task<IActionResult> ForgotPassword()
         {
-            await _accountService.ForgotPassword();
-            return Ok();
+            return Ok(await _accountService.ForgotPassword("oleksandr.pecherskikh@gmail.com"));
         }
         
-        [HttpGet("resetPassword")]
-        public async Task<IActionResult> ResetPassword(string userId, string token, string password)
-        {
-            await _accountService.ResetPassword(userId, token, password);
-            return Ok();
-        }
-
         //public async Task<IActionResult> CheckJwtToken(string accessToken, string refreshToken)
         //{
         //    var expiresAccess = new JwtSecurityTokenHandler().ReadToken(accessToken).ValidTo;
@@ -98,10 +82,9 @@ namespace BookStore.Controllers
                 var userId = this.HttpContext.User.Claims
                .FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
                 var user = await _accountService.FindByNameAsync(userId);
-                var role = await _accountService.CheckRoleAsync(user.Id);
-                var encodedJwt = await _jwtHelper.GenerateTokenModel (user, role.Name);
+                var encodedJwt = await _jwtHelper.GenerateTokenModel(user);
             }
-            return Ok();
+            return Ok(new BaseModel());
         }   
     }
 }

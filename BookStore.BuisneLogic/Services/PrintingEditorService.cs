@@ -1,4 +1,6 @@
-﻿using BookStore.BusinessLogic.Services.Interfaces;
+﻿using BookStore.BusinessLogic.Models.PrintingEditions;
+using BookStore.BusinessLogic.Services.Interfaces;
+using BookStore.BusinessLogic.Extensions;
 using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using BookStore.DataAccess.Repositories.Interfaces;
 using System;
@@ -17,9 +19,15 @@ namespace BookStore.BusinessLogic.Services
             _printingEditionRepository = printingEditionRepository;
         }
 
-        public async Task PrintingEditionsAsync(PrintingEditionsFilterModels printingEditionsFilterModels)
+        public async Task<PrintingEditionModel> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels)
         {
-            await _printingEditionRepository.PrintingEditionsAsync(printingEditionsFilterModels);
+            var printingEditions = await _printingEditionRepository.GetPrintingEditionsAsync(printingEditionsFilterModels);
+            var resultModel = new PrintingEditionModel();
+            foreach (var printingEdition in printingEditions)
+            {
+                resultModel.Items.Add(printingEdition.Mapping());
+            }
+            return resultModel;
         }
     }
 }

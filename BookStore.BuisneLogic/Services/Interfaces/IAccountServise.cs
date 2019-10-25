@@ -1,4 +1,5 @@
-﻿using BookStore.BusinessLogic.Models.Users;
+﻿using BookStore.BusinessLogic.Models.Base;
+using BookStore.BusinessLogic.Models.Users;
 using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Entities.Enums;
 using System;
@@ -11,16 +12,13 @@ namespace BookStore.BusinessLogic.Services.Interfaces
     public interface IAccountServise
     {
         Task<UserModelItem> FindByIdAsync(string userId);
-        Task<ApplicationUser> FindByEmailAsync(string email);
-        Task<ApplicationUser> FindByNameAsync(string userName);
-        Task<bool> CreateAsync(ApplicationUser user);
-        Task<Role> CheckRoleAsync(long userId);
-        Task AddRoleAsync(long userId, string role);
+        Task<UserModelItem> FindByEmailAsync(string email);
+        Task<UserModelItem> FindByNameAsync(string userName);
+        Task<BaseModel> CreateAsync(ApplicationUser user);
         Task RemoveAsync(ApplicationUser user);
-        Task Register();
-        Task ConfirmEmail(string userId, string token);
-        Task ForgotPassword();
-        Task ResetPassword(string userId, string token, string password);
+        Task<BaseModel> Register();
+        Task<BaseModel> ConfirmEmail(string userId, string token);
+        Task<BaseModel> ForgotPassword(string userEmail);
         Task<bool> CheckUserAsync(ApplicationUser user, string password, bool lockoutOnFailure);
         Task SignInAsync(ApplicationUser user, bool isPersistent);
     }

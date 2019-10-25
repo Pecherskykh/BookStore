@@ -2,15 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookStore.BusinessLogic.Models.PrintingEditions;
+using BookStore.BusinessLogic.Services.Interfaces;
+using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
 {
-    public class PrintingEditionController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class PrintingEditionController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly IPrintingEditorService _printingEditorService;
+
+        public PrintingEditionController(IPrintingEditorService printingEditorService)
         {
-            return View();
+            _printingEditorService = printingEditorService;
+        }
+
+        [HttpPost("test")]
+        public async Task<IActionResult> Test(PrintingEditionsFilterModel printingEditionsFilterModels)
+        {
+            var printingEditionModel = await _printingEditorService.GetPrintingEditionsAsync(printingEditionsFilterModels);
+            return Ok(printingEditionModel);
         }
     }
 }

@@ -6,7 +6,7 @@ namespace BookStore.BusinessLogic.Common.Constants
 {
     public partial class Constants
     {
-        public partial class EmailHelper
+        public class EmailConstants
         {
             public const string Address = "testmailproject24@gmail.com";
             public const string Password = "12345mail";

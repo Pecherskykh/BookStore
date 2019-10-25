@@ -5,7 +5,7 @@ using System.Text;
 namespace BookStore.BusinessLogic.Common.Constants
 {
 
-    public partial class Constants
+    public partial class EmailConstants
     {
         public class ErrorConstants
         {

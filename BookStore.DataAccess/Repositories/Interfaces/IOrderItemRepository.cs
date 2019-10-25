@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace BookStore.DataAccess.Repositories.Interfaces
 {
-    public interface IOrderItemRepository
+    public interface IOrderItemRepository : IBaseEFRepository<OrderItem>
     {
-        Task CreateAsync(OrderItem orderItem);
-        Task<OrderItem> GetAsync(long OrderItemId);
-        Task UpdateAsync();
-        Task DeleteAsync(long orderItemId);
+
     }
 }

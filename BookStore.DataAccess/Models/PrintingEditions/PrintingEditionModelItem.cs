@@ -1,11 +1,10 @@
-﻿using BookStore.BusinessLogic.Models.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BookStore.BusinessLogic.Models.PrintingEditions
+namespace BookStore.DataAccess.Models.PrintingEditions
 {
-    public class PrintingEditionModelItem : BaseModel
+    public class PrintingEditionModelItem
     {
         public long Id { get; set; }
         public string Title { get; set; }

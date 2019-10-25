@@ -7,6 +7,6 @@ namespace BookStore.BusinessLogic.Models.Authors
 {
     public class AuthorModel : BaseModel
     {
-        public string Name { get; set; }
+        public ICollection<AuthorModelItem> Items = new List<AuthorModelItem>();
     }
 }

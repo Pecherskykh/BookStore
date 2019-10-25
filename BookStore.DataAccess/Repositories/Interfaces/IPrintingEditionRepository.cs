@@ -1,4 +1,5 @@
 ﻿using BookStore.DataAccess.Entities.Enums;
+using BookStore.DataAccess.Models.PrintingEditions;
 using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,6 @@ namespace BookStore.DataAccess.Repositories.Interfaces
 {
     public interface IPrintingEditionRepository : IBaseEFRepository<PrintingEdition>
     {
-        Task PrintingEditionsAsync(PrintingEditionsFilterModels printingEditionsFilterModels);
+        Task<IEnumerable<PrintingEditionModelItem>> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels);
     }
 }

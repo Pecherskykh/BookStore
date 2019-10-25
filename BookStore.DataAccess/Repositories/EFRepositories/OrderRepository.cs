@@ -1,5 +1,7 @@
 ﻿using BookStore.DataAccess.AppContext;
 using BookStore.DataAccess.Entities.Enums;
+using BookStore.DataAccess.Repositories.Base;
+using BookStore.DataAccess.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +10,11 @@ using System.Threading.Tasks;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
-    class OrderRepository
+    class OrderRepository : BaseEFRepository<Order>, IOrderRepository
     {
-        private readonly ApplicationContext _applicationContext;
-
-        public OrderRepository(ApplicationContext applicationContext)
+        public OrderRepository(ApplicationContext applicationContext) : base(applicationContext)
         {
-            _applicationContext = applicationContext;
-        }
+        }        
 
         public async Task<IEnumerable<Order>> GetAllUOrdersOrderByDateAsync()
         {

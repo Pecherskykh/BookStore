@@ -1,4 +1,7 @@
-﻿using BookStore.BusinessLogic.Models.Base;
+﻿using BookStore.BusinessLogic.Common.Constants;
+using BookStore.BusinessLogic.Extensions;
+using BookStore.BusinessLogic.Models.Base;
+using BookStore.BusinessLogic.Models.Users;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Entities.Enums;
@@ -32,12 +35,18 @@ namespace BookStore.BusinessLogic.Services
             return resultModel;
         }
 
-        public async Task<ApplicationUser> FindByIdAsync(string userId) //return UserModel
+        public async Task<UserModelItem> FindByIdAsync(string userId)
         {
-            return await _userRepository.FindByIdAsync(userId);
+            var resultModel = new UserModelItem();
+            var user = await _userRepository.FindByIdAsync(userId);
+            if (user == null)
+            {
+                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+            }
+            return user.Mapping();
         }
 
-        public async Task<Role> CheckRoleAsync(long userId)
+        /*public async Task<Role> CheckRoleAsync(long userId)
         {
             return await _userRepository.CheckRoleAsync(userId);
         }
@@ -45,7 +54,7 @@ namespace BookStore.BusinessLogic.Services
         public async Task AddRoleAsync(long userId, string role)
         {
             await _userRepository.AddRoleAsync(userId, role);
-        }
+        }*/
 
         public async Task<bool> UpdateAsync(ApplicationUser user)
         {
@@ -57,25 +66,29 @@ namespace BookStore.BusinessLogic.Services
             await _userRepository.RemoveAsync(user);
         }
 
-        public async Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilter usersFilter)
+        public async Task<UserModel> GetUsersAsync(UsersFilterModel usersFilter)
         {            
             var users = await _userRepository.GetUsersAsync(usersFilter);
-            //var resultModel = new UserModel();  
-            //foreach (...)
-            //{
-            //    resultModel.Items.Add(mappingModel);   //map ApplicationUsers to UserModelItems
-            //}
-            //return UserModel
-            return null;
+            var resultModel = new UserModel();
+            foreach(var user in users)
+            {
+                resultModel.Items.Add(user.Mapping());
+            }
+            return resultModel;
         }
 
-        public async Task BlockAndUnblockUser(string userId) //rename ChangeUserStatus
+        public async Task<BaseModel> ChangeUserStatus(string userId)
         {
+            var resultModel = new BaseModel();
             var user = await _userRepository.FindByIdAsync(userId);
-            //check for null
+            if(user == null)
+            {
+                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                return resultModel;
+            }
             user.LockoutEnabled = !user.LockoutEnabled;
             await _userRepository.UpdateAsync(user);
-            //return result
+            return resultModel;
         }
     }
 }

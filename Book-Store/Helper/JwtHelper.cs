@@ -6,18 +6,24 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using BookStore.BusinessLogic.Models.Users;
 
 namespace BookStore.Helper
 {
     public class JwtHelper : IJwtHelper
     {
-        public async Task<TokenModel> GenerateTokenModel(ApplicationUser user, string roleName)
+        public async Task<TokenModel> GenerateTokenModel(UserModelItem user)
         {
+            if (user == null)
+            {
+                return null;
+            }
+
             var claimsAccess = new List<Claim>
                 {
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Role, roleName),
+                    new Claim(ClaimTypes.Role, user.Role),
                     new Claim(ClaimTypes.Name, user.UserName),
                 };
 

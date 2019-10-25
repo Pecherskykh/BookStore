@@ -6,38 +6,31 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using BookStore.DataAccess.Repositories.Interfaces;
+using BookStore.DataAccess.Repositories.Base;
+using BookStore.DataAccess.Models.Authors;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
-    public class AuthorRepository : IAuthorRepository
+    public class AuthorRepository : BaseEFRepository<Author>, IAuthorRepository
     {
-        private readonly ApplicationContext _applicationContext;
-
-        public AuthorRepository(ApplicationContext applicationContext)
+        public AuthorRepository(ApplicationContext applicationContext) : base(applicationContext)
         {
-            _applicationContext = applicationContext;
         }
 
-        public async Task CreateAsync(Author author)
+        public async Task<IEnumerable<AuthorModelItem>> GetAuthorsAsync()
         {
-            _applicationContext.Authors.Add(author);
-            _applicationContext.SaveChanges();
-        }
+            var Authors = from author in _applicationContext.Authors
+                          select new AuthorModelItem
+                          {
+                              Id = author.Id,
+                              Name = author.Name,
+                              PrintingEditions = (from authorInPrintingEdition in _applicationContext.AuthorInPrintingEditions
+                                                  join printingEdition in _applicationContext.PrintingEditions on authorInPrintingEdition.PrintingEditionId equals printingEdition.Id
+                                                  where authorInPrintingEdition.AuthorId == author.Id
+                                                  select printingEdition.Title).ToArray()
+                          };
 
-        public async Task<Author> GetAsync(long authorId)
-        {
-            return _applicationContext.Authors.FirstOrDefault(a => a.Id == authorId);
-        }
-
-        public async Task UpdateAsync()
-        {
-            _applicationContext.SaveChanges();
-        }
-
-        public async Task DeleteAsync(long authorId)
-        {
-            _applicationContext.Authors.Remove(await GetAsync(authorId));
-            _applicationContext.SaveChanges();
+            return Authors;
         }
     }
 }

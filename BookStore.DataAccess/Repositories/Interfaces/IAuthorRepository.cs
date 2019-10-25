@@ -1,4 +1,5 @@
 ﻿using BookStore.DataAccess.Entities.Enums;
+using BookStore.DataAccess.Models.Authors;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace BookStore.DataAccess.Repositories.Interfaces
 {
-    public interface IAuthorRepository
+    public interface IAuthorRepository : IBaseEFRepository<Author>
     {
-        Task CreateAsync(Author author);
-        Task<Author> GetAsync(long authorId);
-        Task UpdateAsync();
-        Task DeleteAsync(long authorId);
+        Task<IEnumerable<AuthorModelItem>> GetAuthorsAsync();
     }
 }

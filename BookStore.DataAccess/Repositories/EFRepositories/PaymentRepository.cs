@@ -4,15 +4,13 @@ using BookStore.DataAccess.Repositories.Base;
 using BookStore.DataAccess.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
-    public class OrderItemRepository : BaseEFRepository<OrderItem>, IOrderItemRepository
+    public class PaymentRepository : BaseEFRepository<Payment>, IPaymentRepository
     {
-        public OrderItemRepository(ApplicationContext applicationContext) : base(applicationContext)
+        public PaymentRepository(ApplicationContext applicationContext) : base(applicationContext)
         {
         }
     }

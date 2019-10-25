@@ -1,4 +1,5 @@
-﻿using BookStore.DataAccess.Entities.Enums;
+﻿using BookStore.BusinessLogic.Models.Users;
+using BookStore.DataAccess.Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -10,6 +11,6 @@ namespace BookStore.Helper.Interface
 {
     public interface IJwtHelper
     {
-        Task<TokenModel> GenerateTokenModel(ApplicationUser user, string roleName);
+        Task<TokenModel> GenerateTokenModel(UserModelItem user);
     }
 }

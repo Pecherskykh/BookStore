@@ -12,6 +12,10 @@ namespace BookStore.DataAccess.Repositories.Interfaces
     public interface IUserRepository
     {
         //UserManager<ApplicationUser> UserManager { get; }
+        Task<string> GenerateEmailConfirmationTokenAsync(ApplicationUser user);
+        Task<string> GeneratePasswordResetTokenAsync(ApplicationUser user);
+        Task ConfirmEmailAsync(ApplicationUser user, string token);
+        Task ResetPasswordAsync(ApplicationUser user, string token, string password);
         Task<ApplicationUser> FindByIdAsync(string userId);
         Task<ApplicationUser> FindByEmailAsync(string email);
         Task<ApplicationUser> FindByNameAsync(string userName);
@@ -22,6 +26,6 @@ namespace BookStore.DataAccess.Repositories.Interfaces
         Task AddRoleAsync(long userId, string role);
         Task<bool> CheckUserAsync(ApplicationUser user, string password, bool lockoutOnFailure);
         Task SignInAsync(ApplicationUser user, bool isPersistent);
-        Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilter usersFilter);
+        Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilterModel usersFilter);
     }
 }

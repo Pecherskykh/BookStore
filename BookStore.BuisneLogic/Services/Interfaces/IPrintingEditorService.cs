@@ -1,4 +1,5 @@
-﻿using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
+﻿using BookStore.BusinessLogic.Models.PrintingEditions;
+using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,6 @@ namespace BookStore.BusinessLogic.Services.Interfaces
 {
     public interface IPrintingEditorService
     {
-        Task PrintingEditionsAsync(PrintingEditionsFilterModels printingEditionsFilterModels);
+        Task<PrintingEditionModel> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels);
     }
 }

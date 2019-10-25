@@ -30,14 +30,14 @@ namespace BookStore.DataAccess.Repositories.Base
         {
             return _dbSet.AsNoTracking().Where(predicate).ToList();
         }
-        public async Task<TEntity> FindByIdAsync(int id)
+        public async Task<TEntity> FindByIdAsync(long id)
         {
             return await _dbSet.FindAsync(id);
         }
 
         public async Task CreateAsync(TEntity item)
         {
-            await _dbSet.AddAsync(item);
+            var a = await _dbSet.AddAsync(item);
             await _applicationContext.SaveChangesAsync();
         }
         public async Task UpdateAsync(TEntity item)

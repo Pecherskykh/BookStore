@@ -9,8 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using BookStore.DataAccess.Repositories.Interfaces;
 using BookStore.DataAccess.Models.UesrsFilterModel;
-using static BookStore.DataAccess.Models.UesrsFilterModel.Enums.UesrsFilterEnums;
 using Microsoft.EntityFrameworkCore;
+using static BookStore.DataAccess.Models.Enums.Enums.UserFilterEnums;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
@@ -61,6 +61,26 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             return result.Succeeded;
         }
 
+        public async Task<string> GenerateEmailConfirmationTokenAsync(ApplicationUser user)
+        {
+            return await _userManager.GenerateEmailConfirmationTokenAsync(user);
+        }
+
+        public async Task<string> GeneratePasswordResetTokenAsync(ApplicationUser user)
+        {
+            return await _userManager.GeneratePasswordResetTokenAsync(user);
+        }
+
+        public async Task ConfirmEmailAsync(ApplicationUser user, string token)
+        {
+            await _userManager.ConfirmEmailAsync(user, token);
+        }
+
+        public async Task ResetPasswordAsync(ApplicationUser user,string token, string password)
+        {
+            await _userManager.ResetPasswordAsync(user, token, password);
+        }
+
         public async Task<Role> CheckRoleAsync(long userId)
         {
             var identityRole = _applicationContext.UserRoles.Where(r => r.UserId == userId).FirstOrDefault();
@@ -100,26 +120,26 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             await _signInManager.SignInAsync(user, isPersistent: false);
         }
 
-        public async Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilter usersFilter)
+        public async Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilterModel usersFilter)
         {
             var users = _applicationContext.Users.AsQueryable(); //get only isn't removed
             if (!string.IsNullOrWhiteSpace(usersFilter.SearchString)) //to lowercase
             {
                 users = users.Where(u => u.UserName == usersFilter.SearchString);
             }  
-            if (usersFilter.UserActive == UserActive.Active)
+            if (usersFilter.UserStatus == UserStatus.Active)
             {
                 users = users.Where(u => u.LockoutEnabled);
             }
-            if (usersFilter.UserActive == UserActive.Blocked)
+            if (usersFilter.UserStatus == UserStatus.Blocked)
             {
                 users = users.Where(u => !u.LockoutEnabled);
             }
-            if(usersFilter.Sorted == Sorted.UserName)
+            if(usersFilter.SortBy == SortBy.UserName)
             {
                 users = users.OrderBy(u => u.UserName);
             }
-            if(usersFilter.Sorted == Sorted.Email)
+            if(usersFilter.SortBy == SortBy.Email)
             {
                 users = users.OrderBy(u => u.Email);
             }

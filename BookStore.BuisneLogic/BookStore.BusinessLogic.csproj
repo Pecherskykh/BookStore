@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Enums\" />
     <Folder Include="Models\Payments\" />
   </ItemGroup>
 

@@ -1,4 +1,5 @@
-﻿using BookStore.BusinessLogic.Helpers.Interfaces;
+﻿using BookStore.BusinessLogic.Common.Constants;
+using BookStore.BusinessLogic.Helpers.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -9,22 +10,18 @@ namespace BookStore.BusinessLogic.Helpers
 {
     public class EmailHelper : IEmailHelper
     {
-        private /*const*/ string _adress; //= Common.Constants.EmailHelper.Address;
-        public /*const*/ string _password; //= Common.Constants.EmailHelper.Password;
-        public /*const*/ string _host; //= Common.Constants.EmailHelper.Host;
-        public /*const*/ int _port; //= Common.Constants.EmailHelper.Port;
         public void Send(string message)
         {
-            var from = new MailAddress(_adress, "Name");
+            var from = new MailAddress(Constants.EmailConstants.Address, "Name");
             var to = new MailAddress("oleksandr.pecherskikh@gmail.com");
-            System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(from, to);
-            m.Subject = "Test";
-            m.Body = message;
-            m.IsBodyHtml = true;
-            SmtpClient smtp = new SmtpClient(_host, _port); //use Using
-            smtp.Credentials = new NetworkCredential(_adress, _password); //use constants
+            System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage(from, to);
+            mailMessage.Subject = "Test";
+            mailMessage.Body = message;
+            mailMessage.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient(Constants.EmailConstants.Host, Constants.EmailConstants.Port); //use Using
+            smtp.Credentials = new NetworkCredential(Constants.EmailConstants.Address, Constants.EmailConstants.Password); //use constants
             smtp.EnableSsl = true;
-            smtp.Send(m); //use Async
+            smtp.Send(mailMessage); //use Async
         }
     }
 }

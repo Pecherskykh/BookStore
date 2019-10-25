@@ -1,4 +1,7 @@
-﻿using BookStore.BusinessLogic.Services.Interfaces;
+﻿using BookStore.BusinessLogic.Extensions;
+using BookStore.BusinessLogic.Models.Authors;
+using BookStore.BusinessLogic.Models.Base;
+using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Repositories.Interfaces;
 using System;
@@ -17,24 +20,38 @@ namespace BookStore.BusinessLogic.Services
             _authorRepository = authorRepository;
         }
 
-        public async Task CreateAsync(Author author)
+        public async Task<BaseModel> CreateAsync(Author author)
         {
             await _authorRepository.CreateAsync(author);
+            return new BaseModel();
         }
 
-        public async Task<Author> GetAsync(long authorId)
+        public async Task<Author> FindByIdAsync(long authorId)
         {
-            return await _authorRepository.GetAsync(authorId);
+            return await _authorRepository.FindByIdAsync(authorId);
         }
 
-        public async Task UpdateAsync()
+        public async Task<BaseModel> UpdateAsync(Author author)
         {
-            await _authorRepository.UpdateAsync();
+            await _authorRepository.UpdateAsync(author);
+            return new BaseModel();
         }
 
-        public async Task DeleteAsync(long authorId)
+        public async Task<BaseModel> DeleteAsync(Author author)
         {
-            await _authorRepository.DeleteAsync(authorId);
+            await _authorRepository.RemoveAsync(author);
+            return new BaseModel();
+        }
+
+        public async Task<AuthorModel> GetAuthorsAsync()
+        {
+            var authors = await _authorRepository.GetAuthorsAsync();
+            var resultModel = new AuthorModel();
+            foreach (var author in authors)
+            {
+                resultModel.Items.Add(author.Mapping());
+            }
+            return resultModel;
         }
     }
 }

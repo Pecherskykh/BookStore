@@ -6,7 +6,7 @@ using BookStore.DataAccess.Entities;
 using BookStore.BusinessLogic.Helpers.Interfaces;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Common.Constants;
-using static BookStore.BusinessLogic.Common.Constants.Constants;
+using static BookStore.BusinessLogic.Common.Constants.EmailConstants;
 using BookStore.BusinessLogic.Common;
 using BookStore.BusinessLogic.Extensions;
 using BookStore.BusinessLogic.Models.Users;
@@ -28,103 +28,121 @@ namespace BookStore.BusinessLogic.Services
 
         public async Task<UserModelItem> FindByIdAsync(string userId)
         {
-            //var result = new UserModelItem();
+            var resultModel = new UserModelItem();
             var user = await _userRepository.FindByIdAsync(userId);
             if (user == null)
             {
-                //result.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
             }
-            //return result
-            //map entity to model
             return user.Mapping();
         }
 
-        public async Task<ApplicationUser> FindByEmailAsync(string email)
+        public async Task<UserModelItem> FindByEmailAsync(string email)
         {
-            return await _userRepository.FindByEmailAsync(email);
+            var resultModel = new UserModelItem();
+            var user = await _userRepository.FindByEmailAsync(email);
+            if (user == null)
+            {
+                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+            }
+            return user.Mapping();
         }
 
-        public async Task<ApplicationUser> FindByNameAsync(string userName)
+        public async Task<UserModelItem> FindByNameAsync(string userName)
         {
+            var resultModel = new UserModelItem();
             var user = await _userRepository.FindByNameAsync(userName);
             if (user == null)
             {
-                //return errors
+                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
             }
             /*var result = await CheckUserAsync(user, "pass");
             if (!result)
             {
                 //resturn errors
-            }
-            var role = await RoleCheckAsync(user.Id);
-            //userModel.Role = role;
-            //return userModel;*/
-            return user;
+            }*/
+            var role = await CheckRoleAsync(user.Id);
+            resultModel.Role = role.Name;
+            return user.Mapping();
         }
 
-        public async Task<bool> CreateAsync(ApplicationUser user)
+        public async Task<BaseModel> CreateAsync(ApplicationUser user)
         {
-            return await _userRepository.CreateAsync(user);
+            var resultModel = new BaseModel();
+            var result = await _userRepository.CreateAsync(user);
+            if (!result)
+            {
+                resultModel.Errors.Add("some error"); //from consts
+            }
+            return resultModel;
         }
 
-        public async Task<Role> CheckRoleAsync(long userId)
+        private async Task<Role> CheckRoleAsync(long userId)
         {
             return await _userRepository.CheckRoleAsync(userId);
         }
 
-        public async Task AddRoleAsync(long userId, string role)
+        /*public async Task AddRoleAsync(long userId, string role)
         {
             await _userRepository.AddRoleAsync(userId, role);
-        }
+        }*/
 
         public async Task RemoveAsync(ApplicationUser user)
         {
             await _userRepository.RemoveAsync(user);
         }
 
-        public async Task Register()
+        public async Task<BaseModel> Register()
         {
+            var resultModel = new BaseModel();
             var user = new ApplicationUser
             { 
                 UserName = "Name",
                 Email = "oleksandr.pecherskikh@gmail.com"
             };
-            var result = await CreateAsync(user);
-            if (result)
+            var result = await _userRepository.CreateAsync(user);
+            if (!result)
             {
-                //string code = await _userRepository.UserManager.GenerateEmailConfirmationTokenAsync(user);
-                //_emailHelper.Send(string.Format("Confirm the registration by clicking on the link: <a href='http://localhost:52976/api/account/confirmEmail?userId={0}&token={1}'>link</a>", user.Id, code));
+                resultModel.Errors.Add("Const");
+                return resultModel;
             }
+            string token = await _userRepository.GenerateEmailConfirmationTokenAsync(user);
+            _emailHelper.Send(string.Format("Confirm the registration by clicking on the link: <a href='http://localhost:52976/api/account/confirmEmail?userId={0}&token={1}'>link</a>", user.Id, token));
+            return resultModel;
         }
 
-        public async Task ConfirmEmail(string userId, string token)
+        public async Task<BaseModel> ConfirmEmail(string userId, string token)
         {
-            if (userId == null || token == null) //use string.IsNullOrWhileSpace(...)
+            var resultModel = new BaseModel();
+            if (string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(token)) //use string.IsNullOrWhileSpace(...)
             {
-                return;
+                resultModel.Errors.Add("Const");
+                return resultModel;
             }
-            var user = await FindByIdAsync(userId);
+            var user = await _userRepository.FindByIdAsync(userId);
             if (user == null)
             {
-                return;
+                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                return resultModel;
             }
-            //var result = await _userRepository.UserManager.ConfirmEmailAsync(user, token.Replace(" ", "+"));
+            await _userRepository.ConfirmEmailAsync(user, token.Replace(" ", "+"));
+            return resultModel;
         }
 
-        public async Task ForgotPassword()
+        public async Task<BaseModel> ForgotPassword(string userEmail)
         {
-            var user = await FindByEmailAsync("oleksandr.pecherskikh@gmail.com"); //remove hardcode
-            //if (user == null)
-
-            //var code = await _userRepository.UserManager.GeneratePasswordResetTokenAsync(user);
+            var resultModel = new BaseModel();
+            var user = await _userRepository.FindByEmailAsync(userEmail); //remove hardcode
+            if (user == null)
+            {
+                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                return resultModel;
+            }
+            var token = await _userRepository.GeneratePasswordResetTokenAsync(user);
+            await _userRepository.ResetPasswordAsync(user, token, "aQwery01_77775");
             //send new password for email
-            //_emailHelper.Send(string.Format("Reset password: <a href='http://localhost:52976/api/account/resetPassword?userId={0}&token={1}&password={2}'>link</a>", user.Id, code, "aQwery01_77775"));
-        }
-
-        public async Task ResetPassword(string userId, string token, string password)
-        {
-            var user = await FindByIdAsync(userId);
-            //var result = await _userRepository.UserManager.ResetPasswordAsync(user, token.Replace(" ", "+"), password);
+            _emailHelper.Send(string.Format("New password: {0}", "aQwery01_77775"));
+            return resultModel;
         }
 
         public async Task<bool> CheckUserAsync(ApplicationUser user, string password, bool lockoutOnFailure)

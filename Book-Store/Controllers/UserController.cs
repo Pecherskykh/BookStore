@@ -7,7 +7,6 @@ using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using BookStore.DataAccess.Models.UesrsFilterModel;
 using Microsoft.AspNetCore.Mvc;
-using static BookStore.DataAccess.Models.UesrsFilterModel.Enums.UesrsFilterEnums;
 
 namespace BookStore.Controllers
 {
@@ -24,38 +23,18 @@ namespace BookStore.Controllers
             _printingEditorService = printingEditorService; 
         }
 
-        [HttpGet("test")]
-        public async Task Test(/*Model*/)
+        [HttpPost("test")]
+        public async Task<IActionResult> Test(UsersFilterModel usersFilter)
         {
-            var usersFilter = new UsersFilter //use Postman
-            {
-                PageCount = 1,
-                PageSize = 10,
-                Sorted = Sorted.Email,
-                UserActive = UserActive.All
-            };
             var users = await _userService.GetUsersAsync(usersFilter);
+            return Ok(users);
         }
-
-        [HttpPost("test1")]
-        public async Task<IActionResult> Test1(PrintingEditionsFilterModels printingEditionsFilterModels)
+        
+        public async Task<IActionResult> ChangeUserStatus(string userId)
         {
-            /*var printingEditionsFilterModels = new PrintingEditionsFilterModels
-            {
-                PageCount = 1,
-                PageSize = 10,
-                Sorted = DataAccess.Models.PrintingEditionsFilterModels.Enums.PrintingEditionsFilterEnums.Sorted.LowToHigh,
-                MinPrice = 10,
-                MaxPrice = 30
-            };*/
-            await _printingEditorService.PrintingEditionsAsync(printingEditionsFilterModels);
-            return Ok(printingEditionsFilterModels);
-        }
-
-        public async Task<IActionResult> BlockAndUnblockUser(string userId)
-        {            
-            await _userService.BlockAndUnblockUser(userId);
-            return Ok(new BaseModel());
+            var resultModel = new BaseModel();
+            resultModel = await _userService.ChangeUserStatus(userId);
+            return Ok(resultModel);
         }       
     }
 }
