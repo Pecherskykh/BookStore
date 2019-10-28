@@ -1,5 +1,6 @@
 ﻿using BookStore.DataAccess.AppContext;
 using BookStore.DataAccess.Entities.Enums;
+using BookStore.DataAccess.Extensions;
 using BookStore.DataAccess.Models.PrintingEditions;
 using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using BookStore.DataAccess.Repositories.Base;
@@ -7,6 +8,7 @@ using BookStore.DataAccess.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using static BookStore.DataAccess.Models.Enums.Enums.PrintingEditionsFilterEnums;
@@ -15,11 +17,12 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 {
     public class PrintingEditionRepository : BaseEFRepository<PrintingEdition>, IPrintingEditionRepository
     {
+
         public PrintingEditionRepository(ApplicationContext applicationContext) : base(applicationContext)
         {
         }
 
-        public async Task<IEnumerable<PrintingEditionModelItem>> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels)
+        public async Task<IEnumerable<PrintingEditionModelItem>> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModel)
         {
 
             /*var printingEditions = (from a in _applicationContext.AuthorInPrintingEditions
@@ -47,66 +50,43 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
                                                      select author.Name).ToArray()
                                    };
 
-            if (!string.IsNullOrWhiteSpace(printingEditionsFilterModels.SearchString))
-            {
-                printingEditions = printingEditions.Where(p => p.Title.Equals(printingEditionsFilterModels.SearchString));
-            }
 
-            if (printingEditionsFilterModels.SortingDirection == SortingDirection.LowToHigh && printingEditionsFilterModels.SortBy == SortBy.Author)
-            {
-                printingEditions = printingEditions.OrderBy(a => a.Description);
-            }
-            if (printingEditionsFilterModels.SortingDirection == SortingDirection.LowToHigh && printingEditionsFilterModels.SortBy == SortBy.Category)
-            {
-                printingEditions = printingEditions.OrderBy(c => c.Type);
-            }
-            if (printingEditionsFilterModels.SortingDirection == SortingDirection.LowToHigh && printingEditionsFilterModels.SortBy == SortBy.Discription)
-            {
-                printingEditions = printingEditions.OrderBy(d => d.Description);
-            }
-            if (printingEditionsFilterModels.SortingDirection == SortingDirection.LowToHigh && printingEditionsFilterModels.SortBy == SortBy.Id)
-            {
-                printingEditions = printingEditions.OrderBy(i => i.Id);
-            }
-            if (printingEditionsFilterModels.SortingDirection == SortingDirection.LowToHigh && printingEditionsFilterModels.SortBy == SortBy.Name)
-            {
-                printingEditions = printingEditions.OrderBy(t => t.Title);
-            }
-            if (printingEditionsFilterModels.SortingDirection == SortingDirection.LowToHigh && printingEditionsFilterModels.SortBy == SortBy.Price)
-            {
-                printingEditions = printingEditions.OrderBy(p => p.Price);
-            }
+            printingEditions = await OrderBy(printingEditions, printingEditionsFilterModel.SortBy, printingEditionsFilterModel.SortingDirection == SortingDirection.LowToHigh);
 
-            if (printingEditionsFilterModels.SortingDirection == SortingDirection.HighToLow && printingEditionsFilterModels.SortBy == SortBy.Author)
-            {
-                printingEditions = printingEditions.OrderByDescending(a => a.AuthorsNames);
-            }
-            if (printingEditionsFilterModels.SortingDirection == SortingDirection.HighToLow && printingEditionsFilterModels.SortBy == SortBy.Category)
-            {
-                printingEditions = printingEditions.OrderByDescending(c => c.Type);
-            }
-            if (printingEditionsFilterModels.SortingDirection == SortingDirection.HighToLow && printingEditionsFilterModels.SortBy == SortBy.Discription)
-            {
-                printingEditions = printingEditions.OrderByDescending(d => d.Description);
-            }
-            if (printingEditionsFilterModels.SortingDirection == SortingDirection.HighToLow && printingEditionsFilterModels.SortBy == SortBy.Id)
-            {
-                printingEditions = printingEditions.OrderByDescending(i => i.Id);
-            }
-            if (printingEditionsFilterModels.SortingDirection == SortingDirection.HighToLow && printingEditionsFilterModels.SortBy == SortBy.Name)
-            {
-                printingEditions = printingEditions.OrderByDescending(t => t.Title);
-            }
-            if (printingEditionsFilterModels.SortingDirection == SortingDirection.HighToLow && printingEditionsFilterModels.SortBy == SortBy.Price)
-            {
-                printingEditions = printingEditions.OrderByDescending(p => p.Price);
-            }
-
-            printingEditions = printingEditions.Where(p => p.Price >= printingEditionsFilterModels.MinPrice && p.Price <= printingEditionsFilterModels.MaxPrice);
+            printingEditions = printingEditions.Where(p => p.Price >= printingEditionsFilterModel.MinPrice && p.Price <= printingEditionsFilterModel.MaxPrice);
             
-            printingEditions = printingEditions.Skip((printingEditionsFilterModels.PageCount - 1) * printingEditionsFilterModels.PageSize).Take(printingEditionsFilterModels.PageSize);
+            printingEditions = printingEditions.Skip((printingEditionsFilterModel.PageCount - 1) * printingEditionsFilterModel.PageSize).Take(printingEditionsFilterModel.PageSize);
 
             return printingEditions;
         }
+
+        private async Task<IQueryable<PrintingEditionModelItem>> OrderBy(IQueryable<PrintingEditionModelItem> printingEditions, SortBy sortBy, bool lowToHigh)
+        {
+            if (sortBy == SortBy.Author)
+            {
+                return printingEditions.OrderDirection(a => a.Description, lowToHigh);
+            }
+            if (sortBy == SortBy.Category)
+            {
+                return printingEditions.OrderDirection(c => c.Type, lowToHigh);
+            }
+            if (sortBy == SortBy.Discription)
+            {
+                return printingEditions.OrderDirection(d => d.Description, lowToHigh);
+            }
+            if (sortBy == SortBy.Id)
+            {
+                return printingEditions.OrderDirection(i => i.Id, lowToHigh);
+            }
+            if (sortBy == SortBy.Name)
+            {
+                return printingEditions.OrderDirection(t => t.Title, lowToHigh);
+            }
+            if (sortBy == SortBy.Price)
+            {
+                return printingEditions.OrderDirection(p => p.Price, lowToHigh);
+            }
+            return printingEditions;
+        }        
     }
 }

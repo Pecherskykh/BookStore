@@ -125,7 +125,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             var users = _applicationContext.Users.AsQueryable(); //get only isn't removed
             if (!string.IsNullOrWhiteSpace(usersFilter.SearchString)) //to lowercase
             {
-                users = users.Where(u => u.UserName == usersFilter.SearchString);
+                users = users.Where(u => u.UserName.ToLower().Equals(usersFilter.SearchString.ToLower()));
             }  
             if (usersFilter.UserStatus == UserStatus.Active)
             {

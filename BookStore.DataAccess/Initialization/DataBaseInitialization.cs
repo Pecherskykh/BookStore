@@ -112,5 +112,93 @@ namespace BookStore.DataAccess.Initialization
             _applicationContext.PrintingEditions.Add(printingEdition);
             _applicationContext.SaveChanges();
         }
+
+        public void InitializationOrder()
+        {
+            List<Order> orders = new List<Order>()
+            {
+                new Order
+                {
+                    Description = "Description",
+                    PaymentId = 1,
+                    UserId = 2
+                },
+
+                new Order
+                {
+                    Description = "Description1",
+                    PaymentId = 2,
+                    UserId = 1
+                },
+
+                new Order
+                {
+                    Description = "Description2",
+                    PaymentId = 1,
+                    UserId = 3
+                },
+
+                new Order
+                {
+                    Description = "Description2",
+                    PaymentId = 3,
+                    UserId = 2
+                },
+            };
+
+            foreach (Order order in orders)
+            {
+                _applicationContext.Orders.Add(order);
+            }
+            _applicationContext.SaveChanges();
+        }
+
+        public void InitializationOrderItem()
+        {
+            List<OrderItem> orders = new List<OrderItem>()
+            {
+                new OrderItem
+                {
+                    Amount = 78,
+                    Currency = "USD",
+                    Count = 7,
+                    PrintingEditionId = 7,
+                    OrderId = 13
+                },
+
+                new OrderItem
+                {
+                    Amount = 240,
+                    Currency = "UAH",
+                    Count = 2,
+                    PrintingEditionId = 9,
+                    OrderId = 12
+                },
+
+                new OrderItem
+                {
+                    Amount = 700,
+                    Currency = "EUR",
+                    Count = 84,
+                    PrintingEditionId = 10,
+                    OrderId = 15
+                },
+
+                new OrderItem
+                {
+                    Amount = 12,
+                    Currency = "UAH",
+                    Count = 1,
+                    PrintingEditionId = 12,
+                    OrderId = 14
+                },
+            };
+
+            foreach (OrderItem order in orders)
+            {
+                _applicationContext.OrderItems.Add(order);
+            }
+            _applicationContext.SaveChanges();
+        }
     }
 }

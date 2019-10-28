@@ -11,17 +11,17 @@ namespace BookStore.Controllers
     [Route("api/[controller]")]
     public class AuthorController : Controller
     {
-        private readonly IAuthorService _authorEditorService;
+        private readonly IAuthorService _authorService;
 
         public AuthorController(IAuthorService authorEditorService)
         {
-            _authorEditorService = authorEditorService;
+            _authorService = authorEditorService;
         }
 
         [HttpPost("test")]
         public async Task<IActionResult> Test()
         {
-            var authorModel = await _authorEditorService.GetAuthorsAsync();
+            var authorModel = await _authorService.GetAuthorsAsync();
             return Ok(authorModel);
         }
     }

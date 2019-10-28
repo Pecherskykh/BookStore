@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BookStore.BusinessLogic.Models.Orders;
+using BookStore.DataAccess.Models.OrdersFilterModel;
+using System.Threading.Tasks;
 
 namespace BookStore.BusinessLogic.Services.Interfaces
 {
-    interface IOrderService
+    public interface IOrderService
     {
+        Task<OrderModel> GetOrdersAsync(OrdersFilterModel ordersFilterModel);
     }
 }

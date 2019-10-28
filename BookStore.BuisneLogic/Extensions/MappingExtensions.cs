@@ -1,4 +1,5 @@
 ﻿using BookStore.BusinessLogic.Models.Authors;
+using BookStore.BusinessLogic.Models.Orders;
 using BookStore.BusinessLogic.Models.PrintingEditions;
 using BookStore.BusinessLogic.Models.Users;
 using BookStore.DataAccess.Entities.Enums;
@@ -42,6 +43,22 @@ namespace BookStore.BusinessLogic.Extensions
                 Id = author.Id,
                 Name = author.Name,
                 PrintingEditions = author.PrintingEditions
+            };
+        }
+
+        public static OrderModelItem Mapping(this BookStore.DataAccess.Models.Orders.OrderModelItem order)
+        {
+            return new OrderModelItem()
+            {
+                Id = order.Id,
+                Date = order.Date,
+                UserName = order.UserName,
+                UserEmail = order.UserEmail,
+                Product = order.Product,
+                Title = order.Title,
+                Qty = order.Qty,
+                OrderAmount = order.OrderAmount,
+                Status = order.Status
             };
         }
     }

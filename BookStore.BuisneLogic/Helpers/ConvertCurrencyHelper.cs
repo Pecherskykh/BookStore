@@ -8,29 +8,33 @@ namespace BookStore.BusinessLogic.Helpers
 {
     public class ConvertCurrencyHelper
     {
-        public async Task<double> ConvertCurrency(double from, double to, Currencys currencys)
-        {
-            if(currencys == Currencys.USD)
-            {
-                return from;
-            }
-            if (currencys == Currencys.UAH)
-            {
-                return from * 25.16;
-            }
+        public async Task<double> ConvertCurrency(double priceInUsd, Currencys currencys)
+        {            
             if (currencys == Currencys.AUD)
             {
-                return from * 0.682695;
+                return priceInUsd * 1.47;
             }
             if (currencys == Currencys.BYN)
             {
-                return from * 2.0428;
+                return priceInUsd * 2.05;
             }
             if (currencys == Currencys.EUR)
             {
-                return from * 1.10895;
+                return priceInUsd * 0.9;
             }
-            return 0;
+            if (currencys == Currencys.GBP)
+            {
+                return priceInUsd * 0.78;
+            }
+            if (currencys == Currencys.PLN)
+            {
+                return priceInUsd * 3.86;
+            }
+            if (currencys == Currencys.UAH)
+            {
+                return priceInUsd * 25.16;
+            }
+            return priceInUsd;
         }
     }
 }
