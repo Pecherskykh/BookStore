@@ -1,11 +1,12 @@
-﻿using System;
+﻿using BookStore.DataAccess.Entities.Base;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BookStore.DataAccess.Repositories.Interfaces
 {
-    public interface IBaseEFRepository<TEntity> where TEntity : class
+    public interface IBaseEFRepository<TEntity> where TEntity : BaseEntity
     {
         Task<IEnumerable<TEntity>> GetAsync();
         IEnumerable<TEntity> Get(Func<TEntity, bool> predicate);

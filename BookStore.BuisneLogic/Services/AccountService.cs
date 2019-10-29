@@ -6,10 +6,9 @@ using BookStore.DataAccess.Entities;
 using BookStore.BusinessLogic.Helpers.Interfaces;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Common.Constants;
-using static BookStore.BusinessLogic.Common.Constants.EmailConstants;
-using BookStore.BusinessLogic.Common;
 using BookStore.BusinessLogic.Extensions;
 using BookStore.BusinessLogic.Models.Users;
+using BookStore.BusinessLogic.Helpers;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -107,7 +106,7 @@ namespace BookStore.BusinessLogic.Services
                 return resultModel;
             }
             string token = await _userRepository.GenerateEmailConfirmationTokenAsync(user);
-            _emailHelper.Send(string.Format("Confirm the registration by clicking on the link: <a href='http://localhost:52976/api/account/confirmEmail?userId={0}&token={1}'>link</a>", user.Id, token));
+            await _emailHelper.Send(user.Email, string.Format("Confirm the registration by clicking on the link: <a href='http://localhost:52976/api/account/confirmEmail?userId={0}&token={1}'>link</a>", user.Id, token));
             return resultModel;
         }
 
@@ -139,9 +138,10 @@ namespace BookStore.BusinessLogic.Services
                 return resultModel;
             }
             var token = await _userRepository.GeneratePasswordResetTokenAsync(user);
-            await _userRepository.ResetPasswordAsync(user, token, "aQwery01_77775");
+            var password = CreatePasswordHelper.CreatePassword(8);
+            await _userRepository.ResetPasswordAsync(user, token, password);
             //send new password for email
-            _emailHelper.Send(string.Format("New password: {0}", "aQwery01_77775"));
+            await _emailHelper.Send(userEmail, string.Format("New password: {0}", password));
             return resultModel;
         }
 

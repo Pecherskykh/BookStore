@@ -1,6 +1,8 @@
-﻿using BookStore.BusinessLogic.Extensions;
+﻿using BookStore.BusinessLogic.Common.Constants;
+using BookStore.BusinessLogic.Extensions;
 using BookStore.BusinessLogic.Models.Authors;
 using BookStore.BusinessLogic.Models.Base;
+using BookStore.BusinessLogic.Services.BaseService;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Repositories.Interfaces;
@@ -11,41 +13,32 @@ using System.Threading.Tasks;
 
 namespace BookStore.BusinessLogic.Services
 {
-    class AuthorService : IAuthorService
+    public class AuthorService : BaseService<Author, IAuthorRepository>, IAuthorService
     {
-        private readonly IAuthorRepository _authorRepository;
-
-        public AuthorService(IAuthorRepository authorRepository)
+        public AuthorService(IAuthorRepository _baseEFRepository) : base(_baseEFRepository)
         {
-            _authorRepository = authorRepository;
         }
 
-        public async Task<BaseModel> CreateAsync(Author author)
+        public async Task<AuthorModelItem> FindByIdAsync(long authorId)
         {
-            await _authorRepository.CreateAsync(author);
-            return new BaseModel();
+            var resultModel = new AuthorModelItem();
+            var author = await _baseEFRepository.FindByIdAsync(authorId);
+            if (author == null)
+            {
+                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                return resultModel;
+            }
+            return author.Mapping();
         }
 
-        public async Task<Author> FindByIdAsync(long authorId)
+        public async Task Find(BaseModel aut)
         {
-            return await _authorRepository.FindByIdAsync(authorId);
-        }
-
-        public async Task<BaseModel> UpdateAsync(Author author)
-        {
-            await _authorRepository.UpdateAsync(author);
-            return new BaseModel();
-        }
-
-        public async Task<BaseModel> DeleteAsync(Author author)
-        {
-            await _authorRepository.RemoveAsync(author);
-            return new BaseModel();
+            var abc = (AuthorModelItem)aut;
         }
 
         public async Task<AuthorModel> GetAuthorsAsync()
         {
-            var authors = await _authorRepository.GetAuthorsAsync();
+            var authors = await _baseEFRepository.GetAuthorsAsync();
             var resultModel = new AuthorModel();
             foreach (var author in authors)
             {

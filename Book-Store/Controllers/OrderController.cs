@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookStore.BusinessLogic.Models.Authors;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Models.OrdersFilterModel;
 using Microsoft.AspNetCore.Mvc;
@@ -30,9 +31,9 @@ namespace BookStore.Controllers
                 OrderStatus = OrderStatus.Unpaid,
                 PageCount = 1,
                 PageSize = 10
-            };
-            var authorModel = await _orderService.GetOrdersAsync(ordersFilterModel);
-            return Ok(authorModel);
+            };            
+            var ordersModel = await _orderService.GetOrdersAsync(ordersFilterModel);
+            return Ok(ordersModel);
         }
     }
 }

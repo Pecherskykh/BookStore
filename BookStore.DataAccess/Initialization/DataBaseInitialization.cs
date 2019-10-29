@@ -12,8 +12,7 @@ namespace BookStore.DataAccess.Initialization
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<Role> _roleManager;
         private readonly ApplicationContext _applicationContext;
-        public ApplicationContext Context { get { return _applicationContext; } }
-        public UserManager<ApplicationUser> UserManager { get { return _userManager; } }
+
         public DataBaseInitialization(UserManager<ApplicationUser> userManager, RoleManager<Role> roleManager, ApplicationContext applicationContext)
         {
             _userManager = userManager;
@@ -102,12 +101,12 @@ namespace BookStore.DataAccess.Initialization
             }
             PrintingEdition printingEdition = new PrintingEdition
             {
-                Title = "Title5",
+                /*Title = "Title5",
                 Description = "Description",
                 Price = 40,
                 Status = "Status",
                 Currency = "Currency",
-                Type = "Type"
+                Type = "Type"*/
             };
             _applicationContext.PrintingEditions.Add(printingEdition);
             _applicationContext.SaveChanges();
@@ -155,11 +154,11 @@ namespace BookStore.DataAccess.Initialization
 
         public void InitializationOrderItem()
         {
-            List<OrderItem> orders = new List<OrderItem>()
+            /*List<OrderItem> orders = new List<OrderItem>()
             {
-                new OrderItem
+                /*new OrderItem
                 {
-                    Amount = 78,
+                    /*Amount = 78,
                     Currency = "USD",
                     Count = 7,
                     PrintingEditionId = 7,
@@ -198,7 +197,7 @@ namespace BookStore.DataAccess.Initialization
             {
                 _applicationContext.OrderItems.Add(order);
             }
-            _applicationContext.SaveChanges();
+            _applicationContext.SaveChanges();*/
         }
     }
 }

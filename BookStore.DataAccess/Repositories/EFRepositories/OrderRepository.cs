@@ -18,18 +18,20 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
     {
         public OrderRepository(ApplicationContext applicationContext) : base(applicationContext)
         {
+
         }        
 
         public async Task<IEnumerable<OrderModelItem>> GetOrdersAsync(OrdersFilterModel ordersFilterModel)
         {
             var orders = from order in _applicationContext.Orders join orderItem in _applicationContext.OrderItems on order.Id equals orderItem.OrderId
                                    join printingEdition in _applicationContext.PrintingEditions on orderItem.PrintingEditionId equals printingEdition.Id
+                                   join user in _applicationContext.Users on order.UserId equals user.Id
                                    select new OrderModelItem
                                    {
                                        Id = order.Id,
                                        Date = order.CreationDate,
-                                       UserName = _applicationContext.Users.Where(u => u.Id == order.UserId).Select(u => u.UserName).FirstOrDefault(),
-                                       UserEmail = _applicationContext.Users.Where(u => u.Id == order.UserId).Select(u => u.UserName).FirstOrDefault(),
+                                       UserName = user.UserName,
+                                       UserEmail = user.Email,
                                        Product = printingEdition.Type,
                                        Title = printingEdition.Title,
                                        Qty = orderItem.Count,

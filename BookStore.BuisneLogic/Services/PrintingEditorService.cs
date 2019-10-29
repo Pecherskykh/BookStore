@@ -7,21 +7,34 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using BookStore.DataAccess.Entities.Enums;
+using BookStore.BusinessLogic.Services.BaseService;
+using BookStore.BusinessLogic.Models.Orders;
+using BookStore.BusinessLogic.Common.Constants;
 
 namespace BookStore.BusinessLogic.Services
 {
-    public class PrintingEditorService : IPrintingEditorService
+    public class PrintingEditorService : BaseService<PrintingEdition, IPrintingEditionRepository>, IPrintingEditorService
     {
-        private readonly IPrintingEditionRepository _printingEditionRepository;
-
-        public PrintingEditorService(IPrintingEditionRepository printingEditionRepository)
+        public PrintingEditorService(IPrintingEditionRepository _baseEFRepository) : base(_baseEFRepository)
         {
-            _printingEditionRepository = printingEditionRepository;
+        }
+
+        public async Task<PrintingEditionModelItem> FindByIdAsync(long printingEditionId)
+        {
+            var resultModel = new PrintingEditionModelItem();
+            var printingEdition = await _baseEFRepository.FindByIdAsync(printingEditionId);
+            if (printingEdition == null)
+            {
+                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                return resultModel;
+            }
+            return printingEdition.Mapping();
         }
 
         public async Task<PrintingEditionModel> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels)
         {
-            var printingEditions = await _printingEditionRepository.GetPrintingEditionsAsync(printingEditionsFilterModels);
+            var printingEditions = await _baseEFRepository.GetPrintingEditionsAsync(printingEditionsFilterModels);
             var resultModel = new PrintingEditionModel();
             foreach (var printingEdition in printingEditions)
             {

@@ -1,7 +1,9 @@
 ﻿using BookStore.BusinessLogic.Models.Authors;
+using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Models.Orders;
 using BookStore.BusinessLogic.Models.PrintingEditions;
 using BookStore.BusinessLogic.Models.Users;
+using BookStore.DataAccess.Entities.Base;
 using BookStore.DataAccess.Entities.Enums;
 using System;
 using System.Collections.Generic;
@@ -23,6 +25,18 @@ namespace BookStore.BusinessLogic.Extensions
             };
         }
 
+        public static PrintingEditionModelItem Mapping(this PrintingEdition printingEditionModelItem)
+        {
+            return new PrintingEditionModelItem()
+            {
+                Id = printingEditionModelItem.Id,
+                Title = printingEditionModelItem.Title,
+                Description = printingEditionModelItem.Description,
+                Price = printingEditionModelItem.Price,
+                Type = printingEditionModelItem.Type,
+            };
+        }
+
         public static PrintingEditionModelItem Mapping(this BookStore.DataAccess.Models.PrintingEditions.PrintingEditionModelItem printingEditionModelItem)
         {
             return new PrintingEditionModelItem()
@@ -36,6 +50,15 @@ namespace BookStore.BusinessLogic.Extensions
             };
         }
 
+        public static AuthorModelItem Mapping(this Author author)
+        {
+            return new AuthorModelItem()
+            {
+                Id = author.Id,
+                Name = author.Name
+            };
+        }
+
         public static AuthorModelItem Mapping(this BookStore.DataAccess.Models.Authors.AuthorModelItem author)
         {
             return new AuthorModelItem()
@@ -43,6 +66,15 @@ namespace BookStore.BusinessLogic.Extensions
                 Id = author.Id,
                 Name = author.Name,
                 PrintingEditions = author.PrintingEditions
+            };
+        }
+
+        public static OrderModelItem Mapping(this Order order)
+        {
+            return new OrderModelItem()
+            {
+                Id = order.Id,
+                Date = order.CreationDate,
             };
         }
 

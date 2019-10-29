@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BookStore.BusinessLogic.Models.Enums
+namespace BookStore.DataAccess.Entities.Enums
 {
     public partial class Enums
     {
-        public class CurrencyEnums
+        public class CurrencyEnum
         {
             public enum Currencys
             {

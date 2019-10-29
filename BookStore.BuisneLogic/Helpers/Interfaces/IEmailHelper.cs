@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BookStore.BusinessLogic.Helpers.Interfaces
 {
     public interface IEmailHelper
     {
-        void Send(string message);
+        Task Send(string email, string message);
     }
 }
