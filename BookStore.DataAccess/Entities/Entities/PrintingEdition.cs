@@ -15,6 +15,6 @@ namespace BookStore.DataAccess.Entities.Enums
         public Currencys Currency { get; set; }
         public string Type { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }
-        public ICollection<AuthorInPrintingEdition> AuthorInPrintingEditions { get; set; }
+        //public ICollection<AuthorInPrintingEdition> AuthorInPrintingEditions { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Linq;
 using System.Collections.Generic;
 using BookStore.DataAccess.Entities;
+using static BookStore.DataAccess.Entities.Enums.Enums.RoleEnums;
 
 namespace BookStore.DataAccess.Initialization
 {
@@ -32,8 +33,8 @@ namespace BookStore.DataAccess.Initialization
         {
             var roles = new List<Role>()
             {
-                new Role{Name = "Admin"},
-                new Role{Name = "User"}
+                new Role{Name = RoleEnum.Admin.ToString(),},
+                new Role{Name = RoleEnum.User.ToString()}
             };
 
             foreach (var role in roles)
@@ -55,7 +56,7 @@ namespace BookStore.DataAccess.Initialization
             var result = _userManager.CreateAsync(admin).GetAwaiter().GetResult();
             if (result.Succeeded)
             {
-                _userManager.AddToRoleAsync(admin, "Admin").GetAwaiter().GetResult();
+                _userManager.AddToRoleAsync(admin, RoleEnum.Admin.ToString()).GetAwaiter().GetResult();
             }
         }
 
@@ -86,8 +87,10 @@ namespace BookStore.DataAccess.Initialization
                     //new AuthorInPrintingEdition { AuthorId = 4, PrintingEditionId = 1 }
                 };
 
-                foreach (AuthorInPrintingEdition authorInPrintingEdition in authorInPrintingEditions)
-                    _applicationContext.AuthorInPrintingEditions.Add(authorInPrintingEdition);
+            foreach (AuthorInPrintingEdition authorInPrintingEdition in authorInPrintingEditions)
+            {
+                _applicationContext.AuthorInPrintingEditions.Add(authorInPrintingEdition);
+            }
                 _applicationContext.SaveChanges();
 
         }

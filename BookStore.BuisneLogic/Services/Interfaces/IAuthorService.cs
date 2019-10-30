@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace BookStore.BusinessLogic.Services.Interfaces
 {
-    public interface IAuthorService : IBaseService<Author, IAuthorRepository>
+    public interface IAuthorService : IBaseService<AuthorModelItem>
     {
-        Task Find(BaseModel aut);
-        Task<AuthorModelItem> FindByIdAsync(long authorId);
         Task<AuthorModel> GetAuthorsAsync();
     }
 }

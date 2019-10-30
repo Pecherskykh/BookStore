@@ -8,6 +8,7 @@ using BookStore.BusinessLogic.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BookStore.BusinessLogic.Models.Base;
+using BookStore.BusinessLogic.Models.Users;
 
 namespace BookStore.Controllers
 {
@@ -44,9 +45,14 @@ namespace BookStore.Controllers
         }
 
         [HttpGet("register")]
-        public async Task<IActionResult> Register()
+        public async Task<IActionResult> Register(UserModelItem user)
         {
-            await _accountService.Register();
+            /*var user = new ApplicationUser
+            {
+                UserName = "Name",
+                Email = "oleksandr.pecherskikh@gmail.com"
+            };*/
+            await _accountService.Register(user);
             return Ok(new BaseModel());
         }
 

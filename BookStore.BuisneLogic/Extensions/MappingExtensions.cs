@@ -25,6 +25,18 @@ namespace BookStore.BusinessLogic.Extensions
             };
         }
 
+        public static ApplicationUser Mapping(this UserModelItem user)
+        {
+            return new ApplicationUser()
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Email = user.Email,
+                LastName = user.LastName,
+                FirstName = user.FirstName
+            };
+        }
+
         public static PrintingEditionModelItem Mapping(this PrintingEdition printingEditionModelItem)
         {
             return new PrintingEditionModelItem()
@@ -37,6 +49,16 @@ namespace BookStore.BusinessLogic.Extensions
             };
         }
 
+        public static List<AuthorModelItem> Mapping(this ICollection<BookStore.DataAccess.Models.Authors.AuthorModelItem> authorModelItems)
+        {
+            List<AuthorModelItem> a = new List<AuthorModelItem>();
+            foreach(BookStore.DataAccess.Models.Authors.AuthorModelItem authorModelItem in authorModelItems)
+            {
+                a.Add(authorModelItem.Mapping());
+            }
+            return a;
+        }
+
         public static PrintingEditionModelItem Mapping(this BookStore.DataAccess.Models.PrintingEditions.PrintingEditionModelItem printingEditionModelItem)
         {
             return new PrintingEditionModelItem()
@@ -46,7 +68,31 @@ namespace BookStore.BusinessLogic.Extensions
                 Description = printingEditionModelItem.Description,
                 Price = printingEditionModelItem.Price,
                 Type = printingEditionModelItem.Type,
-                AuthorsNames = printingEditionModelItem.AuthorsNames
+                Authors = new AuthorModel()
+                {
+                    Items = printingEditionModelItem.Authors.Mapping()
+                }
+            };
+        }
+
+        public static PrintingEdition Mapping(this PrintingEditionModelItem printingEditionModelItem)
+        {
+            return new PrintingEdition()
+            {
+                Id = printingEditionModelItem.Id,
+                Title = printingEditionModelItem.Title,
+                Description = printingEditionModelItem.Description,
+                Price = printingEditionModelItem.Price,
+                Type = printingEditionModelItem.Type,
+            };
+        }
+
+        public static AuthorInPrintingEdition Mapping(this PrintingEditionModelItem printingEditionModelItem, AuthorModelItem authorModelItem)
+        {
+            return new AuthorInPrintingEdition()
+            {
+                AuthorId = authorModelItem.Id,
+                PrintingEditionId = printingEditionModelItem.Id
             };
         }
 
@@ -69,6 +115,15 @@ namespace BookStore.BusinessLogic.Extensions
             };
         }
 
+        public static Author Mapping(this AuthorModelItem author)
+        {
+            return new Author()
+            {
+                Id = author.Id,
+                Name = author.Name
+            };
+        }
+
         public static OrderModelItem Mapping(this Order order)
         {
             return new OrderModelItem()
@@ -88,9 +143,19 @@ namespace BookStore.BusinessLogic.Extensions
                 UserEmail = order.UserEmail,
                 Product = order.Product,
                 Title = order.Title,
-                Qty = order.Qty,
+                Quantity = order.Quantity,
                 OrderAmount = order.OrderAmount,
                 Status = order.Status
+            };
+        }
+
+        public static Order Mapping(this OrderModelItem order)
+        {
+            return new Order()
+            {
+                Description = order.Description,
+                PaymentId = order.PaymentId,
+                UserId = order.UserId
             };
         }
     }

@@ -5,10 +5,9 @@ using BookStore.DataAccess.Models.Orders;
 using BookStore.DataAccess.Models.OrdersFilterModel;
 using BookStore.DataAccess.Repositories.Base;
 using BookStore.DataAccess.Repositories.Interfaces;
-using System;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using static BookStore.DataAccess.Models.Enums.Enums.OrdersFilterEnums;
 
@@ -34,54 +33,38 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
                                        UserEmail = user.Email,
                                        Product = printingEdition.Type,
                                        Title = printingEdition.Title,
-                                       Qty = orderItem.Count,
+                                       Quantity = orderItem.Count,
                                        OrderAmount = orderItem.Amount,
                                        Status = printingEdition.Status
                                    };
-            orders = await OrderBy(orders, ordersFilterModel.SortBy, ordersFilterModel.SortingDirection == SortingDirection.LowToHigh);
+            orders = OrderBy(orders, ordersFilterModel.SortType, ordersFilterModel.SortingDirection == SortingDirection.LowToHigh);
 
             orders = orders.Skip((ordersFilterModel.PageCount - 1) * ordersFilterModel.PageSize).Take(ordersFilterModel.PageSize);
 
-            return orders;
+            return await orders.ToListAsync();
         }
 
-        private async Task<IQueryable<OrderModelItem>> OrderBy(IQueryable<OrderModelItem> orders, SortBy sortBy, bool lowToHigh)
+        private IQueryable<OrderModelItem> OrderBy(IQueryable<OrderModelItem> orders, SortType sortType, bool lowToHigh)
         {
-            if (sortBy == SortBy.Id)
+            if (sortType == SortType.Id)
             {
                 return orders.OrderDirection(i => i.Id, lowToHigh);
             }
-            if (sortBy == SortBy.Date)
+            if (sortType == SortType.Date)
             {
                 return orders.OrderDirection(d => d.Date, lowToHigh);
             }
-            if (sortBy == SortBy.UserName)
+            if (sortType == SortType.UserName)
             {
                 return orders.OrderDirection(n => n.UserName, lowToHigh);
             }
-            if (sortBy == SortBy.UserEmail)
+            if (sortType == SortType.UserEmail)
             {
                 return orders.OrderDirection(e => e.UserEmail, lowToHigh);
-            }
-            if (sortBy == SortBy.Product)
-            {
-                return orders.OrderDirection(p => p.Product, lowToHigh);
-            }
-            if (sortBy == SortBy.Title)
-            {
-                return orders.OrderDirection(t => t.Title, lowToHigh);
-            }
-            if (sortBy == SortBy.Qty)
-            {
-                return orders.OrderDirection(q => q.Qty, lowToHigh);
-            }            
-            if (sortBy == SortBy.OrderAmount)
+            }           
+            if (sortType == SortType.OrderAmount)
             {
                 return orders.OrderDirection(o => o.OrderAmount, lowToHigh);
-            }
-            if (sortBy == SortBy.Status)
-            {
-                return orders.OrderDirection(s => s.Status, lowToHigh);
             }
             return orders;
         }

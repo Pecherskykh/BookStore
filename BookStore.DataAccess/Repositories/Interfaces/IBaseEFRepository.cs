@@ -11,7 +11,7 @@ namespace BookStore.DataAccess.Repositories.Interfaces
         Task<IEnumerable<TEntity>> GetAsync();
         IEnumerable<TEntity> Get(Func<TEntity, bool> predicate);
         Task<TEntity> FindByIdAsync(long id);
-        Task CreateAsync(TEntity item);
+        Task<long> CreateAsync(TEntity item);
         Task UpdateAsync(TEntity item);
         Task RemoveAsync(TEntity item);
     }

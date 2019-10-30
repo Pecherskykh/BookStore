@@ -65,16 +65,6 @@ namespace BookStore.BusinessLogic.Services
             return user.Mapping();
         }
 
-        public async Task<BaseModel> CreateAsync(ApplicationUser user)
-        {
-            var resultModel = new BaseModel();
-            var result = await _userRepository.CreateAsync(user);
-            if (!result)
-            {
-                resultModel.Errors.Add("some error"); //from consts
-            }
-            return resultModel;
-        }
 
         private async Task<Role> CheckRoleAsync(long userId)
         {
@@ -86,26 +76,23 @@ namespace BookStore.BusinessLogic.Services
             await _userRepository.AddRoleAsync(userId, role);
         }*/
 
-        public async Task RemoveAsync(ApplicationUser user)
+        public async Task RemoveAsync(UserModelItem user)
         {
-            await _userRepository.RemoveAsync(user);
+            await _userRepository.RemoveAsync(user.Mapping());
         }
 
-        public async Task<BaseModel> Register()
+        public async Task<BaseModel> Register(UserModelItem user)
         {
             var resultModel = new BaseModel();
-            var user = new ApplicationUser
-            { 
-                UserName = "Name",
-                Email = "oleksandr.pecherskikh@gmail.com"
-            };
-            var result = await _userRepository.CreateAsync(user);
+            var applicationUser = user.Mapping();
+
+            var result = await _userRepository.CreateAsync(applicationUser);
             if (!result)
             {
                 resultModel.Errors.Add("Const");
                 return resultModel;
             }
-            string token = await _userRepository.GenerateEmailConfirmationTokenAsync(user);
+            string token = await _userRepository.GenerateEmailConfirmationTokenAsync(applicationUser);
             await _emailHelper.Send(user.Email, string.Format("Confirm the registration by clicking on the link: <a href='http://localhost:52976/api/account/confirmEmail?userId={0}&token={1}'>link</a>", user.Id, token));
             return resultModel;
         }
@@ -145,14 +132,14 @@ namespace BookStore.BusinessLogic.Services
             return resultModel;
         }
 
-        public async Task<bool> CheckUserAsync(ApplicationUser user, string password, bool lockoutOnFailure)
+        public async Task<bool> CheckUserAsync(UserModelItem user, string password, bool lockoutOnFailure)
         {
-            return await _userRepository.CheckUserAsync(user, password, lockoutOnFailure);
+            return await _userRepository.CheckUserAsync(user.Mapping(), password, lockoutOnFailure);
         }
 
-        public async Task SignInAsync(ApplicationUser user, bool isPersistent)
+        public async Task SignInAsync(UserModelItem user, bool isPersistent)
         {
-            await _userRepository.SignInAsync(user, isPersistent);
+            await _userRepository.SignInAsync(user.Mapping(), isPersistent);
         }
     }
 }

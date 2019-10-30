@@ -1,4 +1,5 @@
-﻿using BookStore.BusinessLogic.Models.Base;
+﻿using BookStore.BusinessLogic.Models.Authors;
+using BookStore.BusinessLogic.Models.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,6 +13,6 @@ namespace BookStore.BusinessLogic.Models.PrintingEditions
         public string Description { get; set; }
         public int Price { get; set; }
         public string Type { get; set; }
-        public ICollection<string> AuthorsNames { get; set; }
+        public AuthorModel Authors { get; set; }
     }
 }

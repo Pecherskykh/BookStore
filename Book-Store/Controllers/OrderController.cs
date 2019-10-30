@@ -26,7 +26,7 @@ namespace BookStore.Controllers
         {
             var ordersFilterModel = new OrdersFilterModel
             {
-                SortBy = SortBy.UserName,
+                SortType = SortType.UserName,
                 SortingDirection = SortingDirection.HighToLow,
                 OrderStatus = OrderStatus.Unpaid,
                 PageCount = 1,

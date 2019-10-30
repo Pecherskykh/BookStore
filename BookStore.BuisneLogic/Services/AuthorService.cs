@@ -13,16 +13,19 @@ using System.Threading.Tasks;
 
 namespace BookStore.BusinessLogic.Services
 {
-    public class AuthorService : BaseService<Author, IAuthorRepository>, IAuthorService
+    class AuthorService : IAuthorService
     {
-        public AuthorService(IAuthorRepository _baseEFRepository) : base(_baseEFRepository)
+        private readonly IAuthorRepository _authorRepository;
+
+        public AuthorService(IAuthorRepository authorRepository)
         {
+            _authorRepository = authorRepository;
         }
 
         public async Task<AuthorModelItem> FindByIdAsync(long authorId)
         {
             var resultModel = new AuthorModelItem();
-            var author = await _baseEFRepository.FindByIdAsync(authorId);
+            var author = await _authorRepository.FindByIdAsync(authorId);
             if (author == null)
             {
                 resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
@@ -31,14 +34,26 @@ namespace BookStore.BusinessLogic.Services
             return author.Mapping();
         }
 
-        public async Task Find(BaseModel aut)
+        public async Task<long> CreateAsync(AuthorModelItem author)
         {
-            var abc = (AuthorModelItem)aut;
+            return await _authorRepository.CreateAsync(author.Mapping());
+        }
+
+        public async Task<BaseModel> UpdateAsync(AuthorModelItem author)
+        {
+            await _authorRepository.UpdateAsync(author.Mapping());
+            return new BaseModel();
+        }
+
+        public async Task<BaseModel> RemoveAsync(AuthorModelItem author)
+        {
+            await _authorRepository.RemoveAsync(author.Mapping());
+            return new BaseModel();
         }
 
         public async Task<AuthorModel> GetAuthorsAsync()
         {
-            var authors = await _baseEFRepository.GetAuthorsAsync();
+            var authors = await _authorRepository.GetAuthorsAsync();
             var resultModel = new AuthorModel();
             foreach (var author in authors)
             {

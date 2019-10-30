@@ -9296,9 +9296,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Anuitex-180\\Desktop\\Book-Store\\Book-Store\\BookStore.csproj",
-      "projectName": "BookStore",
-      "projectPath": "C:\\Users\\Anuitex-180\\Desktop\\Book-Store\\Book-Store\\BookStore.csproj",
+      "projectUniqueName": "C:\\Users\\Anuitex-180\\Desktop\\Book-Store\\Book-Store\\BookStore.Presentation.csproj",
+      "projectName": "BookStore.Presentation",
+      "projectPath": "C:\\Users\\Anuitex-180\\Desktop\\Book-Store\\Book-Store\\BookStore.Presentation.csproj",
       "packagesPath": "C:\\Users\\Anuitex-180\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Anuitex-180\\Desktop\\Book-Store\\Book-Store\\obj\\",
       "projectStyle": "PackageReference",

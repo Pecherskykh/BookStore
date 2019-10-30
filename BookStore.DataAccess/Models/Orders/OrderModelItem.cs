@@ -12,7 +12,7 @@ namespace BookStore.DataAccess.Models.Orders
         public string UserEmail { get; set; }
         public string Product { get; set; }
         public string Title { get; set; }
-        public long Qty { get; set; }
+        public long Quantity { get; set; }
         public long OrderAmount { get; set; }
         public string Status { get; set; }
     }

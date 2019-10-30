@@ -1,6 +1,7 @@
 ﻿using BookStore.DataAccess.AppContext;
 using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Extensions;
+using BookStore.DataAccess.Models.Authors;
 using BookStore.DataAccess.Models.PrintingEditions;
 using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using BookStore.DataAccess.Repositories.Base;
@@ -44,14 +45,18 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
                                        Price = printingEdition.Price,
                                        Description = printingEdition.Description,
                                        Type = printingEdition.Type,
-                                       AuthorsNames = (from authorInPrintingEdition in _applicationContext.AuthorInPrintingEditions
+                                       Authors = (from authorInPrintingEdition in _applicationContext.AuthorInPrintingEditions
                                                      join author in _applicationContext.Authors on authorInPrintingEdition.AuthorId equals author.Id
                                                      where (authorInPrintingEdition.PrintingEditionId == printingEdition.Id)
-                                                     select author.Name).ToArray()
+                                                     select new AuthorModelItem
+                                                     {
+                                                         Id = author.Id,
+                                                         Name = author.Name
+                                                     }).ToArray()
                                    };
 
 
-            printingEditions = await OrderBy(printingEditions, printingEditionsFilterModel.SortBy, printingEditionsFilterModel.SortingDirection == SortingDirection.LowToHigh);
+            printingEditions = OrderBy(printingEditions, printingEditionsFilterModel.SortType, printingEditionsFilterModel.SortingDirection == SortingDirection.LowToHigh);
 
             printingEditions = printingEditions.Where(p => p.Price >= printingEditionsFilterModel.MinPrice && p.Price <= printingEditionsFilterModel.MaxPrice);
             
@@ -60,29 +65,29 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             return printingEditions;
         }
 
-        private async Task<IQueryable<PrintingEditionModelItem>> OrderBy(IQueryable<PrintingEditionModelItem> printingEditions, SortBy sortBy, bool lowToHigh)
+        private IQueryable<PrintingEditionModelItem> OrderBy(IQueryable<PrintingEditionModelItem> printingEditions, SortType sortType, bool lowToHigh)
         {
-            if (sortBy == SortBy.Author)
+            if (sortType == SortType.Author)
             {
                 return printingEditions.OrderDirection(a => a.Description, lowToHigh);
             }
-            if (sortBy == SortBy.Category)
+            if (sortType == SortType.Category)
             {
                 return printingEditions.OrderDirection(c => c.Type, lowToHigh);
             }
-            if (sortBy == SortBy.Discription)
+            if (sortType == SortType.Discription)
             {
                 return printingEditions.OrderDirection(d => d.Description, lowToHigh);
             }
-            if (sortBy == SortBy.Id)
+            if (sortType == SortType.Id)
             {
                 return printingEditions.OrderDirection(i => i.Id, lowToHigh);
             }
-            if (sortBy == SortBy.Name)
+            if (sortType == SortType.Name)
             {
                 return printingEditions.OrderDirection(t => t.Title, lowToHigh);
             }
-            if (sortBy == SortBy.Price)
+            if (sortType == SortType.Price)
             {
                 return printingEditions.OrderDirection(p => p.Price, lowToHigh);
             }

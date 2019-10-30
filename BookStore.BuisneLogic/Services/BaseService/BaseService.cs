@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.BusinessLogic.Services.BaseService
 {
-    public class BaseService<TEntity, IBaseEFRepository> : IBaseService<TEntity, IBaseEFRepository> where IBaseEFRepository : IBaseEFRepository<TEntity> where TEntity : BaseEntity
+    /*public class BaseService<TEntity, IBaseEFRepository> : IBaseService<TEntity, IBaseEFRepository> where IBaseEFRepository : IBaseEFRepository<TEntity> where TEntity : BaseEntity
     {
         protected readonly IBaseEFRepository _baseEFRepository;
 
@@ -39,5 +39,5 @@ namespace BookStore.BusinessLogic.Services.BaseService
             await _baseEFRepository.RemoveAsync(tEntity);
             return new BaseModel();
         }
-    }
+    }*/
 }

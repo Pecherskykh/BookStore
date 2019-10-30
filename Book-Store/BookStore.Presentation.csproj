@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <RootNamespace>BookStore</RootNamespace>
-    <AssemblyName>BookStore</AssemblyName>
+    <RootNamespace>BookStore.Presentation</RootNamespace>
+    <AssemblyName>BookStore.Presentation</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

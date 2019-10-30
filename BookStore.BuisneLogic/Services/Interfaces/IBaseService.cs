@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 
 namespace BookStore.BusinessLogic.Services.Interfaces
 {
-    public interface IBaseService<TEntity, IBaseEFRepository> where IBaseEFRepository : IBaseEFRepository<TEntity> where TEntity : BaseEntity
+    public interface IBaseService<Model> where Model : BaseModel
     {
-        Task<BaseModel> CreateAsync(TEntity item);
-        Task<BaseModel> UpdateAsync(TEntity item);
-        Task<BaseModel> RemoveAsync(TEntity item);
+        Task<Model> FindByIdAsync(long modelId);
+        Task<long> CreateAsync(Model model);
+        Task<BaseModel> UpdateAsync(Model model);
+        Task<BaseModel> RemoveAsync(Model model);
     }
 }

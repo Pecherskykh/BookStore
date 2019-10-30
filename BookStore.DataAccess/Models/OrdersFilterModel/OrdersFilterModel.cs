@@ -9,7 +9,7 @@ namespace BookStore.DataAccess.Models.OrdersFilterModel
     public class OrdersFilterModel : BaseModel
     {
         public SortingDirection SortingDirection { get; set; }
-        public SortBy SortBy { get; set; }
+        public SortType SortType { get; set; }
         public OrderStatus OrderStatus { get; set; }
     }
 }

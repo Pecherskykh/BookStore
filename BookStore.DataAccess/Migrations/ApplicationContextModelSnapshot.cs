@@ -120,10 +120,7 @@ namespace BookStore.DataAccess.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("int");
-
-                    b.Property<long?>("AuthorId1")
+                    b.Property<long>("AuthorId")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationDate")
@@ -132,17 +129,10 @@ namespace BookStore.DataAccess.Migrations
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");
 
-                    b.Property<int>("PrintingEditionId")
-                        .HasColumnType("int");
-
-                    b.Property<long?>("PrintingEditionId1")
+                    b.Property<long>("PrintingEditionId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AuthorId1");
-
-                    b.HasIndex("PrintingEditionId1");
 
                     b.ToTable("AuthorInPrintingEditions");
                 });
@@ -195,8 +185,8 @@ namespace BookStore.DataAccess.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Currency")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Currency")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");
@@ -253,8 +243,8 @@ namespace BookStore.DataAccess.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Currency")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Currency")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -407,17 +397,6 @@ namespace BookStore.DataAccess.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("BookStore.DataAccess.Entities.Enums.AuthorInPrintingEdition", b =>
-                {
-                    b.HasOne("BookStore.DataAccess.Entities.Enums.Author", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId1");
-
-                    b.HasOne("BookStore.DataAccess.Entities.Enums.PrintingEdition", "PrintingEdition")
-                        .WithMany("AuthorInPrintingEditions")
-                        .HasForeignKey("PrintingEditionId1");
                 });
 
             modelBuilder.Entity("BookStore.DataAccess.Entities.Enums.Order", b =>
