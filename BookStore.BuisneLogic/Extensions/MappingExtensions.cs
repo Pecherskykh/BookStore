@@ -1,5 +1,6 @@
 ﻿using BookStore.BusinessLogic.Models.Authors;
 using BookStore.BusinessLogic.Models.Base;
+using BookStore.BusinessLogic.Models.OrderItems;
 using BookStore.BusinessLogic.Models.Orders;
 using BookStore.BusinessLogic.Models.PrintingEditions;
 using BookStore.BusinessLogic.Models.Users;
@@ -42,6 +43,7 @@ namespace BookStore.BusinessLogic.Extensions
             return new PrintingEditionModelItem()
             {
                 Id = printingEditionModelItem.Id,
+                IsRemoved = printingEditionModelItem.IsRemoved,
                 Title = printingEditionModelItem.Title,
                 Description = printingEditionModelItem.Description,
                 Price = printingEditionModelItem.Price,
@@ -80,6 +82,7 @@ namespace BookStore.BusinessLogic.Extensions
             return new PrintingEdition()
             {
                 Id = printingEditionModelItem.Id,
+                IsRemoved = printingEditionModelItem.IsRemoved,
                 Title = printingEditionModelItem.Title,
                 Description = printingEditionModelItem.Description,
                 Price = printingEditionModelItem.Price,
@@ -91,8 +94,8 @@ namespace BookStore.BusinessLogic.Extensions
         {
             return new AuthorInPrintingEdition()
             {
-                AuthorId = authorModelItem.Id,
-                PrintingEditionId = printingEditionModelItem.Id
+                AuthorId = (int)authorModelItem.Id,
+                PrintingEditionId = (int)printingEditionModelItem.Id
             };
         }
 
@@ -146,6 +149,18 @@ namespace BookStore.BusinessLogic.Extensions
                 Quantity = order.Quantity,
                 OrderAmount = order.OrderAmount,
                 Status = order.Status
+            };
+        }
+
+        public static OrderItem Mapping(this OrderItemModelItem orderItem)
+        {
+            return new OrderItem()
+            {
+                Amount = orderItem.Amount,
+                Currency = orderItem.Currency,
+                Count = orderItem.Count,
+                OrderId = (int)orderItem.OrderId,
+                PrintingEditionId = (int)orderItem.PrintingEditionId
             };
         }
 

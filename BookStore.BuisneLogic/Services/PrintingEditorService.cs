@@ -12,6 +12,7 @@ using BookStore.BusinessLogic.Services.BaseService;
 using BookStore.BusinessLogic.Models.Orders;
 using BookStore.BusinessLogic.Common.Constants;
 using BookStore.BusinessLogic.Models.Base;
+using System.Linq;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -42,6 +43,7 @@ namespace BookStore.BusinessLogic.Services
         {
 
             printingEdition.Id = await _printingEditionRepository.CreateAsync(printingEdition.Mapping());
+
             foreach (var author in printingEdition.Authors.Items)
             {
                 await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Mapping(author));
@@ -52,25 +54,26 @@ namespace BookStore.BusinessLogic.Services
         public async Task<BaseModel> UpdateAsync(PrintingEditionModelItem printingEdition)
         {
             await _printingEditionRepository.UpdateAsync(printingEdition.Mapping());
-
             var authorInPrintingEditions = await _authorInPrintingEditionRepository.GetAuthorInPrintingEditionsAsync(printingEdition.Id);
-
-            foreach (var authorInPrintingEdition in authorInPrintingEditions)
-            {
-                await _authorInPrintingEditionRepository.RemoveAsync(authorInPrintingEdition);
-            }
+            await _authorInPrintingEditionRepository.RemoveRangeAsync(authorInPrintingEditions);
 
             foreach (var author in printingEdition.Authors.Items)
             {
                 await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Mapping(author));
             }
-
             return new BaseModel();
         }
 
         public async Task<BaseModel> RemoveAsync(PrintingEditionModelItem printingEdition)
         {
-            await _printingEditionRepository.RemoveAsync(printingEdition.Mapping());
+            printingEdition.IsRemoved = true;
+            await _printingEditionRepository.UpdateAsync(printingEdition.Mapping());
+            var authorInPrintingEditions = (await _authorInPrintingEditionRepository.GetAuthorInPrintingEditionsAsync(printingEdition.Id)).ToList();
+            foreach (var authorInPrintingEdition in authorInPrintingEditions)
+            {
+                authorInPrintingEdition.IsRemoved = true;
+                await _authorInPrintingEditionRepository.UpdateAsync(authorInPrintingEdition);
+            }
             return new BaseModel();
         }
 

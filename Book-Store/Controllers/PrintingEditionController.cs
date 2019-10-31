@@ -21,6 +21,11 @@ namespace BookStore.Controllers
             _printingEditorService = printingEditorService;
         }
 
+        public async Task<IActionResult> Purchase(PrintingEditionsFilterModel printingEditionsFilterModels)
+        {
+            return Ok();
+        }
+
         [HttpPost("test")]
         public async Task<IActionResult> Test(PrintingEditionsFilterModel printingEditionsFilterModels)
         {
@@ -71,6 +76,29 @@ namespace BookStore.Controllers
                 }
             };
             var printingEditionModel = await _printingEditorService.UpdateAsync(printingEditionsItem);
+            return Ok(printingEditionModel);
+        }
+
+        [HttpPost("remove")]
+        public async Task<IActionResult> Remove(/*PrintingEditionModelItem printingEditionsItem*/)
+        {
+            var printingEditionsItem = new PrintingEditionModelItem()
+            {
+                Id = 13,
+                Title = "New TitleUpdate",
+                Description = "New Description",
+                Price = 1000,
+                Type = "Book",
+                Authors = new AuthorModel()
+                {
+                    Items = new List<AuthorModelItem>()
+                    {
+                        new AuthorModelItem() { Id = 3 },
+                        new AuthorModelItem() { Id = 6 },
+                    }
+                }
+            };
+            var printingEditionModel = await _printingEditorService.RemoveAsync(printingEditionsItem);
             return Ok(printingEditionModel);
         }
     }

@@ -48,7 +48,13 @@ namespace BookStore.DataAccess.Repositories.Base
         }
         public async Task RemoveAsync(TEntity item)
         {
-            _dbSet.Remove(item);
+            var result = _dbSet.Remove(item);
+            await _applicationContext.SaveChangesAsync();
+        }
+
+        public async Task RemoveRangeAsync(IEnumerable<TEntity> item)
+        {
+            _dbSet.RemoveRange(item);
             await _applicationContext.SaveChangesAsync();
         }
     }

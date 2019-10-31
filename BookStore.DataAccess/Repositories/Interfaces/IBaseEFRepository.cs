@@ -14,5 +14,6 @@ namespace BookStore.DataAccess.Repositories.Interfaces
         Task<long> CreateAsync(TEntity item);
         Task UpdateAsync(TEntity item);
         Task RemoveAsync(TEntity item);
+        Task RemoveRangeAsync(IEnumerable<TEntity> item);
     }
 }

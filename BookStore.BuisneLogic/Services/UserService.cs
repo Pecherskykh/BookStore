@@ -46,6 +46,7 @@ namespace BookStore.BusinessLogic.Services
             return user.Mapping();
         }
 
+
         /*public async Task<Role> CheckRoleAsync(long userId)
         {
             return await _userRepository.CheckRoleAsync(userId);

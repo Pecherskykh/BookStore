@@ -81,9 +81,55 @@ namespace BookStore.DataAccess.Initialization
                 {
                     new AuthorInPrintingEdition 
                     { 
-                        AuthorId = 9, 
-                        PrintingEditionId = 12
+                        AuthorId = 3, 
+                        PrintingEditionId = 1
                     },
+                    new AuthorInPrintingEdition
+                    {
+                        AuthorId = 3,
+                        PrintingEditionId = 7
+                    },
+                    new AuthorInPrintingEdition
+                    {
+                        AuthorId = 6,
+                        PrintingEditionId = 11
+                    },
+                    new AuthorInPrintingEdition
+                    {
+                        AuthorId = 7,
+                        PrintingEditionId = 9
+                    },
+                    new AuthorInPrintingEdition
+                    {
+                        AuthorId = 8,
+                        PrintingEditionId = 8
+                    },
+                    new AuthorInPrintingEdition
+                    {
+                        AuthorId = 9,
+                        PrintingEditionId = 8
+                    },
+                    new AuthorInPrintingEdition
+                    {
+                        AuthorId = 9,
+                        PrintingEditionId = 10
+                    },
+
+                    /*new AuthorInPrintingEdition
+                    {
+                        AuthorId = 3,
+                        PrintingEditionId = 13
+                    },
+                    new AuthorInPrintingEdition
+                    {
+                        AuthorId = 6,
+                        PrintingEditionId = 13
+                    },
+                    new AuthorInPrintingEdition
+                    {
+                        AuthorId = 7,
+                        PrintingEditionId = 13
+                    },*/
                     //new AuthorInPrintingEdition { AuthorId = 4, PrintingEditionId = 1 }
                 };
 

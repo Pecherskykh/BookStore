@@ -1,6 +1,7 @@
 ﻿using BookStore.BusinessLogic.Common.Constants;
 using BookStore.BusinessLogic.Extensions;
 using BookStore.BusinessLogic.Models.Base;
+using BookStore.BusinessLogic.Models.Cart;
 using BookStore.BusinessLogic.Models.Orders;
 using BookStore.BusinessLogic.Services.BaseService;
 using BookStore.BusinessLogic.Services.Interfaces;
@@ -14,10 +15,14 @@ namespace BookStore.BusinessLogic.Services
     public class OrderService : IOrderService
     {
         private readonly IOrderRepository _orderRepository;
+        private readonly IOrderItemRepository _orderItemRepository;
+        private readonly IPaymentRepository _paymentItemRepository;
 
-        public OrderService(IOrderRepository orderRepository)
+        public OrderService(IOrderRepository orderRepository, IOrderItemRepository orderItemRepository, IPaymentRepository paymentItemRepository)
         {
             _orderRepository = orderRepository;
+            _orderItemRepository = orderItemRepository;
+            _paymentItemRepository = paymentItemRepository;
         }
 
         public async Task<OrderModelItem> FindByIdAsync(long orderId)
@@ -32,10 +37,31 @@ namespace BookStore.BusinessLogic.Services
             return order.Mapping();
         }
 
+        public async Task<long> CreateAsync(Cart cart)
+        {
+            var payment = new Payment()
+            {
+                TransactionId = (int)cart.TransactionId
+            };
+            var paymentId = await _paymentItemRepository.CreateAsync(payment);
+            var order = new Order()
+            {
+                Description = cart.Description,
+                PaymentId = (int)paymentId,
+                UserId = (int)cart.userId
+            };
+            var orderId = await _orderRepository.CreateAsync(order);
+            foreach (var orderItems in cart.OrderItemModel.Items)
+            {
+                orderItems.OrderId = orderId;
+                await _orderItemRepository.CreateAsync(orderItems.Mapping());
+            }
+            return orderId;
+        }
+
         public async Task<long> CreateAsync(OrderModelItem order)
         {
-
-            return await _orderRepository.CreateAsync(order.Mapping());
+            return 0;
         }
 
         public async Task<BaseModel> UpdateAsync(OrderModelItem order)

@@ -8562,3 +8562,1847 @@ Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT [a].[Id], [a].[CreationDate], [a].[IsRemoved], [a].[Name]
 FROM [Authors] AS [a]
 WHERE [a].[Id] = CAST(7 AS bigint)
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.0395ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 100.83290000000001ms
+Request finished in 293.6336ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[CreationDate], [a].[IsRemoved], [a].[Name]
+FROM [Authors] AS [a]
+WHERE [a].[Id] = CAST(7 AS bigint)
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 70.8475ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 88.4033ms
+Request finished in 264.7153ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE [a].[Id] = CAST(7 AS bigint)
+An exception occurred while iterating over the results of a query for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.Int64'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int64()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt64(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE [a].[Id] = CAST(7 AS bigint)
+An exception occurred while iterating over the results of a query for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.Int64'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int64()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt64(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE [a].[Id] = CAST(7 AS bigint)
+An exception occurred while iterating over the results of a query for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.Int64'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int64()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt64(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed ViewResult - view Index executed in 86.4582ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 104.4119ms
+Request finished in 296.89410000000004ms 200 text/html; charset=utf-8
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE [a].[Id] = CAST(7 AS bigint)
+An exception occurred while iterating over the results of a query for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.Int64'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int64()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt64(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE [a].[Id] = CAST(7 AS bigint)
+An exception occurred while iterating over the results of a query for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.Int64'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int64()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt64(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
+Executed action BookStore.Controllers.PrintingEditionController.Update (BookStore.Presentation) in 121802.2973ms
+Error
+Request finished in 122106.14580000001ms 200 
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE [a].[Id] = CAST(7 AS bigint)
+An exception occurred while iterating over the results of a query for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.Int64'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int64()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt64(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed ViewResult - view Index executed in 102.8168ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 123.4993ms
+Request finished in 311.8851ms 200 text/html; charset=utf-8
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE [a].[Id] = CAST(7 AS bigint)
+An exception occurred while iterating over the results of a query for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.Int64'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int64()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt64(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 88.3668ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 106.2488ms
+Request finished in 286.7182ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE [a].[Id] = CAST(7 AS bigint)
+An exception occurred while iterating over the results of a query for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.Int64'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int64()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt64(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed ViewResult - view Index executed in 92.971ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 113.5262ms
+Request finished in 354.4298ms 200 text/html; charset=utf-8
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE [a].[Id] = CAST(7 AS bigint)
+An exception occurred while iterating over the results of a query for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.Int64'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int64()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt64(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 108.6494ms.
+Executed ViewResult - view Index executed in 109.0856ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 178.5128ms
+Request finished in 422.4918ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+LEFT JOIN (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0], [a].[PrintingEditionId]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON [a].[AuthorId] = [a0].[Id]
+) AS [t] ON [p].[Id] = [t].[PrintingEditionId]
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.9608ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 102.94630000000001ms
+Request finished in 298.4518ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 80.2274ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 98.3319ms
+Request finished in 282.8722ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE [a].[IsRemoved] = CAST(0 AS bit)
+An exception occurred while iterating over the results of a query for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.Int64'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int64()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt64(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 81.82480000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 100.84750000000001ms
+Request finished in 296.13730000000004ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.7753ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 103.4396ms
+Request finished in 276.7284ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE ([a].[PrintingEditionId] = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+An exception occurred while iterating over the results of a query for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.Int64'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int64()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt64(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.1615ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 103.0022ms
+Request finished in 293.0102ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 85.2838ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 107.3626ms
+Request finished in 309.1429ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE ([a].[PrintingEditionId] = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+An exception occurred while iterating over the results of a query for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.Int64'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int64()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt64(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 86.87140000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 105.8408ms
+Request finished in 289.1478ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[AuthorId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE ([a].[PrintingEditionId] = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+An exception occurred while iterating over the results of a query for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.Int64'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Int64()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetInt64(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.QueryingEnumerable`1.Enumerator.MoveNext()
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 122.22080000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 149.8467ms
+Request finished in 412.65540000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[AuthorId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.1549ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 141.1813ms
+Request finished in 330.1881ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+An exception occurred in the database while saving changes for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): New transaction is not allowed because there are other threads running in the session.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+ClientConnectionId:9842bfb4-e86c-4d55-8aae-53c9dea671f2
+Error Number:3988,State:1,Class:16
+Executed action BookStore.Controllers.PrintingEditionController.Update (BookStore.Presentation) in 24690.1902ms
+Error
+Request finished in 24867.508ms 200 
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 78.3193ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 97.1037ms
+Request finished in 290.1164ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+An exception occurred in the database while saving changes for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): New transaction is not allowed because there are other threads running in the session.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+ClientConnectionId:7e37d585-c326-49fe-8be7-d4ef8926e2d0
+Error Number:3988,State:1,Class:16
+Executed action BookStore.Controllers.PrintingEditionController.Update (BookStore.Presentation) in 89807.19170000001ms
+Error
+Request finished in 89971.67240000001ms 200 
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+An exception occurred in the database while saving changes for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): New transaction is not allowed because there are other threads running in the session.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+ClientConnectionId:7e37d585-c326-49fe-8be7-d4ef8926e2d0
+Error Number:3988,State:1,Class:16
+Executed action BookStore.Controllers.PrintingEditionController.Update (BookStore.Presentation) in 16493.9597ms
+Error
+Request finished in 16623.8789ms 200 
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.17020000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 100.96470000000001ms
+Request finished in 272.3157ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+An exception occurred in the database while saving changes for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): New transaction is not allowed because there are other threads running in the session.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+ClientConnectionId:3844fa80-0bf4-4399-9790-54b1bb302264
+Error Number:3988,State:1,Class:16
+Executed action BookStore.Controllers.PrintingEditionController.Update (BookStore.Presentation) in 49127.8332ms
+Error
+Request finished in 49281.8259ms 200 
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 77.8407ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 96.1855ms
+Request finished in 286.9277ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+An exception occurred in the database while saving changes for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): New transaction is not allowed because there are other threads running in the session.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+ClientConnectionId:4f9c47c4-8a8e-4848-8804-e31f7f8193f4
+Error Number:3988,State:1,Class:16
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+Executed action BookStore.Controllers.PrintingEditionController.Update (BookStore.Presentation) in 88350.88990000001ms
+Error
+Request finished in 88511.93980000001ms 200 
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.66590000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 98.2942ms
+Request finished in 298.8011ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 80.9043ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 100.2363ms
+Request finished in 319.8038ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+An exception occurred in the database while saving changes for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): New transaction is not allowed because there are other threads running in the session.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+ClientConnectionId:0f14fa86-0d79-4356-89f3-e3d886f88f6d
+Error Number:3988,State:1,Class:16
+Executed action BookStore.Controllers.PrintingEditionController.Update (BookStore.Presentation) in 341975.8983ms
+Error
+Request finished in 342148.61600000004ms 200 
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.0505ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 101.16770000000001ms
+Request finished in 289.03270000000003ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+An exception occurred in the database while saving changes for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): New transaction is not allowed because there are other threads running in the session.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+ClientConnectionId:7cab9814-54e6-4ad5-8dd0-81df432914d3
+Error Number:3988,State:1,Class:16
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 77.0886ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 95.29780000000001ms
+Request finished in 262.988ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+An exception occurred in the database while saving changes for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): New transaction is not allowed because there are other threads running in the session.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+ClientConnectionId:c28efd9b-430f-4864-9d24-cc8d3afd60a8
+Error Number:3988,State:1,Class:16
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.0627ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 103.2047ms
+Request finished in 302.8866ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AuthorInPrintingEditions]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 81.2399ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 100.0143ms
+Request finished in 299.7269ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AuthorInPrintingEditions]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AuthorInPrintingEditions]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AuthorInPrintingEditions] ([AuthorId], [CreationDate], [IsRemoved], [PrintingEditionId])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [AuthorInPrintingEditions]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AuthorInPrintingEditions] ([AuthorId], [CreationDate], [IsRemoved], [PrintingEditionId])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [AuthorInPrintingEditions]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Base.BaseModel'.
+Executed action BookStore.Controllers.PrintingEditionController.Update (BookStore.Presentation) in 65116.777400000006ms
+Request finished in 65167.06340000001ms 200 application/json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 80.0639ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 99.6699ms
+Request finished in 270.20050000000003ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/update  0
+Route matched with {action = "Update", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 80.0451ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 97.9205ms
+Request finished in 278.6523ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/remove  0
+Route matched with {action = "Remove", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Remove() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+An exception occurred in the database while saving changes for context type 'BookStore.DataAccess.AppContext.ApplicationContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): New transaction is not allowed because there are other threads running in the session.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso)
+   at Microsoft.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+ClientConnectionId:4e084a49-0581-499f-a331-863b6dbd444a
+Error Number:3988,State:1,Class:16
+Executed action BookStore.Controllers.PrintingEditionController.Remove (BookStore.Presentation) in 37372.220700000005ms
+Error
+Request finished in 37543.769ms 200 
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 102.9439ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 125.82350000000001ms
+Request finished in 393.72130000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/remove  0
+Route matched with {action = "Remove", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Remove() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p8='?' (DbType = Int64), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [PrintingEditions] SET [CreationDate] = @p0, [Currency] = @p1, [Description] = @p2, [IsRemoved] = @p3, [Price] = @p4, [Status] = @p5, [Title] = @p6, [Type] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@__printingEditionId_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[AuthorId], [a].[CreationDate], [a].[IsRemoved], [a].[PrintingEditionId]
+FROM [AuthorInPrintingEditions] AS [a]
+WHERE (CAST([a].[PrintingEditionId] AS bigint) = @__printingEditionId_0) AND @__printingEditionId_0 IS NOT NULL
+Executing DbCommand [Parameters=[@p4='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AuthorInPrintingEditions] SET [AuthorId] = @p0, [CreationDate] = @p1, [IsRemoved] = @p2, [PrintingEditionId] = @p3
+WHERE [Id] = @p4;
+SELECT @@ROWCOUNT;
+Executing DbCommand [Parameters=[@p4='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AuthorInPrintingEditions] SET [AuthorId] = @p0, [CreationDate] = @p1, [IsRemoved] = @p2, [PrintingEditionId] = @p3
+WHERE [Id] = @p4;
+SELECT @@ROWCOUNT;
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Base.BaseModel'.
+Executed action BookStore.Controllers.PrintingEditionController.Remove (BookStore.Presentation) in 52638.496ms
+Request finished in 52696.4164ms 200 application/json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 91.6042ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 110.23660000000001ms
+Request finished in 287.1701ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/remove  0
+Route matched with {action = "Remove", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Remove() on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 100.17530000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 132.9538ms
+Request finished in 369.7952ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/test text/plain 141
+Route matched with {action = "Test", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test() on controller BookStore.Controllers.OrderController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 85.4113ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 107.3816ms
+Request finished in 283.1594ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 77.92410000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 95.9384ms
+Request finished in 290.4771ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 81.8426ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 103.4607ms
+Request finished in 293.2046ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 86.32910000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 103.7351ms
+Request finished in 287.2388ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 102.28840000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 123.80130000000001ms
+Request finished in 310.8208ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 86.8037ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 113.4865ms
+Request finished in 290.50190000000003ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 76.3612ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 94.05250000000001ms
+Request finished in 264.2387ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 80.64540000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 99.9761ms
+Request finished in 324.627ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 93.747ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 143.6331ms
+Request finished in 440.6705ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 78.3889ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 96.04480000000001ms
+Request finished in 284.1098ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 76.47800000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 97.99390000000001ms
+Request finished in 284.9164ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 82.24600000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 102.6443ms
+Request finished in 289.5779ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.1276ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 102.9564ms
+Request finished in 276.9576ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 82.6431ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 102.7166ms
+Request finished in 307.3741ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 88.55940000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 105.8245ms
+Request finished in 306.11560000000003ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 76.738ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 94.4038ms
+Request finished in 282.1615ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 86.8095ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 105.04950000000001ms
+Request finished in 283.2853ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.4317ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 109.6658ms
+Request finished in 304.47610000000003ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.2921ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 96.73910000000001ms
+Request finished in 279.56100000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 74.686ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 92.7702ms
+Request finished in 258.5038ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 86.6479ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 104.3508ms
+Request finished in 272.8489ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.798ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 101.9362ms
+Request finished in 274.2033ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.PrintingEditions.PrintingEditionModel'.
+Executed action BookStore.Controllers.PrintingEditionController.Test (BookStore.Presentation) in 15258.6514ms
+Request finished in 15315.42ms 200 application/json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 85.62910000000001ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 104.1888ms
+Request finished in 317.93710000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 87.5257ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 104.4056ms
+Request finished in 277.6166ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/test application/json 150
+Route matched with {action = "Test", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Test(BookStore.DataAccess.Models.PrintingEditionsFilterModels.PrintingEditionsFilterModel) on controller BookStore.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Executing DbCommand [Parameters=[@__ToString_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+OUTER APPLY (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON CAST([a].[AuthorId] AS bigint) = [a0].[Id]
+    WHERE CAST([a].[PrintingEditionId] AS bigint) = [p].[Id]
+) AS [t]
+WHERE (([p].[Type] = @__ToString_0) AND ([p].[Type] IS NOT NULL AND @__ToString_0 IS NOT NULL)) OR ([p].[Type] IS NULL AND @__ToString_0 IS NULL)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.6995ms.
+Executed action BookStore.Controllers.HomeController.Index (BookStore.Presentation) in 97.3079ms
+Request finished in 276.11830000000003ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/create  0
+Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller BookStore.Controllers.OrderController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Boolean), @p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Payments] ([CreationDate], [IsRemoved], [TransactionId])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [Payments]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Orders] ([ApplicationUserId], [CreationDate], [Description], [IsRemoved], [PaymentId], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+SELECT [Id]
+FROM [Orders]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Boolean), @p5='?' (DbType = Int32), @p6='?' (DbType = Int64), @p7='?' (DbType = Int32), @p8='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [OrderItems] ([Amount], [Count], [CreationDate], [Currency], [IsRemoved], [OrderId], [OrderId1], [PrintingEditionId], [PrintingEditionId1])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [Id]
+FROM [OrderItems]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();

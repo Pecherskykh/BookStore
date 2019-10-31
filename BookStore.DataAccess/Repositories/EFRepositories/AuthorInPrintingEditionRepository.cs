@@ -12,15 +12,14 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 {
     public class AuthorInPrintingEditionRepository : BaseEFRepository<AuthorInPrintingEdition>, IAuthorInPrintingEditionRepository
     {
+        
         public AuthorInPrintingEditionRepository(ApplicationContext applicationContext) : base(applicationContext)
         {
         }
 
         public async Task<IEnumerable<AuthorInPrintingEdition>> GetAuthorInPrintingEditionsAsync(long printingEditionId)
         {
-            var a = _applicationContext.Authors.Where(authorInPrintingEdition => authorInPrintingEdition.Id == 7);
-
-            return _applicationContext.AuthorInPrintingEditions.Where(authorInPrintingEdition => authorInPrintingEdition.Id == 7);
+            return _applicationContext.AuthorInPrintingEditions.Where(a => a.PrintingEditionId == printingEditionId);
         }
     }
 }
