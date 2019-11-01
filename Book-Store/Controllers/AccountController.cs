@@ -3,14 +3,14 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using BookStore.Helper.Interface;
 using BookStore.BusinessLogic.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Models.Users;
+using BookStore.Presentation.Helper.Interface;
 
-namespace BookStore.Controllers
+namespace BookStore.Presentation.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -68,17 +68,6 @@ namespace BookStore.Controllers
             return Ok(await _accountService.ForgotPassword("oleksandr.pecherskikh@gmail.com"));
         }
         
-        //public async Task<IActionResult> CheckJwtToken(string accessToken, string refreshToken)
-        //{
-        //    var expiresAccess = new JwtSecurityTokenHandler().ReadToken(accessToken).ValidTo;
-
-        //    if (expiresAccess < DateTime.Now)
-        //    {
-        //        await RefreshToken(refreshToken);
-        //    }
-        //    return Ok();
-        //}
-
         public async Task<IActionResult> RefreshToken(string refreshToken)
         {
             var expires = new JwtSecurityTokenHandler().ReadToken(refreshToken).ValidTo; //check token from jwtHelper

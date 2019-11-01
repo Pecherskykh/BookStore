@@ -15,5 +15,10 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         public OrderItemRepository(ApplicationContext applicationContext) : base(applicationContext)
         {
         }
+
+        public async Task<IEnumerable<OrderItem>> GetOrdersItemAsync(long OrderId)
+        {
+            return _applicationContext.OrderItems.Where(o => o.OrderId == OrderId);
+        }
     }
 }

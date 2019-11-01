@@ -8,7 +8,7 @@ using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookStore.Controllers
+namespace BookStore.Presentation.Controllers
 {
     //[Autorize(Role = "Admin")]
     [ApiController]

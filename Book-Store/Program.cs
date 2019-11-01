@@ -4,14 +4,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
-using BookStore.Helper;
 using BookStore.DataAccess.Initialization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace BookStore
+namespace BookStore.Presentation
 {
     public class Program
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookStore.Helper
+namespace BookStore.Presentation.Helper
 {
     public class TokenModel
     {

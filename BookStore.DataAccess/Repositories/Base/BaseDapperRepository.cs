@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BookStore.DataAccess.Repositories.Base
 {
-    class BaseDapperRepository
+    public class BaseDapperRepository
     {
     }
 }

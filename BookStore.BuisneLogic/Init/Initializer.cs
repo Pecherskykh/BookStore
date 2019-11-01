@@ -42,10 +42,6 @@ namespace BookStore.BusinessLogic.Init
             services.AddTransient<IPaymentRepository, PaymentRepository>();
             services.AddTransient<IPrintingEditionRepository, PrintingEditionRepository>();
             services.AddTransient<IAuthorInPrintingEditionRepository, AuthorInPrintingEditionRepository>();
-            services.AddTransient<IBaseEFRepository<Author>, BaseEFRepository<Author>>();
-            services.AddTransient<IBaseEFRepository<PrintingEdition>, BaseEFRepository<PrintingEdition>>();
-            services.AddTransient<IBaseEFRepository<Order>, BaseEFRepository<Order>>();
-            //IBaseEFRepository<Author>
 
             services.AddTransient<IAccountServise, AccountService>();            
             services.AddTransient<IUserService, UserService>();

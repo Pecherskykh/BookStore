@@ -12,6 +12,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using static BookStore.DataAccess.Entities.Enums.Enums;
 using static BookStore.DataAccess.Models.Enums.Enums.PrintingEditionsFilterEnums;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
@@ -23,46 +24,30 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         {
         }
 
-        public async Task<IEnumerable<PrintingEditionModelItem>> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModel)
-        {
-            var categories = new List<Categories>()
+        public async Task<IEnumerable<PrintingEditionModelItem>> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModel, List<TypePrintingEditionEnum.Type> categories)
+        {            
+            var printingEditions = from printingEdition in _applicationContext.PrintingEditions where printingEdition.IsRemoved == false
+                                   select new PrintingEditionModelItem
+                                   {
+                                       Id = printingEdition.Id,
+                                       Title = printingEdition.Title,
+                                       Price = printingEdition.Price,
+                                       Description = printingEdition.Description,
+                                       Type = printingEdition.Type,
+                                       Authors = (from authorInPrintingEdition in _applicationContext.AuthorInPrintingEditions
+                                                  join author in _applicationContext.Authors on authorInPrintingEdition.AuthorId equals author.Id
+                                                  where (authorInPrintingEdition.PrintingEditionId == printingEdition.Id)
+                                                  select new AuthorModelItem
+                                                  {
+                                                      Id = author.Id,
+                                                      Name = author.Name
+                                                  }).ToArray()
+                                   };
+            var allCategories = (Enum.GetValues(typeof(TypePrintingEditionEnum.Type))).OfType<TypePrintingEditionEnum.Type>().ToList();
+            allCategories = allCategories.Where(x => !categories.Contains(x)).ToList();
+            foreach (var categoty in allCategories)
             {
-                Categories.Books,
-                Categories.Newspaper
-            };
-            /*var printingEditions = (from a in _applicationContext.AuthorInPrintingEditions
-                         join p in _applicationContext.PrintingEditions on a.PrintingEditionId equals p.Id
-                         join aut in _applicationContext.Authors on a.AuthorId equals aut.Id
-                            select new {
-                                PrintingEditionId = p.Id,
-                                Title = p.Title,
-                                Price = p.Price, 
-                                Type = p.Type, 
-                                Name = aut.Name
-                            }).ToArray();*/
-
-            var printingEditions = Enumerable.Empty<PrintingEditionModelItem>().AsQueryable();
-
-            foreach (Categories category in categories)
-            {
-                printingEditions = Enumerable.Concat(printingEditions, from printingEdition in _applicationContext.PrintingEditions
-                                                                       where printingEdition.Type == category.ToString()
-                                                                       select new PrintingEditionModelItem
-                                                                       {
-                                                                           Id = printingEdition.Id,
-                                                                           Title = printingEdition.Title,
-                                                                           Price = printingEdition.Price,
-                                                                           Description = printingEdition.Description,
-                                                                           Type = printingEdition.Type,
-                                                                           Authors = (from authorInPrintingEdition in _applicationContext.AuthorInPrintingEditions
-                                                                                      join author in _applicationContext.Authors on authorInPrintingEdition.AuthorId equals author.Id
-                                                                                      where (authorInPrintingEdition.PrintingEditionId == printingEdition.Id)
-                                                                                      select new AuthorModelItem
-                                                                                      {
-                                                                                          Id = author.Id,
-                                                                                          Name = author.Name
-                                                                                      }).ToArray()
-                                                                       }).AsQueryable();
+                printingEditions = printingEditions.Where(x => x.Type != categoty);
             }
 
             printingEditions = OrderBy(printingEditions, printingEditionsFilterModel.SortType, printingEditionsFilterModel.SortingDirection == SortingDirection.LowToHigh);

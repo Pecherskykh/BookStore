@@ -1,9 +1,9 @@
-﻿using BookStore.Models.UesrsFilterModel.Enums;
+﻿using BookStore.Presentation.Models.UesrsFilterModel.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BookStore.Models.UesrsFilterModel
+namespace BookStore.Presentation.Models.UesrsFilterModel
 {
     public class UsersFilter
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using BookStore.DataAccess.Entities.Base;
 using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
@@ -13,6 +14,8 @@ namespace BookStore.DataAccess.Entities.Enums
         public int Count { get; set; }
         public int PrintingEditionId { get; set; }
         public PrintingEdition PrintingEdition { get; set; }
+
+        [ForeignKey("OrderId")]
         public int OrderId { get; set; }
         public Order Order { get; set; }
     }

@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
 using static BookStore.DataAccess.Models.Enums.Enums.OrdersFilterEnums;
 
-namespace BookStore.Controllers
+namespace BookStore.Presentation.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

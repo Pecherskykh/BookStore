@@ -4,19 +4,19 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Book_Store.Middlewaren;
-using Microsoft.Extensions.Hosting;
+
 using Microsoft.Extensions.Logging;
 using BookStore.BusinessLogic.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using BookStore.Helper;
-using BookStore.Controllers;
-using BookStore.Helper.Interface;
+
 using System;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using BookStore.Presentation.Helper;
+using BookStore.Presentation.Helper.Interface;
+using BookStore.Presentation.Middlewaren;
 
-namespace BookStore
+namespace BookStore.Presentation
 {
     public class Startup
     {

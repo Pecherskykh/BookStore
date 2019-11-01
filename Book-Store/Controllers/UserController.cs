@@ -10,7 +10,7 @@ using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using BookStore.DataAccess.Models.UesrsFilterModel;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookStore.Controllers
+namespace BookStore.Presentation.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

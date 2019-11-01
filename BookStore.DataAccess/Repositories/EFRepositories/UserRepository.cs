@@ -19,7 +19,6 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ApplicationContext _applicationContext;
-        //public UserManager<ApplicationUser> UserManager { get { return _userManager; } }
 
         public UserRepository(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationContext applicationContext)
         {
@@ -122,7 +121,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
         public async Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilterModel usersFilter)
         {
-            var users = _applicationContext.Users.AsQueryable(); //get only isn't removed
+            var users = _applicationContext.Users.Where(u => u.IsRemoved == false).AsQueryable(); //get only isn't removed
             if (!string.IsNullOrWhiteSpace(usersFilter.SearchString)) //to lowercase
             {
                 users = users.Where(u => u.UserName.ToLower().Equals(usersFilter.SearchString.ToLower()));

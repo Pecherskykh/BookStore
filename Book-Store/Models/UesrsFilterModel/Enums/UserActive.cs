@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BookStore.Models.UesrsFilterModel.Enums
+namespace BookStore.Presentation.Models.UesrsFilterModel.Enums
 {
     public enum UserActive
     {

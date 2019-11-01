@@ -4,7 +4,7 @@ using System;
 using System.Threading.Tasks;
 using BookStore.BusinessLogic.Common;
 
-namespace Book_Store.Middlewaren
+namespace BookStore.Presentation.Middlewaren
 {
     public sealed class ExceptionHandlerMiddleware
     {

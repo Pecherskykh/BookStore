@@ -1,5 +1,4 @@
-﻿using BookStore.Helper.Interface;
-using BookStore.DataAccess.Entities.Enums;
+﻿using BookStore.DataAccess.Entities.Enums;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -7,8 +6,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BookStore.BusinessLogic.Models.Users;
+using BookStore.Presentation.Helper.Interface;
 
-namespace BookStore.Helper
+namespace BookStore.Presentation.Helper
 {
     public class JwtHelper : IJwtHelper
     {

@@ -19,7 +19,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
         public async Task<IEnumerable<AuthorModelItem>> GetAuthorsAsync()
         {
-            var Authors = from author in _applicationContext.Authors
+            var Authors = from author in _applicationContext.Authors where author.IsRemoved == false
                           select new AuthorModelItem
                           {
                               Id = author.Id,

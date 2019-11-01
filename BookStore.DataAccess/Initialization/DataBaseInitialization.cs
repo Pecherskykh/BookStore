@@ -5,6 +5,8 @@ using System.Linq;
 using System.Collections.Generic;
 using BookStore.DataAccess.Entities;
 using static BookStore.DataAccess.Entities.Enums.Enums.RoleEnums;
+using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
+using static BookStore.DataAccess.Entities.Enums.Enums;
 
 namespace BookStore.DataAccess.Initialization
 {
@@ -150,12 +152,12 @@ namespace BookStore.DataAccess.Initialization
             }
             PrintingEdition printingEdition = new PrintingEdition
             {
-                /*Title = "Title5",
+                Title = "Title5",
                 Description = "Description",
                 Price = 40,
                 Status = "Status",
-                Currency = "Currency",
-                Type = "Type"*/
+                Currency = Currencys.UAH,
+                Type = TypePrintingEditionEnum.Type.Books
             };
             _applicationContext.PrintingEditions.Add(printingEdition);
             _applicationContext.SaveChanges();

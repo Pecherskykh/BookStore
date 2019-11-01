@@ -14,10 +14,6 @@ namespace BookStore.BusinessLogic.Services.Interfaces
     {
         Task<BaseModel> CreateAsync(ApplicationUser user);
         Task<UserModelItem> FindByIdAsync(string userId);
-
-        //Task<Role> CheckRoleAsync(long userId);
-        //Task AddRoleAsync(long userId, string role);
-
         Task<bool> UpdateAsync(ApplicationUser user);
         Task RemoveAsync(ApplicationUser user);
         Task<UserModel> GetUsersAsync(UsersFilterModel usersFilter);

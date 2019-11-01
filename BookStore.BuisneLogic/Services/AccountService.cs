@@ -55,11 +55,6 @@ namespace BookStore.BusinessLogic.Services
             {
                 resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
             }
-            /*var result = await CheckUserAsync(user, "pass");
-            if (!result)
-            {
-                //resturn errors
-            }*/
             var role = await CheckRoleAsync(user.Id);
             resultModel.Role = role.Name;
             return user.Mapping();

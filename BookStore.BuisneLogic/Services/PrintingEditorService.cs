@@ -8,11 +8,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using BookStore.DataAccess.Entities.Enums;
-using BookStore.BusinessLogic.Services.BaseService;
 using BookStore.BusinessLogic.Models.Orders;
 using BookStore.BusinessLogic.Common.Constants;
 using BookStore.BusinessLogic.Models.Base;
 using System.Linq;
+using static BookStore.DataAccess.Entities.Enums.Enums;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -77,9 +77,9 @@ namespace BookStore.BusinessLogic.Services
             return new BaseModel();
         }
 
-        public async Task<PrintingEditionModel> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels)
+        public async Task<PrintingEditionModel> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels, List<TypePrintingEditionEnum.Type> categories)
         {
-            var printingEditions = await _printingEditionRepository.GetPrintingEditionsAsync(printingEditionsFilterModels);
+            var printingEditions = await _printingEditionRepository.GetPrintingEditionsAsync(printingEditionsFilterModels, categories);
             var resultModel = new PrintingEditionModel();
             foreach (var printingEdition in printingEditions)
             {

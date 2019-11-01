@@ -3,11 +3,11 @@ using BookStore.BusinessLogic.Extensions;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Models.Cart;
 using BookStore.BusinessLogic.Models.Orders;
-using BookStore.BusinessLogic.Services.BaseService;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Models.OrdersFilterModel;
 using BookStore.DataAccess.Repositories.Interfaces;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BookStore.BusinessLogic.Services
@@ -16,13 +16,13 @@ namespace BookStore.BusinessLogic.Services
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IOrderItemRepository _orderItemRepository;
-        private readonly IPaymentRepository _paymentItemRepository;
+        private readonly IPaymentRepository _paymentRepository;
 
-        public OrderService(IOrderRepository orderRepository, IOrderItemRepository orderItemRepository, IPaymentRepository paymentItemRepository)
+        public OrderService(IOrderRepository orderRepository, IOrderItemRepository orderItemRepository, IPaymentRepository paymentRepository)
         {
             _orderRepository = orderRepository;
             _orderItemRepository = orderItemRepository;
-            _paymentItemRepository = paymentItemRepository;
+            _paymentRepository = paymentRepository;
         }
 
         public async Task<OrderModelItem> FindByIdAsync(long orderId)
@@ -43,7 +43,7 @@ namespace BookStore.BusinessLogic.Services
             {
                 TransactionId = (int)cart.TransactionId
             };
-            var paymentId = await _paymentItemRepository.CreateAsync(payment);
+            var paymentId = await _paymentRepository.CreateAsync(payment);
             var order = new Order()
             {
                 Description = cart.Description,
@@ -61,7 +61,7 @@ namespace BookStore.BusinessLogic.Services
 
         public async Task<long> CreateAsync(OrderModelItem order)
         {
-            return 0;
+            return await _orderRepository.CreateAsync(order.Mapping());
         }
 
         public async Task<BaseModel> UpdateAsync(OrderModelItem order)
@@ -72,7 +72,17 @@ namespace BookStore.BusinessLogic.Services
 
         public async Task<BaseModel> RemoveAsync(OrderModelItem order)
         {
-            await _orderRepository.RemoveAsync(order.Mapping());
+            order.IsRemoved = true;
+            await _orderRepository.UpdateAsync(order.Mapping());
+            var payment = await _paymentRepository.FindByIdAsync(order.PaymentId);
+            payment.IsRemoved = true;
+            await _paymentRepository.UpdateAsync(payment);
+            var orderItems = (await _orderItemRepository.GetOrdersItemAsync(order.Id)).ToList();
+            foreach (var orderItem in orderItems)
+            {
+                orderItem.IsRemoved = true;
+                await _orderItemRepository.UpdateAsync(orderItem);
+            }
             return new BaseModel();
         }
 

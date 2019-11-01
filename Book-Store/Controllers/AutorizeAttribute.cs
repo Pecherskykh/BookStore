@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BookStore.Controllers
+namespace BookStore.Presentation.Controllers
 {
     internal class AutorizeAttribute : Attribute
     {
