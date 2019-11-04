@@ -1,13 +1,13 @@
 ﻿using BookStore.DataAccess.AppContext;
 using BookStore.DataAccess.Entities.Enums;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using BookStore.DataAccess.Repositories.Interfaces;
 using BookStore.DataAccess.Repositories.Base;
 using BookStore.DataAccess.Models.Authors;
+using BookStore.DataAccess.Extensions;
+using static BookStore.DataAccess.Models.Enums.Enums;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
@@ -17,9 +17,9 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         {
         }
 
-        public async Task<IEnumerable<AuthorModelItem>> GetAuthorsAsync()
+        public async Task<IEnumerable<AuthorModelItem>> GetAuthorsAsync(SortingDirection sortingDirection)
         {
-            var Authors = from author in _applicationContext.Authors where author.IsRemoved == false
+            var authors = from author in _applicationContext.Authors where author.IsRemoved == false
                           select new AuthorModelItem
                           {
                               Id = author.Id,
@@ -30,7 +30,9 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
                                                   select printingEdition.Title).ToArray()
                           };
 
-            return Authors;
+            authors = authors.OrderDirection(a => a.Id, sortingDirection == SortingDirection.LowToHigh);
+
+            return authors;
         }
     }
 }

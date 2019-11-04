@@ -3,12 +3,8 @@ using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.BusinessLogic.Extensions;
 using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using BookStore.DataAccess.Repositories.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using BookStore.DataAccess.Entities.Enums;
-using BookStore.BusinessLogic.Models.Orders;
 using BookStore.BusinessLogic.Common.Constants;
 using BookStore.BusinessLogic.Models.Base;
 using System.Linq;
@@ -33,7 +29,7 @@ namespace BookStore.BusinessLogic.Services
             var printingEdition = await _printingEditionRepository.FindByIdAsync(printingEditionId);
             if (printingEdition == null)
             {
-                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
             return printingEdition.Mapping();

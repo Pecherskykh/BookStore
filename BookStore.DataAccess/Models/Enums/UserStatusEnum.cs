@@ -2,12 +2,12 @@
 {
     public partial class Enums
     {
-        public partial class OrdersFilterEnums
+        public partial class UserFilterEnums
         {
-            public enum OrderStatus
+            public enum SortType
             {
-                Paid = 1,
-                Unpaid = 2
+                UserName = 1,
+                Email = 2
             }
         }
     }

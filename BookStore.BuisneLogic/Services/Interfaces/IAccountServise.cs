@@ -1,10 +1,5 @@
 ﻿using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Models.Users;
-using BookStore.DataAccess.Entities;
-using BookStore.DataAccess.Entities.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BookStore.BusinessLogic.Services.Interfaces

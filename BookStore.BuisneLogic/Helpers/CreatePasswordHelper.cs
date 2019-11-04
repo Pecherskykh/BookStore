@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using BookStore.BusinessLogic.Common.Constants;
 using System.Text;
 
 namespace BookStore.BusinessLogic.Helpers
@@ -8,12 +8,11 @@ namespace BookStore.BusinessLogic.Helpers
     {
         static public string CreatePassword(int length)
         {
-            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_/*-+.()";
             StringBuilder resuslt = new StringBuilder();
             Random rnd = new Random();
             for (int i = length; i > 0; --i)
             {
-                resuslt.Append(valid[rnd.Next(valid.Length)]);
+                resuslt.Append(Constants.PasswordConstans.Valid[rnd.Next(Constants.PasswordConstans.Valid.Length)]);
             }
             return resuslt.ToString();
         }

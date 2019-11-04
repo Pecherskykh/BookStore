@@ -1,14 +1,10 @@
 ﻿using BookStore.BusinessLogic.Models.Authors;
-using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Models.OrderItems;
 using BookStore.BusinessLogic.Models.Orders;
 using BookStore.BusinessLogic.Models.PrintingEditions;
 using BookStore.BusinessLogic.Models.Users;
-using BookStore.DataAccess.Entities.Base;
 using BookStore.DataAccess.Entities.Enums;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BookStore.BusinessLogic.Extensions
 {
@@ -53,12 +49,12 @@ namespace BookStore.BusinessLogic.Extensions
 
         public static List<AuthorModelItem> Mapping(this ICollection<BookStore.DataAccess.Models.Authors.AuthorModelItem> authorModelItems)
         {
-            List<AuthorModelItem> a = new List<AuthorModelItem>();
+            List<AuthorModelItem> author = new List<AuthorModelItem>();
             foreach(BookStore.DataAccess.Models.Authors.AuthorModelItem authorModelItem in authorModelItems)
             {
-                a.Add(authorModelItem.Mapping());
+                author.Add(authorModelItem.Mapping());
             }
-            return a;
+            return author;
         }
 
         public static PrintingEditionModelItem Mapping(this BookStore.DataAccess.Models.PrintingEditions.PrintingEditionModelItem printingEditionModelItem)
@@ -168,6 +164,8 @@ namespace BookStore.BusinessLogic.Extensions
         {
             return new Order()
             {
+                Id = order.Id,
+                IsRemoved = order.IsRemoved,
                 Description = order.Description,
                 PaymentId = order.PaymentId,
                 UserId = order.UserId

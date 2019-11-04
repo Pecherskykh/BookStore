@@ -31,7 +31,7 @@ namespace BookStore.BusinessLogic.Services
             var order = await _orderRepository.FindByIdAsync(orderId);
             if (order == null)
             {
-                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
             return order.Mapping();

@@ -1,7 +1,5 @@
-﻿
-using BookStore.DataAccess.Entities;
+﻿using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Entities.Enums;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

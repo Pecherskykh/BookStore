@@ -3,14 +3,14 @@ using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Entities.Enums;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using BookStore.DataAccess.Repositories.Interfaces;
 using BookStore.DataAccess.Models.UesrsFilterModel;
 using Microsoft.EntityFrameworkCore;
 using static BookStore.DataAccess.Models.Enums.Enums.UserFilterEnums;
+using BookStore.DataAccess.Extensions;
+using static BookStore.DataAccess.Models.Enums.Enums;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
@@ -134,13 +134,13 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             {
                 users = users.Where(u => !u.LockoutEnabled);
             }
-            if(usersFilter.SortBy == SortBy.UserName)
+            if(usersFilter.SortType == SortType.UserName)
             {
-                users = users.OrderBy(u => u.UserName);
+                users = users.OrderDirection(u => u.UserName, usersFilter.SortingDirection == SortingDirection.LowToHigh);
             }
-            if(usersFilter.SortBy == SortBy.Email)
+            if(usersFilter.SortType == SortType.Email)
             {
-                users = users.OrderBy(u => u.Email);
+                users = users.OrderDirection(u => u.Email, usersFilter.SortingDirection == SortingDirection.LowToHigh);
             }
             users = users.Skip((usersFilter.PageCount - 1) * usersFilter.PageSize).Take(usersFilter.PageSize);
             return await users.ToListAsync();

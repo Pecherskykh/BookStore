@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BookStore.BusinessLogic.Extensions;
+﻿using System.Threading.Tasks;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Models.Users;
 using BookStore.BusinessLogic.Services.Interfaces;
-using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using BookStore.DataAccess.Models.UesrsFilterModel;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,14 +30,21 @@ namespace BookStore.Presentation.Controllers
         [HttpPost("update")]
         public async Task<IActionResult> UpdateAsync(UserModelItem user)
         {
-            await _userService.UpdateAsync(user.Mapping());
+            await _userService.UpdateAsync(user);
+            return Ok(new BaseModel());
+        }
+
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateAsync(UserModelItem user)
+        {
+            await _userService.CreateAsync(user);
             return Ok(new BaseModel());
         }
 
         [HttpPost("remove")]
         public async Task<IActionResult> RemoveAsync(UserModelItem user)
         {
-            await _userService.RemoveAsync(user.Mapping());
+            await _userService.RemoveAsync(user);
             return Ok(new BaseModel());
         }
 

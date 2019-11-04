@@ -6,11 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using Microsoft.Extensions.Logging;
-using BookStore.BusinessLogic.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
-using System;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using BookStore.Presentation.Helper;
 using BookStore.Presentation.Helper.Interface;

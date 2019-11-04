@@ -1,10 +1,7 @@
 ﻿using BookStore.BusinessLogic.Common.Constants;
 using BookStore.BusinessLogic.Helpers.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BookStore.BusinessLogic.Helpers

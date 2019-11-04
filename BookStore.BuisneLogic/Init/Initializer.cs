@@ -6,15 +6,11 @@ using BookStore.DataAccess.AppContext;
 using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Initialization;
-using BookStore.DataAccess.Repositories.Base;
 using BookStore.DataAccess.Repositories.EFRepositories;
 using BookStore.DataAccess.Repositories.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BookStore.BusinessLogic.Init
 {

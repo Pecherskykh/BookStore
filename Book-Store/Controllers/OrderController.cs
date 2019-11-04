@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using BookStore.BusinessLogic.Models.Authors;
 using BookStore.BusinessLogic.Models.Cart;
 using BookStore.BusinessLogic.Models.OrderItems;
+using BookStore.BusinessLogic.Models.Orders;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Models.OrdersFilterModel;
 using Microsoft.AspNetCore.Mvc;
 using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
+using static BookStore.DataAccess.Models.Enums.Enums;
 using static BookStore.DataAccess.Models.Enums.Enums.OrdersFilterEnums;
 
 namespace BookStore.Presentation.Controllers
@@ -40,7 +39,7 @@ namespace BookStore.Presentation.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult> Create(/*OrdersFilterModel ordersFilterModel*/)
+        public async Task<IActionResult> Create()
         {
             var cart = new Cart()
             {
@@ -62,6 +61,20 @@ namespace BookStore.Presentation.Controllers
                 userId = 50,
             };
             var ordersModel = await _orderService.CreateAsync(cart);
+            return Ok(ordersModel);
+        }
+
+        [HttpPost("remove")]
+        public async Task<IActionResult> Remove()
+        {
+            var order = new OrderModelItem()
+            {
+                Id = 12,
+                Description = "Description",
+                PaymentId = 1,
+                UserId = 47
+            };
+            var ordersModel = await _orderService.RemoveAsync(order);
             return Ok(ordersModel);
         }
     }

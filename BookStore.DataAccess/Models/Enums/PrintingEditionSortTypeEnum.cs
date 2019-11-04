@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BookStore.DataAccess.Models.Enums
+﻿namespace BookStore.DataAccess.Models.Enums
 {
     public partial class Enums
     {

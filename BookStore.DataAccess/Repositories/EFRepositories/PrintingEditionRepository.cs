@@ -9,10 +9,9 @@ using BookStore.DataAccess.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 using static BookStore.DataAccess.Entities.Enums.Enums;
+using static BookStore.DataAccess.Models.Enums.Enums;
 using static BookStore.DataAccess.Models.Enums.Enums.PrintingEditionsFilterEnums;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories

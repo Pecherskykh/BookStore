@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Repositories.Interfaces;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Entities;
@@ -31,7 +30,7 @@ namespace BookStore.BusinessLogic.Services
             var user = await _userRepository.FindByIdAsync(userId);
             if (user == null)
             {
-                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
             }
             return user.Mapping();
         }
@@ -42,7 +41,7 @@ namespace BookStore.BusinessLogic.Services
             var user = await _userRepository.FindByEmailAsync(email);
             if (user == null)
             {
-                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
             }
             return user.Mapping();
         }
@@ -53,7 +52,7 @@ namespace BookStore.BusinessLogic.Services
             var user = await _userRepository.FindByNameAsync(userName);
             if (user == null)
             {
-                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
             }
             var role = await CheckRoleAsync(user.Id);
             resultModel.Role = role.Name;
@@ -65,11 +64,6 @@ namespace BookStore.BusinessLogic.Services
         {
             return await _userRepository.CheckRoleAsync(userId);
         }
-
-        /*public async Task AddRoleAsync(long userId, string role)
-        {
-            await _userRepository.AddRoleAsync(userId, role);
-        }*/
 
         public async Task RemoveAsync(UserModelItem user)
         {
@@ -88,7 +82,7 @@ namespace BookStore.BusinessLogic.Services
                 return resultModel;
             }
             string token = await _userRepository.GenerateEmailConfirmationTokenAsync(applicationUser);
-            await _emailHelper.Send(user.Email, string.Format("Confirm the registration by clicking on the link: <a href='http://localhost:52976/api/account/confirmEmail?userId={0}&token={1}'>link</a>", user.Id, token));
+            await _emailHelper.Send(user.Email, string.Format("Confirm the registration by clicking on the link: <a href='" + Constants.EmailConstants.ConfirmEmail + "'>link</a>", user.Id, token));
             return resultModel;
         }
 
@@ -103,7 +97,7 @@ namespace BookStore.BusinessLogic.Services
             var user = await _userRepository.FindByIdAsync(userId);
             if (user == null)
             {
-                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
             await _userRepository.ConfirmEmailAsync(user, token.Replace(" ", "+"));
@@ -116,7 +110,7 @@ namespace BookStore.BusinessLogic.Services
             var user = await _userRepository.FindByEmailAsync(userEmail); //remove hardcode
             if (user == null)
             {
-                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
             var token = await _userRepository.GeneratePasswordResetTokenAsync(user);

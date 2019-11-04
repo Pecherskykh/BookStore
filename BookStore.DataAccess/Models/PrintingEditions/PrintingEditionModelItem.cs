@@ -1,7 +1,5 @@
 ﻿using BookStore.DataAccess.Models.Authors;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using static BookStore.DataAccess.Entities.Enums.Enums;
 
 namespace BookStore.DataAccess.Models.PrintingEditions

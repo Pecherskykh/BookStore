@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BookStore.BusinessLogic.Models.Authors;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Services.Interfaces;
-using BookStore.DataAccess.Entities;
 using Microsoft.AspNetCore.Mvc;
+using static BookStore.DataAccess.Models.Enums.Enums;
 
 namespace BookStore.Presentation.Controllers
 {
-    //[Autorize(Role = "Admin")]
     [ApiController]
     [Route("api/[controller]")]
     public class AuthorController : Controller
@@ -51,9 +47,9 @@ namespace BookStore.Presentation.Controllers
         }
 
         [HttpPost("test")]
-        public async Task<IActionResult> Test()
+        public async Task<IActionResult> Test(SortingDirection sortingDirection)
         {
-            var authorModel = await _authorService.GetAuthorsAsync();
+            var authorModel = await _authorService.GetAuthorsAsync(sortingDirection);
             return Ok(authorModel);
         }
     }

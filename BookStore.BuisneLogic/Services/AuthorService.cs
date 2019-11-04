@@ -3,12 +3,9 @@ using BookStore.BusinessLogic.Extensions;
 using BookStore.BusinessLogic.Models.Authors;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Services.Interfaces;
-using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
+using static BookStore.DataAccess.Models.Enums.Enums;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -27,7 +24,7 @@ namespace BookStore.BusinessLogic.Services
             var author = await _authorRepository.FindByIdAsync(authorId);
             if (author == null)
             {
-                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
             return author.Mapping();
@@ -46,13 +43,14 @@ namespace BookStore.BusinessLogic.Services
 
         public async Task<BaseModel> RemoveAsync(AuthorModelItem author)
         {
-            await _authorRepository.RemoveAsync(author.Mapping());
+            author.IsRemoved = true;
+            await _authorRepository.UpdateAsync(author.Mapping());
             return new BaseModel();
         }
 
-        public async Task<AuthorModel> GetAuthorsAsync()
+        public async Task<AuthorModel> GetAuthorsAsync(SortingDirection sortingDirection)
         {
-            var authors = await _authorRepository.GetAuthorsAsync();
+            var authors = await _authorRepository.GetAuthorsAsync(sortingDirection);
             var resultModel = new AuthorModel();
             foreach (var author in authors)
             {

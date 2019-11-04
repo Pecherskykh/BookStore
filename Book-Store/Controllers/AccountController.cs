@@ -63,9 +63,10 @@ namespace BookStore.Presentation.Controllers
         }
 
         [HttpGet("forgotPassword")]
-        public async Task<IActionResult> ForgotPassword()
+        public async Task<IActionResult> ForgotPassword(string email)
         {
-            return Ok(await _accountService.ForgotPassword("oleksandr.pecherskikh@gmail.com"));
+            //oleksandr.pecherskikh@gmail.com
+            return Ok(await _accountService.ForgotPassword(email));
         }
         
         public async Task<IActionResult> RefreshToken(string refreshToken)

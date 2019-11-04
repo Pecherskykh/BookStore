@@ -1,7 +1,5 @@
 ﻿using BookStore.DataAccess.Models.Base;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using static BookStore.DataAccess.Models.Enums.Enums;
 using static BookStore.DataAccess.Models.Enums.Enums.PrintingEditionsFilterEnums;
 
 namespace BookStore.DataAccess.Models.PrintingEditionsFilterModels

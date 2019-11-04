@@ -3,14 +3,8 @@ using BookStore.BusinessLogic.Extensions;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Models.Users;
 using BookStore.BusinessLogic.Services.Interfaces;
-using BookStore.DataAccess.Entities;
-using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Models.UesrsFilterModel;
 using BookStore.DataAccess.Repositories.Interfaces;
-
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BookStore.BusinessLogic.Services
@@ -24,10 +18,10 @@ namespace BookStore.BusinessLogic.Services
             _userRepository = userRepository;
         }
 
-        public async Task<BaseModel> CreateAsync(ApplicationUser user) //return BaseModel
+        public async Task<BaseModel> CreateAsync(UserModelItem user) //return BaseModel
         {
             var resultModel = new BaseModel();
-            var result = await _userRepository.CreateAsync(user);
+            var result = await _userRepository.CreateAsync(user.Mapping());
             if (!result)
             {
                 resultModel.Errors.Add("some error"); //from consts
@@ -41,30 +35,20 @@ namespace BookStore.BusinessLogic.Services
             var user = await _userRepository.FindByIdAsync(userId);
             if (user == null)
             {
-                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
             }
             return user.Mapping();
         }
 
-
-        /*public async Task<Role> CheckRoleAsync(long userId)
+        public async Task<bool> UpdateAsync(UserModelItem user)
         {
-            return await _userRepository.CheckRoleAsync(userId);
+            return await _userRepository.UpdateAsync(user.Mapping());
         }
 
-        public async Task AddRoleAsync(long userId, string role)
+        public async Task<bool> RemoveAsync(UserModelItem user)
         {
-            await _userRepository.AddRoleAsync(userId, role);
-        }*/
-
-        public async Task<bool> UpdateAsync(ApplicationUser user)
-        {
-            return await _userRepository.UpdateAsync(user);
-        }
-
-        public async Task RemoveAsync(ApplicationUser user)
-        {
-            await _userRepository.RemoveAsync(user);
+            user.IsRemoved = true;
+            return await _userRepository.UpdateAsync(user.Mapping());
         }
 
         public async Task<UserModel> GetUsersAsync(UsersFilterModel usersFilter)
@@ -84,7 +68,7 @@ namespace BookStore.BusinessLogic.Services
             var user = await _userRepository.FindByIdAsync(userId);
             if(user == null)
             {
-                resultModel.Errors.Add(EmailConstants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
             user.LockoutEnabled = !user.LockoutEnabled;

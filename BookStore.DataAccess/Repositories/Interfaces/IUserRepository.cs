@@ -1,17 +1,13 @@
 ﻿using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Models.UesrsFilterModel;
-using Microsoft.AspNetCore.Identity;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BookStore.DataAccess.Repositories.Interfaces
 {
     public interface IUserRepository
     {
-        //UserManager<ApplicationUser> UserManager { get; }
         Task<string> GenerateEmailConfirmationTokenAsync(ApplicationUser user);
         Task<string> GeneratePasswordResetTokenAsync(ApplicationUser user);
         Task ConfirmEmailAsync(ApplicationUser user, string token);

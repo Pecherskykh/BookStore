@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using BookStore.DataAccess.Entities.Base;
 using static BookStore.DataAccess.Entities.Enums.Enums;
 using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
