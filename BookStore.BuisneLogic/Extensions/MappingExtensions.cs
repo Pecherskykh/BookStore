@@ -90,8 +90,8 @@ namespace BookStore.BusinessLogic.Extensions
         {
             return new AuthorInPrintingEdition()
             {
-                AuthorId = (int)authorModelItem.Id,
-                PrintingEditionId = (int)printingEditionModelItem.Id
+                AuthorId = authorModelItem.Id,
+                PrintingEditionId = printingEditionModelItem.Id
             };
         }
 
@@ -155,8 +155,8 @@ namespace BookStore.BusinessLogic.Extensions
                 Amount = orderItem.Amount,
                 Currency = orderItem.Currency,
                 Count = orderItem.Count,
-                OrderId = (int)orderItem.OrderId,
-                PrintingEditionId = (int)orderItem.PrintingEditionId
+                OrderId = orderItem.OrderId,
+                PrintingEditionId = orderItem.PrintingEditionId
             };
         }
 

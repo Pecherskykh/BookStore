@@ -6,11 +6,11 @@ namespace BookStore.DataAccess.Entities
     public class AuthorInPrintingEdition : BaseEntity
     {
         [ForeignKey("AuthorId")]
-        public int AuthorId { get; set; }
+        public long AuthorId { get; set; }
         public Author Author { get; set; }
 
         [ForeignKey("PrintingEditionId")]
-        public int PrintingEditionId { get; set; }        
+        public long PrintingEditionId { get; set; }        
         public PrintingEdition PrintingEdition { get; set; }
     }
 }

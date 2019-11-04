@@ -9,8 +9,8 @@ namespace BookStore.BusinessLogic.Models.Orders
         public long Id { get; set; }
         public DateTime Date { get; set; }
         public string Description { get; set; }
-        public int PaymentId { get; set; }
-        public int UserId { get; set; }
+        public long PaymentId { get; set; }
+        public long UserId { get; set; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
         public TypePrintingEditionEnum.Type Product { get; set; }

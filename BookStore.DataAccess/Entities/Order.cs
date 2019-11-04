@@ -9,10 +9,10 @@ namespace BookStore.DataAccess.Entities
         public string Description { get; set; }
 
         [ForeignKey("PaymentId")]
-        public int PaymentId { get; set; }
+        public long PaymentId { get; set; }
 
         [ForeignKey("UserId")]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }
     }

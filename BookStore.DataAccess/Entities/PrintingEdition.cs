@@ -9,7 +9,7 @@ namespace BookStore.DataAccess.Entities
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public int Price { get; set; }
+        public long Price { get; set; }
         public string Status { get; set; }
         public Currencys Currency { get; set; }
         public TypePrintingEditionEnum.Type Type { get; set; }
