@@ -3,7 +3,7 @@ using BookStore.BusinessLogic.Models.OrderItems;
 using BookStore.BusinessLogic.Models.Orders;
 using BookStore.BusinessLogic.Models.PrintingEditions;
 using BookStore.BusinessLogic.Models.Users;
-using BookStore.DataAccess.Entities.Enums;
+using BookStore.DataAccess.Entities;
 using System.Collections.Generic;
 
 namespace BookStore.BusinessLogic.Extensions

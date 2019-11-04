@@ -1,6 +1,5 @@
 ﻿using BookStore.DataAccess.AppContext;
 using BookStore.DataAccess.Entities;
-using BookStore.DataAccess.Entities.Enums;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
 using System.Collections.Generic;

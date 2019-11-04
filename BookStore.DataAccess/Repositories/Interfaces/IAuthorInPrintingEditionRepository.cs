@@ -1,4 +1,4 @@
-﻿using BookStore.DataAccess.Entities.Enums;
+﻿using BookStore.DataAccess.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

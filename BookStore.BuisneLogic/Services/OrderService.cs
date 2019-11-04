@@ -4,7 +4,7 @@ using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Models.Cart;
 using BookStore.BusinessLogic.Models.Orders;
 using BookStore.BusinessLogic.Services.Interfaces;
-using BookStore.DataAccess.Entities.Enums;
+using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Models.OrdersFilterModel;
 using BookStore.DataAccess.Repositories.Interfaces;
 using System.Linq;

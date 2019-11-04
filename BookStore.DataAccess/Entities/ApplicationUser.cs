@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace BookStore.DataAccess.Entities.Enums
+namespace BookStore.DataAccess.Entities
 {
     public class ApplicationUser : IdentityUser<long>
     {

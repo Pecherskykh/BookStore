@@ -1,5 +1,5 @@
 ﻿using BookStore.DataAccess.AppContext;
-using BookStore.DataAccess.Entities.Enums;
+using BookStore.DataAccess.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

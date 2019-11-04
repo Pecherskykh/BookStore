@@ -1,5 +1,5 @@
 ﻿using BookStore.DataAccess.AppContext;
-using BookStore.DataAccess.Entities.Enums;
+using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Repositories.Base;
 using BookStore.DataAccess.Repositories.Interfaces;
 using System.Collections.Generic;

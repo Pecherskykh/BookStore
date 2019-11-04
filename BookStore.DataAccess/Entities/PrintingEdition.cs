@@ -3,7 +3,7 @@ using BookStore.DataAccess.Entities.Base;
 using static BookStore.DataAccess.Entities.Enums.Enums;
 using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
 
-namespace BookStore.DataAccess.Entities.Enums
+namespace BookStore.DataAccess.Entities
 {
     public class PrintingEdition : BaseEntity
     {

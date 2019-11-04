@@ -1,5 +1,4 @@
 ﻿using BookStore.DataAccess.Entities;
-using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Models.UesrsFilterModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;

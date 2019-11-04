@@ -1,4 +1,4 @@
-﻿using BookStore.DataAccess.Entities.Enums;
+﻿using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Models.PrintingEditions;
 using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using System.Collections.Generic;

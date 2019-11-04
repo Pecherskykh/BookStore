@@ -1,4 +1,4 @@
-﻿using BookStore.DataAccess.Entities.Enums;
+﻿using BookStore.DataAccess.Entities;
 
 namespace BookStore.DataAccess.Repositories.Interfaces
 {

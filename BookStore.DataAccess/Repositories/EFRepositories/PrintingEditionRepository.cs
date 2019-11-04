@@ -1,5 +1,5 @@
 ﻿using BookStore.DataAccess.AppContext;
-using BookStore.DataAccess.Entities.Enums;
+using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Extensions;
 using BookStore.DataAccess.Models.Authors;
 using BookStore.DataAccess.Models.PrintingEditions;
