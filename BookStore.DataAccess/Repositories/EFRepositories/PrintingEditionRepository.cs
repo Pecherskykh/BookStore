@@ -6,6 +6,7 @@ using BookStore.DataAccess.Models.PrintingEditions;
 using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using BookStore.DataAccess.Repositories.Base;
 using BookStore.DataAccess.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
         public async Task<IEnumerable<PrintingEditionModelItem>> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModel, List<TypePrintingEditionEnum.Type> categories)
         {            
-            var printingEditions = from printingEdition in _applicationContext.PrintingEditions where printingEdition.IsRemoved == false
+            var printingEditions = from printingEdition in _applicationContext.PrintingEditions where printingEdition.IsRemoved
                                    select new PrintingEditionModelItem
                                    {
                                        Id = printingEdition.Id,
@@ -55,7 +56,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             
             printingEditions = printingEditions.Skip((printingEditionsFilterModel.PageCount - 1) * printingEditionsFilterModel.PageSize).Take(printingEditionsFilterModel.PageSize);
 
-            return printingEditions;
+            return await printingEditions.ToListAsync();
         }
 
         private IQueryable<PrintingEditionModelItem> OrderBy(IQueryable<PrintingEditionModelItem> printingEditions, SortType sortType, bool lowToHigh)

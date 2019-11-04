@@ -35,7 +35,7 @@ namespace BookStore.BusinessLogic.Services
             return printingEdition.Mapping();
         }
 
-        public async Task<long> CreateAsync(PrintingEditionModelItem printingEdition)
+        public async Task<long> CreateAsync(PrintingEditionModelItem printingEdition) //todo return BaseModel
         {
 
             printingEdition.Id = await _printingEditionRepository.CreateAsync(printingEdition.Mapping());
@@ -49,22 +49,22 @@ namespace BookStore.BusinessLogic.Services
 
         public async Task<BaseModel> UpdateAsync(PrintingEditionModelItem printingEdition)
         {
-            await _printingEditionRepository.UpdateAsync(printingEdition.Mapping());
+            await _printingEditionRepository.UpdateAsync(printingEdition.Mapping()); //todo check model for null, check result
             var authorInPrintingEditions = await _authorInPrintingEditionRepository.GetAuthorInPrintingEditionsAsync(printingEdition.Id);
-            await _authorInPrintingEditionRepository.RemoveRangeAsync(authorInPrintingEditions);
+            await _authorInPrintingEditionRepository.RemoveRangeAsync(authorInPrintingEditions); //todo check asuthors for changes
 
             foreach (var author in printingEdition.Authors.Items)
             {
                 await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Mapping(author));
             }
-            return new BaseModel();
+            return new BaseModel(); //todo write errors to this model
         }
 
         public async Task<BaseModel> RemoveAsync(PrintingEditionModelItem printingEdition)
         {
             printingEdition.IsRemoved = true;
             await _printingEditionRepository.UpdateAsync(printingEdition.Mapping());
-            var authorInPrintingEditions = (await _authorInPrintingEditionRepository.GetAuthorInPrintingEditionsAsync(printingEdition.Id)).ToList();
+            var authorInPrintingEditions = (await _authorInPrintingEditionRepository.GetAuthorInPrintingEditionsAsync(printingEdition.Id));
             foreach (var authorInPrintingEdition in authorInPrintingEditions)
             {
                 authorInPrintingEdition.IsRemoved = true;
@@ -73,6 +73,7 @@ namespace BookStore.BusinessLogic.Services
             return new BaseModel();
         }
 
+        //todo add categories to filterModel
         public async Task<PrintingEditionModel> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels, List<TypePrintingEditionEnum.Type> categories)
         {
             var printingEditions = await _printingEditionRepository.GetPrintingEditionsAsync(printingEditionsFilterModels, categories);

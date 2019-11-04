@@ -36,23 +36,23 @@ namespace BookStore.DataAccess.Repositories.Base
 
         public async Task<long> CreateAsync(TEntity item)
         {
-            var a = await _dbSet.AddAsync(item);  
+            var a = await _dbSet.AddAsync(item);  //todo rename to full name
             await _applicationContext.SaveChangesAsync();
             return a.Entity.Id;
         }
-        public async Task UpdateAsync(TEntity item)
+        public async Task UpdateAsync(TEntity item)  //todo add response
         {
             _applicationContext.Entry(item).State = EntityState.Modified;
             await _applicationContext.SaveChangesAsync();
         }
-        public async Task RemoveAsync(TEntity item)
+        public async Task RemoveAsync(TEntity item)  //todo add response
         {
             var result = _dbSet.Remove(item);
             await _applicationContext.SaveChangesAsync();
         }
 
-        public async Task RemoveRangeAsync(IEnumerable<TEntity> item)
-        {
+        public async Task RemoveRangeAsync(IEnumerable<TEntity> item) //todo add response
+        { 
             _dbSet.RemoveRange(item);
             await _applicationContext.SaveChangesAsync();
         }

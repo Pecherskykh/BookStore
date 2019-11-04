@@ -33,11 +33,11 @@ namespace BookStore.Presentation
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddTransient<IJwtHelper, JwtHelper>();
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options =>
-                {
-                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/login");
-                });
+            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            //    .AddCookie(options =>
+            //    {
+            //        options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/login");
+            //    });
 
             services.AddAuthentication(options =>
             { 

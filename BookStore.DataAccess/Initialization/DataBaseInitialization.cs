@@ -79,7 +79,7 @@ namespace BookStore.DataAccess.Initialization
         public void InitializationAuthorInPrintingEdition()
         {
  
-                var authorInPrintingEditions = new List<AuthorInPrintingEdition>()
+                var authorInPrintingEditions = new List<AuthorInPrintingEdition>() //todo remove
                 {
                     new AuthorInPrintingEdition 
                     { 

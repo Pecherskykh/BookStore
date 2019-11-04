@@ -11,6 +11,7 @@ namespace BookStore.Presentation.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    //todo add attrs
     public class PrintingEditionController : ControllerBase
     {
         private readonly IPrintingEditorService _printingEditorService;

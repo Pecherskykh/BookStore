@@ -26,7 +26,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             _applicationContext = applicationContext;
         }
 
-        public async Task<ApplicationUser> FindByIdAsync(string userId) //Name GetByIdAsync
+        public async Task<ApplicationUser> FindByIdAsync(string userId)
         {
             return await _userManager.FindByIdAsync(userId);
         }
@@ -43,9 +43,8 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
         public async Task<bool> CreateAsync(ApplicationUser user)
         {
-            //bool succeeded = false;
-            var existingUser = await FindByEmailAsync(user.Email);
-            if (user != null)
+            var existingUser = await FindByEmailAsync(user.Email); //todo chack existing User fro null
+            if (user != null) //todo check this
             {
                 return false;
             }
@@ -53,9 +52,8 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             if (!result.Succeeded)
             {
                 return result.Succeeded;
-                //await _signInManager.SignInAsync(user, isPersistent: false);
             }
-            result = await _userManager.AddToRoleAsync(user, "User"); //use const or enum
+            result = await _userManager.AddToRoleAsync(user, "User"); //todo use const or enum
             return result.Succeeded;
         }
 
@@ -71,17 +69,17 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
         public async Task ConfirmEmailAsync(ApplicationUser user, string token)
         {
-            await _userManager.ConfirmEmailAsync(user, token);
+            await _userManager.ConfirmEmailAsync(user, token); //todo return result
         }
 
         public async Task ResetPasswordAsync(ApplicationUser user,string token, string password)
         {
-            await _userManager.ResetPasswordAsync(user, token, password);
+            await _userManager.ResetPasswordAsync(user, token, password); //todo return result
         }
 
-        public async Task<Role> CheckRoleAsync(long userId)
+        public async Task<Role> CheckRoleAsync(long userId) //todo return string
         {
-            var identityRole = _applicationContext.UserRoles.Where(r => r.UserId == userId).FirstOrDefault();
+            var identityRole = _applicationContext.UserRoles.Where(r => r.UserId == userId).FirstOrDefault(); //todo user userManager
             if (identityRole == null)
             {
                 return null;
@@ -89,13 +87,13 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             return await _applicationContext.Roles.FindAsync(identityRole.RoleId);
         }
 
-        public async Task AddRoleAsync(long userId, string role)
+        public async Task AddRoleAsync(long userId, string role) //todo remove
         {
             var user = await _applicationContext.Users.FindAsync(userId);
             await _userManager.AddToRoleAsync(user, role);
         }
 
-        public async Task RemoveAsync(ApplicationUser user) //change IsRemoved (update)
+        public async Task RemoveAsync(ApplicationUser user) //todo change IsRemoved pro with UserManager
         {
             _applicationContext.Users.Remove(user);
             await _applicationContext.SaveChangesAsync();
@@ -113,15 +111,15 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             return result.Succeeded;
         }
 
-        public async Task SignInAsync(ApplicationUser user, bool isPersistent)
+        public async Task SignInAsync(ApplicationUser user, bool isPersistent) //todo remove isPersistent param
         {
             await _signInManager.SignInAsync(user, isPersistent: false);
         }
 
         public async Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilterModel usersFilter)
         {
-            var users = _applicationContext.Users.Where(u => u.IsRemoved == false).AsQueryable(); //get only isn't removed
-            if (!string.IsNullOrWhiteSpace(usersFilter.SearchString)) //to lowercase
+            var users = _applicationContext.Users.Where(u => u.IsRemoved).AsQueryable();
+            if (!string.IsNullOrWhiteSpace(usersFilter.SearchString))
             {
                 users = users.Where(u => u.UserName.ToLower().Equals(usersFilter.SearchString.ToLower()));
             }  

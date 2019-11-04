@@ -4,7 +4,7 @@
     {
         public class PasswordConstans
         {
-            public const string Valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()-_=+.,'?/\\|";
+            public const string ValidationString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()-_=+.,'?/\\|"; //todo rename
         }
     }
 }

@@ -25,7 +25,7 @@ namespace BookStore.BusinessLogic.Init
                 .AddEntityFrameworkStores<ApplicationContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddTransient<UserManager<ApplicationUser>>(); //group
+            services.AddTransient<UserManager<ApplicationUser>>();
             services.AddTransient<RoleManager<Role>>();
             services.AddTransient<DataBaseInitialization>();
 

@@ -9,19 +9,18 @@ namespace BookStore.Presentation.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    //todo attrs
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        private readonly IPrintingEditorService _printingEditorService;
 
-        public UserController(IUserService userService, IPrintingEditorService printingEditorService)
+        public UserController(IUserService userService)
         {
             _userService = userService;
-            _printingEditorService = printingEditorService; 
         }
 
         [HttpPost("find")]
-        public async Task<IActionResult> FindByIdAsync(string userId)
+        public async Task<IActionResult> FindByIdAsync(string userId) //todo rename to get
         {
             var user = await _userService.FindByIdAsync(userId);
             return Ok(user);
@@ -30,21 +29,21 @@ namespace BookStore.Presentation.Controllers
         [HttpPost("update")]
         public async Task<IActionResult> UpdateAsync(UserModelItem user)
         {
-            await _userService.UpdateAsync(user);
+            await _userService.UpdateAsync(user); //todo return BaseModel
             return Ok(new BaseModel());
         }
 
         [HttpPost("create")]
         public async Task<IActionResult> CreateAsync(UserModelItem user)
         {
-            await _userService.CreateAsync(user);
-            return Ok(new BaseModel());
+            var result = await _userService.CreateAsync(user);
+            return Ok(result);
         }
 
         [HttpPost("remove")]
         public async Task<IActionResult> RemoveAsync(UserModelItem user)
         {
-            await _userService.RemoveAsync(user);
+            await _userService.RemoveAsync(user); //todo return BaseModel
             return Ok(new BaseModel());
         }
 
@@ -54,11 +53,11 @@ namespace BookStore.Presentation.Controllers
             var users = await _userService.GetUsersAsync(usersFilter);
             return Ok(users);
         }
-        
+
+        //todo add attrs   
         public async Task<IActionResult> ChangeUserStatus(string userId)
         {
-            var resultModel = new BaseModel();
-            resultModel = await _userService.ChangeUserStatus(userId);
+            var resultModel = await _userService.ChangeUserStatus(userId);
             return Ok(resultModel);
         }       
     }

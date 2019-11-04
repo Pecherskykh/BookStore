@@ -11,7 +11,7 @@ namespace BookStore.Presentation.Helper
 {
     public class JwtHelper : IJwtHelper
     {
-        public async Task<TokenModel> GenerateTokenModel(UserModelItem user)
+        public TokenModel GenerateTokenModel(UserModelItem user)
         {
             if (user == null)
             {
@@ -32,8 +32,8 @@ namespace BookStore.Presentation.Helper
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
                 };
 
-            var accessToken = await GenerateToken(claimsAccess, 1);
-            var refreshToken = await GenerateToken(claimsRefresh, 60);
+            var accessToken = GenerateToken(claimsAccess, 1);
+            var refreshToken = GenerateToken(claimsRefresh, 60); //todo add const
 
             return new TokenModel
             {
@@ -42,7 +42,7 @@ namespace BookStore.Presentation.Helper
             };
         }
 
-        private async Task<JwtSecurityToken> GenerateToken(List<Claim> claims, long expires)
+        private JwtSecurityToken GenerateToken(List<Claim> claims, long expires)
         {
             var token = new JwtSecurityToken(
             issuer: AuthOptions._issuer,

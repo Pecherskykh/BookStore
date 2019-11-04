@@ -17,9 +17,9 @@ namespace BookStore.BusinessLogic.Helpers
             mailMessage.Body = message;
             mailMessage.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient(Constants.EmailConstants.Host, Constants.EmailConstants.Port); //use Using
-            smtp.Credentials = new NetworkCredential(Constants.EmailConstants.Address, Constants.EmailConstants.Password); //use constants
+            smtp.Credentials = new NetworkCredential(Constants.EmailConstants.Address, Constants.EmailConstants.Password);
             smtp.EnableSsl = true;
-            smtp.SendAsync(mailMessage, null); //use Async
+            await smtp.SendMailAsync(mailMessage); //todo check async
         }
     }
 }

@@ -41,20 +41,21 @@ namespace BookStore.BusinessLogic.Services
         {
             var payment = new Payment()
             {
-                TransactionId = (int)cart.TransactionId
+                TransactionId = cart.TransactionId //todo check type
             };
             var paymentId = await _paymentRepository.CreateAsync(payment);
             var order = new Order()
             {
                 Description = cart.Description,
-                PaymentId = (int)paymentId,
-                UserId = (int)cart.userId
+                PaymentId = paymentId,
+                UserId = cart.userId
             };
             var orderId = await _orderRepository.CreateAsync(order);
-            foreach (var orderItems in cart.OrderItemModel.Items)
+            foreach (var orderItem in cart.OrderItemModel.Items)
             {
-                orderItems.OrderId = orderId;
-                await _orderItemRepository.CreateAsync(orderItems.Mapping());
+                orderItem.OrderId = orderId;
+                var orderItemEntity = orderItem.Mapping();
+                await _orderItemRepository.CreateAsync(orderItemEntity);
             }
             return orderId;
         }
@@ -70,14 +71,14 @@ namespace BookStore.BusinessLogic.Services
             return new BaseModel();
         }
 
-        public async Task<BaseModel> RemoveAsync(OrderModelItem order)
+        public async Task<BaseModel> RemoveAsync(OrderModelItem order) //todo check input model
         {
             order.IsRemoved = true;
             await _orderRepository.UpdateAsync(order.Mapping());
             var payment = await _paymentRepository.FindByIdAsync(order.PaymentId);
             payment.IsRemoved = true;
             await _paymentRepository.UpdateAsync(payment);
-            var orderItems = (await _orderItemRepository.GetOrdersItemAsync(order.Id)).ToList();
+            var orderItems = (await _orderItemRepository.GetOrdersItemAsync(order.Id));
             foreach (var orderItem in orderItems)
             {
                 orderItem.IsRemoved = true;
@@ -88,7 +89,7 @@ namespace BookStore.BusinessLogic.Services
 
         public async Task<OrderModel> GetOrdersAsync(OrdersFilterModel ordersFilterModel)
         {
-            var orders = await _orderRepository.GetOrdersAsync(ordersFilterModel);
+            var orders = await _orderRepository.GetOrdersAsync(ordersFilterModel); //todo check model for null
             var resultModel = new OrderModel();
             foreach (var order in orders)
             {

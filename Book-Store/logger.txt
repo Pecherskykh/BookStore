@@ -12069,3 +12069,13 @@ Executing ViewResult, running view Index.
 Executed ViewResult - view Index executed in 101.729ms.
 Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 124.81240000000001ms
 Request finished in 351.66740000000004ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 81.3092ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 101.6388ms
+Request finished in 273.0538ms 200 text/html; charset=utf-8

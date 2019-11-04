@@ -8,9 +8,9 @@ using System.Collections.Generic;
 
 namespace BookStore.BusinessLogic.Extensions
 {
-    public static class MappingExtensions
+    public static class MappingExtensions //todo change to different .cs
     {
-        public static UserModelItem Mapping(this ApplicationUser user)
+        public static UserModelItem Mapping(this ApplicationUser user) //todo rename to Map
         {
             return new UserModelItem()
             {

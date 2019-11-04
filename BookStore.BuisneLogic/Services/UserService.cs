@@ -18,7 +18,7 @@ namespace BookStore.BusinessLogic.Services
             _userRepository = userRepository;
         }
 
-        public async Task<BaseModel> CreateAsync(UserModelItem user) //return BaseModel
+        public async Task<BaseModel> CreateAsync(UserModelItem user)
         {
             var resultModel = new BaseModel();
             var result = await _userRepository.CreateAsync(user.Mapping());
@@ -29,13 +29,14 @@ namespace BookStore.BusinessLogic.Services
             return resultModel;
         }
 
-        public async Task<UserModelItem> FindByIdAsync(string userId)
+        public async Task<UserModelItem> FindByIdAsync(string userId) //todo do you need this method?
         {
             var resultModel = new UserModelItem();
             var user = await _userRepository.FindByIdAsync(userId);
             if (user == null)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
+                return resultModel;
             }
             return user.Mapping();
         }

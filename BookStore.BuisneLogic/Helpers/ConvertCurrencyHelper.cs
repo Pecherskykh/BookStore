@@ -4,11 +4,9 @@ using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
 
 namespace BookStore.BusinessLogic.Helpers
 {
-    public class ConvertCurrencyHelper
+    public class ConvertCurrencyHelper //todo add to IoC with interface (use DI)
     {
-        public async Task<double> ConvertCurrency(double price, Currencys from, Currencys to)
-        {
-            Dictionary<Currencys, double> currencyPrice = new Dictionary<Currencys, double>()
+        private readonly Dictionary<Currencys, double> currencyPrice = new Dictionary<Currencys, double>()
             {
                 { Currencys.AUD, 1.47 },
                 { Currencys.BYN, 2.05 },
@@ -18,6 +16,8 @@ namespace BookStore.BusinessLogic.Helpers
                 { Currencys.UAH, 25.16},
                 { Currencys.USD, 1}
             };
+        public double ConvertCurrency(double price, Currencys from, Currencys to)
+        {
             return price / currencyPrice[from] * currencyPrice[to];
         }
     }

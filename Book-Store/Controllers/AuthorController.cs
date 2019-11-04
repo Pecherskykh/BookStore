@@ -9,6 +9,7 @@ namespace BookStore.Presentation.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    //todo add attrs
     public class AuthorController : Controller
     {
         private readonly IAuthorService _authorService;
@@ -28,22 +29,22 @@ namespace BookStore.Presentation.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> CreateAsync(AuthorModelItem author)
         {
-            await _authorService.CreateAsync(author);
+            await _authorService.CreateAsync(author); //todo return BaseModel
             return Ok(new BaseModel());
         }
 
         [HttpPost("update")]
         public async Task<IActionResult> UpdateAsync(AuthorModelItem author)
         {
-            await _authorService.UpdateAsync(author);
-            return Ok(new BaseModel());
+            var result = await _authorService.UpdateAsync(author);
+            return Ok(result);
         }
 
         [HttpPost("remove")]
         public async Task<IActionResult> RemoveAsync(AuthorModelItem author)
         {
-            await _authorService.RemoveAsync(author);
-            return Ok(new BaseModel());
+            var result = await _authorService.RemoveAsync(author);
+            return Ok(result);
         }
 
         [HttpPost("test")]

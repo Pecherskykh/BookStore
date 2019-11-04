@@ -14,6 +14,7 @@ namespace BookStore.Presentation.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    //todo attrs
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
@@ -26,7 +27,7 @@ namespace BookStore.Presentation.Controllers
         [HttpPost("test")]
         public async Task<IActionResult> Test(/*OrdersFilterModel ordersFilterModel*/)
         {
-            var ordersFilterModel = new OrdersFilterModel
+            var ordersFilterModel = new OrdersFilterModel //todo map model at the service
             {
                 SortType = SortType.UserName,
                 SortingDirection = SortingDirection.HighToLow,
@@ -39,9 +40,9 @@ namespace BookStore.Presentation.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create() //todo get model from body
         {
-            var cart = new Cart()
+            var cart = new Cart() //todo remove hardCode
             {
                 OrderItemModel = new OrderItemModel()
                 {
@@ -65,7 +66,7 @@ namespace BookStore.Presentation.Controllers
         }
 
         [HttpPost("remove")]
-        public async Task<IActionResult> Remove()
+        public async Task<IActionResult> Remove() //todo remove
         {
             var order = new OrderModelItem()
             {

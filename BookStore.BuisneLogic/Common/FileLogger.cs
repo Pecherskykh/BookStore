@@ -34,7 +34,7 @@ namespace BookStore.BusinessLogic.Common
                 {
                     File.AppendAllText(_filePath, state + Environment.NewLine);
                 }
-                catch { }
+                catch { } //todo add logic to catch
             }
         }
     }

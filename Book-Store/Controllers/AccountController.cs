@@ -26,21 +26,18 @@ namespace BookStore.Presentation.Controllers
         }
 
         [HttpGet("login")]
-        public async Task<IActionResult> Login(string userName, string password)
+        public async Task<IActionResult> Login(string userName, string password) //todo add model to Login
         {
             var resultModel = new BaseModel();
-            var user = await _accountService.FindByNameAsync(userName);
+            var user = await _accountService.FindByNameAsync(userName); //todo return BaseModel
 
-            var encodedJwt = await _jwtHelper.GenerateTokenModel(user);
+            var encodedJwt = _jwtHelper.GenerateTokenModel(user);
 
-            if (encodedJwt == null)
+            if (encodedJwt != null)
             {
-                resultModel.Errors.Add("some error");
-                return Ok(resultModel);
+                HttpContext.Response.Cookies.Append("accessToken", encodedJwt.AccessToken);
+                HttpContext.Response.Cookies.Append("refreshToken", encodedJwt.RefreshToken);
             }
-
-            HttpContext.Response.Cookies.Append("accessToken", encodedJwt.AccessToken);
-            HttpContext.Response.Cookies.Append("refreshToken", encodedJwt.RefreshToken);
             return Ok(resultModel);
         }
 
@@ -52,35 +49,40 @@ namespace BookStore.Presentation.Controllers
                 UserName = "Name",
                 Email = "oleksandr.pecherskikh@gmail.com"
             };*/
-            await _accountService.Register(user);
-            return Ok(new BaseModel());
+            var result = await _accountService.Register(user);
+            return Ok(result);
         }
 
+        //todo add attr
         [HttpGet("confirmEmail")]
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
-            return Ok(await _accountService.ConfirmEmail(userId, token));
+            var result = await _accountService.ConfirmEmail(userId, token);
+            return Ok(result);
         }
 
+        //todo add attr
         [HttpGet("forgotPassword")]
         public async Task<IActionResult> ForgotPassword(string email)
         {
             //oleksandr.pecherskikh@gmail.com
-            return Ok(await _accountService.ForgotPassword(email));
+            var result = await _accountService.ForgotPassword(email);
+            return Ok(result);
         }
-        
-        public async Task<IActionResult> RefreshToken(string refreshToken)
+         //todo add attr
+        public async Task<IActionResult> RefreshTokens(string refreshToken)
         {
-            var expires = new JwtSecurityTokenHandler().ReadToken(refreshToken).ValidTo; //check token from jwtHelper
+            var expires = new JwtSecurityTokenHandler().ReadToken(refreshToken).ValidTo; //todo check token from jwtHelper
 
             if (expires >= DateTime.Now)
             {
                 var userId = this.HttpContext.User.Claims
                .FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
                 var user = await _accountService.FindByNameAsync(userId);
-                var encodedJwt = await _jwtHelper.GenerateTokenModel(user);
+                var encodedJwt = _jwtHelper.GenerateTokenModel(user);
+                //todo add to coocies
             }
-            return Ok(new BaseModel());
+            return Ok(new BaseModel()); //todo add error if expire
         }   
     }
 }

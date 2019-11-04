@@ -13,10 +13,10 @@ namespace BookStore.BusinessLogic.Models.Orders
         public long UserId { get; set; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
-        public TypePrintingEditionEnum.Type Product { get; set; }
+        public TypePrintingEditionEnum.Type Product { get; set; } //rename to ProductType
         public string Title { get; set; }
         public long Quantity { get; set; }
         public long OrderAmount { get; set; }
-        public string Status { get; set; }
+        public string Status { get; set; } //todo check this property, use enum
     }
 }
