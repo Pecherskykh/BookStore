@@ -1,12 +1,13 @@
 ﻿using BookStore.BusinessLogic.Models.Authors;
 using BookStore.BusinessLogic.Models.PrintingEditions;
+using BookStore.BusinessLogic.Extensions.AuthorExtensions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BookStore.BusinessLogic.Extensions.PrintingEditionExtensions
 {
-    public static class PrintingEditionModelItemDAMapToPrintingEditionModelItemBS
+    public static class PrintingEditionModelItemDAMapToPrintingEditionModelItemBL
     {
         public static PrintingEditionModelItem Map(this BookStore.DataAccess.Models.PrintingEditions.PrintingEditionModelItem printingEditionModelItem)
         {
@@ -19,7 +20,7 @@ namespace BookStore.BusinessLogic.Extensions.PrintingEditionExtensions
                 Type = printingEditionModelItem.Type,
                 Authors = new AuthorModel()
                 {
-                    Items = printingEditionModelItem.Authors.Mapping()
+                    Items = printingEditionModelItem.Authors.Map()
                 }
             };
         }

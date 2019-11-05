@@ -9,8 +9,8 @@ namespace BookStore.DataAccess.Repositories.Interfaces
     {
         Task<string> GenerateEmailConfirmationTokenAsync(ApplicationUser user);
         Task<string> GeneratePasswordResetTokenAsync(ApplicationUser user);
-        Task ConfirmEmailAsync(ApplicationUser user, string token);
-        Task ResetPasswordAsync(ApplicationUser user, string token, string password);
+        Task<bool> ConfirmEmailAsync(ApplicationUser user, string token);
+        Task<bool> ResetPasswordAsync(ApplicationUser user, string token, string password);
         Task<ApplicationUser> FindByIdAsync(string userId);
         Task<ApplicationUser> FindByEmailAsync(string email);
         Task<ApplicationUser> FindByNameAsync(string userName);

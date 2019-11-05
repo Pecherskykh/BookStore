@@ -9,7 +9,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
-using Microsoft.AspNetCore.Authentication.Cookies;
 using BookStore.Presentation.Helper;
 using BookStore.Presentation.Helper.Interface;
 using BookStore.Presentation.Middlewaren;
@@ -32,12 +31,6 @@ namespace BookStore.Presentation
             Initializer.Init(services, Configuration.GetConnectionString("DefaultConnection"));
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddTransient<IJwtHelper, JwtHelper>();
-
-            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-            //    .AddCookie(options =>
-            //    {
-            //        options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/login");
-            //    });
 
             services.AddAuthentication(options =>
             { 

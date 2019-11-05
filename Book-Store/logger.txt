@@ -12079,3 +12079,106 @@ Executing ViewResult, running view Index.
 Executed ViewResult - view Index executed in 81.3092ms.
 Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 101.6388ms
 Request finished in 273.0538ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 116.6346ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 135.6304ms
+Request finished in 374.2174ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.48740000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 104.0142ms
+Request finished in 302.6575ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 82.1526ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 100.5841ms
+Request finished in 294.0464ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.2389ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 98.1671ms
+Request finished in 294.825ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 93.0031ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 138.8255ms
+Request finished in 331.3498ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 94.1477ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 116.1588ms
+Request finished in 322.6103ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.5995ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 104.97710000000001ms
+Request finished in 308.6655ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 91.07520000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 111.5417ms
+Request finished in 281.13530000000003ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 80.7749ms.
+Request starting HTTP/1.1 GET http://localhost:52976/lib/bootstrap/dist/js/bootstrap.bundle.min.js  
+Request starting HTTP/1.1 GET http://localhost:52976/lib/jquery/dist/jquery.min.js  
+Request starting HTTP/1.1 GET http://localhost:52976/lib/bootstrap/dist/css/bootstrap.min.css  
+Request starting HTTP/1.1 GET http://localhost:52976/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+Request finished in 341.26660000000004ms 200 text/html; charset=utf-8
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\css\site.css'
+Request finished in 135.0652ms 200 text/css
+Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\lib\jquery\dist\jquery.min.js'
+Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Request finished in 224.55460000000002ms 200 text/css
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 87.8957ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 106.2604ms
+Request finished in 295.4126ms 200 text/html; charset=utf-8

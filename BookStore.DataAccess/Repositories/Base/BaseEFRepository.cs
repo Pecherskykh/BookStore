@@ -36,25 +36,42 @@ namespace BookStore.DataAccess.Repositories.Base
 
         public async Task<long> CreateAsync(TEntity item)
         {
-            var a = await _dbSet.AddAsync(item);  //todo rename to full name
+            var entity = await _dbSet.AddAsync(item);
             await _applicationContext.SaveChangesAsync();
-            return a.Entity.Id;
-        }
-        public async Task UpdateAsync(TEntity item)  //todo add response
-        {
-            _applicationContext.Entry(item).State = EntityState.Modified;
-            await _applicationContext.SaveChangesAsync();
-        }
-        public async Task RemoveAsync(TEntity item)  //todo add response
-        {
-            var result = _dbSet.Remove(item);
-            await _applicationContext.SaveChangesAsync();
+            return entity.Entity.Id;
         }
 
-        public async Task RemoveRangeAsync(IEnumerable<TEntity> item) //todo add response
+        public async Task<bool> CreateRangeAsync(ICollection<TEntity> item)
+        {
+            await _dbSet.AddRangeAsync(item);
+            var result = await _applicationContext.SaveChangesAsync();
+            return result > 0 ? true : false;
+        }
+        public async Task<bool> UpdateAsync(TEntity item)
+        {
+            _applicationContext.Entry(item).State = EntityState.Modified;
+            var result = await _applicationContext.SaveChangesAsync();
+            return result > 0 ? true : false;
+        }
+        public async Task<bool> RemoveAsync(TEntity item)
+        {
+            _dbSet.Remove(item);
+            var result = await _applicationContext.SaveChangesAsync();
+            return result > 0 ? true : false;
+        }
+
+        public async Task<bool> RemoveRangeAsync(IEnumerable<TEntity> item)
         { 
             _dbSet.RemoveRange(item);
-            await _applicationContext.SaveChangesAsync();
+            var result = await _applicationContext.SaveChangesAsync();
+            return result > 0 ? true : false;
+        }
+
+        public async Task<bool> IsRemoveAsync(TEntity item)
+        {
+            item.IsRemoved = true;
+            var result = await UpdateAsync(item);
+            return result;
         }
     }
 }

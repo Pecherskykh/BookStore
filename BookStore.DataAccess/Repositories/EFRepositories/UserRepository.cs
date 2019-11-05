@@ -67,14 +67,16 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             return await _userManager.GeneratePasswordResetTokenAsync(user);
         }
 
-        public async Task ConfirmEmailAsync(ApplicationUser user, string token)
+        public async Task<bool> ConfirmEmailAsync(ApplicationUser user, string token)
         {
-            await _userManager.ConfirmEmailAsync(user, token); //todo return result
+            var result = await _userManager.ConfirmEmailAsync(user, token); //todo return result
+            return result.Succeeded;
         }
 
-        public async Task ResetPasswordAsync(ApplicationUser user,string token, string password)
+        public async Task<bool> ResetPasswordAsync(ApplicationUser user,string token, string password)
         {
-            await _userManager.ResetPasswordAsync(user, token, password); //todo return result
+            var result = await _userManager.ResetPasswordAsync(user, token, password); //todo return result
+            return result.Succeeded;
         }
 
         public async Task<Role> CheckRoleAsync(long userId) //todo return string

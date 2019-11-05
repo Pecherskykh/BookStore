@@ -16,10 +16,12 @@ namespace BookStore.BusinessLogic.Helpers
             mailMessage.Subject = "Test";
             mailMessage.Body = message;
             mailMessage.IsBodyHtml = true;
-            SmtpClient smtp = new SmtpClient(Constants.EmailConstants.Host, Constants.EmailConstants.Port); //use Using
-            smtp.Credentials = new NetworkCredential(Constants.EmailConstants.Address, Constants.EmailConstants.Password);
-            smtp.EnableSsl = true;
-            await smtp.SendMailAsync(mailMessage); //todo check async
+            using(SmtpClient smtp = new SmtpClient(Constants.EmailConstants.Host, Constants.EmailConstants.Port))
+            {
+                smtp.Credentials = new NetworkCredential(Constants.EmailConstants.Address, Constants.EmailConstants.Password);
+                smtp.EnableSsl = true;
+                await smtp.SendMailAsync(mailMessage); //todo check async
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using BookStore.BusinessLogic.Models.Authors;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Services.Interfaces;
+using BookStore.DataAccess.Models.Base;
 using Microsoft.AspNetCore.Mvc;
 using static BookStore.DataAccess.Models.Enums.Enums;
 
@@ -29,7 +30,7 @@ namespace BookStore.Presentation.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> CreateAsync(AuthorModelItem author)
         {
-            await _authorService.CreateAsync(author); //todo return BaseModel
+            var result = await _authorService.CreateAsync(author); //todo return BaseModel
             return Ok(new BaseModel());
         }
 
@@ -48,9 +49,9 @@ namespace BookStore.Presentation.Controllers
         }
 
         [HttpPost("test")]
-        public async Task<IActionResult> Test(SortingDirection sortingDirection)
+        public async Task<IActionResult> Test(BaseFilterModel baseFilterModel)
         {
-            var authorModel = await _authorService.GetAuthorsAsync(sortingDirection);
+            var authorModel = await _authorService.GetAuthorsAsync(baseFilterModel);
             return Ok(authorModel);
         }
     }

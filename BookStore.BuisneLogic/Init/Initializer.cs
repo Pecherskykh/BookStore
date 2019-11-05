@@ -4,7 +4,6 @@ using BookStore.BusinessLogic.Services;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.AppContext;
 using BookStore.DataAccess.Entities;
-using BookStore.DataAccess.Entities.Enums;
 using BookStore.DataAccess.Initialization;
 using BookStore.DataAccess.Repositories.EFRepositories;
 using BookStore.DataAccess.Repositories.Interfaces;
@@ -30,6 +29,8 @@ namespace BookStore.BusinessLogic.Init
             services.AddTransient<DataBaseInitialization>();
 
             services.AddTransient<IEmailHelper, EmailHelper>();
+            services.AddTransient<IConvertCurrencyHelper, ConvertCurrencyHelper>();
+            services.AddTransient<ICreatePasswordHelper, CreatePasswordHelper>();
 
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IAuthorRepository, AuthorRepository>();

@@ -1,5 +1,5 @@
 ﻿using BookStore.BusinessLogic.Common.Constants;
-using BookStore.BusinessLogic.Extensions;
+using BookStore.BusinessLogic.Extensions.UserExtensions;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Models.Users;
 using BookStore.BusinessLogic.Services.Interfaces;
@@ -21,7 +21,7 @@ namespace BookStore.BusinessLogic.Services
         public async Task<BaseModel> CreateAsync(UserModelItem user)
         {
             var resultModel = new BaseModel();
-            var result = await _userRepository.CreateAsync(user.Mapping());
+            var result = await _userRepository.CreateAsync(user.Map());
             if (!result)
             {
                 resultModel.Errors.Add("some error"); //from consts
@@ -38,18 +38,18 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
-            return user.Mapping();
+            return user.Map();
         }
 
         public async Task<bool> UpdateAsync(UserModelItem user)
         {
-            return await _userRepository.UpdateAsync(user.Mapping());
+            return await _userRepository.UpdateAsync(user.Map());
         }
 
         public async Task<bool> RemoveAsync(UserModelItem user)
         {
             user.IsRemoved = true;
-            return await _userRepository.UpdateAsync(user.Mapping());
+            return await _userRepository.UpdateAsync(user.Map());
         }
 
         public async Task<UserModel> GetUsersAsync(UsersFilterModel usersFilter)
@@ -58,7 +58,7 @@ namespace BookStore.BusinessLogic.Services
             var resultModel = new UserModel();
             foreach(var user in users)
             {
-                resultModel.Items.Add(user.Mapping());
+                resultModel.Items.Add(user.Map());
             }
             return resultModel;
         }

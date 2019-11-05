@@ -13,7 +13,7 @@ namespace BookStore.BusinessLogic.Extensions.AuthorExtensions
             {
                 Id = author.Id,
                 Name = author.Name,
-                PrintingEditions = author.PrintingEditions
+                PrintingEditionsName = author.PrintingEditions
             };
         }
     }

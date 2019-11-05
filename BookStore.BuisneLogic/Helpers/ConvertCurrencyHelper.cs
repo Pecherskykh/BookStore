@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using BookStore.BusinessLogic.Helpers.Interfaces;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
 
 namespace BookStore.BusinessLogic.Helpers
 {
-    public class ConvertCurrencyHelper //todo add to IoC with interface (use DI)
+    public class ConvertCurrencyHelper : IConvertCurrencyHelper
     {
         private readonly Dictionary<Currencys, double> currencyPrice = new Dictionary<Currencys, double>()
             {

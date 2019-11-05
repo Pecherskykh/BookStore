@@ -9,7 +9,6 @@ namespace BookStore.BusinessLogic.Services.Interfaces
         Task<UserModelItem> FindByIdAsync(string userId);
         Task<UserModelItem> FindByEmailAsync(string email);
         Task<UserModelItem> FindByNameAsync(string userName);
-        Task RemoveAsync(UserModelItem user);
         Task<BaseModel> Register(UserModelItem user);
         Task<BaseModel> ConfirmEmail(string userId, string token);
         Task<BaseModel> ForgotPassword(string userEmail);

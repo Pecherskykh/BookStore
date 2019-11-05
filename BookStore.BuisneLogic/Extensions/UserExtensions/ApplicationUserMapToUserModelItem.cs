@@ -8,7 +8,7 @@ namespace BookStore.BusinessLogic.Extensions.UserExtensions
 {
     public static class ApplicationUserMapToUserModelItem
     {
-        public static UserModelItem Map(this ApplicationUser user) //todo rename to Map
+        public static UserModelItem Map(this ApplicationUser user)
         {
             return new UserModelItem()
             {

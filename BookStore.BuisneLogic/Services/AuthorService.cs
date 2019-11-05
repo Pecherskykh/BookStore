@@ -1,11 +1,11 @@
 ﻿using BookStore.BusinessLogic.Common.Constants;
-using BookStore.BusinessLogic.Extensions;
+using BookStore.BusinessLogic.Extensions.AuthorExtensions;
 using BookStore.BusinessLogic.Models.Authors;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Services.Interfaces;
+using BookStore.DataAccess.Models.Base;
 using BookStore.DataAccess.Repositories.Interfaces;
 using System.Threading.Tasks;
-using static BookStore.DataAccess.Models.Enums.Enums;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -20,41 +20,83 @@ namespace BookStore.BusinessLogic.Services
 
         public async Task<AuthorModelItem> FindByIdAsync(long authorId)
         {
-            var resultModel = new AuthorModelItem(); //todo check input data
+            var resultModel = new AuthorModelItem();
+            if(authorId == 0)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.AuthorIdIsZeroError);
+                return resultModel;
+            }
             var author = await _authorRepository.FindByIdAsync(authorId);
             if (author == null)
             {
-                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(Constants.ErrorConstants.AuthorNotFoundError);
                 return resultModel;
             }
-            return author.Mapping();
+            return author.Map();
         }
 
-        public async Task<long> CreateAsync(AuthorModelItem author)
+        public async Task<BaseModel> CreateAsync(AuthorModelItem author)
         {
-            return await _authorRepository.CreateAsync(author.Mapping()); //todo return BaseModel
+            var resultModel = new BaseModel();
+            if (author == null)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.AuthorModelItemIsEmptyError);
+                return resultModel;
+            }
+            var result = await _authorRepository.CreateAsync(author.Map());
+            if(result == 0)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.AuthorNotCreatedError);
+                return resultModel;
+            }
+            return resultModel;
         }
 
         public async Task<BaseModel> UpdateAsync(AuthorModelItem author)
         {
-            await _authorRepository.UpdateAsync(author.Mapping()); //todo add response
-            return new BaseModel();
+            var resultModel = new BaseModel();
+            if (author == null)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.AuthorModelItemIsEmptyError);
+                return resultModel;
+            }
+            var result = await _authorRepository.UpdateAsync(author.Map());
+            if(!result)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.DataNotUpdatedError);
+            }
+            return resultModel;
         }
 
         public async Task<BaseModel> RemoveAsync(AuthorModelItem author)
         {
-            author.IsRemoved = true;
-            await _authorRepository.UpdateAsync(author.Mapping());
+            var resultModel = new BaseModel();
+            if (author == null)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.AuthorModelItemIsEmptyError);
+                return resultModel;
+            }
+            var result = await _authorRepository.IsRemoveAsync(author.Map());
+            if (!result)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.DataNotRemovedError);
+                return resultModel;
+            }
             return new BaseModel();
         }
 
-        public async Task<AuthorModel> GetAuthorsAsync(SortingDirection sortingDirection) //todo add pagination and search tp sortModel, check model for null
+        public async Task<AuthorModel> GetAuthorsAsync(BaseFilterModel baseFilterModel)
         {
-            var authors = await _authorRepository.GetAuthorsAsync(sortingDirection);
             var resultModel = new AuthorModel();
+            if (baseFilterModel == null)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.BaseFilterModelIsEmptyError);
+                return resultModel;
+            }
+            var authors = await _authorRepository.GetAuthorsAsync(baseFilterModel);            
             foreach (var author in authors)
             {
-                resultModel.Items.Add(author.Mapping());
+                resultModel.Items.Add(author.Map());
             }
             return resultModel;
         }

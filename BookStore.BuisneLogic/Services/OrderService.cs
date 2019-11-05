@@ -1,5 +1,6 @@
 ﻿using BookStore.BusinessLogic.Common.Constants;
-using BookStore.BusinessLogic.Extensions;
+using BookStore.BusinessLogic.Extensions.OrderExtensions;
+using BookStore.BusinessLogic.Extensions.OrderItemExtensions;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Models.Cart;
 using BookStore.BusinessLogic.Models.Orders;
@@ -7,7 +8,6 @@ using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Models.OrdersFilterModel;
 using BookStore.DataAccess.Repositories.Interfaces;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace BookStore.BusinessLogic.Services
@@ -28,72 +28,61 @@ namespace BookStore.BusinessLogic.Services
         public async Task<OrderModelItem> FindByIdAsync(long orderId)
         {
             var resultModel = new OrderModelItem();
+            if (orderId == 0)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.OrderIdIsZeroError);
+                return resultModel;
+            }
             var order = await _orderRepository.FindByIdAsync(orderId);
             if (order == null)
             {
-                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(Constants.ErrorConstants.OrderNotFoundError);
                 return resultModel;
             }
-            return order.Mapping();
+            return order.Map();
         }
 
-        public async Task<long> CreateAsync(Cart cart)
+        public async Task<BaseModel> CreateAsync(CartModel cartModel)
         {
+            var resultModel = new BaseModel();
+            if(cartModel == null)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.CartModelIsEmptyError);
+                return resultModel;
+            }
             var payment = new Payment()
             {
-                TransactionId = cart.TransactionId //todo check type
+                TransactionId = cartModel.TransactionId //todo check type
             };
             var paymentId = await _paymentRepository.CreateAsync(payment);
             var order = new Order()
             {
-                Description = cart.Description,
+                Description = cartModel.Description,
                 PaymentId = paymentId,
-                UserId = cart.userId
+                UserId = cartModel.UserId
             };
             var orderId = await _orderRepository.CreateAsync(order);
-            foreach (var orderItem in cart.OrderItemModel.Items)
+            foreach (var orderItem in cartModel.OrderItemModel.Items)
             {
                 orderItem.OrderId = orderId;
-                var orderItemEntity = orderItem.Mapping();
+                var orderItemEntity = orderItem.Map();
                 await _orderItemRepository.CreateAsync(orderItemEntity);
             }
-            return orderId;
-        }
-
-        public async Task<long> CreateAsync(OrderModelItem order)
-        {
-            return await _orderRepository.CreateAsync(order.Mapping());
-        }
-
-        public async Task<BaseModel> UpdateAsync(OrderModelItem order)
-        {
-            await _orderRepository.UpdateAsync(order.Mapping());
-            return new BaseModel();
-        }
-
-        public async Task<BaseModel> RemoveAsync(OrderModelItem order) //todo check input model
-        {
-            order.IsRemoved = true;
-            await _orderRepository.UpdateAsync(order.Mapping());
-            var payment = await _paymentRepository.FindByIdAsync(order.PaymentId);
-            payment.IsRemoved = true;
-            await _paymentRepository.UpdateAsync(payment);
-            var orderItems = (await _orderItemRepository.GetOrdersItemAsync(order.Id));
-            foreach (var orderItem in orderItems)
-            {
-                orderItem.IsRemoved = true;
-                await _orderItemRepository.UpdateAsync(orderItem);
-            }
-            return new BaseModel();
+            return resultModel;
         }
 
         public async Task<OrderModel> GetOrdersAsync(OrdersFilterModel ordersFilterModel)
         {
-            var orders = await _orderRepository.GetOrdersAsync(ordersFilterModel); //todo check model for null
             var resultModel = new OrderModel();
+            if (ordersFilterModel == null)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.OrdersFilterModelIsEmptyError);
+                return resultModel;
+            }
+            var orders = await _orderRepository.GetOrdersAsync(ordersFilterModel);
             foreach (var order in orders)
             {
-                resultModel.Items.Add(order.Mapping());
+                resultModel.Items.Add(order.Map());
             }
             return resultModel;
         }

@@ -1,14 +1,14 @@
 ﻿using BookStore.BusinessLogic.Models.PrintingEditions;
 using BookStore.BusinessLogic.Services.Interfaces;
-using BookStore.BusinessLogic.Extensions;
 using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using BookStore.DataAccess.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookStore.BusinessLogic.Common.Constants;
 using BookStore.BusinessLogic.Models.Base;
-using System.Linq;
 using static BookStore.DataAccess.Entities.Enums.Enums;
+using BookStore.BusinessLogic.Extensions.PrintingEditionExtensions;
+using BookStore.BusinessLogic.Extensions.AuthorInPrintingEditionExtensions;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -26,44 +26,68 @@ namespace BookStore.BusinessLogic.Services
         public async Task<PrintingEditionModelItem> FindByIdAsync(long printingEditionId)
         {
             var resultModel = new PrintingEditionModelItem();
+            if (printingEditionId == 0)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionIdIsZeroError);
+                return resultModel;
+            }
             var printingEdition = await _printingEditionRepository.FindByIdAsync(printingEditionId);
             if (printingEdition == null)
             {
-                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionNotFoundError);
                 return resultModel;
             }
-            return printingEdition.Mapping();
+            return printingEdition.Map();
         }
 
-        public async Task<long> CreateAsync(PrintingEditionModelItem printingEdition) //todo return BaseModel
+        public async Task<BaseModel> CreateAsync(PrintingEditionModelItem printingEdition) //todo return BaseModel
         {
-
-            printingEdition.Id = await _printingEditionRepository.CreateAsync(printingEdition.Mapping());
-
+            var resultModel = new BaseModel();
+            if (printingEdition == null)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionModelItemIsEmptyError);
+                return resultModel;
+            }
+            printingEdition.Id = await _printingEditionRepository.CreateAsync(printingEdition.Map());
+            if(printingEdition.Id == 0)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionNotCreatedError);
+                return resultModel;
+            }
             foreach (var author in printingEdition.Authors.Items)
             {
-                await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Mapping(author));
+                await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author));
             }
-            return printingEdition.Id;
+            return resultModel;
         }
 
         public async Task<BaseModel> UpdateAsync(PrintingEditionModelItem printingEdition)
         {
-            await _printingEditionRepository.UpdateAsync(printingEdition.Mapping()); //todo check model for null, check result
+            var resultModel = new BaseModel();
+            if (printingEdition == null)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionModelItemIsEmptyError);
+                return resultModel;
+            }
+            var result = await _printingEditionRepository.UpdateAsync(printingEdition.Map()); //todo check model for null, check result
+            if (!result)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.DataNotUpdatedError);
+            }
             var authorInPrintingEditions = await _authorInPrintingEditionRepository.GetAuthorInPrintingEditionsAsync(printingEdition.Id);
             await _authorInPrintingEditionRepository.RemoveRangeAsync(authorInPrintingEditions); //todo check asuthors for changes
 
             foreach (var author in printingEdition.Authors.Items)
             {
-                await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Mapping(author));
+                await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author));
             }
-            return new BaseModel(); //todo write errors to this model
+            return resultModel; //todo write errors to this model
         }
 
         public async Task<BaseModel> RemoveAsync(PrintingEditionModelItem printingEdition)
         {
             printingEdition.IsRemoved = true;
-            await _printingEditionRepository.UpdateAsync(printingEdition.Mapping());
+            await _printingEditionRepository.UpdateAsync(printingEdition.Map());
             var authorInPrintingEditions = (await _authorInPrintingEditionRepository.GetAuthorInPrintingEditionsAsync(printingEdition.Id));
             foreach (var authorInPrintingEdition in authorInPrintingEditions)
             {
@@ -80,7 +104,7 @@ namespace BookStore.BusinessLogic.Services
             var resultModel = new PrintingEditionModel();
             foreach (var printingEdition in printingEditions)
             {
-                resultModel.Items.Add(printingEdition.Mapping());
+                resultModel.Items.Add(printingEdition.Map());
             }
             return resultModel;
         }

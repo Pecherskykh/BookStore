@@ -13,6 +13,7 @@ namespace BookStore.BusinessLogic.Extensions.AuthorExtensions
             return new Author()
             {
                 Id = author.Id,
+                IsRemoved = author.IsRemoved,
                 Name = author.Name
             };
         }

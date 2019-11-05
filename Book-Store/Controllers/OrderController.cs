@@ -42,7 +42,7 @@ namespace BookStore.Presentation.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> Create() //todo get model from body
         {
-            var cart = new Cart() //todo remove hardCode
+            var cartModel = new CartModel() //todo remove hardCode
             {
                 OrderItemModel = new OrderItemModel()
                 {
@@ -59,23 +59,9 @@ namespace BookStore.Presentation.Controllers
                 },
                 TransactionId = 7,
                 Description = "Description",
-                userId = 50,
+                UserId = 50,
             };
-            var ordersModel = await _orderService.CreateAsync(cart);
-            return Ok(ordersModel);
-        }
-
-        [HttpPost("remove")]
-        public async Task<IActionResult> Remove() //todo remove
-        {
-            var order = new OrderModelItem()
-            {
-                Id = 12,
-                Description = "Description",
-                PaymentId = 1,
-                UserId = 47
-            };
-            var ordersModel = await _orderService.RemoveAsync(order);
+            var ordersModel = await _orderService.CreateAsync(cartModel);
             return Ok(ordersModel);
         }
     }

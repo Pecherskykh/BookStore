@@ -9,6 +9,7 @@ using BookStore.DataAccess.Models.Authors;
 using BookStore.DataAccess.Extensions;
 using static BookStore.DataAccess.Models.Enums.Enums;
 using Microsoft.EntityFrameworkCore;
+using BookStore.DataAccess.Models.Base;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
@@ -18,7 +19,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         {
         }
 
-        public async Task<IEnumerable<AuthorModelItem>> GetAuthorsAsync(SortingDirection sortingDirection)
+        public async Task<IEnumerable<AuthorModelItem>> GetAuthorsAsync(BaseFilterModel baseFilterModel)
         {
             var authors = from author in _applicationContext.Authors where author.IsRemoved
                           select new AuthorModelItem
@@ -31,8 +32,8 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
                                                   select printingEdition.Title).ToArray()
                           };
 
-            authors = authors.OrderDirection(a => a.Id, sortingDirection == SortingDirection.LowToHigh);
-
+            authors = authors.OrderDirection(a => a.Id, baseFilterModel.SortingDirection == SortingDirection.LowToHigh);
+            authors = authors.Skip((baseFilterModel.PageCount - 1) * baseFilterModel.PageSize).Take(baseFilterModel.PageSize);
             return await authors.ToListAsync(); //todo check
         }
     }

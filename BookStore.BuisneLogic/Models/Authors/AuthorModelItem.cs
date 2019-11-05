@@ -7,6 +7,6 @@ namespace BookStore.BusinessLogic.Models.Authors
     {
         public long Id { get; set; }
         public string Name { get; set; }
-        public ICollection<string> PrintingEditions = new List<string>(); //todo rename ProntingEditions
+        public ICollection<string> PrintingEditionsName = new List<string>();
     }
 }

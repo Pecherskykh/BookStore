@@ -1,20 +1,21 @@
 ﻿using System;
 using BookStore.BusinessLogic.Common.Constants;
 using System.Text;
+using BookStore.BusinessLogic.Helpers.Interfaces;
 
 namespace BookStore.BusinessLogic.Helpers
 {
-    static class CreatePasswordHelper //todo use DI
+    public class CreatePasswordHelper : ICreatePasswordHelper
     {
-        static public string CreatePassword(int length)
+        public string CreatePassword(int length)
         {
-            var resuslt = new StringBuilder(); //todo fix name
-            var rnd = new Random(); //todo use fullName
+            var result = new StringBuilder();
+            var random = new Random();
             for (int i = length; i > 0; --i)
             {
-                resuslt.Append(Constants.PasswordConstans.ValidationString[rnd.Next(Constants.PasswordConstans.ValidationString.Length)]);
+                result.Append(Constants.PasswordConstans.ValidationString[random.Next(Constants.PasswordConstans.ValidationString.Length)]);
             }
-            return resuslt.ToString();
+            return result.ToString();
         }
     }
 }
