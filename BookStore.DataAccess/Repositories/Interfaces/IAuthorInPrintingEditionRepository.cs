@@ -6,6 +6,6 @@ namespace BookStore.DataAccess.Repositories.Interfaces
 {
     public interface IAuthorInPrintingEditionRepository : IBaseEFRepository<AuthorInPrintingEdition>
     {
-        Task<IEnumerable<AuthorInPrintingEdition>> GetAuthorInPrintingEditionsAsync(long printingEditionId);
+        List<AuthorInPrintingEdition> GetAuthorInPrintingEditionsAsync(long printingEditionId);
     }
 }

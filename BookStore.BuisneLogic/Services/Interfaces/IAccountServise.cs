@@ -12,7 +12,7 @@ namespace BookStore.BusinessLogic.Services.Interfaces
         Task<BaseModel> Register(UserModelItem user);
         Task<BaseModel> ConfirmEmail(string userId, string token);
         Task<BaseModel> ForgotPassword(string userEmail);
-        Task<bool> CheckUserAsync(UserModelItem user, string password, bool lockoutOnFailure);
-        Task SignInAsync(UserModelItem user, bool isPersistent);
+        Task<bool> CheckUserAsync(UserModelItem user);
+        Task SignInAsync(UserModelItem user);
     }
 }

@@ -15,9 +15,9 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         {
         }
 
-        public async Task<IEnumerable<AuthorInPrintingEdition>> GetAuthorInPrintingEditionsAsync(long printingEditionId)
+        public List<AuthorInPrintingEdition> GetAuthorInPrintingEditionsAsync(long printingEditionId)
         {
-            return _applicationContext.AuthorInPrintingEditions.Where(a => a.PrintingEditionId == printingEditionId);
+            return _applicationContext.AuthorInPrintingEditions.Where(a => a.PrintingEditionId == printingEditionId).ToList();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace BookStore.DataAccess.Models.PrintingEditions
         public long Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public long Price { get; set; }
+        public decimal Price { get; set; }
         public TypePrintingEditionEnum.Type Type { get; set; }
         public ICollection<AuthorModelItem> Authors { get; set; }
     }

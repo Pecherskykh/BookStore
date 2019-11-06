@@ -1,4 +1,4 @@
-﻿namespace BookStore.Presentation.Helper
+﻿namespace BookStore.BusinessLogic.Models.Token
 {
     public class TokenModel //todo replace to BLL
     {

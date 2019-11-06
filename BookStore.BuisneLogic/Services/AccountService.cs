@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using BookStore.DataAccess.Repositories.Interfaces;
 using BookStore.BusinessLogic.Services.Interfaces;
-using BookStore.DataAccess.Entities;
 using BookStore.BusinessLogic.Helpers.Interfaces;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Common.Constants;
@@ -72,14 +71,8 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
-            var role = await CheckRoleAsync(user.Id);
-            resultModel.Role = role.Name;
+            resultModel.Role = await _userRepository.CheckRoleAsync(user.Id.ToString());
             return user.Map();
-        }
-
-        private async Task<Role> CheckRoleAsync(long userId)
-        {
-            return await _userRepository.CheckRoleAsync(userId);
         }
 
         public async Task<BaseModel> Register(UserModelItem user)
@@ -107,7 +100,7 @@ namespace BookStore.BusinessLogic.Services
             }
             await _emailHelper.Send(user.Email, 
                 string.Format("Confirm the registration by clicking on the link: <a href='" +
-                Constants.EmailConstants.ConfirmEmail + "'>link</a>", user.Id, token));
+                Constants.EmailConstants.ConfirmEmail + "'>link</a>", applicationUser.Id, token));
             return resultModel;
         }
 
@@ -166,15 +159,15 @@ namespace BookStore.BusinessLogic.Services
         }
 
         //todo remove if this method doesn't use
-        public async Task<bool> CheckUserAsync(UserModelItem user, string password, bool lockoutOnFailure) //todo return BaseModel
+        public async Task<bool> CheckUserAsync(UserModelItem user) //todo return BaseModel
         {
-            return await _userRepository.CheckUserAsync(user.Map(), password, lockoutOnFailure); //todo check result from repo
+            return await _userRepository.CheckUserAsync(user.Map(), user.Password); //todo check result from repo
         }
 
         //todo remove if this method doesn't use
-        public async Task SignInAsync(UserModelItem user, bool isPersistent)
+        public async Task SignInAsync(UserModelItem user)
         {
-            await _userRepository.SignInAsync(user.Map(), isPersistent);
+            await _userRepository.SignInAsync(user.Map());
         }
     }
 }

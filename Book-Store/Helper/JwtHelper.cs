@@ -6,18 +6,37 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using BookStore.BusinessLogic.Models.Users;
 using BookStore.Presentation.Helper.Interface;
+using BookStore.BusinessLogic.Services.Interfaces;
+using BookStore.BusinessLogic.Models.Token;
 
 namespace BookStore.Presentation.Helper
 {
     public class JwtHelper : IJwtHelper
     {
-        public TokenModel GenerateTokenModel(UserModelItem user)
+        private readonly IAccountServise _accountService;
+
+        public JwtHelper(IAccountServise accountService)
         {
+            _accountService = accountService;
+        }
+
+        public async Task<TokenModel> GenerateTokenModel(UserModelItem user)
+        {
+            //1.CheckPasswordSignInAsync
+            //2.SignInAsync
+            //3.Generate tokens
             if (user == null)
             {
                 return null;
             }
 
+            var result = await _accountService.CheckUserAsync(user);
+
+            /*if (!result)
+            {
+                return null;
+            }*/
+            
             var claimsAccess = new List<Claim>
                 {
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
@@ -51,6 +70,12 @@ namespace BookStore.Presentation.Helper
             expires: DateTime.Now.AddMinutes(expires),
             signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
             return token;
+        }
+
+        public bool CheckToken(string token)
+        {
+            var expires = new JwtSecurityTokenHandler().ReadToken(token).ValidTo;            
+            return expires >= DateTime.Now;
         }
     }
 }

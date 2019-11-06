@@ -1,7 +1,7 @@
 ﻿using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Models.Cart;
 using BookStore.BusinessLogic.Models.Orders;
-using BookStore.DataAccess.Models.OrdersFilterModel;
+using BookStore.BusinessLogic.Models.OrdersFilterModel;
 using System.Threading.Tasks;
 
 namespace BookStore.BusinessLogic.Services.Interfaces

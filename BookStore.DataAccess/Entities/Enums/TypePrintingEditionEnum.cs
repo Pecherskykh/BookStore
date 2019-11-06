@@ -6,9 +6,9 @@
         {
             public enum Type
             {
-                Books = 1,
-                Magzines = 2,
-                Newspapers = 3
+                Book = 1,
+                Magazine = 2,
+                Newspaper = 3
             }
         }
     }

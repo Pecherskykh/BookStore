@@ -253,11 +253,8 @@ namespace BookStore.DataAccess.Migrations
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");
 
-                    b.Property<long>("Price")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -409,7 +406,7 @@ namespace BookStore.DataAccess.Migrations
                         .IsRequired();
 
                     b.HasOne("BookStore.DataAccess.Entities.PrintingEdition", "PrintingEdition")
-                        .WithMany("AuthorInPrintingEditions")
+                        .WithMany()
                         .HasForeignKey("PrintingEditionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -431,7 +428,7 @@ namespace BookStore.DataAccess.Migrations
                         .IsRequired();
 
                     b.HasOne("BookStore.DataAccess.Entities.PrintingEdition", "PrintingEdition")
-                        .WithMany("OrderItems")
+                        .WithMany()
                         .HasForeignKey("PrintingEditionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

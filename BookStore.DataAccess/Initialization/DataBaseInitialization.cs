@@ -155,9 +155,8 @@ namespace BookStore.DataAccess.Initialization
                 Title = "Title5",
                 Description = "Description",
                 Price = 40,
-                Status = "Status",
                 Currency = Currencys.UAH,
-                Type = TypePrintingEditionEnum.Type.Books
+                Type = TypePrintingEditionEnum.Type.Book
             };
             _applicationContext.PrintingEditions.Add(printingEdition);
             _applicationContext.SaveChanges();

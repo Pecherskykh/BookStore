@@ -12182,3 +12182,1200 @@ Executing ViewResult, running view Index.
 Executed ViewResult - view Index executed in 87.8957ms.
 Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 106.2604ms
 Request finished in 295.4126ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 115.811ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 141.964ms
+Request finished in 358.75370000000004ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.37400000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 97.834ms
+Request finished in 275.4894ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 87.3802ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 108.7568ms
+Request finished in 303.2201ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 90.76660000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 109.4163ms
+Request finished in 284.9236ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 80.27170000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 99.4577ms
+Request finished in 275.03110000000004ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 85.3816ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 107.03750000000001ms
+Request finished in 339.4619ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 92.38640000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 112.05760000000001ms
+Request finished in 319.1322ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 85.12610000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 106.0904ms
+Request finished in 378.07840000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Presentation.Controllers.AccountController.Login (BookStore.Presentation) in 31.0148ms
+Request finished in 396.7303ms 415 application/problem+json; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+Executed action BookStore.Presentation.Controllers.AccountController.Login (BookStore.Presentation) in 12.2406ms
+Request finished in 80.8814ms 415 application/problem+json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 80.001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 100.50410000000001ms
+Request finished in 299.5018ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 97.4513ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 117.09400000000001ms
+Request finished in 303.3653ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Failed to validate the token.
+Executed ViewResult - view Index executed in 99.5655ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 151.49530000000001ms
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 99.9722ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 130.157ms
+Request finished in 337.9073ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.7889ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 98.5249ms
+Request finished in 298.0264ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.1789ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 105.1876ms
+Request finished in 323.69030000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.4683ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 103.89800000000001ms
+Request finished in 302.3623ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 89.94800000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 127.2296ms
+Request finished in 400.3544ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 76.3964ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 95.2129ms
+Request finished in 272.8267ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.9662ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 98.6589ms
+Request finished in 277.1458ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.5398ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 108.74480000000001ms
+Request finished in 291.05060000000003ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.3165ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 103.283ms
+Request finished in 286.0194ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 90.15220000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 110.5327ms
+Request finished in 310.09360000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 94.09150000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 114.2937ms
+Request finished in 312.2627ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 91.4276ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 112.7523ms
+Request finished in 332.2157ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 76.44510000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 94.56670000000001ms
+Request finished in 296.5376ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 81.0142ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 98.5686ms
+Request finished in 289.3557ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 98.67660000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 120.1576ms
+Request finished in 317.66810000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 96.98750000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 119.02300000000001ms
+Request finished in 333.6446ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 81.72030000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 102.7754ms
+Request finished in 298.926ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Base.BaseModel'.
+Executed action BookStore.Presentation.Controllers.AccountController.Login (BookStore.Presentation) in 111405.9565ms
+Request finished in 111629.48430000001ms 200 application/json; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.0569ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 104.8022ms
+Request finished in 283.8586ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/login  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 117.66590000000001ms.
+Request starting HTTP/1.1 GET http://localhost:52976/css/site.css  
+Request starting HTTP/1.1 GET http://localhost:52976/lib/bootstrap/dist/js/bootstrap.bundle.min.js  
+Request starting HTTP/1.1 GET http://localhost:52976/lib/bootstrap/dist/css/bootstrap.min.css  
+Request starting HTTP/1.1 GET http://localhost:52976/lib/jquery/dist/jquery.min.js  
+Request finished in 511.49620000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0  
+Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\js\site.js'
+Request finished in 164.0466ms 200 application/javascript
+Request finished in 203.4023ms 200 text/css
+Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\lib\jquery\dist\jquery.min.js'
+Request finished in 287.3999ms 200 application/javascript
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/register  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 87.33590000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 107.3966ms
+Request finished in 326.1779ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/register  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 77.35810000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 96.3468ms
+Request finished in 287.47180000000003ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/register  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.854ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 103.5304ms
+Request finished in 295.86220000000003ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/register  
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [IsRemoved], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+SELECT [Id]
+FROM [AspNetUsers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int64), @__p_1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([UserId], [RoleId])
+VALUES (@p0, @p1);
+Executing DbCommand [Parameters=[@p17='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p18='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [IsRemoved] = @p5, [LastName] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [NormalizedEmail] = @p9, [NormalizedUserName] = @p10, [PasswordHash] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+SELECT @@ROWCOUNT;
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/confirmEmail?userId=0&token=CfDJ8LG63Tzu3lBAq/ueePg5EcCuHHbktwjXfU39FYcPFrsh3vMzHWT0GeVeIQp2RNj3fvJbu92os+kTf0Y6dgSXC4WZmtPCvWdycP/jOcRP3ZppxZJAdSHt7tOPRPIlhzCmmll5Y288304dM6fOkRFMv5MUs0bcAZYnArxHtubxEsJJoeOOkuQ4LmMB/IAzEM5yhQ==  
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Users.UserModelItem'.
+Executed action BookStore.Presentation.Controllers.AccountController.Register (BookStore.Presentation) in 142317.4764ms
+Request finished in 142541.36010000002ms 200 application/json; charset=utf-8
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Base.BaseModel'.
+Executed action BookStore.Presentation.Controllers.AccountController.ConfirmEmail (BookStore.Presentation) in 207.9848ms
+Request finished in 8710.1131ms 200 application/json; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\wwwroot\favicon.ico'
+Request finished in 79.3309ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/confirmEmail?userId=0&token=CfDJ8LG63Tzu3lBAq/ueePg5EcCuHHbktwjXfU39FYcPFrsh3vMzHWT0GeVeIQp2RNj3fvJbu92os+kTf0Y6dgSXC4WZmtPCvWdycP/jOcRP3ZppxZJAdSHt7tOPRPIlhzCmmll5Y288304dM6fOkRFMv5MUs0bcAZYnArxHtubxEsJJoeOOkuQ4LmMB/IAzEM5yhQ==  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Base.BaseModel'.
+Executed action BookStore.Presentation.Controllers.AccountController.ConfirmEmail (BookStore.Presentation) in 58.5734ms
+Request finished in 98.842ms 200 application/json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 88.8965ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 108.2171ms
+Request finished in 311.5521ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/register application/json 223
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register() on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 81.3925ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 99.8237ms
+Request finished in 287.3458ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/register application/json 223
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [IsRemoved], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+SELECT [Id]
+FROM [AspNetUsers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int64), @__p_1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([UserId], [RoleId])
+VALUES (@p0, @p1);
+Executing DbCommand [Parameters=[@p17='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p18='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [IsRemoved] = @p5, [LastName] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [NormalizedEmail] = @p9, [NormalizedUserName] = @p10, [PasswordHash] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+SELECT @@ROWCOUNT;
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Base.BaseModel'.
+Executed action BookStore.Presentation.Controllers.AccountController.Register (BookStore.Presentation) in 50738.530300000006ms
+Request finished in 50999.8331ms 200 application/json; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/confirmEmail?userId=0&token=CfDJ8LG63Tzu3lBAq/ueePg5EcAGqhpws0zF1+AxQYM0CrAEq0My+RA+KiLRzI98z6nCtzLpOpAHQLGPlQnWFkKoRXT0kMb2IxdBkeWE8VBVygyvzMBt7saKlA3yp4FlxuF/r/74BebahT1BJqFS692F1B+E2ayOudrCIgV/wi1181J3r0sIDkVV3YP88yWlcQ89Rg==  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 78.1071ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 99.40870000000001ms
+Request finished in 274.8012ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/register application/json 223
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [IsRemoved], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+SELECT [Id]
+FROM [AspNetUsers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int64), @__p_1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([UserId], [RoleId])
+VALUES (@p0, @p1);
+Executing DbCommand [Parameters=[@p17='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p18='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [IsRemoved] = @p5, [LastName] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [NormalizedEmail] = @p9, [NormalizedUserName] = @p10, [PasswordHash] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+SELECT @@ROWCOUNT;
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 87.0402ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 122.25630000000001ms
+Request finished in 296.9087ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/register application/json 223
+Failed to validate the token.
+Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]', Current time: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [IsRemoved], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+SELECT [Id]
+FROM [AspNetUsers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int64), @__p_1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+Executing DbCommand [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([UserId], [RoleId])
+VALUES (@p0, @p1);
+Executing DbCommand [Parameters=[@p17='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p18='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [IsRemoved] = @p5, [LastName] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [NormalizedEmail] = @p9, [NormalizedUserName] = @p10, [PasswordHash] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+SELECT @@ROWCOUNT;
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Base.BaseModel'.
+Executed action BookStore.Presentation.Controllers.AccountController.Register (BookStore.Presentation) in 22617.1525ms
+Request finished in 22854.6725ms 200 application/json; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/account/confirmEmail?userId=54&token=CfDJ8LG63Tzu3lBAq/ueePg5EcAfnOY2DrBjCU1M5i/vkpn86y1uN/f2LphdI8Cwci/bKKCNySRJcL+anyucSLyO4dk9sPFj2Cdjq5cjVFZuM40OlVcK6fCsvxpgJFr15Te9NnJ8N4w+9ZkHwXKZsH33CTzUYWBj7F9U4fJVSlZ8l1CE7gpMT7HSyRBK4LI3GsjulA==  
+Route matched with {action = "ConfirmEmail", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConfirmEmail(System.String, System.String) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+Executing DbCommand [Parameters=[@p17='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p18='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [IsRemoved] = @p5, [LastName] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [NormalizedEmail] = @p9, [NormalizedUserName] = @p10, [PasswordHash] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+SELECT @@ROWCOUNT;
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Base.BaseModel'.
+Executed action BookStore.Presentation.Controllers.AccountController.ConfirmEmail (BookStore.Presentation) in 29175.6425ms
+Request finished in 29218.6434ms 200 application/json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 109.1205ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 131.7097ms
+Request finished in 323.5629ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/forgotPassword?email=oleksandr.pecherskikh@gmail.com  0
+Route matched with {action = "ForgotPassword", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(System.String) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+Executing DbCommand [Parameters=[@p17='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p18='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [IsRemoved] = @p5, [LastName] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [NormalizedEmail] = @p9, [NormalizedUserName] = @p10, [PasswordHash] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+SELECT @@ROWCOUNT;
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Base.BaseModel'.
+Executed action BookStore.Presentation.Controllers.AccountController.ForgotPassword (BookStore.Presentation) in 103053.5675ms
+Request finished in 103112.3903ms 200 application/json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.4491ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 101.45020000000001ms
+Request finished in 292.21950000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/login application/json 211
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Invalid password for user (null).
+User (null) failed to provide the correct password.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.0794ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 100.54560000000001ms
+Request finished in 314.742ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/login application/json 212
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Invalid password for user 54.
+User 54 failed to provide the correct password.
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Base.BaseModel'.
+Executed action BookStore.Presentation.Controllers.AccountController.Login (BookStore.Presentation) in 12255.1136ms
+Request finished in 12311.1002ms 200 application/json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 80.56580000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 99.43400000000001ms
+Request finished in 291.08860000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/login application/json 212
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Invalid password for user 54.
+User 54 failed to provide the correct password.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 89.53800000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 110.43ms
+Request finished in 315.58160000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/login application/json 212
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Invalid password for user 54.
+User 54 failed to provide the correct password.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.77940000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 97.5848ms
+Request finished in 280.219ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/login application/json 212
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Invalid password for user 54.
+User 54 failed to provide the correct password.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 82.955ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 105.7111ms
+Request finished in 297.00210000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/login application/json 212
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Invalid password for user 54.
+User 54 failed to provide the correct password.
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 78.1774ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 99.5571ms
+Request finished in 278.37710000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/login application/json 214
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Invalid password for user 54.
+User 54 failed to provide the correct password.
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Base.BaseModel'.
+Executed action BookStore.Presentation.Controllers.AccountController.Login (BookStore.Presentation) in 26767.095800000003ms
+Request finished in 26824.8891ms 200 application/json; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/update application/json 112
+Route matched with {action = "Update", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateAsync(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.UserController (BookStore.Presentation).
+Executed action BookStore.Presentation.Controllers.UserController.UpdateAsync (BookStore.Presentation) in 39.388400000000004ms
+Error
+Request finished in 184.5088ms 200 
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 94.57770000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 115.6233ms
+Request finished in 344.9925ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/login application/json 214
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Invalid password for user 54.
+User 54 failed to provide the correct password.
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Base.BaseModel'.
+Executed action BookStore.Presentation.Controllers.AccountController.Login (BookStore.Presentation) in 29321.854600000002ms
+Request finished in 29390.1568ms 200 application/json; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/update application/json 214
+Route matched with {action = "Update", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateAsync(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.UserController (BookStore.Presentation).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 83.09700000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 103.06580000000001ms
+Request finished in 279.7197ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/account/login application/json 214
+Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.AccountController (BookStore.Presentation).
+Invalid password for user 54.
+User 54 failed to provide the correct password.
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/update application/json 214
+Executed action BookStore.Presentation.Controllers.AccountController.Login (BookStore.Presentation) in 41348.9384ms
+Request finished in 41424.356100000005ms 200 application/json; charset=utf-8
+Successfully validated the token.
+Route matched with {action = "Update", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateAsync(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.UserController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+Executing DbCommand [Parameters=[@p17='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p18='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [IsRemoved] = @p5, [LastName] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [NormalizedEmail] = @p9, [NormalizedUserName] = @p10, [PasswordHash] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+SELECT @@ROWCOUNT;
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 91.9979ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 108.8996ms
+Request finished in 279.68870000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/update application/json 214
+Successfully validated the token.
+Route matched with {action = "Update", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateAsync(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.UserController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+Executing DbCommand [Parameters=[@p17='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p18='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [IsRemoved] = @p5, [LastName] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [NormalizedEmail] = @p9, [NormalizedUserName] = @p10, [PasswordHash] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+SELECT @@ROWCOUNT;
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 78.7865ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 101.61890000000001ms
+Request finished in 288.3229ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/update application/json 214
+Successfully validated the token.
+Route matched with {action = "Update", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateAsync(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.UserController (BookStore.Presentation).
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+Executed action BookStore.Presentation.Controllers.UserController.UpdateAsync (BookStore.Presentation) in 44.0557ms
+Request finished in 267.7868ms 400 application/problem+json; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/user/update application/json 216
+Successfully validated the token.
+Route matched with {action = "Update", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateAsync(BookStore.BusinessLogic.Models.Users.UserModelItem) on controller BookStore.Presentation.Controllers.UserController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[IsRemoved], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+Executing DbCommand [Parameters=[@p17='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p18='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [IsRemoved] = @p5, [LastName] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [NormalizedEmail] = @p9, [NormalizedUserName] = @p10, [PasswordHash] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+SELECT @@ROWCOUNT;
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Base.BaseModel'.
+Executed action BookStore.Presentation.Controllers.UserController.UpdateAsync (BookStore.Presentation) in 67319.8215ms
+Request finished in 67369.8938ms 200 application/json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 116.644ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 141.60410000000002ms
+Request finished in 349.05260000000004ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 78.29220000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 96.8545ms
+Request finished in 287.0677ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 89.0404ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 110.5908ms
+Request finished in 293.04650000000004ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 75.9619ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 94.3138ms
+Request finished in 285.1331ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/getOrders text/plain 141
+Request finished in 25.623ms 404 
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/getorders text/plain 141
+Request finished in 38.0735ms 404 
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/getorders text/plain 141
+Request finished in 16.697ms 404 
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/getorders text/plain 141
+Request finished in 13.9757ms 404 
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/getorders text/plain 141
+Request finished in 35.745000000000005ms 404 
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/getorders text/plain 141
+Request finished in 13.0698ms 404 
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/getorders text/plain 141
+Request finished in 12.966000000000001ms 404 
+Request starting HTTP/1.1 GET http://localhost:52976/api/order/getOrders text/plain 141
+Route matched with {action = "GetOrders", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrders() on controller BookStore.Presentation.Controllers.OrderController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.OrdersFilterModel.OrdersFilterModel'.
+Executed action BookStore.Presentation.Controllers.OrderController.GetOrders (BookStore.Presentation) in 2916.9565000000002ms
+Request finished in 2965.8868ms 200 application/json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 79.19800000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 97.97800000000001ms
+Request finished in 300.10310000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/getOrders application/json 143
+Route matched with {action = "GetOrders", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrders(BookStore.BusinessLogic.Models.OrdersFilterModel.OrdersFilterModel) on controller BookStore.Presentation.Controllers.OrderController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreationDate] AS [Date], [a].[UserName], [a].[Email] AS [UserEmail], [p].[Type] AS [Product], [p].[Title], [o0].[Count] AS [Quantity], [o0].[Amount] AS [OrderAmount]
+FROM [Orders] AS [o]
+INNER JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+INNER JOIN [PrintingEditions] AS [p] ON [o0].[PrintingEditionId] = [p].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [o].[UserId] = [a].[Id]
+WHERE [o].[IsRemoved] = CAST(1 AS bit)
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreationDate] AS [Date], [a].[UserName], [a].[Email] AS [UserEmail], [p].[Type] AS [Product], [p].[Title], [o0].[Count] AS [Quantity], [o0].[Amount] AS [OrderAmount]
+FROM [Orders] AS [o]
+INNER JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+INNER JOIN [PrintingEditions] AS [p] ON [o0].[PrintingEditionId] = [p].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [o].[UserId] = [a].[Id]
+WHERE [o].[IsRemoved] = CAST(1 AS bit)
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 86.1524ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 105.128ms
+Request finished in 284.3555ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/getOrders application/json 143
+Route matched with {action = "GetOrders", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrders(BookStore.BusinessLogic.Models.OrdersFilterModel.OrdersFilterModel) on controller BookStore.Presentation.Controllers.OrderController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreationDate] AS [Date], [a].[UserName], [a].[Email] AS [UserEmail], [p].[Type] AS [Product], [p].[Title], [o0].[Count] AS [Quantity], [o0].[Amount] AS [OrderAmount]
+FROM [Orders] AS [o]
+INNER JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+INNER JOIN [PrintingEditions] AS [p] ON [o0].[PrintingEditionId] = [p].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [o].[UserId] = [a].[Id]
+WHERE [o].[IsRemoved] = CAST(1 AS bit)
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 95.7115ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 117.0841ms
+Request finished in 319.7224ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/getOrders application/json 143
+Route matched with {action = "GetOrders", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrders() on controller BookStore.Presentation.Controllers.OrderController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreationDate] AS [Date], [a].[UserName], [a].[Email] AS [UserEmail], [p].[Type] AS [Product], [p].[Title], [o0].[Count] AS [Quantity], [o0].[Amount] AS [OrderAmount]
+FROM [Orders] AS [o]
+INNER JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+INNER JOIN [PrintingEditions] AS [p] ON [o0].[PrintingEditionId] = [p].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [o].[UserId] = [a].[Id]
+WHERE [o].[IsRemoved] = CAST(1 AS bit)
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 127.2822ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 150.55020000000002ms
+Request finished in 360.5677ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 91.1346ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 110.8782ms
+Request finished in 320.2026ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:52976/api/order/create  
+Route matched with {action = "Create", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller BookStore.Presentation.Controllers.OrderController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing ObjectResult, writing value of type 'BookStore.BusinessLogic.Models.Cart.CartModel'.
+Executed action BookStore.Presentation.Controllers.OrderController.Create (BookStore.Presentation) in 5551.4897ms
+Request finished in 5604.2902ms 200 application/json; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 88.1723ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 107.52340000000001ms
+Request finished in 318.48920000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/printingedition/getPrintingEditions application/json 150
+Route matched with {action = "GetPrintingEditions", controller = "PrintingEdition"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPrintingEditions() on controller BookStore.Presentation.Controllers.PrintingEditionController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Title], [p].[Price], [p].[Description], [p].[Type], [t].[Id], [t].[Name], [t].[Id0]
+FROM [PrintingEditions] AS [p]
+LEFT JOIN (
+    SELECT [a0].[Id], [a0].[Name], [a].[Id] AS [Id0], [a].[PrintingEditionId]
+    FROM [AuthorInPrintingEditions] AS [a]
+    INNER JOIN [Authors] AS [a0] ON [a].[AuthorId] = [a0].[Id]
+) AS [t] ON [p].[Id] = [t].[PrintingEditionId]
+WHERE [p].[IsRemoved] = CAST(1 AS bit)
+ORDER BY [p].[Id], [t].[Id0], [t].[Id]
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.5505ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 104.67970000000001ms
+Request finished in 337.80170000000004ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/getOrders application/json 143
+Route matched with {action = "GetOrders", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrders(BookStore.BusinessLogic.Models.OrdersFilterModel.OrdersFilterModel) on controller BookStore.Presentation.Controllers.OrderController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreationDate] AS [Date], [a].[UserName], [a].[Email] AS [UserEmail], [p].[Type] AS [Product], [p].[Title], [o0].[Count] AS [Quantity], [o0].[Amount] AS [OrderAmount]
+FROM [Orders] AS [o]
+INNER JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+INNER JOIN [PrintingEditions] AS [p] ON [o0].[PrintingEditionId] = [p].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [o].[UserId] = [a].[Id]
+WHERE [o].[IsRemoved] = CAST(1 AS bit)
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Request starting HTTP/1.1 GET http://localhost:52976/  
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 81.34020000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 98.0244ms
+Request finished in 280.72270000000003ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:52976/api/order/getOrders application/json 143
+Route matched with {action = "GetOrders", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrders(BookStore.BusinessLogic.Models.OrdersFilterModel.OrdersFilterModel) on controller BookStore.Presentation.Controllers.OrderController (BookStore.Presentation).
+Entity Framework Core 3.0.0 initialized 'ApplicationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreationDate] AS [Date], [a].[UserName], [a].[Email] AS [UserEmail], [p].[Type] AS [Product], [p].[Title], [o0].[Count] AS [Quantity], [o0].[Amount] AS [OrderAmount]
+FROM [Orders] AS [o]
+INNER JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+INNER JOIN [PrintingEditions] AS [p] ON [o0].[PrintingEditionId] = [p].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [o].[UserId] = [a].[Id]
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [o].[Id], [o].[CreationDate] AS [Date], [a].[UserName], [a].[Email] AS [UserEmail], [p].[Type] AS [Product], [p].[Title], [o0].[Count] AS [Quantity], [o0].[Amount] AS [OrderAmount]
+FROM [Orders] AS [o]
+INNER JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+INNER JOIN [PrintingEditions] AS [p] ON [o0].[PrintingEditionId] = [p].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [o].[UserId] = [a].[Id]
+ORDER BY [a].[UserName] DESC
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store
+Failed to determine the https port for redirect.
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BookStore.Presentation.Controllers.HomeController (BookStore.Presentation).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 84.13000000000001ms.
+Executed action BookStore.Presentation.Controllers.HomeController.Index (BookStore.Presentation) in 107.7384ms
+Request finished in 314.01730000000003ms 200 text/html; charset=utf-8

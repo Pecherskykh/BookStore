@@ -1,14 +1,13 @@
 ﻿using BookStore.BusinessLogic.Models.PrintingEditions;
 using BookStore.BusinessLogic.Services.Interfaces;
-using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using BookStore.DataAccess.Repositories.Interfaces;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookStore.BusinessLogic.Common.Constants;
 using BookStore.BusinessLogic.Models.Base;
-using static BookStore.DataAccess.Entities.Enums.Enums;
 using BookStore.BusinessLogic.Extensions.PrintingEditionExtensions;
 using BookStore.BusinessLogic.Extensions.AuthorInPrintingEditionExtensions;
+using BookStore.BusinessLogic.Extensions.PrintingEditionsFilterExtensions;
+using BookStore.BusinessLogic.Models.PrintingEditionsFilterModel;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -74,33 +73,49 @@ namespace BookStore.BusinessLogic.Services
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.DataNotUpdatedError);
             }
-            var authorInPrintingEditions = await _authorInPrintingEditionRepository.GetAuthorInPrintingEditionsAsync(printingEdition.Id);
-            await _authorInPrintingEditionRepository.RemoveRangeAsync(authorInPrintingEditions); //todo check asuthors for changes
+            var authorInPrintingEditions = _authorInPrintingEditionRepository.GetAuthorInPrintingEditionsAsync(printingEdition.Id);
+            if (authorInPrintingEditions.Count != printingEdition.Authors.Items.Count)
+            {
+                await _authorInPrintingEditionRepository.RemoveRangeAsync(authorInPrintingEditions); //todo check asuthors for changes
 
+                foreach (var author in printingEdition.Authors.Items)
+                {
+                    await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author));
+                }
+                return resultModel; //todo write errors to this model
+            }
             foreach (var author in printingEdition.Authors.Items)
             {
-                await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author));
+                await _authorInPrintingEditionRepository.UpdateAsync(printingEdition.Map(author));
             }
-            return resultModel; //todo write errors to this model
+            return resultModel;
         }
 
         public async Task<BaseModel> RemoveAsync(PrintingEditionModelItem printingEdition)
         {
-            printingEdition.IsRemoved = true;
-            await _printingEditionRepository.UpdateAsync(printingEdition.Map());
-            var authorInPrintingEditions = (await _authorInPrintingEditionRepository.GetAuthorInPrintingEditionsAsync(printingEdition.Id));
+            var resultModel = new BaseModel();
+            if (printingEdition == null)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionModelItemIsEmptyError);
+                return resultModel;
+            }
+            var result = await _printingEditionRepository.IsRemoveAsync(printingEdition.Map());
+            if(!result)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.DataNotRemovedError);
+                return resultModel;
+            }
+            var authorInPrintingEditions = _authorInPrintingEditionRepository.GetAuthorInPrintingEditionsAsync(printingEdition.Id);
             foreach (var authorInPrintingEdition in authorInPrintingEditions)
             {
-                authorInPrintingEdition.IsRemoved = true;
-                await _authorInPrintingEditionRepository.UpdateAsync(authorInPrintingEdition);
+                await _authorInPrintingEditionRepository.IsRemoveAsync(authorInPrintingEdition);
             }
             return new BaseModel();
         }
 
-        //todo add categories to filterModel
-        public async Task<PrintingEditionModel> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels, List<TypePrintingEditionEnum.Type> categories)
+        public async Task<PrintingEditionModel> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels)
         {
-            var printingEditions = await _printingEditionRepository.GetPrintingEditionsAsync(printingEditionsFilterModels, categories);
+            var printingEditions = await _printingEditionRepository.GetPrintingEditionsAsync(printingEditionsFilterModels.Map());
             var resultModel = new PrintingEditionModel();
             foreach (var printingEdition in printingEditions)
             {

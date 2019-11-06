@@ -44,7 +44,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         public async Task<bool> CreateAsync(ApplicationUser user)
         {
             var existingUser = await FindByEmailAsync(user.Email); //todo chack existing User fro null
-            if (user != null) //todo check this
+            if (user == null) //todo check this
             {
                 return false;
             }
@@ -79,26 +79,18 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             return result.Succeeded;
         }
 
-        public async Task<Role> CheckRoleAsync(long userId) //todo return string
+        public async Task<string> CheckRoleAsync(string userId) //todo return string
         {
-            var identityRole = _applicationContext.UserRoles.Where(r => r.UserId == userId).FirstOrDefault(); //todo user userManager
-            if (identityRole == null)
-            {
-                return null;
-            }
-            return await _applicationContext.Roles.FindAsync(identityRole.RoleId);
+            var user = await _userManager.FindByIdAsync(userId);
+            var identityRole = (await _userManager.GetRolesAsync(user)).FirstOrDefault(); //todo user userManager            
+            return identityRole;
         }
 
-        public async Task AddRoleAsync(long userId, string role) //todo remove
+        public async Task<bool> RemoveAsync(ApplicationUser user) //todo change IsRemoved pro with UserManager
         {
-            var user = await _applicationContext.Users.FindAsync(userId);
-            await _userManager.AddToRoleAsync(user, role);
-        }
-
-        public async Task RemoveAsync(ApplicationUser user) //todo change IsRemoved pro with UserManager
-        {
-            _applicationContext.Users.Remove(user);
-            await _applicationContext.SaveChangesAsync();
+            user.IsRemoved = true;
+            var result = await _userManager.UpdateAsync(user);
+            return result.Succeeded;
         }
 
         public async Task<bool> UpdateAsync(ApplicationUser user)
@@ -107,13 +99,13 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             return result.Succeeded;
         }
 
-        public async Task<bool> CheckUserAsync(ApplicationUser user, string password, bool lockoutOnFailure)
+        public async Task<bool> CheckUserAsync(ApplicationUser user, string password)
         {
             var result = await _signInManager.CheckPasswordSignInAsync(user, password, lockoutOnFailure:false);
             return result.Succeeded;
         }
 
-        public async Task SignInAsync(ApplicationUser user, bool isPersistent) //todo remove isPersistent param
+        public async Task SignInAsync(ApplicationUser user) //todo remove isPersistent param
         {
             await _signInManager.SignInAsync(user, isPersistent: false);
         }

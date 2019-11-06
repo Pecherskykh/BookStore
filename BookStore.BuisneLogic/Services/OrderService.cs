@@ -4,9 +4,10 @@ using BookStore.BusinessLogic.Extensions.OrderItemExtensions;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Models.Cart;
 using BookStore.BusinessLogic.Models.Orders;
+using BookStore.BusinessLogic.Models.OrdersFilterModel;
+using BookStore.BusinessLogic.Extensions.OrdersFilterExtensions;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Entities;
-using BookStore.DataAccess.Models.OrdersFilterModel;
 using BookStore.DataAccess.Repositories.Interfaces;
 using System.Threading.Tasks;
 
@@ -79,7 +80,7 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.OrdersFilterModelIsEmptyError);
                 return resultModel;
             }
-            var orders = await _orderRepository.GetOrdersAsync(ordersFilterModel);
+            var orders = await _orderRepository.GetOrdersAsync(ordersFilterModel.Map());
             foreach (var order in orders)
             {
                 resultModel.Items.Add(order.Map());

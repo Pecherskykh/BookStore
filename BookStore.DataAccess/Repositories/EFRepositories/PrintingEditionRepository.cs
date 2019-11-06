@@ -24,7 +24,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         {
         }
 
-        public async Task<IEnumerable<PrintingEditionModelItem>> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModel, List<TypePrintingEditionEnum.Type> categories)
+        public async Task<IEnumerable<PrintingEditionModelItem>> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModel)
         {            
             var printingEditions = from printingEdition in _applicationContext.PrintingEditions where printingEdition.IsRemoved
                                    select new PrintingEditionModelItem
@@ -44,7 +44,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
                                                   }).ToArray()
                                    };
             var allCategories = (Enum.GetValues(typeof(TypePrintingEditionEnum.Type))).OfType<TypePrintingEditionEnum.Type>().ToList();
-            allCategories = allCategories.Where(x => !categories.Contains(x)).ToList();
+            allCategories = allCategories.Where(x => !printingEditionsFilterModel.Categories.Contains(x)).ToList();
             foreach (var categoty in allCategories)
             {
                 printingEditions = printingEditions.Where(x => x.Type != categoty);

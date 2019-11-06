@@ -2,14 +2,14 @@
 using BookStore.BusinessLogic.Models.Authors;
 using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Services.Interfaces;
-using BookStore.DataAccess.Models.Base;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using static BookStore.DataAccess.Models.Enums.Enums;
 
 namespace BookStore.Presentation.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Admin")]
     //todo add attrs
     public class AuthorController : Controller
     {
@@ -31,7 +31,7 @@ namespace BookStore.Presentation.Controllers
         public async Task<IActionResult> CreateAsync(AuthorModelItem author)
         {
             var result = await _authorService.CreateAsync(author); //todo return BaseModel
-            return Ok(new BaseModel());
+            return Ok(result);
         }
 
         [HttpPost("update")]

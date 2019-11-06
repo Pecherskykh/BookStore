@@ -2,9 +2,8 @@
 using System.Threading.Tasks;
 using BookStore.BusinessLogic.Models.Cart;
 using BookStore.BusinessLogic.Models.OrderItems;
-using BookStore.BusinessLogic.Models.Orders;
+using BookStore.BusinessLogic.Models.OrdersFilterModel;
 using BookStore.BusinessLogic.Services.Interfaces;
-using BookStore.DataAccess.Models.OrdersFilterModel;
 using Microsoft.AspNetCore.Mvc;
 using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
 using static BookStore.DataAccess.Models.Enums.Enums;
@@ -24,22 +23,14 @@ namespace BookStore.Presentation.Controllers
             _orderService = orderService;
         }
 
-        [HttpPost("test")]
-        public async Task<IActionResult> Test(/*OrdersFilterModel ordersFilterModel*/)
-        {
-            var ordersFilterModel = new OrdersFilterModel //todo map model at the service
-            {
-                SortType = SortType.UserName,
-                SortingDirection = SortingDirection.HighToLow,
-                OrderStatus = OrderStatus.Unpaid,
-                PageCount = 1,
-                PageSize = 10
-            };            
+        [HttpPost("getOrders")]
+        public async Task<IActionResult> GetOrders(OrdersFilterModel ordersFilterModel)
+        {        
             var ordersModel = await _orderService.GetOrdersAsync(ordersFilterModel);
-            return Ok(ordersModel);
+            return Ok(ordersFilterModel);
         }
 
-        [HttpPost("create")]
+        [HttpGet("create")]
         public async Task<IActionResult> Create() //todo get model from body
         {
             var cartModel = new CartModel() //todo remove hardCode
@@ -61,8 +52,8 @@ namespace BookStore.Presentation.Controllers
                 Description = "Description",
                 UserId = 50,
             };
-            var ordersModel = await _orderService.CreateAsync(cartModel);
-            return Ok(ordersModel);
+            //var ordersModel = await _orderService.CreateAsync(cartModel);
+            return Ok(cartModel);
         }
     }
 }

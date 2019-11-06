@@ -2,10 +2,11 @@
 using System.Threading.Tasks;
 using BookStore.BusinessLogic.Models.Authors;
 using BookStore.BusinessLogic.Models.PrintingEditions;
+using BookStore.BusinessLogic.Models.PrintingEditionsFilterModel;
 using BookStore.BusinessLogic.Services.Interfaces;
-using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using Microsoft.AspNetCore.Mvc;
 using static BookStore.DataAccess.Entities.Enums.Enums;
+using static BookStore.DataAccess.Models.Enums.Enums.PrintingEditionsFilterEnums;
 
 namespace BookStore.Presentation.Controllers
 {
@@ -21,15 +22,21 @@ namespace BookStore.Presentation.Controllers
             _printingEditorService = printingEditorService;
         }
 
-        [HttpPost("test")]
-        public async Task<IActionResult> Test(PrintingEditionsFilterModel printingEditionsFilterModels)
+        [HttpPost("getPrintingEditions")]
+        public async Task<IActionResult> GetPrintingEditions(/*PrintingEditionsFilterModel printingEditionsFilterModels*/)
         {
-            var categories = new List<TypePrintingEditionEnum.Type>()
+            var printingEditionsFilterModels = new PrintingEditionsFilterModel()
             {
-                TypePrintingEditionEnum.Type.Books,
-                TypePrintingEditionEnum.Type.Magzines
+                Categories = new List<TypePrintingEditionEnum.Type>()
+                {
+                    TypePrintingEditionEnum.Type.Book,
+                    TypePrintingEditionEnum.Type.Magazine
+                },
+                SortType = SortType.Price,
+                MinPrice = 20,
+                MaxPrice = 100
             };            
-            var printingEditionModel = await _printingEditorService.GetPrintingEditionsAsync(printingEditionsFilterModels, categories);
+            var printingEditionModel = await _printingEditorService.GetPrintingEditionsAsync(printingEditionsFilterModels);
             return Ok(printingEditionModel);
         }
 
@@ -41,7 +48,7 @@ namespace BookStore.Presentation.Controllers
                 Title = "New Title",
                 Description = "New Description",
                 Price = 1000,
-                Type = TypePrintingEditionEnum.Type.Books,
+                ProductType = TypePrintingEditionEnum.Type.Book,
                 Authors = new AuthorModel()
                 {
                     Items = new List<AuthorModelItem>()
@@ -65,7 +72,7 @@ namespace BookStore.Presentation.Controllers
                 Title = "New TitleUpdate",
                 Description = "New Description",
                 Price = 1000,
-                Type = TypePrintingEditionEnum.Type.Books,
+                ProductType = TypePrintingEditionEnum.Type.Book,
                 Authors = new AuthorModel()
                 {
                     Items = new List<AuthorModelItem>()
@@ -88,7 +95,7 @@ namespace BookStore.Presentation.Controllers
                 Title = "New TitleUpdate",
                 Description = "New Description",
                 Price = 1000,
-                Type = TypePrintingEditionEnum.Type.Books,
+                ProductType = TypePrintingEditionEnum.Type.Book,
                 Authors = new AuthorModel()
                 {
                     Items = new List<AuthorModelItem>()

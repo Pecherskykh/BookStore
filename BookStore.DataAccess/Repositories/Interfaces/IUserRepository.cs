@@ -16,11 +16,10 @@ namespace BookStore.DataAccess.Repositories.Interfaces
         Task<ApplicationUser> FindByNameAsync(string userName);
         Task<bool> CreateAsync(ApplicationUser user);
         Task<bool> UpdateAsync(ApplicationUser user);
-        Task RemoveAsync(ApplicationUser user);
-        Task<Role> CheckRoleAsync(long userId);
-        Task AddRoleAsync(long userId, string role);
-        Task<bool> CheckUserAsync(ApplicationUser user, string password, bool lockoutOnFailure);
-        Task SignInAsync(ApplicationUser user, bool isPersistent);
+        Task<bool> RemoveAsync(ApplicationUser user);
+        Task<string> CheckRoleAsync(string userId);
+        Task<bool> CheckUserAsync(ApplicationUser user, string password);
+        Task SignInAsync(ApplicationUser user);
         Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilterModel usersFilter);
     }
 }
