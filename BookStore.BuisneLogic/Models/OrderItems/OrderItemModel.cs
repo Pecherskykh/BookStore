@@ -7,6 +7,6 @@ namespace BookStore.BusinessLogic.Models.OrderItems
 {
     public class OrderItemModel : BaseModel
     {
-        public ICollection<OrderItemModelItem> Items = new List<OrderItemModelItem>();
+        public ICollection<OrderItemModelItem> Items { get; set; }
     }
 }

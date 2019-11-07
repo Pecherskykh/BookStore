@@ -26,7 +26,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
         public async Task<IEnumerable<PrintingEditionModelItem>> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModel)
         {            
-            var printingEditions = from printingEdition in _applicationContext.PrintingEditions where printingEdition.IsRemoved
+            var printingEditions = from printingEdition in _applicationContext.PrintingEditions //where printingEdition.IsRemoved
                                    select new PrintingEditionModelItem
                                    {
                                        Id = printingEdition.Id,

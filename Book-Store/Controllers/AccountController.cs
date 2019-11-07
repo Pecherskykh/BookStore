@@ -28,7 +28,6 @@ namespace BookStore.Presentation.Controllers
         public async Task<IActionResult> Login(UserModelItem user) //todo add model to Login UserModelItem
         {
             var resultModel = new BaseModel();
-
             if (user == null)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserModelItemIsEmptyError);

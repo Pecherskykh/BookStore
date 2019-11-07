@@ -27,7 +27,6 @@ namespace BookStore.Presentation
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
             Initializer.Init(services, Configuration.GetConnectionString("DefaultConnection"));
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddTransient<IJwtHelper, JwtHelper>();

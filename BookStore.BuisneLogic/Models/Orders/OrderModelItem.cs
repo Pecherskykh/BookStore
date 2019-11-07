@@ -17,6 +17,5 @@ namespace BookStore.BusinessLogic.Models.Orders
         public string Title { get; set; }
         public long Quantity { get; set; }
         public long OrderAmount { get; set; }
-        public string Status { get; set; } //todo check this property, use enum
     }
 }

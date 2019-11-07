@@ -1,7 +1,4 @@
 ﻿using BookStore.BusinessLogic.Models.Orders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BookStore.BusinessLogic.Extensions.OrderExtensions
 {
@@ -18,8 +15,7 @@ namespace BookStore.BusinessLogic.Extensions.OrderExtensions
                 ProductType = order.Product,
                 Title = order.Title,
                 Quantity = order.Quantity,
-                OrderAmount = order.OrderAmount,
-                Status = order.Status
+                OrderAmount = order.OrderAmount
             };
         }
     }

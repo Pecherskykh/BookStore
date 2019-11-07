@@ -1,4 +1,6 @@
-﻿namespace BookStore.BusinessLogic.Common.Constants
+﻿using Microsoft.Extensions.Configuration;
+
+namespace BookStore.BusinessLogic.Common.Constants
 {
     public partial class Constants
     {

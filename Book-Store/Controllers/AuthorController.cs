@@ -48,8 +48,8 @@ namespace BookStore.Presentation.Controllers
             return Ok(result);
         }
 
-        [HttpPost("test")]
-        public async Task<IActionResult> Test(BaseFilterModel baseFilterModel)
+        [HttpPost("getAuthor")]
+        public async Task<IActionResult> GetAuthor(BaseFilterModel baseFilterModel)
         {
             var authorModel = await _authorService.GetAuthorsAsync(baseFilterModel);
             return Ok(authorModel);

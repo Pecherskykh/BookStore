@@ -6,6 +6,7 @@ using BookStore.BusinessLogic.Extensions.BaseFilterExtensions;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Repositories.Interfaces;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -93,7 +94,8 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.BaseFilterModelIsEmptyError);
                 return resultModel;
             }
-            var authors = await _authorRepository.GetAuthorsAsync(baseFilterModel.Map());            
+            var authors = await _authorRepository.GetAuthorsAsync(baseFilterModel.Map());
+            resultModel.Items = new List<AuthorModelItem>();
             foreach (var author in authors)
             {
                 resultModel.Items.Add(author.Map());

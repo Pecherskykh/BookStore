@@ -36,7 +36,6 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
                                        Title = printingEdition.Title,
                                        Quantity = orderItem.Count,
                                        OrderAmount = orderItem.Amount,
-                                       //Status = printingEdition.Status
                                    };
             orders = OrderBy(orders, ordersFilterModel.SortType, ordersFilterModel.SortingDirection == SortingDirection.LowToHigh);
 

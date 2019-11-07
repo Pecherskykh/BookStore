@@ -1,13 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookStore.BusinessLogic.Models.Cart;
-using BookStore.BusinessLogic.Models.OrderItems;
 using BookStore.BusinessLogic.Models.OrdersFilterModel;
 using BookStore.BusinessLogic.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
-using static BookStore.DataAccess.Models.Enums.Enums;
-using static BookStore.DataAccess.Models.Enums.Enums.OrdersFilterEnums;
 
 namespace BookStore.Presentation.Controllers
 {
@@ -27,33 +23,14 @@ namespace BookStore.Presentation.Controllers
         public async Task<IActionResult> GetOrders(OrdersFilterModel ordersFilterModel)
         {        
             var ordersModel = await _orderService.GetOrdersAsync(ordersFilterModel);
-            return Ok(ordersFilterModel);
+            return Ok(ordersModel);
         }
 
-        [HttpGet("create")]
-        public async Task<IActionResult> Create() //todo get model from body
+        [HttpPost("create")]
+        public async Task<IActionResult> Create(CartModel cartModel) //todo get model from body
         {
-            var cartModel = new CartModel() //todo remove hardCode
-            {
-                OrderItemModel = new OrderItemModel()
-                {
-                    Items = new List<OrderItemModelItem>()
-                    {
-                        new OrderItemModelItem()
-                        {
-                            Amount = 17,
-                            Currency = Currencys.UAH,
-                            Count = 8,
-                            PrintingEditionId = 13
-                        }
-                    }
-                },
-                TransactionId = 7,
-                Description = "Description",
-                UserId = 50,
-            };
-            //var ordersModel = await _orderService.CreateAsync(cartModel);
-            return Ok(cartModel);
+            var ordersModel = await _orderService.CreateAsync(cartModel);
+            return Ok(ordersModel);
         }
     }
 }
