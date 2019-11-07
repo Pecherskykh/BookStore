@@ -20,7 +20,7 @@ namespace BookStore.BusinessLogic.Helpers
             {
                 smtp.Credentials = new NetworkCredential(Constants.EmailConstants.Address, Constants.EmailConstants.Password);
                 smtp.EnableSsl = true;
-                await smtp.SendMailAsync(mailMessage); //todo check async
+                await smtp.SendMailAsync(mailMessage);
             }
         }
     }

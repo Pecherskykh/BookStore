@@ -9,7 +9,7 @@ namespace BookStore.Presentation.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    //todo attrs
+    //todo attrs authorized
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
@@ -27,7 +27,7 @@ namespace BookStore.Presentation.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult> Create(CartModel cartModel) //todo get model from body
+        public async Task<IActionResult> Create(CartModel cartModel)
         {
             var ordersModel = await _orderService.CreateAsync(cartModel);
             return Ok(ordersModel);

@@ -158,10 +158,10 @@ namespace BookStore.BusinessLogic.Services
             return resultModel;
         }
 
-        //todo remove if this method doesn't use
         public async Task<bool> CheckUserAsync(UserModelItem user) //todo return BaseModel
         {
-            return await _userRepository.CheckUserAsync(user.Map(), user.Password); //todo check result from repo
+            //todo user check for null and map
+            return await _userRepository.CheckUserAsync(user.Map(), user.Password);
         }
 
         //todo remove if this method doesn't use

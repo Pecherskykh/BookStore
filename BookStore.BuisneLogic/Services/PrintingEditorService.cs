@@ -39,7 +39,7 @@ namespace BookStore.BusinessLogic.Services
             return printingEdition.Map();
         }
 
-        public async Task<BaseModel> CreateAsync(PrintingEditionModelItem printingEdition) //todo return BaseModel
+        public async Task<BaseModel> CreateAsync(PrintingEditionModelItem printingEdition)
         {
             var resultModel = new BaseModel();
             if (printingEdition == null)
@@ -55,7 +55,7 @@ namespace BookStore.BusinessLogic.Services
             }
             foreach (var author in printingEdition.Authors.Items)
             {
-                await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author));
+                await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author)); //todo check result
             }
             return resultModel;
         }
@@ -68,7 +68,7 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionModelItemIsEmptyError);
                 return resultModel;
             }
-            var result = await _printingEditionRepository.UpdateAsync(printingEdition.Map()); //todo check model for null, check result
+            var result = await _printingEditionRepository.UpdateAsync(printingEdition.Map());
             if (!result)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.DataNotUpdatedError);
@@ -76,17 +76,17 @@ namespace BookStore.BusinessLogic.Services
             var authorInPrintingEditions = _authorInPrintingEditionRepository.GetAuthorInPrintingEditionsAsync(printingEdition.Id);
             if (authorInPrintingEditions.Count != printingEdition.Authors.Items.Count)
             {
-                await _authorInPrintingEditionRepository.RemoveRangeAsync(authorInPrintingEditions); //todo check asuthors for changes
+                await _authorInPrintingEditionRepository.RemoveRangeAsync(authorInPrintingEditions);
 
                 foreach (var author in printingEdition.Authors.Items)
                 {
-                    await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author));
+                    await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author)); //todo check result
                 }
                 return resultModel; //todo write errors to this model
             }
             foreach (var author in printingEdition.Authors.Items)
             {
-                await _authorInPrintingEditionRepository.UpdateAsync(printingEdition.Map(author));
+                await _authorInPrintingEditionRepository.UpdateAsync(printingEdition.Map(author)); //todo check result
             }
             return resultModel;
         }

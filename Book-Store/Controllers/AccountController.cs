@@ -25,7 +25,7 @@ namespace BookStore.Presentation.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserModelItem user) //todo add model to Login UserModelItem
+        public async Task<IActionResult> Login(UserModelItem user)
         {
             var resultModel = new BaseModel();
             if (user == null)
@@ -46,7 +46,7 @@ namespace BookStore.Presentation.Controllers
 
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserModelItem user)
-        {
+        { //todo clear
             /*var user = new UserModelItem
             {
                 UserName = "Name",
@@ -57,7 +57,6 @@ namespace BookStore.Presentation.Controllers
             return Ok(result);
         }
 
-        //todo add attr
         [HttpGet("confirmEmail")]
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
@@ -65,7 +64,6 @@ namespace BookStore.Presentation.Controllers
             return Ok(result);
         }
 
-        //todo add attr
         [HttpPost("forgotPassword")]
         public async Task<IActionResult> ForgotPassword(string email)
         {
@@ -80,6 +78,7 @@ namespace BookStore.Presentation.Controllers
             var resultModel = new BaseModel();
             if (!_jwtHelper.CheckToken(refreshToken))
             {
+                resultModel.Errors.Add("Refresh token is not valid"); //todo const
                 return Ok(resultModel);
             }
             var userId = this.HttpContext.User.Claims
@@ -89,7 +88,9 @@ namespace BookStore.Presentation.Controllers
             HttpContext.Response.Cookies.Append("accessToken", encodedJwt.AccessToken);
             HttpContext.Response.Cookies.Append("refreshToken", encodedJwt.RefreshToken);
 
-            return Ok(resultModel); //todo add error if expire
+            return Ok(resultModel);
         }   
+        //todo add logout
+        //all
     }
 }

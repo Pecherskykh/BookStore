@@ -22,7 +22,7 @@ namespace BookStore.Presentation.Controllers
         }
 
         [HttpPost("find")]
-        public async Task<IActionResult> GetByIdAsync(string userId) //todo rename to get
+        public async Task<IActionResult> GetByIdAsync(string userId)
         {
             var user = await _userService.FindByIdAsync(userId);
             return Ok(user);
@@ -38,7 +38,7 @@ namespace BookStore.Presentation.Controllers
         [HttpPost("remove")]
         public async Task<IActionResult> RemoveAsync(UserModelItem user)
         {
-            var result = await _userService.RemoveAsync(user); //todo return BaseModel
+            var result = await _userService.RemoveAsync(user);
             return Ok(result);
         }
 

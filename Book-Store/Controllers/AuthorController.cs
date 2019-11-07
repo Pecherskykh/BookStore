@@ -10,7 +10,6 @@ namespace BookStore.Presentation.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize(Roles = "Admin")]
-    //todo add attrs
     public class AuthorController : Controller
     {
         private readonly IAuthorService _authorService;
@@ -30,7 +29,7 @@ namespace BookStore.Presentation.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> CreateAsync(AuthorModelItem author)
         {
-            var result = await _authorService.CreateAsync(author); //todo return BaseModel
+            var result = await _authorService.CreateAsync(author);
             return Ok(result);
         }
 

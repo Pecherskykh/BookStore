@@ -53,7 +53,7 @@ namespace BookStore.BusinessLogic.Services
             }
             var payment = new Payment()
             {
-                TransactionId = cartModel.TransactionId //todo check type
+                TransactionId = cartModel.TransactionId
             };
             var paymentId = await _paymentRepository.CreateAsync(payment);
             var order = new Order()
