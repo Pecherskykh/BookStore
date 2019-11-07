@@ -1,7 +1,5 @@
 ﻿using BookStore.BusinessLogic.Models.Base;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BookStore.BusinessLogic.Models.OrderItems
 {

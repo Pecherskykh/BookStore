@@ -42,7 +42,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
                                                       Name = author.Name
                                                   }).ToArray()
                                    };
-            var allCategories = (Enum.GetValues(typeof(TypePrintingEditionEnum.Type))).OfType<TypePrintingEditionEnum.Type>().ToList();
+            var allCategories = (Enum.GetValues(typeof(TypePrintingEdition))).OfType<TypePrintingEdition>().ToList();
             allCategories = allCategories.Where(x => !printingEditionsFilterModel.Categories.Contains(x)).ToList();
             foreach (var categoty in allCategories)
             {

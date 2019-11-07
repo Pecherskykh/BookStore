@@ -11,7 +11,7 @@ namespace BookStore.BusinessLogic.Extensions.BaseFilterExtensions
                 PageCount = baseFilterModel.PageCount,
                 PageSize = baseFilterModel.PageSize,
                 SearchString = baseFilterModel.SearchString,
-                SortingDirection = baseFilterModel.SortingDirection
+                SortingDirection = (DataAccess.Models.Enums.Enums.SortingDirection)baseFilterModel.SortingDirection
             };
         }
     }

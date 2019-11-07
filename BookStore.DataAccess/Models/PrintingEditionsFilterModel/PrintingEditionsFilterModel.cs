@@ -7,7 +7,7 @@ namespace BookStore.DataAccess.Models.PrintingEditionsFilterModels
 {
     public class PrintingEditionsFilterModel : BaseFilterModel
     {
-        public List<TypePrintingEditionEnum.Type> Categories { get; set; }
+        public List<TypePrintingEdition> Categories { get; set; }
         public PrintingEditionSortType SortType { get; set; }
         public decimal MinPrice { get; set; }
         public decimal MaxPrice { get; set; }

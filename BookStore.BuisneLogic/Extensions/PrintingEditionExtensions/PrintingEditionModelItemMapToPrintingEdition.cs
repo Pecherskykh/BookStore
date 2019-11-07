@@ -17,7 +17,7 @@ namespace BookStore.BusinessLogic.Extensions.PrintingEditionExtensions
                 Title = printingEditionModelItem.Title,
                 Description = printingEditionModelItem.Description,
                 Price = printingEditionModelItem.Price,
-                Type = printingEditionModelItem.ProductType,
+                Type = (DataAccess.Entities.Enums.Enums.TypePrintingEdition)printingEditionModelItem.ProductType,
             };
         }
     }

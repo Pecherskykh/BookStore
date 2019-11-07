@@ -1,5 +1,5 @@
-﻿using BookStore.BusinessLogic.Models.OrderItems;
-using BookStore.DataAccess.Models.Base;
+﻿using BookStore.BusinessLogic.Models.Base;
+using BookStore.BusinessLogic.Models.OrderItems;
 
 namespace BookStore.BusinessLogic.Models.Cart
 {

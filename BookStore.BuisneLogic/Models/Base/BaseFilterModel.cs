@@ -1,4 +1,4 @@
-﻿using static BookStore.DataAccess.Models.Enums.Enums;
+﻿using static BookStore.BusinessLogic.Models.Enums.Enums;
 
 namespace BookStore.BusinessLogic.Models.Base
 {

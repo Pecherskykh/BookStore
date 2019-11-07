@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using BookStore.DataAccess.Entities.Base;
 using static BookStore.DataAccess.Entities.Enums.Enums;
-using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
 
 namespace BookStore.DataAccess.Entities
 {
@@ -12,7 +11,7 @@ namespace BookStore.DataAccess.Entities
         public string Description { get; set; }
         public decimal Price { get; set; }
         public Currencys Currency { get; set; }
-        public TypePrintingEditionEnum.Type Type { get; set; }
+        public TypePrintingEdition Type { get; set; }
 
         [NotMapped]
         public ICollection<OrderItem> OrderItems { get; set; }

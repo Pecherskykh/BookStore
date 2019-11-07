@@ -1,8 +1,5 @@
 ﻿using BookStore.BusinessLogic.Models.OrderItems;
 using BookStore.DataAccess.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BookStore.BusinessLogic.Extensions.OrderItemExtensions
 {
@@ -13,7 +10,7 @@ namespace BookStore.BusinessLogic.Extensions.OrderItemExtensions
             return new OrderItem()
             {
                 Amount = orderItem.Amount,
-                Currency = orderItem.Currency,
+                Currency = (DataAccess.Entities.Enums.Enums.Currencys)orderItem.Currency,
                 Count = orderItem.Count,
                 OrderId = orderItem.OrderId,
                 PrintingEditionId = orderItem.PrintingEditionId

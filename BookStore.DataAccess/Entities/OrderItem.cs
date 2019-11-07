@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using BookStore.DataAccess.Entities.Base;
-using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
+using static BookStore.DataAccess.Entities.Enums.Enums;
 
 namespace BookStore.DataAccess.Entities
 {

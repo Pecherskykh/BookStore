@@ -1,5 +1,5 @@
-﻿using BookStore.DataAccess.Models.Base;
-using static BookStore.DataAccess.Models.Enums.Enums;
+﻿using BookStore.BusinessLogic.Models.Base;
+using static BookStore.BusinessLogic.Models.Enums.Enums;
 
 namespace BookStore.BusinessLogic.Models.OrdersFilterModel
 {

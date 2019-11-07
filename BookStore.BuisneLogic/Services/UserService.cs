@@ -7,7 +7,7 @@ using BookStore.BusinessLogic.Extensions.UesrsFilterExtensions;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Repositories.Interfaces;
 using System.Threading.Tasks;
-using static BookStore.DataAccess.Entities.Enums.Enums.RoleEnums;
+using static BookStore.BusinessLogic.Models.Enums.Enums;
 
 namespace BookStore.BusinessLogic.Services
 {

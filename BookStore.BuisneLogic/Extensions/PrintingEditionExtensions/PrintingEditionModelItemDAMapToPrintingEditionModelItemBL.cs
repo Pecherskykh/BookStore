@@ -4,6 +4,7 @@ using BookStore.BusinessLogic.Extensions.AuthorExtensions;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static BookStore.BusinessLogic.Models.Enums.Enums;
 
 namespace BookStore.BusinessLogic.Extensions.PrintingEditionExtensions
 {
@@ -17,7 +18,7 @@ namespace BookStore.BusinessLogic.Extensions.PrintingEditionExtensions
                 Title = printingEditionModelItem.Title,
                 Description = printingEditionModelItem.Description,
                 Price = printingEditionModelItem.Price,
-                ProductType = printingEditionModelItem.Type,
+                ProductType = (TypePrintingEdition)printingEditionModelItem.Type,
                 Authors = new AuthorModel()
                 {
                     Items = printingEditionModelItem.Authors.Map()

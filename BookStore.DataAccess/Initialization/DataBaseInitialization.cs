@@ -1,11 +1,8 @@
 ﻿using BookStore.DataAccess.AppContext;
-using BookStore.DataAccess.Entities.Enums;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
 using System.Collections.Generic;
 using BookStore.DataAccess.Entities;
-using static BookStore.DataAccess.Entities.Enums.Enums.RoleEnums;
-using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
 using static BookStore.DataAccess.Entities.Enums.Enums;
 
 namespace BookStore.DataAccess.Initialization
@@ -156,7 +153,7 @@ namespace BookStore.DataAccess.Initialization
                 Description = "Description",
                 Price = 40,
                 Currency = Currencys.UAH,
-                Type = TypePrintingEditionEnum.Type.Book
+                Type = TypePrintingEdition.Book
             };
             _applicationContext.PrintingEditions.Add(printingEdition);
             _applicationContext.SaveChanges();

@@ -1,6 +1,6 @@
 ﻿using BookStore.BusinessLogic.Models.Base;
 using System;
-using static BookStore.DataAccess.Entities.Enums.Enums;
+using static BookStore.BusinessLogic.Models.Enums.Enums;
 
 namespace BookStore.BusinessLogic.Models.Orders
 {
@@ -13,7 +13,7 @@ namespace BookStore.BusinessLogic.Models.Orders
         public long UserId { get; set; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
-        public TypePrintingEditionEnum.Type ProductType { get; set; }
+        public TypePrintingEdition ProductType { get; set; }
         public string Title { get; set; }
         public long Quantity { get; set; }
         public long OrderAmount { get; set; }

@@ -9,7 +9,7 @@ namespace BookStore.DataAccess.Models.Orders
         public DateTime Date { get; set; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
-        public TypePrintingEditionEnum.Type Product { get; set; }
+        public TypePrintingEdition Product { get; set; }
         public string Title { get; set; }
         public long Quantity { get; set; }
         public long OrderAmount { get; set; }

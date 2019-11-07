@@ -1,4 +1,4 @@
-﻿namespace BookStore.DataAccess.Entities.Enums
+﻿namespace BookStore.BusinessLogic.Models.Enums
 {
     public partial class Enums
     {

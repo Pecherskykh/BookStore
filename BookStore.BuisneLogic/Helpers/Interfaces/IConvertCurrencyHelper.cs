@@ -1,4 +1,4 @@
-﻿using static BookStore.DataAccess.Entities.Enums.Enums.CurrencyEnum;
+﻿using static BookStore.BusinessLogic.Models.Enums.Enums;
 
 namespace BookStore.BusinessLogic.Helpers.Interfaces
 {

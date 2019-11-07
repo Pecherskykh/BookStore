@@ -10,10 +10,10 @@ namespace BookStore.BusinessLogic.Extensions.UesrsFilterExtensions
             {
                 PageCount = usersFilterModel.PageCount,
                 PageSize = usersFilterModel.PageSize,
-                UserStatus = usersFilterModel.UserStatus,
+                UserStatus = (DataAccess.Models.Enums.Enums.UserStatus)usersFilterModel.UserStatus,
                 SearchString = usersFilterModel.SearchString,
-                SortType = usersFilterModel.SortType,
-                SortingDirection = usersFilterModel.SortingDirection                
+                SortType = (DataAccess.Models.Enums.Enums.UserSortType)usersFilterModel.SortType,
+                SortingDirection = (DataAccess.Models.Enums.Enums.SortingDirection)usersFilterModel.SortingDirection                
             };
         }
     }
