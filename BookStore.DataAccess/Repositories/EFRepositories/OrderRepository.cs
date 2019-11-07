@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using static BookStore.DataAccess.Models.Enums.Enums;
-using static BookStore.DataAccess.Models.Enums.Enums.OrdersFilterEnums;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
@@ -25,7 +24,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         {
             var orders = from order in _applicationContext.Orders join orderItem in _applicationContext.OrderItems on order.Id equals orderItem.OrderId
                                    join printingEdition in _applicationContext.PrintingEditions on orderItem.PrintingEditionId equals printingEdition.Id
-                                   join user in _applicationContext.Users on order.UserId equals user.Id //where order.IsRemoved
+                                   join user in _applicationContext.Users on order.UserId equals user.Id where !order.IsRemoved
                                    select new OrderModelItem
                                    {
                                        Id = order.Id,
@@ -44,25 +43,25 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             return await orders.ToListAsync();
         }
 
-        private IQueryable<OrderModelItem> OrderBy(IQueryable<OrderModelItem> orders, SortType sortType, bool lowToHigh)
+        private IQueryable<OrderModelItem> OrderBy(IQueryable<OrderModelItem> orders, OrderSortType sortType, bool lowToHigh)
         {
-            if (sortType == SortType.Id)
+            if (sortType == OrderSortType.Id)
             {
                 return orders.OrderDirection(i => i.Id, lowToHigh);
             }
-            if (sortType == SortType.Date)
+            if (sortType == OrderSortType.Date)
             {
                 return orders.OrderDirection(d => d.Date, lowToHigh);
             }
-            if (sortType == SortType.UserName)
+            if (sortType == OrderSortType.UserName)
             {
                 return orders.OrderDirection(n => n.UserName, lowToHigh);
             }
-            if (sortType == SortType.UserEmail)
+            if (sortType == OrderSortType.UserEmail)
             {
                 return orders.OrderDirection(e => e.UserEmail, lowToHigh);
             }           
-            if (sortType == SortType.OrderAmount)
+            if (sortType == OrderSortType.OrderAmount)
             {
                 return orders.OrderDirection(o => o.OrderAmount, lowToHigh);
             }

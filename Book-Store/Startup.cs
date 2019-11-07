@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using BookStore.Presentation.Helper;
 using BookStore.Presentation.Helper.Interface;
 using BookStore.Presentation.Middlewaren;
+using Microsoft.OpenApi.Models;
 
 namespace BookStore.Presentation
 {
@@ -26,10 +27,18 @@ namespace BookStore.Presentation
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllers();
             Initializer.Init(services, Configuration.GetConnectionString("DefaultConnection"));
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+            //services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddTransient<IJwtHelper, JwtHelper>();
+            //services.AddMvc();
+
+            //services.AddControllers();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
 
             services.AddAuthentication(options =>
             { 
@@ -41,14 +50,15 @@ namespace BookStore.Presentation
                         options.TokenValidationParameters = new TokenValidationParameters
                         {
                             ValidateIssuer = true,
-                            ValidIssuer = AuthOptions._issuer,
+                            ValidIssuer = AuthOptions.Issuer,
                             ValidateAudience = true,
-                            ValidAudience = AuthOptions._audience,
+                            ValidAudience = AuthOptions.Audience,
                             ValidateLifetime = true,
                             IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
                             ValidateIssuerSigningKey = true,
                         };
                     });
+            services.AddMvcCore().AddApiExplorer();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseInitialization initializer, ILoggerFactory loggerFactory)
@@ -59,16 +69,27 @@ namespace BookStore.Presentation
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = string.Empty;
+            });
+
             app.UseRouting();
-            app.UseAuthentication();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+            app.UseAuthentication();                 
             //app.UseAuthorization();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Index}/{id?}");
+            //});
         }
     }
 }

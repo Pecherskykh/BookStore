@@ -1,11 +1,11 @@
 ﻿using BookStore.BusinessLogic.Models.Base;
-using static BookStore.DataAccess.Models.Enums.Enums.UserFilterEnums;
+using static BookStore.DataAccess.Models.Enums.Enums;
 
 namespace BookStore.BusinessLogic.Models.UesrsFilterModel
 {
     public class UsersFilterModel : BaseFilterModel
     {
-        public SortType SortType { get; set; }
+        public UserSortType SortType { get; set; }
         public UserStatus UserStatus { get; set; }
     }
 }

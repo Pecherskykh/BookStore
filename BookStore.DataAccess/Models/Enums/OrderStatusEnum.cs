@@ -2,13 +2,10 @@
 {
     public partial class Enums
     {
-        public partial class OrdersFilterEnums
+        public enum OrderStatus
         {
-            public enum OrderStatus
-            {
-                Paid = 1,
-                Unpaid = 2
-            }
+            Paid = 1,
+            Unpaid = 2
         }
     }
 }

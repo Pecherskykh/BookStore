@@ -13,7 +13,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using static BookStore.DataAccess.Entities.Enums.Enums;
 using static BookStore.DataAccess.Models.Enums.Enums;
-using static BookStore.DataAccess.Models.Enums.Enums.PrintingEditionsFilterEnums;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
@@ -26,7 +25,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
         public async Task<IEnumerable<PrintingEditionModelItem>> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModel)
         {            
-            var printingEditions = from printingEdition in _applicationContext.PrintingEditions //where printingEdition.IsRemoved
+            var printingEditions = from printingEdition in _applicationContext.PrintingEditions where !printingEdition.IsRemoved
                                    select new PrintingEditionModelItem
                                    {
                                        Id = printingEdition.Id,
@@ -59,29 +58,29 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             return await printingEditions.ToListAsync();
         }
 
-        private IQueryable<PrintingEditionModelItem> OrderBy(IQueryable<PrintingEditionModelItem> printingEditions, SortType sortType, bool lowToHigh)
+        private IQueryable<PrintingEditionModelItem> OrderBy(IQueryable<PrintingEditionModelItem> printingEditions, PrintingEditionSortType sortType, bool lowToHigh)
         {
-            if (sortType == SortType.Author)
+            if (sortType == PrintingEditionSortType.Author)
             {
                 return printingEditions.OrderDirection(a => a.Description, lowToHigh);
             }
-            if (sortType == SortType.Category)
+            if (sortType == PrintingEditionSortType.Category)
             {
                 return printingEditions.OrderDirection(c => c.Type, lowToHigh);
             }
-            if (sortType == SortType.Discription)
+            if (sortType == PrintingEditionSortType.Discription)
             {
                 return printingEditions.OrderDirection(d => d.Description, lowToHigh);
             }
-            if (sortType == SortType.Id)
+            if (sortType == PrintingEditionSortType.Id)
             {
                 return printingEditions.OrderDirection(i => i.Id, lowToHigh);
             }
-            if (sortType == SortType.Name)
+            if (sortType == PrintingEditionSortType.Name)
             {
                 return printingEditions.OrderDirection(t => t.Title, lowToHigh);
             }
-            if (sortType == SortType.Price)
+            if (sortType == PrintingEditionSortType.Price)
             {
                 return printingEditions.OrderDirection(p => p.Price, lowToHigh);
             }

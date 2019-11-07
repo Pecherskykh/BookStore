@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using BookStore.DataAccess.Repositories.Interfaces;
 using BookStore.DataAccess.Models.UesrsFilterModel;
 using Microsoft.EntityFrameworkCore;
-using static BookStore.DataAccess.Models.Enums.Enums.UserFilterEnums;
 using BookStore.DataAccess.Extensions;
 using static BookStore.DataAccess.Models.Enums.Enums;
 
@@ -112,7 +111,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
         public async Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilterModel usersFilter)
         {
-            var users = _applicationContext.Users.Where(u => u.IsRemoved).AsQueryable();
+            var users = _applicationContext.Users.Where(u => !u.IsRemoved).AsQueryable();
             if (!string.IsNullOrWhiteSpace(usersFilter.SearchString))
             {
                 users = users.Where(u => u.UserName.ToLower().Equals(usersFilter.SearchString.ToLower()));
@@ -125,11 +124,11 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             {
                 users = users.Where(u => !u.LockoutEnabled);
             }
-            if(usersFilter.SortType == SortType.UserName)
+            if(usersFilter.SortType == UserSortType.UserName)
             {
                 users = users.OrderDirection(u => u.UserName, usersFilter.SortingDirection == SortingDirection.LowToHigh);
             }
-            if(usersFilter.SortType == SortType.Email)
+            if(usersFilter.SortType == UserSortType.Email)
             {
                 users = users.OrderDirection(u => u.Email, usersFilter.SortingDirection == SortingDirection.LowToHigh);
             }

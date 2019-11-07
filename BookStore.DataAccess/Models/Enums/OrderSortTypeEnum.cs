@@ -2,16 +2,13 @@
 {
     public partial class Enums
     {
-        public partial class OrdersFilterEnums
+        public enum OrderSortType
         {
-            public enum SortType
-            {
-                Id = 1,
-                Date = 2,
-                UserName = 3,
-                UserEmail = 4,
-                OrderAmount = 8,
-            }
+            Id = 1,
+            Date = 2,
+            UserName = 3,
+            UserEmail = 4,
+            OrderAmount = 8,
         }
     }
 }

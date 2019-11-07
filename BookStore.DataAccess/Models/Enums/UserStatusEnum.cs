@@ -2,13 +2,10 @@
 {
     public partial class Enums
     {
-        public partial class UserFilterEnums
+        public enum UserSortType
         {
-            public enum SortType
-            {
-                UserName = 1,
-                Email = 2
-            }
+            UserName = 1,
+            Email = 2
         }
     }
 }

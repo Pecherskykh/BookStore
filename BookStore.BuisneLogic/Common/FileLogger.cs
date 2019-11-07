@@ -30,7 +30,7 @@ namespace BookStore.BusinessLogic.Common
             }
             lock (_lock)
             {
-                File.AppendAllText(_filePath, state + Environment.NewLine);
+               // File.AppendAllText(_filePath, state + Environment.NewLine);
             }
         }
     }

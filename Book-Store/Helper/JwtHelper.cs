@@ -64,8 +64,8 @@ namespace BookStore.Presentation.Helper
         private JwtSecurityToken GenerateToken(List<Claim> claims, long expires)
         {
             var token = new JwtSecurityToken(
-            issuer: AuthOptions._issuer,
-            audience: AuthOptions._audience,
+            issuer: AuthOptions.Issuer,
+            audience: AuthOptions.Audience,
             claims: claims,
             expires: DateTime.Now.AddMinutes(expires),
             signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));

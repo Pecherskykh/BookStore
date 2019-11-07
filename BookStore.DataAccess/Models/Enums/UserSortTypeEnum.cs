@@ -2,14 +2,11 @@
 {
     public partial class Enums
     {
-        public partial class UserFilterEnums
+        public enum UserStatus
         {
-            public enum UserStatus
-            {
-                All = 1,
-                Active = 2,
-                Blocked = 3
-            }
+            All = 1,
+            Active = 2,
+            Blocked = 3
         }
     }
 }
