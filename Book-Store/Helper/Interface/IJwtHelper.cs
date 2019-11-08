@@ -6,7 +6,7 @@ namespace BookStore.Presentation.Helper.Interface
 {
     public interface IJwtHelper
     {
-        Task<TokenModel> GenerateTokenModel(UserModelItem user);
+        TokenModel GenerateTokenModel(UserModelItem user);
         bool CheckToken(string token);
     }
 }

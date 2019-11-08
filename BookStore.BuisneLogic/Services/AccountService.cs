@@ -158,16 +158,28 @@ namespace BookStore.BusinessLogic.Services
             return resultModel;
         }
 
-        public async Task<bool> CheckUserAsync(UserModelItem user) //todo return BaseModel
+        public async Task<BaseModel> CheckUserAsync(UserModelItem user) //todo return BaseModel
         {
+            var resultModel = new BaseModel();
+            if (user == null)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.UserModelItemIsEmptyError);
+                return resultModel;
+            }
             //todo user check for null and map
-            return await _userRepository.CheckUserAsync(user.Map(), user.Password);
+            var userMap = user.Map();
+            var result = await _userRepository.CheckUserAsync(userMap, user.Password);
+            if(!result)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
+                return resultModel;
+            }
+            return resultModel;
         }
 
-        //todo remove if this method doesn't use
-        public async Task SignInAsync(UserModelItem user)
+        public async Task LogOutAsync()
         {
-            await _userRepository.SignInAsync(user.Map());
+            await _userRepository.LogOutAsync();
         }
     }
 }

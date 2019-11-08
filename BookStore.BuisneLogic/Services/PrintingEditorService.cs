@@ -55,7 +55,11 @@ namespace BookStore.BusinessLogic.Services
             }
             foreach (var author in printingEdition.Authors.Items)
             {
-                await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author)); //todo check result
+                var result = await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author)); //todo check result
+                if (result == 0)
+                {
+                    resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionNotCreatedError);
+                }
             }
             return resultModel;
         }
@@ -80,13 +84,21 @@ namespace BookStore.BusinessLogic.Services
 
                 foreach (var author in printingEdition.Authors.Items)
                 {
-                    await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author)); //todo check result
+                    var resultCreate = await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author)); //todo check result
+                    if (resultCreate == 0)
+                    {
+                        resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionNotCreatedError);
+                    }
                 }
                 return resultModel; //todo write errors to this model
             }
             foreach (var author in printingEdition.Authors.Items)
             {
-                await _authorInPrintingEditionRepository.UpdateAsync(printingEdition.Map(author)); //todo check result
+                var resultUpdate = await _authorInPrintingEditionRepository.UpdateAsync(printingEdition.Map(author)); //todo check result
+                if (!resultUpdate)
+                {
+                    resultModel.Errors.Add(Constants.ErrorConstants.DataNotUpdatedError);
+                }
             }
             return resultModel;
         }

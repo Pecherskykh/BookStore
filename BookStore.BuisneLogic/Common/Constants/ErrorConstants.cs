@@ -4,7 +4,8 @@
     public partial class Constants
     {
         public class ErrorConstants
-        {            
+        {
+            public const string RefreshTokenIsNotValidError = "Refresh token is not valid";
             public const string UserNotFoundError = "User not found";
             public const string UserIdIsEmptyError = "User id is empty";
             public const string UserEmailIsEmptyError = "User email Is empty";

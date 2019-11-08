@@ -21,5 +21,6 @@ namespace BookStore.DataAccess.Repositories.Interfaces
         Task<bool> CheckUserAsync(ApplicationUser user, string password);
         Task SignInAsync(ApplicationUser user);
         Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilterModel usersFilter);
+        Task LogOutAsync();
     }
 }

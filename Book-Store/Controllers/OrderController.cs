@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using BookStore.BusinessLogic.Models.Cart;
 using BookStore.BusinessLogic.Models.OrdersFilterModel;
 using BookStore.BusinessLogic.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Presentation.Controllers
@@ -10,6 +11,7 @@ namespace BookStore.Presentation.Controllers
     [ApiController]
     [Route("api/[controller]")]
     //todo attrs authorized
+    [Authorize]
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;

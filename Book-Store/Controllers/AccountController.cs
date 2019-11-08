@@ -8,10 +8,12 @@ using BookStore.BusinessLogic.Models.Base;
 using BookStore.BusinessLogic.Models.Users;
 using BookStore.Presentation.Helper.Interface;
 using BookStore.BusinessLogic.Common.Constants;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookStore.Presentation.Controllers
 {
     [ApiController]
+    [AllowAnonymous]
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
@@ -34,7 +36,7 @@ namespace BookStore.Presentation.Controllers
                 return Ok(resultModel);
             }
 
-            var encodedJwt = await _jwtHelper.GenerateTokenModel(user);
+            var encodedJwt = _jwtHelper.GenerateTokenModel(user);
 
             if (encodedJwt != null)
             {
@@ -46,13 +48,7 @@ namespace BookStore.Presentation.Controllers
 
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserModelItem user)
-        { //todo clear
-            /*var user = new UserModelItem
-            {
-                UserName = "Name",
-                Email = "oleksandr.pecherskikh@gmail.com",
-                Password = "HardCodePasswor@0001"
-            };*/
+        {
             var result = await _accountService.Register(user);
             return Ok(result);
         }
@@ -63,7 +59,8 @@ namespace BookStore.Presentation.Controllers
             var result = await _accountService.ConfirmEmail(userId, token);
             return Ok(result);
         }
-
+        
+        [Authorize]
         [HttpPost("forgotPassword")]
         public async Task<IActionResult> ForgotPassword(string email)
         {
@@ -72,25 +69,33 @@ namespace BookStore.Presentation.Controllers
             return Ok(result);
         }
 
+        [Authorize]
         [HttpGet("refreshTokens")]
         public async Task<IActionResult> RefreshTokens(string refreshToken)
         {
             var resultModel = new BaseModel();
             if (!_jwtHelper.CheckToken(refreshToken))
             {
-                resultModel.Errors.Add("Refresh token is not valid"); //todo const
+                resultModel.Errors.Add(Constants.ErrorConstants.RefreshTokenIsNotValidError); //todo const
                 return Ok(resultModel);
             }
             var userId = this.HttpContext.User.Claims
                .FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
             var user = await _accountService.FindByNameAsync(userId);
-            var encodedJwt = await _jwtHelper.GenerateTokenModel(user);
+            var encodedJwt = _jwtHelper.GenerateTokenModel(user);
             HttpContext.Response.Cookies.Append("accessToken", encodedJwt.AccessToken);
             HttpContext.Response.Cookies.Append("refreshToken", encodedJwt.RefreshToken);
 
             return Ok(resultModel);
-        }   
+        }
+
         //todo add logout
-        //all
+        [Authorize]
+        [HttpPost("logOut")]
+        public async Task<IActionResult> LogOut()
+        {
+            await _accountService.LogOutAsync();
+            return Ok();
+        }
     }
 }

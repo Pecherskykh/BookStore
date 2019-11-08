@@ -9,6 +9,7 @@ using BookStore.DataAccess.Models.UesrsFilterModel;
 using Microsoft.EntityFrameworkCore;
 using BookStore.DataAccess.Extensions;
 using static BookStore.DataAccess.Models.Enums.Enums;
+using static BookStore.DataAccess.Entities.Enums.Enums;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
@@ -52,8 +53,13 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             {
                 return result.Succeeded;
             }
-            result = await _userManager.AddToRoleAsync(user, "User"); //todo use const or enum
+            result = await _userManager.AddToRoleAsync(user, RoleEnum.User.ToString()); //todo use const or enum
             return result.Succeeded;
+        }
+
+        public async Task LogOutAsync()
+        {
+            await _signInManager.SignOutAsync();
         }
 
         public async Task<string> GenerateEmailConfirmationTokenAsync(ApplicationUser user)
