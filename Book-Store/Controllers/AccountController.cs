@@ -9,12 +9,14 @@ using BookStore.BusinessLogic.Models.Users;
 using BookStore.Presentation.Helper.Interface;
 using BookStore.BusinessLogic.Common.Constants;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 
 namespace BookStore.Presentation.Controllers
 {
     [ApiController]
     [AllowAnonymous]
     [Route("api/[controller]")]
+    [EnableCors("AllowAllOrigin")]
     public class AccountController : ControllerBase
     {
         private readonly IAccountServise _accountService;
@@ -27,10 +29,10 @@ namespace BookStore.Presentation.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserModelItem user)
+        public async Task<IActionResult> Login(/*UserModelItem user*/)
         {
             var resultModel = new BaseModel();
-            if (user == null)
+            /*if (user == null)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserModelItemIsEmptyError);
                 return Ok(resultModel);
@@ -42,7 +44,7 @@ namespace BookStore.Presentation.Controllers
             {
                 HttpContext.Response.Cookies.Append("accessToken", encodedJwt.AccessToken);
                 HttpContext.Response.Cookies.Append("refreshToken", encodedJwt.RefreshToken);
-            }
+            }*/
             return Ok(resultModel);
         }
 

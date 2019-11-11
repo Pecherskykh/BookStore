@@ -33,6 +33,11 @@ namespace BookStore.Presentation
             services.AddTransient<IJwtHelper, JwtHelper>();
             //services.AddMvc();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigin", builder => builder.AllowAnyOrigin());
+            });
+
             //services.AddControllers();
 
             services.AddSwaggerGen(c =>

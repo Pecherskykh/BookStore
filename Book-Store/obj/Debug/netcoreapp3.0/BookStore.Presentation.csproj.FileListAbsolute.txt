@@ -125,8 +125,6 @@ C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\bin\Debug\netcoreapp3.0\BookS
 C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.csprojAssemblyReference.cache
 C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\staticwebassets\BookStore.Presentation.StaticWebAssets.Manifest.cache
 C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\staticwebassets\BookStore.Presentation.StaticWebAssets.xml
-C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.RazorAssemblyInfo.cache
 C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.RazorAssemblyInfo.cs
 C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.AssemblyInfoInputs.cache
@@ -147,3 +145,5 @@ C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookS
 C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.csproj.CopyComplete
 C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.dll
 C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.pdb
+C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.MvcApplicationPartsAssemblyInfo.cache
