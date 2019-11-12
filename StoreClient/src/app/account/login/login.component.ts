@@ -1,33 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs';
+import { Component} from '@angular/core';
 import {User} from 'src/app/shared/models/user';
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-@Injectable()
+import {AccontService} from 'src/app/shared/services/accont-service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [AccontService]
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent /*implements OnInit*/ {
 
-  constructor() { }
+  userName = new FormControl('');
+  password = new FormControl('');
 
-  private http: HttpClient;
+  user: User = new User();
 
-  login(email: string, passwor: string): Observable<User> {
-    alert('fdgdf');
-    return this.http.post<User>('http://localhost:52976/api/account/login', {
-      userName: email,
-      password: passwor
-    });
-  }
+    constructor(private accontService: AccontService) {}
 
-  OnClick() {
-    this.login('fdsfsd', 'fdfsf');
-  }
-  ngOnInit() {
+    submit(user: User) {
+      user.userName = this.userName.value;
+      user.password = this.password.value;
+      this.accontService.postData(user).subscribe(data => {
+        user = data;
+      });
   }
 }

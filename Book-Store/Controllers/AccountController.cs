@@ -13,10 +13,16 @@ using Microsoft.AspNetCore.Cors;
 
 namespace BookStore.Presentation.Controllers
 {
+    public class User
+    {
+        public string Name { get; set; }
+        public string Password { get; set; }
+    }
+
     [ApiController]
-    [AllowAnonymous]
+    //[AllowAnonymous]
     [Route("api/[controller]")]
-    [EnableCors("AllowAllOrigin")]
+    //[EnableCors("AllowAllOrigin")]
     public class AccountController : ControllerBase
     {
         private readonly IAccountServise _accountService;
@@ -28,11 +34,23 @@ namespace BookStore.Presentation.Controllers
             _jwtHelper = jwtHelper;
         }
 
+        [HttpPost("testPost")]
+        public async Task<IActionResult> TestPost(User user)
+        {
+            return Ok(new User { Name = "name", Password = "pass" });
+        }
+
+        [HttpGet("testGet")]
+        public async Task<IActionResult> TestGet()
+        {
+            return Ok();
+        }
+
         [HttpPost("login")]
-        public async Task<IActionResult> Login(/*UserModelItem user*/)
+        public async Task<IActionResult> Login(UserModelItem user)
         {
             var resultModel = new BaseModel();
-            /*if (user == null)
+            if (user == null)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserModelItemIsEmptyError);
                 return Ok(resultModel);
@@ -44,9 +62,10 @@ namespace BookStore.Presentation.Controllers
             {
                 HttpContext.Response.Cookies.Append("accessToken", encodedJwt.AccessToken);
                 HttpContext.Response.Cookies.Append("refreshToken", encodedJwt.RefreshToken);
-            }*/
+            }
             return Ok(resultModel);
         }
+
 
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserModelItem user)
@@ -62,7 +81,7 @@ namespace BookStore.Presentation.Controllers
             return Ok(result);
         }
         
-        [Authorize]
+        //[Authorize]
         [HttpPost("forgotPassword")]
         public async Task<IActionResult> ForgotPassword(string email)
         {

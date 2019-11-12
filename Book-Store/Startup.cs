@@ -33,10 +33,18 @@ namespace BookStore.Presentation
             services.AddTransient<IJwtHelper, JwtHelper>();
             //services.AddMvc();
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAllOrigin", builder => builder.AllowAnyOrigin());
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowAllOrigin", builder => builder.AllowAnyOrigin());
+            //});
+            services.AddCors();
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("CorsPolicy",
+            //        builder => builder.AllowAnyOrigin()
+            //        .AllowAnyMethod()
+            //        .AllowAnyHeader());
+            //});
 
             //services.AddControllers();
 
@@ -69,6 +77,9 @@ namespace BookStore.Presentation
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseInitialization initializer, ILoggerFactory loggerFactory)
         {
             initializer.StartInit();
+            app.UseCors(policy => policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+            //app.UseCors("CorsPolicy");
+
             app.UseMiddleware<ExceptionHandlerMiddleware>();    
 
             app.UseHttpsRedirection();
