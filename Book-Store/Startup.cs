@@ -27,6 +27,7 @@ namespace BookStore.Presentation
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddControllersWithViews();
             services.AddControllers();
             Initializer.Init(services, Configuration.GetConnectionString("DefaultConnection"));
             //services.AddMvc(options => options.EnableEndpointRouting = false);
@@ -48,10 +49,7 @@ namespace BookStore.Presentation
 
             //services.AddControllers();
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-            });
+
 
             services.AddAuthentication(options =>
             { 
@@ -72,6 +70,11 @@ namespace BookStore.Presentation
                         };
                     });
             services.AddMvcCore().AddApiExplorer();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseInitialization initializer, ILoggerFactory loggerFactory)
@@ -80,10 +83,14 @@ namespace BookStore.Presentation
             app.UseCors(policy => policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
             //app.UseCors("CorsPolicy");
 
-            app.UseMiddleware<ExceptionHandlerMiddleware>();    
+            app.UseMiddleware<ExceptionHandlerMiddleware>();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
@@ -92,13 +99,13 @@ namespace BookStore.Presentation
                 c.RoutePrefix = string.Empty;
             });
 
-            app.UseRouting();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-            app.UseAuthentication();                 
-            //app.UseAuthorization();
+            
+            //   app.UseAuthorization();
 
             //app.UseMvc(routes =>
             //{

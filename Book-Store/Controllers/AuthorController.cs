@@ -9,7 +9,7 @@ namespace BookStore.Presentation.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class AuthorController : Controller
     {
         private readonly IAuthorService _authorService;

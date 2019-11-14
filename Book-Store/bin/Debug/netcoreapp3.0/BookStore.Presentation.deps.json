@@ -27,7 +27,6 @@
           "BookStore.BusinessLogic": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "3.0.0",
           "Microsoft.AspNetCore.Mvc.Cors": "2.2.0",
-          "Microsoft.AspNetCore.StaticFiles": "2.2.0",
           "Microsoft.EntityFrameworkCore": "3.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "3.0.0",
           "Microsoft.Extensions.Logging.Debug": "3.0.0",
@@ -109,7 +108,7 @@
           "Microsoft.AspNetCore.SignalR.Core": "3.0.0.0",
           "Microsoft.AspNetCore.SignalR": "3.0.0.0",
           "Microsoft.AspNetCore.SignalR.Protocols.Json": "3.0.0.0",
-          "Microsoft.AspNetCore.StaticFiles.Reference": "3.0.0.0",
+          "Microsoft.AspNetCore.StaticFiles": "3.0.0.0",
           "Microsoft.AspNetCore.WebSockets": "3.0.0.0",
           "Microsoft.AspNetCore.WebUtilities.Reference": "3.0.0.0",
           "Microsoft.CSharp.Reference": "4.0.0.0",
@@ -580,15 +579,6 @@
       "Microsoft.AspNetCore.Routing.Abstractions/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0"
-        }
-      },
-      "Microsoft.AspNetCore.StaticFiles/2.2.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
-          "Microsoft.AspNetCore.Http.Extensions": "2.2.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "3.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "3.0.0",
-          "Microsoft.Extensions.WebEncoders": "2.2.0"
         }
       },
       "Microsoft.AspNetCore.WebUtilities/2.2.0": {
@@ -3014,7 +3004,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.StaticFiles.Reference/3.0.0.0": {
+      "Microsoft.AspNetCore.StaticFiles/3.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.StaticFiles.dll": {}
         },
@@ -4493,13 +4483,6 @@
       "sha512": "sha512-lRRaPN7jDlUCVCp9i0W+PB0trFaKB0bgMJD7hEJS9Uo4R9MXaMC8X2tJhPLmeVE3SGDdYI4QNKdVmhNvMJGgPQ==",
       "path": "microsoft.aspnetcore.routing.abstractions/2.2.0",
       "hashPath": "microsoft.aspnetcore.routing.abstractions.2.2.0.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.StaticFiles/2.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-byZDrjir6Co5EoWbraQyG0qbPCUG6XgGYQstipMF9lucOAjq/mqnIyt8B8iMWnin/ghZoOln9Y01af4rUAwOhA==",
-      "path": "microsoft.aspnetcore.staticfiles/2.2.0",
-      "hashPath": "microsoft.aspnetcore.staticfiles.2.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.WebUtilities/2.2.0": {
       "type": "package",
@@ -6134,7 +6117,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.StaticFiles.Reference/3.0.0.0": {
+    "Microsoft.AspNetCore.StaticFiles/3.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {CookieService} from 'ngx-cookie-service';
 import { routes } from './account-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
@@ -13,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [RouterModule.forChild(routes), HttpClientModule, ReactiveFormsModule],
+  providers: [CookieService],
   declarations: [LoginComponent, ConfirmEmailComponent, ForgotPasswordComponent, LogOutComponent, RefreshTokensComponent, RegisterComponent]
 })
 export class AccountModule { }

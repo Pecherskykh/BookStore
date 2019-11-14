@@ -11,5 +11,4 @@ export class GetAuthorsComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

@@ -39,11 +39,13 @@ namespace BookStore.Presentation.Controllers
         {
             return Ok(new User { Name = "name", Password = "pass" });
         }
+        
 
         [HttpGet("testGet")]
+        [Authorize]
         public async Task<IActionResult> TestGet()
         {
-            return Ok();
+            return Ok("Test");
         }
 
         [HttpPost("login")]
@@ -53,6 +55,11 @@ namespace BookStore.Presentation.Controllers
             if (user == null)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserModelItemIsEmptyError);
+                return Ok(resultModel);
+            }
+            user = await _accountService.CheckUserAsync(user);
+            if(user.Errors.Count != 0)
+            {
                 return Ok(resultModel);
             }
 
@@ -65,8 +72,7 @@ namespace BookStore.Presentation.Controllers
             }
             return Ok(resultModel);
         }
-
-
+        
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserModelItem user)
         {

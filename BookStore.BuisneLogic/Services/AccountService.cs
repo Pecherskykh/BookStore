@@ -158,23 +158,47 @@ namespace BookStore.BusinessLogic.Services
             return resultModel;
         }
 
-        public async Task<BaseModel> CheckUserAsync(UserModelItem user) //todo return BaseModel
+        public async Task<UserModelItem> CheckUserAsync(UserModelItem user) //todo return BaseModel
         {
-            var resultModel = new BaseModel();
+            var resultModel = new UserModelItem();
             if (user == null)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserModelItemIsEmptyError);
                 return resultModel;
             }
             //todo user check for null and map
-            var userMap = user.Map();
-            var result = await _userRepository.CheckUserAsync(userMap, user.Password);
+            var applicationUser = await _userRepository.FindByNameAsync(user.UserName);
+            if (applicationUser == null)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
+                return resultModel;
+            }
+            var result = await _userRepository.CheckUserAsync(applicationUser, user.Password);
             if(!result)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
-            return resultModel;
+            user = applicationUser.Map();
+            user.Role = await _userRepository.CheckRoleAsync(applicationUser.Id.ToString());
+            return user;
+        }
+
+        public async Task<string> CheckRoleAsync(UserModelItem user) //todo return BaseModel
+        {
+            string result = null;
+            if (user == null)
+            {
+                return result;
+            }
+            //todo user check for null and map
+            var applicationUser = await _userRepository.FindByNameAsync(user.UserName);
+            if (applicationUser == null)
+            {
+                return result;
+            }
+            result = await _userRepository.CheckRoleAsync(applicationUser.Id.ToString());
+            return result;
         }
 
         public async Task LogOutAsync()

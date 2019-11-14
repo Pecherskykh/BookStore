@@ -12,7 +12,8 @@ namespace BookStore.BusinessLogic.Services.Interfaces
         Task<BaseModel> Register(UserModelItem user);
         Task<BaseModel> ConfirmEmail(string userId, string token);
         Task<BaseModel> ForgotPassword(string userEmail);
-        Task<BaseModel> CheckUserAsync(UserModelItem user);
+        Task<UserModelItem> CheckUserAsync(UserModelItem user);
+        Task<string> CheckRoleAsync(UserModelItem user);
         Task LogOutAsync();
     }
 }

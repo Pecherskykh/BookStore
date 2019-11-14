@@ -14,19 +14,7 @@ namespace BookStore.Presentation.Helper
     public class JwtHelper : IJwtHelper
     {
         public TokenModel GenerateTokenModel(UserModelItem user)
-        {
-            //1.CheckPasswordSignInAsync
-            //2.Generate tokens
-            if (user == null)
-            {
-                return null;
-            }
-
-            /*if (!result)
-            {
-                return null;
-            }*/
-            
+        {            
             var claimsAccess = new List<Claim>
                 {
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
