@@ -15,7 +15,7 @@ namespace BookStore.Presentation.Controllers
 {
     public class User
     {
-        public string Name { get; set; }
+        public string UserName { get; set; }
         public string Password { get; set; }
     }
 
@@ -37,15 +37,15 @@ namespace BookStore.Presentation.Controllers
         [HttpPost("testPost")]
         public async Task<IActionResult> TestPost(User user)
         {
-            return Ok(new User { Name = "name", Password = "pass" });
+            return Ok(new User { UserName = "name", Password = "pass" });
         }
         
 
         [HttpGet("testGet")]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> TestGet()
         {
-            return Ok("Test");
+            return Ok(new User { UserName = "name", Password = "pass" });
         }
 
         [HttpPost("login")]

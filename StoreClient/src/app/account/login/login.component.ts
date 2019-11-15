@@ -21,7 +21,7 @@ export class LoginComponent /*implements OnInit*/ {
 
     constructor(private accontService: AccontService, private cookieService: CookieService) {}
 
-    submit(user: User) {
+    signIn(user: User) {
       user.userName = this.userName.value;
       user.password = this.password.value;
       this.accontService.postData(user).subscribe(data => {
@@ -29,7 +29,10 @@ export class LoginComponent /*implements OnInit*/ {
       });
   }
 
-    cancel() {
-      this.accontService.getData(this.accessToken).subscribe();
+    signUp() {
+      this.accontService.getData(this.accessToken).subscribe(data => {
+
+        document.getElementById('j').innerHTML = ' ' + data.userName + ' ' + data.password;
+      });
   }
 }

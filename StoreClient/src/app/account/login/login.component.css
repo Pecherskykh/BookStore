@@ -1,71 +1,79 @@
-/* Bordered form */
-form {
-  border: 3px solid #f1f1f1;
-}
-
-/* Full-width inputs */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
-/* Set a style for all buttons */
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
+a {
+  text-decoration: none;
+}
+.pointer {
   cursor: pointer;
+}
+.button {
+  height: 30px;
+  border: 1px solid;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+  background-color: gainsboro;
+  transition: background-color 0.5s;
+  outline: none;
+}
+.button:hover {
+  background-color: greenyellow;
+}
+.button:active {
+  border: 2px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.catalog {
+  margin: 20px;
+}
+.form {
   width: 100%;
-}
-
-/* Add a hover effect for buttons */
-button:hover {
-  opacity: 0.8;
-}
-
-/* Extra style for the cancel button (red) */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-/* Center the avatar image inside this container */
-.imgcontainer {
+  max-width: 500px;
+  padding: 0 15px;
+  margin: 0 auto;
   text-align: center;
-  margin: 24px 0 12px 0;
 }
-
-/* Avatar image */
-img.avatar {
-  width: 10%;
-  border-radius: 50%;
+.form__logo {
+  width: 100px;
 }
-
-/* Add padding to containers */
-.container {
-  padding: 16px;
+.form__caption {
+  text-align: left;
 }
-
-/* The "Forgot password" text */
-span.psw {
-  float: right;
-  padding-top: 16px;
+.form__row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
+.form__field {
+  width: 100%;
+  margin-top: 5px;
+  height: 30px;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+  outline: none;
+  padding-left: 10px;
+}
+.form__signInButton {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.form__footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.form__signUpButton {
+  max-width: 250px;
+  width: 100%;
+  margin-top: 5px;
 }
