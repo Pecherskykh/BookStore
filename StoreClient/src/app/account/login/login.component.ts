@@ -31,7 +31,6 @@ export class LoginComponent /*implements OnInit*/ {
 
     signUp() {
       this.accontService.getData(this.accessToken).subscribe(data => {
-
         document.getElementById('j').innerHTML = ' ' + data.userName + ' ' + data.password;
       });
   }

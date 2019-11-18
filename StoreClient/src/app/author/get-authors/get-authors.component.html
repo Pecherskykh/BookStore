@@ -1,13 +1,10 @@
 Authors Page<br>
-<button (click)="Get()">Get</button>
-<table border="1" id="t">
+<button (click)="GetAuthors()">Get</button>
+<table border="1" id = "table">
   <tr>
    <th>ID</th>
    <th>Name</th>
    <th>Product</th>
   </tr>
-  <tr><td>10</td><td></td><td></td></tr>
-  <tr><td></td><td></td><td></td></tr>
-  <tr><td></td><td></td><td></td></tr>
-  <tr><td></td><td></td><td></td></tr>
+  <tr *ngFor="let item of items"><td>{{item.id}}</td><td>{{item.name}}</td><td><span *ngFor="let printingEditionsName of item.printingEditionsName">{{printingEditionsName}}<br></span></td></tr>
  </table>

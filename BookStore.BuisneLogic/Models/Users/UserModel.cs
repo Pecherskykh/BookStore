@@ -5,6 +5,6 @@ namespace BookStore.BusinessLogic.Models.Users
 {
     public class UserModel : BaseModel
     {
-        public ICollection<UserModelItem> Items = new List<UserModelItem>();
+        public ICollection<UserModelItem> Items { get; set; } = new List<UserModelItem>();
     }
 }
