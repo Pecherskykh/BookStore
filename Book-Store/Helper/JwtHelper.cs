@@ -19,7 +19,7 @@ namespace BookStore.Presentation.Helper
                 {
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Role, user.Role),
+                    new Claim(ClaimTypes.Role, "Admin"),
                     new Claim(ClaimTypes.Name, user.UserName),
                 };
 

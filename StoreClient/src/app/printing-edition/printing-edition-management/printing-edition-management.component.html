@@ -1,0 +1,22 @@
+Order managment<br>
+<button (click)="GetPrintingEditions()">Get</button>
+<table border="1" id = "table">
+  <tr>
+   <th>Id</th>
+   <th>Name</th>
+   <th>Description</th>
+   <th>Category</th>
+   <th>Author</th>
+   <th>Price</th>
+   <th></th>
+  </tr>
+  <tr *ngFor="let item of items">
+    <td>{{item.id}}</td>
+    <td>{{item.title}}</td>
+    <td>{{item.description}}</td>
+    <td>{{item.productType}}</td>
+    <td><span *ngFor="let author of item.authors.items">{{author.name}}<br></span></td>
+    <td>{{item.price}}</td>
+    <td></td>
+  </tr>
+ </table>

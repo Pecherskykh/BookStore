@@ -1,11 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PrintingEditionManagementComponent } from './printing-edition-management/printing-edition-management.component';
 
-
-const routes: Routes = [];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class PrintingEditionRoutingModule { }
+export const routes: Routes = [{ path: 'printing-edition-management', component: PrintingEditionManagementComponent }];

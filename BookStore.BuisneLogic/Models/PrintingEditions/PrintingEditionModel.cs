@@ -5,6 +5,6 @@ namespace BookStore.BusinessLogic.Models.PrintingEditions
 {
     public class PrintingEditionModel : BaseModel
     {
-        public ICollection<PrintingEditionModelItem> Items = new List<PrintingEditionModelItem>();
+        public ICollection<PrintingEditionModelItem> Items { get; set; } = new List<PrintingEditionModelItem>();
     }
 }

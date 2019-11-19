@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PrintingEditionRoutingModule } from './printing-edition-routing.module';
+import { routes } from './printing-edition-routing.module';
+import { PrintingEditionManagementComponent } from './printing-edition-management/printing-edition-management.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [PrintingEditionManagementComponent],
   imports: [
     CommonModule,
-    PrintingEditionRoutingModule
+    RouterModule.forChild(routes)
   ]
 })
 export class PrintingEditionModule { }
