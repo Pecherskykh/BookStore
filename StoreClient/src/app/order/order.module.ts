@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { OrderRoutingModule } from './order-routing.module';
+import { routes } from './order-routing.module';
+import { OrderManagmentComponent } from './order-managment/order-managment.component';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [OrderManagmentComponent],
   imports: [
+    RouterModule.forChild(routes),
     CommonModule,
-    OrderRoutingModule
+    HttpClientModule
   ]
 })
 export class OrderModule { }

@@ -1,0 +1,24 @@
+Order managment<br>
+<button (click)="GetOrders()">Get</button>
+<table border="1" id = "table">
+  <tr>
+   <th>Order</th>
+   <th>Date</th>
+   <th>User name</th>
+   <th>User Email</th>
+   <th>Product</th>
+   <th>Title</th>
+   <th>Qty</th>
+   <th>Order amount</th>
+  </tr>
+  <tr *ngFor="let item of items">
+    <td>{{item.id}}</td>
+    <td>{{item.date}}</td>
+    <td>{{item.userName}}</td>
+    <td>{{item.userEmail}}</td>
+    <td>{{item.productType}}</td>
+    <td>{{item.title}}</td>
+    <td>{{item.quantity}}</td>
+    <td>{{item.orderAmount}}</td>
+  </tr>
+ </table>
