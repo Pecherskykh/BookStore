@@ -8,11 +8,10 @@ import { GetAuthorsComponent } from './get-authors/get-authors.component';
 import { RemoveComponent } from './remove/remove.component';
 import { UpdateComponent } from './update/update.component';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [CreateComponent, FindComponent, GetAuthorsComponent, RemoveComponent, UpdateComponent, GetAuthorsComponent],
-  imports: [RouterModule.forChild(routes), HttpClientModule, CommonModule]
+  imports: [RouterModule.forChild(routes), CommonModule]
 })
 export class AuthorModule { }

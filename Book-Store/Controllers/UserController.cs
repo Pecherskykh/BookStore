@@ -11,7 +11,7 @@ namespace BookStore.Presentation.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Admin")]
+   // [Authorize(Roles = "Admin")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -49,7 +49,7 @@ namespace BookStore.Presentation.Controllers
             return Ok(users);
         }
 
-        [HttpPost("changeUserStatus")]
+        [HttpGet("changeUserStatus")]
         public async Task<IActionResult> ChangeUserStatus(string userId)
         {
             var resultModel = await _userService.ChangeUserStatus(userId);

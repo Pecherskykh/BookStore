@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {UserModel} from '../models/Users/user-model';
+import {UserModelItem} from '../models/Users/user-model-item';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -21,5 +22,13 @@ export class UserService {
         pageSize: 10
       }
     );
+  }
+
+  ChangeUserStatus(element: string) {
+    return this.http.get(`https://localhost:44319/api/user/changeUserStatus?userId=${element}`);
+  }
+
+  UserUpdate(element: UserModelItem) {
+    return this.http.post('https://localhost:44319/api/user/update', element);
   }
 }

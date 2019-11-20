@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { routes } from './order-routing.module';
 import { OrderManagmentComponent } from './order-managment/order-managment.component';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({

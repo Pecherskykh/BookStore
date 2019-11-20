@@ -1,4 +1,4 @@
-Order managment<br>
+<!-- Order managment<br>
 <button (click)="GetPrintingEditions()">Get</button>
 <table border="1" id = "table">
   <tr>
@@ -20,3 +20,72 @@ Order managment<br>
     <td></td>
   </tr>
  </table>
+ -->
+ <button (click)="GetPrintingEditions()">Get</button>
+ <div class="wrapper">
+  <h2>Product mangement <img class = "img__button" src="assets/images/add-button-inside-black-circle.svg" alt="edit"></h2>  
+  <table>
+      <thead class="header">
+          <tr class="header__row">
+              <th class="row row1">
+                  <div class="th__container">
+                      <button class="trigger-multiselect">Id</button>
+                      <button>▼</button>
+                      <div class="multiselect"></div>
+                  </div>
+              </th>
+              <th class="row row2">
+                  <div class="th__container">
+                      <button>Name</button>
+                      <button>▼</button>
+                  </div>
+              </th>
+              <th class="row row3">
+                  <div class="th__container">
+                      <button class="trigger-multiselect" (click)="modal()">Description</button>
+                      <button>▼</button>
+                      <div class="multiselect" id = "m"></div>
+                  </div>
+              </th>
+              <th class="row row4">
+                  <div class="th__container">
+                      <button class="trigger-multiselect" (click)="modal()">Category</button>
+                      <button>▼</button>
+                      <div class="multiselect" id = "m"></div>
+                  </div>
+              </th>
+              <th class="row row5">
+                  <div class="th__container">
+                      <button class="trigger-multiselect" (click)="modal()">Author</button>
+                      <button>▼</button>
+                      <div class="multiselect" id = "m"></div>
+                  </div>
+              </th>
+              <th class="row row6">
+                  <div class="th__container">
+                      <button class="trigger-multiselect" (click)="modal()">Price</button>
+                      <button>▼</button>
+                      <div class="multiselect" id = "m"></div>
+                  </div>
+              </th>
+              <th class="row row7"></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of items">
+              <td class="row row1">{{item.id}}</td>
+              <td class="row row2">{{item.title}}</td>
+              <td class="row row3">{{item.description}}</td>
+              <td class="row row4">{{item.productType}}</td>
+              <td class="row row5"><span *ngFor="let author of item.authors.items">{{author.name}}<br></span></td>
+              <td class="row row6">{{item.price}}</td>
+              <td class="row row7">
+                  <div class="td__container">
+                    <img class = "img__button" src="assets/images/pencil-edit-button.svg" alt="edit" (click)="Edit(item)">
+                    <img class = "img__button" src="assets/images/remove.svg" alt="remove" (click)="Remove(item.id)">
+                  </div>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
