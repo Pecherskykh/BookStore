@@ -50,6 +50,24 @@ Users Managment<br>
 </div>
 
 <div class="wrapper">
+    <input type="text" placeholder="Search by name" [formControl] = "searchByName"><br>
+    <span>Sort by </span>
+    <select [formControl] = "sortType">
+        <option>User name</option>
+        <option>User Email</option>
+      </select><br>
+    <span>Sort type </span>
+    <select [formControl] = "sortingDirection">
+        <option>Low To High</option>
+        <option>High To Low</option>
+    </select><br>
+    <span>User status </span>
+    <select [formControl] = "userStatus">
+        <option>All</option>
+        <option>Active</option>
+        <option>Blocked</option>
+    </select><br>
+    <button (click)="GetUsers()">Ok</button>
   <h2>User mangement</h2>
   <table>
       <thead class="header">
@@ -57,20 +75,17 @@ Users Managment<br>
               <th class="row row1">
                   <div class="th__container">
                       <button class="trigger-multiselect">User name</button>
-                      <button>▼</button>
                       <div class="multiselect"></div>
                   </div>
               </th>
               <th class="row row2">
                   <div class="th__container">
                       <button>User Email</button>
-                      <button>▼</button>
                   </div>
               </th>
               <th class="row row3">
                   <div class="th__container">
                       <button class="trigger-multiselect" (click)="modal()">Status</button>
-                      <button>▼</button>
                       <div class="multiselect" id = "m"></div>
                   </div>
               </th>

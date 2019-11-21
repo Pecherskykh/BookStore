@@ -1,4 +1,5 @@
 ﻿using BookStore.BusinessLogic.Models.Base;
+using BookStore.BusinessLogic.Models.Login;
 using BookStore.BusinessLogic.Models.Users;
 using System.Threading.Tasks;
 
@@ -12,7 +13,7 @@ namespace BookStore.BusinessLogic.Services.Interfaces
         Task<BaseModel> Register(UserModelItem user);
         Task<BaseModel> ConfirmEmail(string userId, string token);
         Task<BaseModel> ForgotPassword(string userEmail);
-        Task<UserModelItem> CheckUserAsync(UserModelItem user);
+        Task<UserModelItem> CheckUserAsync(LoginModel loginModel);
         Task<string> CheckRoleAsync(UserModelItem user);
         Task LogOutAsync();
     }

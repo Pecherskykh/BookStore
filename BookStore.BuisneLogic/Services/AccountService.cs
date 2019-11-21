@@ -7,6 +7,7 @@ using BookStore.BusinessLogic.Common.Constants;
 using BookStore.BusinessLogic.Models.Users;
 using BookStore.BusinessLogic.Extensions.UserExtensions;
 using BookStore.BusinessLogic.Extensions;
+using BookStore.BusinessLogic.Models.Login;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -158,28 +159,28 @@ namespace BookStore.BusinessLogic.Services
             return resultModel;
         }
 
-        public async Task<UserModelItem> CheckUserAsync(UserModelItem user) //todo return BaseModel
+        public async Task<UserModelItem> CheckUserAsync(LoginModel loginModel) //todo return BaseModel
         {
             var resultModel = new UserModelItem();
-            if (user == null)
+            if (loginModel == null)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserModelItemIsEmptyError);
                 return resultModel;
             }
             //todo user check for null and map
-            var applicationUser = await _userRepository.FindByNameAsync(user.UserName);
+            var applicationUser = await _userRepository.FindByEmailAsync(loginModel.Email);
             if (applicationUser == null)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
-            var result = await _userRepository.CheckUserAsync(applicationUser, user.Password);
+            var result = await _userRepository.CheckUserAsync(applicationUser, loginModel.Password);
             if(!result)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
-            user = applicationUser.Map();
+            var user = applicationUser.Map();
             user.Role = await _userRepository.CheckRoleAsync(applicationUser.Id.ToString());
             return user;
         }

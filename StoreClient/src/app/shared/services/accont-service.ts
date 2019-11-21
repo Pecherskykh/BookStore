@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {User} from '../models/user';
+import {LoginModel} from 'src/app/shared/models/Login/login-model';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 export class AccontService {
     constructor(private http: HttpClient) { }
 
-    postData(user: User): Observable<User> {
-        return this.http.post<User>('https://localhost:44319/api/account/login', user, { withCredentials: true });
+    postData(loginModel: LoginModel) {
+        return this.http.post<LoginModel>('https://localhost:44319/api/account/login', loginModel, { withCredentials: true });
     }
 
   ForgotPassword(email: string) {
-      return this.http.post(`https://localhost:44319/api/account/forgotPassword?email=${email}`, null);
+      return this.http.get(`https://localhost:44319/api/account/forgotPassword?email=${email}`);
   }
 }

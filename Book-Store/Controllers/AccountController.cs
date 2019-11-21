@@ -10,6 +10,7 @@ using BookStore.Presentation.Helper.Interface;
 using BookStore.BusinessLogic.Common.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
+using BookStore.BusinessLogic.Models.Login;
 
 namespace BookStore.Presentation.Controllers
 {
@@ -42,22 +43,22 @@ namespace BookStore.Presentation.Controllers
         
 
         [HttpGet("testGet")]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> TestGet()
         {
             return Ok(new User { UserName = "name", Password = "pass" });
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserModelItem user)
+        public async Task<IActionResult> Login(LoginModel loginModel)
         {
             var resultModel = new BaseModel();
-            if (user == null)
+            if (loginModel == null)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserModelItemIsEmptyError);
                 return Ok(resultModel);
             }
-            user = await _accountService.CheckUserAsync(user);
+            var user = await _accountService.CheckUserAsync(loginModel);
             if(user.Errors.Count != 0)
             {
                 return Ok(resultModel);
@@ -88,7 +89,7 @@ namespace BookStore.Presentation.Controllers
         }
         
         //[Authorize]
-        [HttpPost("forgotPassword")]
+        [HttpGet("forgotPassword")]
         public async Task<IActionResult> ForgotPassword(string email)
         {
             //oleksandr.pecherskikh@gmail.com
