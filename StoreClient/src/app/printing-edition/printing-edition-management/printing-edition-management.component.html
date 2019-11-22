@@ -29,10 +29,29 @@
   </div>
 </div>
 
-
-
- <button (click)="GetPrintingEditions()">Get</button>
  <div class="wrapper">
+
+    <input type="text" placeholder="Search by name" [formControl] = "searchByName"><br>
+    <span>Sort type </span>
+    <select [formControl] = "sortType">
+        <option>Id</option>
+        <option>Name</option>
+        <option>Category</option>
+        <option>Author</option>
+        <option>Price</option>
+      </select><br>
+    <span>Sorting direction </span>
+    <select [formControl] = "sortingDirection">
+        <option>Low To High</option>
+        <option>High To Low</option>
+    </select><br>
+    <span>Categories </span><br>
+    <input type="checkbox" [formControl] = "books"> Books<br>
+    <input type="checkbox" [formControl] = "magazines"> Magazines<br>
+    <input type="checkbox" [formControl] = "newspapers"> Newspapers<br>
+    <input type="text" placeholder="Min price" [formControl] = "minPrice"> - <input type="text" placeholder="Max price" [formControl] = "maxPrice"><br>
+    <button (click)="GetPrintingEditions()">Ok</button>
+
   <h2>Product mangement <img class = "img__button" src="assets/images/add-button-inside-black-circle.svg" alt="edit"></h2>
   <table>
       <thead class="header">
@@ -40,41 +59,35 @@
               <th class="row row1">
                   <div class="th__container">
                       <button class="trigger-multiselect">Id</button>
-                      <button>▼</button>
                       <div class="multiselect"></div>
                   </div>
               </th>
               <th class="row row2">
                   <div class="th__container">
                       <button>Name</button>
-                      <button>▼</button>
                   </div>
               </th>
               <th class="row row3">
                   <div class="th__container">
                       <button class="trigger-multiselect" (click)="modal()">Description</button>
-                      <button>▼</button>
                       <div class="multiselect" id = "m"></div>
                   </div>
               </th>
               <th class="row row4">
                   <div class="th__container">
                       <button class="trigger-multiselect" (click)="modal()">Category</button>
-                      <button>▼</button>
                       <div class="multiselect" id = "m"></div>
                   </div>
               </th>
               <th class="row row5">
                   <div class="th__container">
                       <button class="trigger-multiselect" (click)="modal()">Author</button>
-                      <button>▼</button>
                       <div class="multiselect" id = "m"></div>
                   </div>
               </th>
               <th class="row row6">
                   <div class="th__container">
                       <button class="trigger-multiselect" (click)="modal()">Price</button>
-                      <button>▼</button>
                       <div class="multiselect" id = "m"></div>
                   </div>
               </th>

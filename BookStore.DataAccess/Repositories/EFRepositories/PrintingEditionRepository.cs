@@ -42,6 +42,10 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
                                                       Name = author.Name
                                                   }).ToArray()
                                    };
+            if (!string.IsNullOrWhiteSpace(printingEditionsFilterModel.SearchString))
+            {
+                printingEditions = printingEditions.Where(p => p.Title.ToLower().Equals(printingEditionsFilterModel.SearchString.ToLower()));
+            }
             var allCategories = (Enum.GetValues(typeof(TypePrintingEdition))).OfType<TypePrintingEdition>().ToList();
             allCategories = allCategories.Where(x => !printingEditionsFilterModel.Categories.Contains(x)).ToList();
             foreach (var categoty in allCategories)

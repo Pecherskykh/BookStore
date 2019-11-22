@@ -95,11 +95,7 @@ namespace BookStore.BusinessLogic.Services
                 return resultModel;
             }
             var authors = await _authorRepository.GetAuthorsAsync(baseFilterModel.Map());
-            resultModel.Items = new List<AuthorModelItem>();
-            foreach (var author in authors)
-            {
-                resultModel.Items.Add(author.Map());
-            }
+            resultModel = authors.Map();
             return resultModel;
         }
     }

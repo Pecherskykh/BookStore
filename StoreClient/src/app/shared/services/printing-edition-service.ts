@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {PrintingEditionModel} from '../models/PeintingEditions/printing-edition-model';
+import {PrintingEditionsFilterModel} from 'src/app/shared/models/PeintingEditions/printing-editions-filter-model';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -9,10 +10,10 @@ export class PrintingEditionService {
 
   constructor(private http: HttpClient) { }
 
-  getData(): Observable<PrintingEditionModel> {
+  getData(element: PrintingEditionsFilterModel): Observable<PrintingEditionModel> {
     return this.http.post<PrintingEditionModel>(
       'https://localhost:44319/api/printingedition/getPrintingEditions',
-      {
+      /*{
         categories: [
           1,
           2
@@ -24,7 +25,8 @@ export class PrintingEditionService {
         searchString: null,
         pageCount: 1,
         pageSize: 10
-      }
+      }*/
+      element
     );
   }
 }

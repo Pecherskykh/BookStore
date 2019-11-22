@@ -8,10 +8,11 @@ import { GetAuthorsComponent } from './get-authors/get-authors.component';
 import { RemoveComponent } from './remove/remove.component';
 import { UpdateComponent } from './update/update.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [CreateComponent, FindComponent, GetAuthorsComponent, RemoveComponent, UpdateComponent, GetAuthorsComponent],
-  imports: [RouterModule.forChild(routes), CommonModule]
+  imports: [RouterModule.forChild(routes), CommonModule, ReactiveFormsModule]
 })
 export class AuthorModule { }

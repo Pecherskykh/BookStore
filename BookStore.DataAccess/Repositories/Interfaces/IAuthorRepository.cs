@@ -9,6 +9,6 @@ namespace BookStore.DataAccess.Repositories.Interfaces
 {
     public interface IAuthorRepository : IBaseEFRepository<Author>
     {
-        Task<IEnumerable<AuthorModelItem>> GetAuthorsAsync(BaseFilterModel baseFilterModel);
+        Task<AuthorModel> GetAuthorsAsync(BaseFilterModel baseFilterModel);
     }
 }

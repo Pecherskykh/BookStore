@@ -1,12 +1,8 @@
 import {UserSortType} from 'src/app/shared/enums/user-sort-type';
 import {UserStatus} from 'src/app/shared/enums/user-status';
-import {SortingDirection} from 'src/app/shared/enums/sorting-direction';
+import {BaseFilterModel} from '../Base/base-filter-model';
 
-export class UsersFilterModel {
+export class UsersFilterModel extends BaseFilterModel {
   sortType: UserSortType;
   userStatus: UserStatus;
-  sortingDirection: SortingDirection;
-  searchString: string;
-  pageCount: number;
-  pageSize: number;
 }

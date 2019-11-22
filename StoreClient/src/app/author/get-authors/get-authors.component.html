@@ -1,5 +1,13 @@
 Authors Page<br>
-<button (click)="GetAuthors()">Get</button>
+<input type="text" placeholder="Search by name" [formControl] = "searchByName"><br>
+<span>Sorting direction </span>
+    <select [formControl] = "sortingDirection">
+        <option>Low To High</option>
+        <option>High To Low</option>
+    </select><br>
+<button (click)="GetAuthors()">Ok</button><br>
+<input type="text" placeholder="Name author" [formControl] = "nameAuthor"><br>
+<button (click)="Create()">Create</button><br>
 <table border="1" id = "table">
   <tr>
    <th>ID</th>
@@ -7,4 +15,5 @@ Authors Page<br>
    <th>Product</th>
   </tr>
   <tr *ngFor="let item of items"><td>{{item.id}}</td><td>{{item.name}}</td><td><span *ngFor="let printingEditionsName of item.printingEditionsName">{{printingEditionsName}}<br></span></td></tr>
- </table>
+ </table><br>
+ <button (click)="Previous()">Previous</button> {{countPage}} <button (click)="Next()">Next</button> Amount pages: {{amountPages}}

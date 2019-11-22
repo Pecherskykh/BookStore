@@ -19,8 +19,9 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         {
         }
 
-        public async Task<IEnumerable<AuthorModelItem>> GetAuthorsAsync(BaseFilterModel baseFilterModel)
+        public async Task<AuthorModel> GetAuthorsAsync(BaseFilterModel baseFilterModel)
         {
+            var resultModel = new AuthorModel();
             var authors = from author in _applicationContext.Authors where !author.IsRemoved
                           select new AuthorModelItem
                           {
@@ -32,9 +33,28 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
                                                   select printingEdition.Title).ToArray()
                           };
 
+            if (!string.IsNullOrWhiteSpace(baseFilterModel.SearchString))
+            {
+                authors = authors.Where(a => a.Name.ToLower().Equals(baseFilterModel.SearchString.ToLower()));
+            }
+
             authors = authors.OrderDirection(a => a.Id, baseFilterModel.SortingDirection == SortingDirection.LowToHigh);
+
+            var remainder = authors.Count() % baseFilterModel.PageSize;
+            if(remainder > 0)
+            {
+                resultModel.PageAmount = (authors.Count() - remainder) / baseFilterModel.PageSize + 1;
+            }
+
+            if (remainder == 0)
+            {
+                resultModel.PageAmount = authors.Count() / baseFilterModel.PageSize;
+            }
+
             authors = authors.Skip((baseFilterModel.PageCount - 1) * baseFilterModel.PageSize).Take(baseFilterModel.PageSize);
-            return await authors.ToListAsync();
+
+            resultModel.Items = await authors.ToListAsync();
+            return resultModel;
         }
     }
 }

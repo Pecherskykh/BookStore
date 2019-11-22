@@ -1,9 +1,10 @@
-﻿using BookStore.BusinessLogic.Models.Base;
+﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace BookStore.BusinessLogic.Models.Authors
+namespace BookStore.DataAccess.Models.Authors
 {
-    public class AuthorModel : BaseModel
+    public class AuthorModel
     {
         public int PageAmount { get; set; }
         public ICollection<AuthorModelItem> Items { get; set; }
