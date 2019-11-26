@@ -1,21 +1,19 @@
 ﻿using BookStore.BusinessLogic.Models.Base;
+using BookStore.BusinessLogic.Models.OrderItems;
 using System;
-using static BookStore.BusinessLogic.Models.Enums.Enums;
+using System.Collections.Generic;
 
 namespace BookStore.BusinessLogic.Models.Orders
 {
     public class OrderModelItem : BaseModel
     {
         public long Id { get; set; }
-        public DateTime Date { get; set; }
-        public string Description { get; set; }
-        public long PaymentId { get; set; }
         public long UserId { get; set; }
+        public long PaymentId { get; set; }
+        public DateTime Date { get; set; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
-        public TypePrintingEdition ProductType { get; set; }
-        public string Title { get; set; }
-        public long Quantity { get; set; }
+        public ICollection<OrderItemModelItem> OrderItems { get; set; } = new List<OrderItemModelItem>();
         public long OrderAmount { get; set; }
     }
 }

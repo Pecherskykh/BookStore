@@ -1,0 +1,37 @@
+<div class="catalog">
+  <p class="catalog__text">Catalog</p>
+</div>
+<div action="#" class="form">
+  <img src="assets/images/man-user.svg" class="form__logo" alt="person">
+  <h2 class="form__caption">Create account</h2>
+  <div class="form__row">
+      <span>Your First name</span>
+      <input type="email" name="email" class="form__field" title="Your First name" [formControl] = "userName" placeholder="First name">
+  </div>
+  <div class="form__row">
+    <span>Your Last name</span>
+    <input type="email" name="email" class="form__field" title="Your First name" [formControl] = "userName" placeholder="First name">
+  </div>
+  <div class="form__row">
+    <span>E-mail</span>
+    <input type="email" name="email" class="form__field" title="Enter your email" [formControl] = "userName" placeholder="Email">
+  </div>
+  <div class="form__row">
+      <span>Password</span>
+      <input type="password" name="password" class="form__field" title="Enter your password" [formControl] = "password" placeholder="At least 6 characters">
+  </div>
+  <div class="form__row">
+    <span>Confirm password</span>
+    <input type="password" name="password" class="form__field" title="Enter your password" [formControl] = "password" placeholder="Password should be the same">
+  </div>
+  <div class="form__footer">
+      <input type="submit" class="form__signInButton pointer button" value="Sign Up your account" (click)="signIn(user)">
+  </div>
+  <div class="form__row">
+    <span>
+      Already have an account?
+      <a href="http://localhost:4200/account/login" class="forgotLink">Sign-In</a>
+    </span>
+
+  </div>
+</div>

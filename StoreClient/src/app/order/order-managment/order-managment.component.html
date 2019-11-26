@@ -1,5 +1,6 @@
 Order managment<br>
 <button (click)="GetOrders()">Get</button>
+<button mat-raised-button>MAT BAT</button>
 <table border="1" id = "table">
   <tr>
    <th>Order</th>
@@ -16,9 +17,10 @@ Order managment<br>
     <td>{{item.date}}</td>
     <td>{{item.userName}}</td>
     <td>{{item.userEmail}}</td>
-    <td>{{item.productType}}</td>
-    <td>{{item.title}}</td>
-    <td>{{item.quantity}}</td>
+    <td><span *ngFor="let orderItem of item.orderItems">{{orderItem.type}}<br></span></td>
+    <td><span *ngFor="let orderItem of item.orderItems">{{orderItem.title}}<br></span></td>
+    <td><span *ngFor="let orderItem of item.orderItems">{{orderItem.count}}<br></span></td>
     <td>{{item.orderAmount}}</td>
   </tr>
  </table>
+ <mat-paginator>

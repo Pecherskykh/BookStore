@@ -80,11 +80,7 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.OrdersFilterModelIsEmptyError);
                 return resultModel;
             }
-            var orders = await _orderRepository.GetOrdersAsync(ordersFilterModel.Map());
-            foreach (var order in orders)
-            {
-                resultModel.Items.Add(order.Map());
-            }
+            resultModel = (await _orderRepository.GetOrdersAsync(ordersFilterModel.Map())).Map();
             return resultModel;
         }
     }

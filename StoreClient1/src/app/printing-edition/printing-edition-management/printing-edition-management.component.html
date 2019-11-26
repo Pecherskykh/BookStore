@@ -1,0 +1,114 @@
+<!-- Order managment<br>
+<button (click)="GetPrintingEditions()">Get</button>
+<table border="1" id = "table">
+  <tr>
+   <th>Id</th>
+   <th>Name</th>
+   <th>Description</th>
+   <th>Category</th>
+   <th>Author</th>
+   <th>Price</th>
+   <th></th>
+  </tr>
+  <tr *ngFor="let item of items">
+    <td>{{item.id}}</td>
+    <td>{{item.title}}</td>
+    <td>{{item.description}}</td>
+    <td>{{item.productType}}</td>
+    <td><span *ngFor="let author of item.authors.items">{{author.name}}<br></span></td>
+    <td>{{item.price}}</td>
+    <td></td>
+  </tr>
+ </table>
+ -->
+
+ <div id = "back"></div>
+<div id = "edit">
+  <div class = "header__modal">
+    <h2>Add new Product</h2>
+  </div>
+</div>
+
+ <div class="wrapper">
+
+    <input type="text" placeholder="Search by name" [formControl] = "searchByName"><br>
+    <span>Sort type </span>
+    <select [formControl] = "sortType">
+        <option>Id</option>
+        <option>Name</option>
+        <option>Category</option>
+        <option>Author</option>
+        <option>Price</option>
+      </select><br>
+    <span>Sorting direction </span>
+    <select [formControl] = "sortingDirection">
+        <option>Low To High</option>
+        <option>High To Low</option>
+    </select><br>
+    <span>Categories </span><br>
+    <input type="checkbox" [formControl] = "books"> Books<br>
+    <input type="checkbox" [formControl] = "magazines"> Magazines<br>
+    <input type="checkbox" [formControl] = "newspapers"> Newspapers<br>
+    <input type="text" placeholder="Min price" [formControl] = "minPrice"> - <input type="text" placeholder="Max price" [formControl] = "maxPrice"><br>
+    <button (click)="GetPrintingEditions()">Ok</button>
+
+  <h2>Product mangement <img class = "img__button" src="assets/images/add-button-inside-black-circle.svg" alt="edit"></h2>
+  <table>
+      <thead class="header">
+          <tr class="header__row">
+              <th class="row row1">
+                  <div class="th__container">
+                      <button class="trigger-multiselect">Id</button>
+                      <div class="multiselect"></div>
+                  </div>
+              </th>
+              <th class="row row2">
+                  <div class="th__container">
+                      <button>Name</button>
+                  </div>
+              </th>
+              <th class="row row3">
+                  <div class="th__container">
+                      <button class="trigger-multiselect" (click)="modal()">Description</button>
+                      <div class="multiselect" id = "m"></div>
+                  </div>
+              </th>
+              <th class="row row4">
+                  <div class="th__container">
+                      <button class="trigger-multiselect" (click)="modal()">Category</button>
+                      <div class="multiselect" id = "m"></div>
+                  </div>
+              </th>
+              <th class="row row5">
+                  <div class="th__container">
+                      <button class="trigger-multiselect" (click)="modal()">Author</button>
+                      <div class="multiselect" id = "m"></div>
+                  </div>
+              </th>
+              <th class="row row6">
+                  <div class="th__container">
+                      <button class="trigger-multiselect" (click)="modal()">Price</button>
+                      <div class="multiselect" id = "m"></div>
+                  </div>
+              </th>
+              <th class="row row7"></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of items">
+              <td class="row row1">{{item.id}}</td>
+              <td class="row row2">{{item.title}}</td>
+              <td class="row row3">{{item.description}}</td>
+              <td class="row row4">{{item.productType}}</td>
+              <td class="row row5"><span *ngFor="let author of item.authors.items">{{author.name}}<br></span></td>
+              <td class="row row6">{{item.price}}</td>
+              <td class="row row7">
+                  <div class="td__container">
+                    <img class = "img__button" src="assets/images/pencil-edit-button.svg" alt="edit" (click)="Edit(item)">
+                    <img class = "img__button" src="assets/images/remove.svg" alt="remove" (click)="Remove(item.id)">
+                  </div>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

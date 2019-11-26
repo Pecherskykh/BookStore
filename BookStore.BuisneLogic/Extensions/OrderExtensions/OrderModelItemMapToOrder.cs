@@ -14,7 +14,6 @@ namespace BookStore.BusinessLogic.Extensions.OrderExtensions
             {
                 Id = order.Id,
                 IsRemoved = order.IsRemoved,
-                Description = order.Description,
                 PaymentId = order.PaymentId,
                 UserId = order.UserId
             };

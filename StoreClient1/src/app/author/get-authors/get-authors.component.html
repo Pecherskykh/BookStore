@@ -1,0 +1,81 @@
+<!-- Authors Page<br>
+<input type="text" placeholder="Search by name" [formControl] = "searchByName"><br>
+<span>Sorting direction </span>
+    <select [formControl] = "sortingDirection">
+        <option>Low To High</option>
+        <option>High To Low</option>
+    </select><br>
+<button (click)="filterAuthors()">Ok</button><br>
+<input type="text" placeholder="Name author" [formControl] = "nameAuthor"><br>
+<button (click)="Create()">Create</button><br>
+<table border="1" id = "table">
+  <tr>
+   <th>ID</th>
+   <th>Name</th>
+   <th>Product</th>
+   <th></th>
+  </tr>
+  <tr *ngFor="let item of items">
+    <td>{{item.id}}</td>
+    <td>{{item.name}}</td>
+    <td><span *ngFor="let printingEditionsName of item.printingEditionsName">{{printingEditionsName}}<br></span></td>
+    <td><button>Edit</button> <button (click)= "Remove(item)"> Remove</button></td>
+  </tr>
+ </table><br>
+ <button (click)="Previous()">Previous</button> {{countPage}} <button (click)="Next()">Next</button> Amount pages: {{amountPages}}
+-->
+<div class="wrapper">
+  <div class="name__page">
+    <h2>Authors Page</h2>
+    <img class = "img__button" src="assets/images/add-button-inside-black-circle.svg" alt="edit">
+  </div>
+  <div>
+      <input type="text" placeholder="Search by name" [formControl] = "searchByName"><br>
+      <span>Sorting direction </span>
+      <select [formControl] = "sortingDirection">
+          <option>Low To High</option>
+          <option>High To Low</option>
+      </select><br>
+      <button (click)="filterAuthors()">Ok</button><br>
+      <input type="text" placeholder="Name author" [formControl] = "nameAuthor"><br>
+      <button (click)="Create()">Create</button>
+    </div>
+  <table>
+      <thead class="header">
+          <tr class="header__row">
+              <th class="row row1">
+                  <div class="th__container">
+                      <button class="trigger-multiselect">ID</button>
+                      <div class="multiselect"></div>
+                  </div>
+              </th>
+              <th class="row row2">
+                  <div class="th__container">
+                      <button>Name</button>
+                  </div>
+              </th>
+              <th class="row row3">
+                  <div class="th__container">
+                      <button class="trigger-multiselect">Product</button>
+                      <div class="multiselect" id = "m"></div>
+                  </div>
+              </th>
+              <th class="row row4"></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of items">
+              <td class="row row1">{{item.id}}</td>
+              <td class="row row2">{{item.name}}</td>
+              <td class="row row3"><span *ngFor="let printingEditionsName of item.printingEditionsName">{{printingEditionsName}}<br></span></td>
+              <td class="row row4">
+                  <div class="td__container">
+                    <img class = "img__button" src="assets/images/pencil-edit-button.svg" alt="edit">
+                    <img class = "img__button" src="assets/images/remove.svg" alt="remove" (click)= "Remove(item)">
+                  </div>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  <button (click)="Previous()">Previous</button> {{countPage}} <button (click)="Next()">Next</button> Amount pages: {{amountPages}}
+</div>

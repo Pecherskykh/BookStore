@@ -6,7 +6,7 @@ namespace BookStore.DataAccess.Models.Authors
 {
     public class AuthorModel
     {
-        public int PageAmount { get; set; }
+        public long PageAmount { get; set; }
         public ICollection<AuthorModelItem> Items { get; set; }
     }
 }

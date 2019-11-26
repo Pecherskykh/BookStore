@@ -1,5 +1,6 @@
-﻿using System;
-using static BookStore.DataAccess.Entities.Enums.Enums;
+﻿using BookStore.DataAccess.Models.OrderItems;
+using System;
+using System.Collections.Generic;
 
 namespace BookStore.DataAccess.Models.Orders
 {
@@ -9,9 +10,7 @@ namespace BookStore.DataAccess.Models.Orders
         public DateTime Date { get; set; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
-        public TypePrintingEdition Product { get; set; }
-        public string Title { get; set; }
-        public long Quantity { get; set; }
+        public ICollection<OrderItemModelItem> OrderItems { get; set; }
         public long OrderAmount { get; set; }
     }
 }

@@ -9,8 +9,6 @@ namespace BookStore.BusinessLogic.Extensions.OrderItemExtensions
         {
             return new OrderItem()
             {
-                Amount = orderItem.Amount,
-                Currency = (DataAccess.Entities.Enums.Enums.Currencys)orderItem.Currency,
                 Count = orderItem.Count,
                 OrderId = orderItem.OrderId,
                 PrintingEditionId = orderItem.PrintingEditionId

@@ -1,5 +1,5 @@
 ﻿using BookStore.BusinessLogic.Models.Orders;
-using static BookStore.BusinessLogic.Models.Enums.Enums;
+using BookStore.BusinessLogic.Extensions.OrderItemExtensions;
 
 namespace BookStore.BusinessLogic.Extensions.OrderExtensions
 {
@@ -13,9 +13,7 @@ namespace BookStore.BusinessLogic.Extensions.OrderExtensions
                 Date = order.Date,
                 UserName = order.UserName,
                 UserEmail = order.UserEmail,
-                ProductType = (TypePrintingEdition)order.Product,
-                Title = order.Title,
-                Quantity = order.Quantity,
+                OrderItems = order.OrderItems.Map(),                
                 OrderAmount = order.OrderAmount
             };
         }

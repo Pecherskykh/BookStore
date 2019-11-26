@@ -8,6 +8,6 @@ namespace BookStore.DataAccess.Repositories.Interfaces
 {
      public interface IOrderRepository : IBaseEFRepository<Order>
      {
-        Task<IEnumerable<OrderModelItem>> GetOrdersAsync(OrdersFilterModel ordersFilterModel);
+        Task<OrderModel> GetOrdersAsync(OrdersFilterModel ordersFilterModel);
      }
 }
