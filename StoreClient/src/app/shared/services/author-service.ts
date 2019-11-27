@@ -27,6 +27,10 @@ export class AuthorService {
     return this.http.post('https://localhost:44319/api/author/create', element);
   }
 
+  update(element: AuthorModelItem) {
+    return this.http.post('https://localhost:44319/api/author/update', element);
+  }
+
   remove(element: AuthorModelItem) {
     return this.http.post('https://localhost:44319/api/author/remove', element);
   }

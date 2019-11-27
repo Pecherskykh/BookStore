@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {AuthorService} from 'src/app/shared/services/author-service';
 import {AuthorModelItem} from 'src/app/shared/models/Authors/author-model-item';
 import {BaseFilterModel} from 'src/app/shared/models/Base/base-filter-model';
 import { FormControl } from '@angular/forms';
 import {SortingDirection} from 'src/app/shared/enums/sorting-direction';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatTableDataSource, PageEvent, MatDialog} from '@angular/material';
+import { CreateComponent } from '../create/create.component';
+import { UpdateComponent } from '../update/update.component';
 
 @Component({
   selector: 'app-get-authors',
@@ -17,7 +19,7 @@ export class GetAuthorsComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'product', 'editAndRemove'];
 
-  constructor(private authorService: AuthorService) { }
+  constructor(private authorService: AuthorService, public dialog: MatDialog) { }
 
   searchByName = new FormControl('');
   sortingDirection = new FormControl('');
@@ -28,7 +30,7 @@ export class GetAuthorsComponent implements OnInit {
   dataSource = new MatTableDataSource(this.items);
 
   amountPages: number;
-  countPage = 1;
+  pageIndex: number;
 
   baseFilterModel = new BaseFilterModel();
 
@@ -40,8 +42,8 @@ export class GetAuthorsComponent implements OnInit {
   }
 
   filterAuthors() {
-    this.countPage = 1;
-    this.baseFilterModel.pageCount = this.countPage;
+    this.pageIndex = 0;
+    this.baseFilterModel.pageCount = 0;
     this.baseFilterModel.searchString = this.searchByName.value;
     if (this.sortingDirection.value === 'Low To High') {
       this.baseFilterModel.sortingDirection = SortingDirection.lowToHigh;
@@ -52,15 +54,6 @@ export class GetAuthorsComponent implements OnInit {
     this.getAuthors();
 }
 
-  Create() {
-    const authorModelItem = new AuthorModelItem();
-    authorModelItem.name = this.nameAuthor.value;
-    this.baseFilterModel.pageCount = this.amountPages;
-    this.authorService.create(authorModelItem).subscribe(() => {
-      this.getAuthors();
-    });
-}
-
   Remove(authorModelItem: AuthorModelItem) {
     this.authorService.remove(authorModelItem).subscribe(() => {
       this.getAuthors();
@@ -68,36 +61,26 @@ export class GetAuthorsComponent implements OnInit {
     );
   }
 
-  OpenEditModal(authorModelItem: AuthorModelItem) {
-    this.authorService.remove(authorModelItem).subscribe(() => {
-      this.getAuthors();
-      }
-    );
+  create() {
+    const dialogRef = this.dialog.open(CreateComponent);
   }
 
-  Previous() {
-    if (this.countPage > 1) {
-      --this.countPage;
-    }
-    this.baseFilterModel.pageCount = this.countPage;
-    this.getAuthors();
+  edit(authorModelItem: AuthorModelItem) {
+    const dialogRef = this.dialog.open(UpdateComponent, {data: authorModelItem});
   }
 
-  Next() {
-    if (this.countPage < this.amountPages) {
-      ++this.countPage;
-    }
-    this.baseFilterModel.pageCount = this.countPage;
+  getServerData(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.baseFilterModel.pageSize = event.pageSize;
+    this.baseFilterModel.pageCount = this.pageIndex;
     this.getAuthors();
   }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+    this.pageIndex = 0;
     this.baseFilterModel.sortingDirection = SortingDirection.lowToHigh;
     this.baseFilterModel.pageSize = 10;
-    this.baseFilterModel.pageCount = this.countPage;
+    this.baseFilterModel.pageCount = 0;
     this.getAuthors();
   }
-
-
 }

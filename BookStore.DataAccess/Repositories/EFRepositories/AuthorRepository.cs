@@ -40,18 +40,9 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
             authors = authors.OrderDirection(a => a.Id, baseFilterModel.SortingDirection == SortingDirection.LowToHigh);
 
-            var remainder = authors.Count() % baseFilterModel.PageSize;
-            if(remainder > 0)
-            {
-                resultModel.PageAmount = (authors.Count() - remainder) / baseFilterModel.PageSize + 1;
-            }
+            resultModel.PageAmount = authors.Count();
 
-            if (remainder == 0)
-            {
-                resultModel.PageAmount = authors.Count() / baseFilterModel.PageSize;
-            }
-
-            authors = authors.Skip((baseFilterModel.PageCount - 1) * baseFilterModel.PageSize).Take(baseFilterModel.PageSize);
+            authors = authors.Skip((baseFilterModel.PageCount) * baseFilterModel.PageSize).Take(baseFilterModel.PageSize);
 
             resultModel.Items = await authors.ToListAsync();
             return resultModel;

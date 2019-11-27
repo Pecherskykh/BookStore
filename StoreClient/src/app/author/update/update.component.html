@@ -1,1 +1,3 @@
-<p>update works!</p>
+<input type="text" placeholder="Name author" value="{{data.name}}" [formControl]="nameAuthor"><br>
+<button mat-dialog-close>Cancle</button>
+<button mat-dialog-close (click)="save()">Save</button>

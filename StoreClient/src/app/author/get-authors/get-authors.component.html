@@ -66,7 +66,7 @@
 <div class="wrapper">
   <div class="name__page">
     <h2>Authors Page</h2>
-    <img class = "img__button" src="assets/images/add-button-inside-black-circle.svg" alt="edit">
+    <img (click)= "create()" class = "img__button" src="assets/images/add-button-inside-black-circle.svg" alt="edit">
   </div>
   <div>
       <input type="text" placeholder="Search by name" [formControl] = "searchByName"><br>
@@ -76,8 +76,6 @@
           <option>High To Low</option>
       </select><br>
       <button (click)="filterAuthors()">Ok</button><br>
-      <input type="text" placeholder="Name author" [formControl] = "nameAuthor"><br>
-      <button (click)="Create()">Create</button>
     </div>
 <div>
     <table mat-table [dataSource]="items" class="mat-elevation-z8">
@@ -111,7 +109,7 @@
             <th class="row row4" mat-header-cell *matHeaderCellDef></th>
             <td class="row row4" mat-cell *matCellDef="let element">
                 <div class="td__container">
-                    <img class = "img__button" src="assets/images/pencil-edit-button.svg" alt="edit">
+                    <img class = "img__button" src="assets/images/pencil-edit-button.svg" alt="edit" (click)= "edit(element)">
                     <img class = "img__button" src="assets/images/remove.svg" alt="remove" (click)= "Remove(element)">
                   </div>
             </td>
@@ -120,8 +118,4 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-
-      <mat-paginator [length] = "100" [pageSize] = "10" [pageIndex]="1"  [pageSizeOptions] = "[5, 10, 25, 100]" showFirstLastButtons ></mat-paginator>
-</div>
-  <button (click)="Previous()">Previous</button> {{countPage}} <button (click)="Next()">Next</button> Amount pages: {{amountPages}}
-</div>
+      <mat-paginator [length] = "amountPages" [pageSize] = "10" [pageIndex]="pageIndex"  [pageSizeOptions] = "[5, 10, 25, 100]" (page)="pageEvent = getServerData($event)" showFirstLastButtons ></mat-paginator>
