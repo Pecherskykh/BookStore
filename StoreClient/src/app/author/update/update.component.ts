@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { AuthorService } from 'src/app/shared/services/author-service';
-import { AuthorModelItem } from 'src/app/shared/models/Authors/author-model-item';
 import { FormControl } from '@angular/forms';
 
 @Component({

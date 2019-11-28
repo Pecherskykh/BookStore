@@ -6,13 +6,16 @@ import { GetUsersComponent } from './get-users/get-users.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
-  declarations: [GetUsersComponent, ProfileComponent],
+  declarations: [GetUsersComponent, ProfileComponent, UsersComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule
   ]
 })
 export class UserModule { }

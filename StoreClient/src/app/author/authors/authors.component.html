@@ -65,34 +65,31 @@
 -->
 <div class="wrapper">
   <div class="name__page">
-    <h2>Authors Page</h2>
-    <img (click)= "create()" class = "img__button" src="assets/images/add-button-inside-black-circle.svg" alt="edit">
+    <span>Authors Page</span>
+    <img (click)= "create()" class = "img__button" src="assets/images/add-button-inside-black-circle.svg" alt="add">
   </div>
   <div>
-      <input type="text" placeholder="Search by name" [formControl] = "searchByName"><br>
-      <span>Sorting direction </span>
-      <select [formControl] = "sortingDirection">
-          <option>Low To High</option>
-          <option>High To Low</option>
-      </select><br>
-      <button (click)="filterAuthors()">Ok</button><br>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Author Name" [formControl] = "searchByName" (keyup.enter)="filterAuthors()">
+      </mat-form-field>
+      <img (click)= "filterAuthors()" class = "img__button" src="assets/images/magnifying-glass.svg" alt="search"><br>
     </div>
 <div>
-    <table mat-table [dataSource]="items" class="mat-elevation-z8">
+    <table mat-table [dataSource]="items" class="mat-elevation-z8" matSort (matSortChange)="sortData($event)">
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
 
         <!-- Position Column -->
         <ng-container matColumnDef="id">
-          <th class="row row1" mat-header-cell *matHeaderCellDef> ID </th>
+          <th class="row row1" mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
           <td class="row row1" mat-cell *matCellDef="let element"> {{element.id}} </td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
           <th class="row row2" mat-header-cell *matHeaderCellDef> Name </th>
-          <td class="row row2" mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <td class="row row2" mat-cell *matCellDef="let element">{{element.name}} </td>
         </ng-container>
 
         <!-- Product Column -->
@@ -109,9 +106,9 @@
             <th class="row row4" mat-header-cell *matHeaderCellDef></th>
             <td class="row row4" mat-cell *matCellDef="let element">
                 <div class="td__container">
-                    <img class = "img__button" src="assets/images/pencil-edit-button.svg" alt="edit" (click)= "edit(element)">
-                    <img class = "img__button" src="assets/images/remove.svg" alt="remove" (click)= "Remove(element)">
-                  </div>
+                  <img class = "img__button" src="assets/images/pencil-edit-button.svg" alt="edit" (click)= "edit(element)">
+                  <img class = "img__button" src="assets/images/remove.svg" alt="remove" (click)= "remove(element)">
+                </div>
             </td>
         </ng-container>
 

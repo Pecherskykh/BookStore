@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule } from '@angular/material';
-import { MatPaginatorModule } from '@angular/material';
-import { MatTableModule } from '@angular/material';
-import { MatDialogModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatPaginatorModule,
+  MatTableModule,
+  MatDialogModule,
+  MatInputModule,
+  MatSortModule,
+  MatSlideToggleModule
+} from '@angular/material';
 
 const MaterialComponents = [
   MatButtonModule,
   MatPaginatorModule,
   MatTableModule,
-  MatDialogModule
+  MatDialogModule,
+  MatInputModule,
+  MatSortModule,
+  MatSlideToggleModule
 ];
 
 @NgModule({
