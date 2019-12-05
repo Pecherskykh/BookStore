@@ -18,11 +18,15 @@ export class UserService {
     );
   }
 
-  ChangeUserStatus(element: string) {
+  changeUserStatus(element: string) {
     return this.http.get(`https://localhost:44319/api/user/changeUserStatus?userId=${element}`);
   }
 
-  UserUpdate(element: UserModelItem) {
+  update(element: UserModelItem) {
     return this.http.post('https://localhost:44319/api/user/update', element);
+  }
+
+  remove(element: UserModelItem) {
+    return this.http.post('https://localhost:44319/api/user/remove', element);
   }
 }

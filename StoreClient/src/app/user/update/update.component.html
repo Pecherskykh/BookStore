@@ -1,0 +1,25 @@
+<div class = "wrapper">
+  <div class = "header__modal">
+    <h2>Edit profile - {{data.firstName}} {{data.lastName}}</h2>
+  </div>
+  <div class = "images__modal">
+    <img src="assets/images/man-user.svg" alt="man-user" class = "man-user">
+    <img src="assets/images/pencil-edit-button.svg" alt="edit" class = "img__edit">
+  </div>
+  <div class="form__row">
+    <span>First name</span>
+    <mat-form-field class="form__field">
+      <input [formControl] ="firstName" matInput placeholder="First Name" [value]="data.firstName">
+    </mat-form-field>
+  </div>
+  <div class="form__row">
+    <span>Last name</span>
+    <mat-form-field class="form__field">
+      <input [formControl] ="lastName" matInput placeholder="Last Name" [value]="data.lastName">
+    </mat-form-field>
+  </div>
+  <div class="modal__buttons">
+    <button mat-raised-button mat-dialog-close>Cansel</button>
+    <button mat-raised-button mat-dialog-close (click)="save()">Save</button>
+  </div>
+</div>

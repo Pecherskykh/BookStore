@@ -23,6 +23,11 @@ export class AuthorService {
       element
     );
 }
+
+getAll(): Observable<AuthorModel> {
+  return this.http.get<AuthorModel>('https://localhost:44319/api/author/getAllAuthors');
+}
+
   create(element: AuthorModelItem) {
     return this.http.post('https://localhost:44319/api/author/create', element);
   }

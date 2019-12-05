@@ -96,7 +96,13 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.UserModelItemIsEmptyError);
                 return resultModel;
             }
-            var result = await _userRepository.RemoveAsync(user.Map());
+            var applicationUser = await _userRepository.FindByIdAsync(user.Id.ToString());
+            if (applicationUser == null)
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
+                return resultModel;
+            }
+            var result = await _userRepository.RemoveAsync(applicationUser);
             if (!result)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.DataNotRemovedError);
@@ -113,11 +119,8 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.UsersFilterModelIsEmptyError);
                 return resultModel;
             }
-            var users = await _userRepository.GetUsersAsync(usersFilter.Map());            
-            foreach(var user in users)
-            {
-                resultModel.Items.Add(user.Map());
-            }
+            resultModel = (await _userRepository.GetUsersAsync(usersFilter.Map())).Map();            
+
             return resultModel;
         }
 

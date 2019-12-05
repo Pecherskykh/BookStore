@@ -6,6 +6,18 @@
   width: 90%;
   margin: 50px auto 0 auto;
 }
+
+.name__page
+{
+  width: 100%;
+  position: relative;
+  display: flex;
+  font-weight: bold;
+  font-size: 18pt;
+  justify-content: space-between;
+}
+
+
 table {
   width: 100%;
   border-collapse: collapse;

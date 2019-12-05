@@ -23,8 +23,9 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         {
         }
 
-        public async Task<IEnumerable<PrintingEditionModelItem>> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModel)
-        {            
+        public async Task<PrintingEditionModel> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModel)
+        {
+            var resultModel = new PrintingEditionModel();
             var printingEditions = from printingEdition in _applicationContext.PrintingEditions where !printingEdition.IsRemoved
                                    select new PrintingEditionModelItem
                                    {
@@ -56,10 +57,14 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             printingEditions = OrderBy(printingEditions, printingEditionsFilterModel.SortType, printingEditionsFilterModel.SortingDirection == SortingDirection.LowToHigh);
 
             printingEditions = printingEditions.Where(p => p.Price >= printingEditionsFilterModel.MinPrice && p.Price <= printingEditionsFilterModel.MaxPrice);
-            
-            printingEditions = printingEditions.Skip((printingEditionsFilterModel.PageCount - 1) * printingEditionsFilterModel.PageSize).Take(printingEditionsFilterModel.PageSize);
 
-            return await printingEditions.ToListAsync();
+            resultModel.CountPrintingEditions = printingEditions.Count();
+
+            printingEditions = printingEditions.Skip((printingEditionsFilterModel.PageCount) * printingEditionsFilterModel.PageSize).Take(printingEditionsFilterModel.PageSize);
+
+            resultModel.Items = await printingEditions.ToListAsync();
+
+            return resultModel;
         }
 
         private IQueryable<PrintingEditionModelItem> OrderBy(IQueryable<PrintingEditionModelItem> printingEditions, PrintingEditionSortType sortType, bool lowToHigh)

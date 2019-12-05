@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {PrintingEditionModel} from '../models/PeintingEditions/printing-edition-model';
 import {PrintingEditionsFilterModel} from 'src/app/shared/models/PeintingEditions/printing-editions-filter-model';
 import { Observable } from 'rxjs';
+import { PrintingEditionModelItem } from '../models/PeintingEditions/printing-edition-model-item';
 
 @Injectable()
 
@@ -28,5 +29,9 @@ export class PrintingEditionService {
       }*/
       element
     );
+  }
+
+  create(element: PrintingEditionModelItem) {
+    return this.http.post('https://localhost:44319/api/printingedition/create', element);
   }
 }

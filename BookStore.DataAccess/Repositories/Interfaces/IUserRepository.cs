@@ -1,6 +1,6 @@
 ﻿using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Models.UesrsFilterModel;
-using System.Collections.Generic;
+using BookStore.DataAccess.Models.Users;
 using System.Threading.Tasks;
 
 namespace BookStore.DataAccess.Repositories.Interfaces
@@ -20,7 +20,7 @@ namespace BookStore.DataAccess.Repositories.Interfaces
         Task<string> CheckRoleAsync(string userId);
         Task<bool> CheckUserAsync(ApplicationUser user, string password);
         Task SignInAsync(ApplicationUser user);
-        Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilterModel usersFilter);
+        Task<UserModel> GetUsersAsync(UsersFilterModel usersFilter);
         Task LogOutAsync();
     }
 }

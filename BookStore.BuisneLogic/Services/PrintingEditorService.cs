@@ -127,12 +127,7 @@ namespace BookStore.BusinessLogic.Services
 
         public async Task<PrintingEditionModel> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels)
         {
-            var printingEditions = await _printingEditionRepository.GetPrintingEditionsAsync(printingEditionsFilterModels.Map());
-            var resultModel = new PrintingEditionModel();
-            foreach (var printingEdition in printingEditions)
-            {
-                resultModel.Items.Add(printingEdition.Map());
-            }
+            var resultModel = (await _printingEditionRepository.GetPrintingEditionsAsync(printingEditionsFilterModels.Map())).Map();
             return resultModel;
         }
     }

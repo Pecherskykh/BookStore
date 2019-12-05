@@ -7,5 +7,6 @@ namespace BookStore.BusinessLogic.Services.Interfaces
     public interface IAuthorService : IBaseService<AuthorModelItem>
     {
         Task<AuthorModel> GetAuthorsAsync(BaseFilterModel baseFilterModel);
+        Task<AuthorModel> GetAllAuthors();
     }
 }

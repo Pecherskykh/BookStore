@@ -1,53 +1,33 @@
 <div class="wrapper">
-    <input type="text" placeholder="Search by name" [formControl] = "searchByName"><br>
-    <span>Sort type </span>
-    <select [formControl] = "sortType">
-        <option>User name</option>
-        <option>User Email</option>
-      </select><br>
-    <span>Sorting direction </span>
-    <select [formControl] = "sortingDirection">
-        <option>Low To High</option>
-        <option>High To Low</option>
-    </select><br>
-    <span>User status </span>
-    <select [formControl] = "userStatus">
-        <option>All</option>
-        <option>Active</option>
-        <option>Blocked</option>
-    </select><br>
-    <button (click)="GetUsers()">Ok</button>
-
     <h2>User mangement</h2>
     <div>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="User Name" [formControl] = "searchByName">
+            <input matInput placeholder="User Name" [formControl] = "searchByName" (keyup.enter)="filterUsers()">
         </mat-form-field>
-        <img class = "img__button" src="assets/images/magnifying-glass.svg" alt="search"><br>
+        <img (click)="filterUsers()" class = "img__button" src="assets/images/magnifying-glass.svg" alt="search"><br>
       </div>
   <div>
-      <table mat-table [dataSource]="items" class="mat-elevation-z8" matSort (matSortChange)="sortData($event)">
+      <table mat-table [dataSource]="items" class="mat-elevation-z8" matSort (matSortChange)="sortData($event)">\
 
-          <!--- Note that these columns can be defined in any order.
-                The actual rendered columns are set as a property on the row definition" -->
-
-          <!-- Position Column -->
           <ng-container matColumnDef="userName">
             <th class="row row1" mat-header-cell *matHeaderCellDef mat-sort-header> User Name </th>
-            <td class="row row1" mat-cell *matCellDef="let element"> {{element.userName}} </td>
+            <td class="row row1" mat-cell *matCellDef="let element"> {{element.firstName}} {{element.lastName}}</td>
           </ng-container>
 
-          <!-- Name Column -->
           <ng-container matColumnDef="userEmail">
             <th class="row row2" mat-header-cell *matHeaderCellDef mat-sort-header> User Email </th>
             <td class="row row2" mat-cell *matCellDef="let element"> {{element.email}} </td>
           </ng-container>
 
-          <!-- Product Column -->
           <ng-container matColumnDef="status">
-              <th class="row row3" mat-header-cell *matHeaderCellDef> Status </th>
+              <th class="row row3" mat-header-cell *matHeaderCellDef>
+                <mat-select multiple [formControl] = "userStatus">
+                  <mat-option *ngFor="let item of userStatusItems" [value]="item"
+                  [disabled]="userStatus.value.length === 1 && userStatus.value[0] === item" (click) = "filterUsers()">{{item}}</mat-option>
+                </mat-select>
+              </th>
               <td class="row row3" mat-cell *matCellDef="let element">
-                  <mat-slide-toggle [checked] = "element.status"></mat-slide-toggle>
+                  <mat-slide-toggle [checked] = "element.status" (click)="changeUserStatus(element.id)"></mat-slide-toggle>
               </td>
           </ng-container>
 
@@ -64,6 +44,6 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        <mat-paginator [length] = "amountPages" [pageSize] = "10" [pageIndex]="pageIndex"  [pageSizeOptions] = "[5, 10, 25, 100]" (page)="pageEvent = getServerData($event)" showFirstLastButtons ></mat-paginator>
+        <mat-paginator [length] = "count" [pageSize] = "10" [pageIndex]="pageIndex"  [pageSizeOptions] = "[5, 10, 25, 100]" (page)="pageEvent = getServerData($event)" showFirstLastButtons ></mat-paginator>
   </div>
 </div>

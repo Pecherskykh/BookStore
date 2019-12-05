@@ -1,0 +1,47 @@
+.wrapper {
+min-width: 400px;
+}
+
+.header__modal
+{
+  width: 100%;
+  text-align: center;
+}
+
+.img__edit
+{
+  vertical-align: top;
+}
+
+.man-user
+{
+  width: 100px;
+  height: 100px;
+}
+
+.form__row {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-left: 5%;
+}
+
+.form__field {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.modal__buttons
+{
+  margin-top: 20px;
+  width: 60%;
+  margin-left: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.img__edit{
+  width: 25px;
+  height: 25px;
+}

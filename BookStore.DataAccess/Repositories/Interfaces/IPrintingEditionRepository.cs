@@ -9,6 +9,6 @@ namespace BookStore.DataAccess.Repositories.Interfaces
 {
     public interface IPrintingEditionRepository : IBaseEFRepository<PrintingEdition>
     {
-        Task<IEnumerable<PrintingEditionModelItem>> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels);
+        Task<PrintingEditionModel> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels);
     }
 }

@@ -53,5 +53,12 @@ namespace BookStore.Presentation.Controllers
             var authorModel = await _authorService.GetAuthorsAsync(baseFilterModel);
             return Ok(authorModel);
         }
+
+        [HttpGet("getAllAuthors")]
+        public async Task<IActionResult> GetAllAuthors()
+        {
+            var authorModel = await _authorService.GetAllAuthors();
+            return Ok(authorModel);
+        }
     }
 }

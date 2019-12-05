@@ -6,6 +6,9 @@ import {UsersFilterModel} from 'src/app/shared/models/Users/users-filter-model';
 import {UserSortType} from 'src/app/shared/enums/user-sort-type';
 import {UserStatus} from 'src/app/shared/enums/user-status';
 import {SortingDirection} from 'src/app/shared/enums/sorting-direction';
+import { MatSort, PageEvent, MatDialog } from '@angular/material';
+import { UpdateComponent } from '../update/update.component';
+import { RemoveComponent } from '../remove/remove.component';
 
 @Component({
   selector: 'app-users',
@@ -15,76 +18,87 @@ import {SortingDirection} from 'src/app/shared/enums/sorting-direction';
 })
 export class UsersComponent implements OnInit {
 
-  displayedColumns: string[] = ['userName', 'userEmail', 'status', 'editAndRemove'];
+  usersFilterModel: UsersFilterModel;
+  count: number;
+  pageIndex: number;
+  displayedColumns: Array<string>;
   items: Array<UserModelItem>;
   user: UserModelItem;
-  firstName = new FormControl('');
-  lastName = new FormControl('');
   searchByName = new FormControl('');
-  sortType = new FormControl('');
-  sortingDirection = new FormControl('');
-  userStatus = new FormControl('');
+  userStatusItems: string[] = ['Active', 'Blocked'];
+  userStatus = new FormControl(this.userStatusItems);
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, public dialog: MatDialog) {
+    this.usersFilterModel = new UsersFilterModel();
+    this.usersFilterModel.sortType = UserSortType.userName;
+    this.usersFilterModel.sortingDirection = SortingDirection.lowToHigh;
+    this.usersFilterModel.userStatus = UserStatus.all;
+    this.usersFilterModel.pageSize = 10;
+    this.usersFilterModel.pageCount = 0;
+    this.displayedColumns = ['userName', 'userEmail', 'status', 'editAndRemove'];
+  }
 
   ngOnInit() {
-    const usersFilterModel = new UsersFilterModel();
-    usersFilterModel.sortType = UserSortType.userName;
-    usersFilterModel.sortingDirection = SortingDirection.lowToHigh;
-    usersFilterModel.userStatus = UserStatus.all;
-    usersFilterModel.pageSize = 10;
-    usersFilterModel.pageCount = 1;
-    this.userService.getUsers(usersFilterModel).subscribe(data => {
-      this.items = data.items;
-  });
+    this.getUsers();
   }
 
-  GetUsers() {
-    const usersFilterModel = new UsersFilterModel();
-    usersFilterModel.searchString = this.searchByName.value;
-    if (this.sortType.value === 'User name') {
-      usersFilterModel.sortType = UserSortType.userName;
-    }
-    if (this.sortType.value === 'User Email') {
-      usersFilterModel.sortType = UserSortType.email;
-    }
-    if (this.sortingDirection.value === 'Low To High') {
-      usersFilterModel.sortingDirection = SortingDirection.lowToHigh;
-    }
-    if (this.sortingDirection.value === 'High To Low') {
-      usersFilterModel.sortingDirection = SortingDirection.highToLow;
-    }
-    if (this.userStatus.value === 'All') {
-      usersFilterModel.userStatus = UserStatus.all;
-    }
-    if (this.userStatus.value === 'Active') {
-      usersFilterModel.userStatus = UserStatus.active;
-    }
-    if (this.userStatus.value === 'Blocked') {
-      usersFilterModel.userStatus = UserStatus.blocked;
-    }
-    usersFilterModel.pageSize = 10;
-    usersFilterModel.pageCount = 1;
-    this.userService.getUsers(usersFilterModel).subscribe(data => {
+  getUsers() {
+    this.userService.getUsers(this.usersFilterModel).subscribe(data => {
+      this.count = data.count;
       this.items = data.items;
   });
 }
 
-  edit(element: UserModelItem) {
-
+  filterUsers() {
+    this.pageIndex = 0;
+    this.usersFilterModel.pageCount = 0;
+    this.usersFilterModel.searchString = this.searchByName.value;
+    if (this.userStatus.value.length === 2) {
+      this.usersFilterModel.userStatus = UserStatus.all;
+    }
+    if (this.userStatus.value.length === 1 && this.userStatus.value[0] === 'Active') {
+      this.usersFilterModel.userStatus = UserStatus.active;
+    }
+    if (this.userStatus.value.length === 1 && this.userStatus.value[0] === 'Blocked') {
+      this.usersFilterModel.userStatus = UserStatus.blocked;
+    }
+    this.getUsers();
 }
 
-  saveEditProfile()  {
-    this.user.firstName = this.firstName.value;
-    this.user.lastName = this.lastName.value;
-    this.userService.UserUpdate(this.user).subscribe();
+  edit(userModelItem: UserModelItem) {
+    const dialogRef = this.dialog.open(UpdateComponent, {data: userModelItem});
+}
+
+sortData(event: MatSort) {
+  if (event.active === 'userName') {
+    this.usersFilterModel.sortType = UserSortType.userName;
   }
 
-  ChangeUserStatus(element: string) {
-    this.userService.ChangeUserStatus(element).subscribe();
+  if (event.active === 'userEmail') {
+    this.usersFilterModel.sortType = UserSortType.email;
+  }
+  if (event.direction === 'asc') {
+    this.usersFilterModel.sortingDirection = SortingDirection.lowToHigh;
+  }
+  if (event.direction === 'desc') {
+    this.usersFilterModel.sortingDirection = SortingDirection.highToLow;
+  }
+  this.getUsers();
 }
 
-  remove(element: number) {
-    alert(element);
+getServerData(event: PageEvent) {
+  this.pageIndex = event.pageIndex;
+  this.usersFilterModel.pageSize = event.pageSize;
+  this.usersFilterModel.pageCount = this.pageIndex;
+  this.getUsers();
+}
+
+  changeUserStatus(element: string) {
+    this.userService.changeUserStatus(element).subscribe();
+}
+
+  remove(userModelItem: UserModelItem) {
+    const dialogRef = this.dialog.open(RemoveComponent, {data: userModelItem}).
+    afterClosed().subscribe(() => this.getUsers());
   }
 }

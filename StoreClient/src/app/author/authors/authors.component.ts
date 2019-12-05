@@ -8,6 +8,7 @@ import {PageEvent, MatDialog, MatSort} from '@angular/material';
 import { CreateComponent } from '../create/create.component';
 import { UpdateComponent } from '../update/update.component';
 import { RemoveComponent } from '../remove/remove.component';
+import { AuthorModel } from 'src/app/shared/models/Authors/author-model';
 
 @Component({
   selector: 'app-authors',
@@ -32,11 +33,12 @@ export class AuthorsComponent implements OnInit {
     this.baseFilterModel.sortingDirection = SortingDirection.lowToHigh;
     this.baseFilterModel.pageSize = 10;
     this.baseFilterModel.pageCount = 0;
+
     this.getAuthors();
   }
 
   getAuthors() {
-    this.authorService.getData(this.baseFilterModel).subscribe(data => {
+    this.authorService.getData(this.baseFilterModel).subscribe((data: AuthorModel) => {
       this.items = data.items;
       this.amountPages = data.pageAmount;
   });
@@ -50,16 +52,16 @@ export class AuthorsComponent implements OnInit {
 }
 
   remove(authorModelItem: AuthorModelItem) {
-    const dialogRef = this.dialog.open(RemoveComponent, {data: authorModelItem}).
+    let dialogRef = this.dialog.open(RemoveComponent, {data: authorModelItem}).
     afterClosed().subscribe(() => this.getAuthors());
   }
 
   create() {
-    const dialogRef = this.dialog.open(CreateComponent).afterClosed().subscribe(() => this.getAuthors());
+    let dialogRef = this.dialog.open(CreateComponent).afterClosed().subscribe(() => this.getAuthors());
   }
 
   edit(authorModelItem: AuthorModelItem) {
-    const dialogRef = this.dialog.open(UpdateComponent, {data: authorModelItem});
+    let dialogRef = this.dialog.open(UpdateComponent, {data: authorModelItem});
   }
 
   getServerData(event: PageEvent) {

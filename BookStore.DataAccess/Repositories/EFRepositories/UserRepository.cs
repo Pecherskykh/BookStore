@@ -2,7 +2,6 @@
 using BookStore.DataAccess.Entities;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookStore.DataAccess.Repositories.Interfaces;
 using BookStore.DataAccess.Models.UesrsFilterModel;
@@ -10,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using BookStore.DataAccess.Extensions;
 using static BookStore.DataAccess.Models.Enums.Enums;
 using static BookStore.DataAccess.Entities.Enums.Enums;
+using BookStore.DataAccess.Models.Users;
+using System;
 
 namespace BookStore.DataAccess.Repositories.EFRepositories
 {
@@ -115,12 +116,15 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             await _signInManager.SignInAsync(user, isPersistent: false);
         }
 
-        public async Task<IEnumerable<ApplicationUser>> GetUsersAsync(UsersFilterModel usersFilter)
+        public async Task<UserModel> GetUsersAsync(UsersFilterModel usersFilter)
         {
+            var resultModel = new UserModel();
+
             var users = _applicationContext.Users.Where(u => !u.IsRemoved).AsQueryable();
+
             if (!string.IsNullOrWhiteSpace(usersFilter.SearchString))
             {
-                users = users.Where(u => u.UserName.ToLower().Equals(usersFilter.SearchString.ToLower()));
+                users = SearchUser(usersFilter.SearchString, users);
             }  
             if (usersFilter.UserStatus == UserStatus.Active)
             {
@@ -138,8 +142,37 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             {
                 users = users.OrderDirection(u => u.Email, usersFilter.SortingDirection == SortingDirection.LowToHigh);
             }
-            users = users.Skip((usersFilter.PageCount - 1) * usersFilter.PageSize).Take(usersFilter.PageSize);
-            return await users.ToListAsync();
+
+            resultModel.Count = users.Count();
+            
+            users = users.Skip(usersFilter.PageCount * usersFilter.PageSize).Take(usersFilter.PageSize);
+
+            resultModel.Items = await users.ToListAsync();
+
+            return resultModel;
+        }
+
+        private IQueryable<ApplicationUser> SearchUser(string searchString, IQueryable<ApplicationUser> users)
+        {
+            string[] words = searchString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (words.Length == 1)
+            {
+                users = users.Where(u =>
+                    u.FirstName.Substring(0, words[0].Length).ToLower().Contains(words[0].ToLower()) ||
+                    u.LastName.Substring(0, words[0].Length).ToLower().Contains(words[0].ToLower())
+                );
+            }
+            if (words.Length == 2)
+            {
+                users = users.Where(u =>
+                    (u.FirstName.Substring(0, words[0].Length).ToLower().Contains(words[0].ToLower()) ||
+                    u.LastName.Substring(0, words[0].Length).ToLower().Contains(words[0].ToLower())) &&
+                    (u.FirstName.Substring(0, words[1].Length).ToLower().Contains(words[1].ToLower()) ||
+                    u.LastName.Substring(0, words[1].Length).ToLower().Contains(words[1].ToLower()))
+                );
+            }
+            return users;
         }
     }
 }

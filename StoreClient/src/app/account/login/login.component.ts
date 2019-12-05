@@ -18,9 +18,9 @@ export class LoginComponent /*implements OnInit*/ {
     constructor(private accontService: AccontService) {}
 
     signIn() {
-      const loginModel = new LoginModel();
-      loginModel.email = this.email.value;
-      loginModel.password = this.password.value;
-      this.accontService.postData(loginModel).subscribe();
+      // let loginModel = new LoginModel();
+      // loginModel.email = this.email.value;
+      // loginModel.password = this.password.value;
+      this.accontService.postData({email: this.email.value, password: this.password.value}).subscribe();
   }
 }
