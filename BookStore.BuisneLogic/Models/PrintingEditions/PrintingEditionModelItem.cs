@@ -11,6 +11,7 @@ namespace BookStore.BusinessLogic.Models.PrintingEditions
         public string Description { get; set; }
         public decimal Price { get; set; }
         public TypePrintingEdition ProductType { get; set; }
+        public Currencys Currencys { get; set; }
         public AuthorModel Authors { get; set; }
     }
 }

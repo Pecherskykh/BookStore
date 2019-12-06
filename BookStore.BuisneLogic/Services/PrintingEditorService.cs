@@ -8,6 +8,9 @@ using BookStore.BusinessLogic.Extensions.PrintingEditionExtensions;
 using BookStore.BusinessLogic.Extensions.AuthorInPrintingEditionExtensions;
 using BookStore.BusinessLogic.Extensions.PrintingEditionsFilterExtensions;
 using BookStore.BusinessLogic.Models.PrintingEditionsFilterModel;
+using BookStore.BusinessLogic.Helpers.Interfaces;
+using static BookStore.BusinessLogic.Models.Enums.Enums;
+using System;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -15,11 +18,13 @@ namespace BookStore.BusinessLogic.Services
     {
         private readonly IPrintingEditionRepository _printingEditionRepository;
         private readonly IAuthorInPrintingEditionRepository _authorInPrintingEditionRepository;
+        private readonly IConvertCurrencyHelper _convertCurrencyHelper;
 
-        public PrintingEditorService(IPrintingEditionRepository printingEditionRepository, IAuthorInPrintingEditionRepository authorInPrintingEditionRepository)
+        public PrintingEditorService(IPrintingEditionRepository printingEditionRepository, IAuthorInPrintingEditionRepository authorInPrintingEditionRepository, IConvertCurrencyHelper convertCurrencyHelper)
         {
             _printingEditionRepository = printingEditionRepository;
             _authorInPrintingEditionRepository = authorInPrintingEditionRepository;
+            _convertCurrencyHelper = convertCurrencyHelper;
         }
 
         public async Task<PrintingEditionModelItem> FindByIdAsync(long printingEditionId)
@@ -47,6 +52,8 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionModelItemIsEmptyError);
                 return resultModel;
             }
+
+            printingEdition.Price = (decimal)_convertCurrencyHelper.ConvertCurrency((double)printingEdition.Price, printingEdition.Currencys, Currencys.USD);
             printingEdition.Id = await _printingEditionRepository.CreateAsync(printingEdition.Map());
             if(printingEdition.Id == 0)
             {

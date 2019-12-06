@@ -6,6 +6,7 @@ import { FormControl } from '@angular/forms';
 import { PrintingEditionModelItem } from 'src/app/shared/models/PeintingEditions/printing-edition-model-item';
 import { TypePrintingEdition } from 'src/app/shared/enums/type-printing-edition';
 import { PrintingEditionService } from 'src/app/shared/services/printing-edition-service';
+import { Currencys } from 'src/app/shared/enums/currencys';
 
 @Component({
   selector: 'app-create',
@@ -21,8 +22,21 @@ export class CreateComponent implements OnInit {
   authors = new FormControl();
   productType = new FormControl('');
   price = new FormControl();
+  currencys: Array<string>;
+  currency: FormControl;
 
-  constructor(private authorService: AuthorService, private printingEditionService: PrintingEditionService) { }
+  constructor(private authorService: AuthorService, private printingEditionService: PrintingEditionService) {
+    this.currencys = [
+      Currencys[Currencys.AUD],
+      Currencys[Currencys.BYN],
+      Currencys[Currencys.EUR],
+      Currencys[Currencys.GBP],
+      Currencys[Currencys.PLN],
+      Currencys[Currencys.UAH],
+      Currencys[Currencys.USD]
+    ];
+    this.currency = new FormControl('');
+   }
 
   create() {
     let printingEditionModelItem = new PrintingEditionModelItem();
@@ -41,6 +55,7 @@ export class CreateComponent implements OnInit {
     if (this.productType.value === 'newspaper') {
       printingEditionModelItem.productType = TypePrintingEdition.newspaper;
     }
+    printingEditionModelItem.currencys = Currencys[this.currency.value];
     this.printingEditionService.create(printingEditionModelItem).subscribe();
   }
 

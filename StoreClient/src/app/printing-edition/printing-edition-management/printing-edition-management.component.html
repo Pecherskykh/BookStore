@@ -121,13 +121,7 @@
   </div>
 
    <div class="wrapper">
-
-      <span>Categories </span><br>
-      <input type="checkbox" [formControl] = "books"> Books<br>
-      <input type="checkbox" [formControl] = "magazines"> Magazines<br>
-      <input type="checkbox" [formControl] = "newspapers"> Newspapers<br>
       <input type="text" placeholder="Min price" [formControl] = "minPrice"> - <input type="text" placeholder="Max price" [formControl] = "maxPrice"><br>
-      <button (click)="GetPrintingEditions()">Ok</button>
 
       <div class="name__page">
         <span>Product mangement</span>
@@ -165,8 +159,13 @@
         </ng-container>
 
         <ng-container matColumnDef="category">
-            <th class="row row4" mat-header-cell *matHeaderCellDef> Category </th>
-            <td class="row row4" mat-cell *matCellDef="let element"> {{element.productType}} </td>
+            <th class="row row4" mat-header-cell *matHeaderCellDef>
+              <mat-select multiple [formControl] = "typePrintingEdition">
+                <mat-option *ngFor="let item of typePrintingEditionItems" [value]="item"
+                [disabled]="typePrintingEdition.value.length === 1 && typePrintingEdition.value[0] === item" (click) = "FilterPrintingEditions()">{{item}}</mat-option>
+              </mat-select>
+            </th>
+            <td class="row row4" mat-cell *matCellDef="let element"> {{typePrintingEditionItems[element.productType - 1]}} </td>
         </ng-container>
 
         <ng-container matColumnDef="author">

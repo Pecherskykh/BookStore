@@ -19,15 +19,12 @@ import { RemoveComponent } from '../remove/remove.component';
 
 export class PrintingEditionManagementComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'description', 'category', 'author', 'price', 'editAndRemove'];
+  typePrintingEditionItems: string[];
+  typePrintingEdition: FormControl;
   items: Array<PrintingEditionModelItem>;
-  searchByName = new FormControl('');
-  sortType = new FormControl('');
-  sortingDirection = new FormControl('');
-  minPrice = new FormControl('');
-  maxPrice = new FormControl('');
-  books = new FormControl('');
-  magazines = new FormControl('');
-  newspapers = new FormControl('');
+  searchByName: FormControl;
+  minPrice: FormControl;
+  maxPrice: FormControl;
   printingEditionsFilterModel: PrintingEditionsFilterModel;
 
   countPrintingEditions: number;
@@ -47,6 +44,11 @@ export class PrintingEditionManagementComponent implements OnInit {
       TypePrintingEdition.magazine,
       TypePrintingEdition.newspaper
     ];
+    this.typePrintingEditionItems = ['book', 'magazine', 'newspaper'];
+    this.typePrintingEdition = new FormControl(this.typePrintingEditionItems);
+    this.searchByName = new FormControl('');
+    this.minPrice = new FormControl(0);
+    this.maxPrice = new FormControl(1000);
   }
 
   ngOnInit() {
@@ -106,18 +108,10 @@ export class PrintingEditionManagementComponent implements OnInit {
 
     this.printingEditionsFilterModel.MinPrice = Number.parseFloat(this.minPrice.value);
     this.printingEditionsFilterModel.MaxPrice = Number.parseFloat(this.maxPrice.value);
-
     this.printingEditionsFilterModel.Categories = new Array<TypePrintingEdition>();
-
-    if (this.books.value) {
-      this.printingEditionsFilterModel.Categories[0] = TypePrintingEdition.book;
-    }
-    if (this.magazines.value) {
-      this.printingEditionsFilterModel.Categories[this.printingEditionsFilterModel.Categories.length] = TypePrintingEdition.magazine;
-    }
-    if (this.newspapers.value) {
-      this.printingEditionsFilterModel.Categories[this.printingEditionsFilterModel.Categories.length] = TypePrintingEdition.newspaper;
-    }
+    this.typePrintingEdition.value.forEach(element => {
+      this.printingEditionsFilterModel.Categories.push(TypePrintingEdition[element]);
+    });
     this.GetPrintingEditions();
   }
 }
