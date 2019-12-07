@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using BookStore.BusinessLogic.Models.Users;
 using BookStore.Presentation.Helper.Interface;
 using BookStore.BusinessLogic.Models.Token;
@@ -17,9 +16,9 @@ namespace BookStore.Presentation.Helper
         {            
             var claimsAccess = new List<Claim>
                 {
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), //todo remove copypaste
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Role, "Admin"),
+                    new Claim(ClaimTypes.Role, "Admin"), //todo remove hardCode
                     new Claim(ClaimTypes.Name, user.UserName),
                 };
 
@@ -30,7 +29,7 @@ namespace BookStore.Presentation.Helper
                 };
 
             var accessToken = GenerateToken(claimsAccess, Constants.JwtConstants.ExpiresAccessToken);
-            var refreshToken = GenerateToken(claimsRefresh, Constants.JwtConstants.ExpiresRefreshToken); //todo add const
+            var refreshToken = GenerateToken(claimsRefresh, Constants.JwtConstants.ExpiresRefreshToken);
 
             return new TokenModel
             {

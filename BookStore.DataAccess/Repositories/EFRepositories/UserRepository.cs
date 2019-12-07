@@ -54,7 +54,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             {
                 return result.Succeeded;
             }
-            result = await _userManager.AddToRoleAsync(user, RoleEnum.User.ToString()); //todo use const or enum
+            result = await _userManager.AddToRoleAsync(user, RoleEnum.User.ToString());
             return result.Succeeded;
         }
 

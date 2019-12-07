@@ -34,4 +34,13 @@ export class PrintingEditionService {
   create(element: PrintingEditionModelItem) {
     return this.http.post('https://localhost:44319/api/printingedition/create', element);
   }
+
+  update(element: PrintingEditionModelItem) {
+    debugger;
+    return this.http.post('https://localhost:44319/api/printingedition/update', element);
+  }
+
+  remove(element: PrintingEditionModelItem) {
+    return this.http.post('https://localhost:44319/api/printingedition/remove', element);
+  }
 }

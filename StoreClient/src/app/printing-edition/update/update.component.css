@@ -1,0 +1,49 @@
+.left{
+  min-width: 300px;
+  width: 50%;
+  height: 500px;
+}
+
+.right{
+  min-width: 300px;
+  width: 50%;
+  height: 500px;
+}
+
+.body {
+  display: flex;
+}
+
+h2 {
+  text-align: center;
+}
+
+.title {
+  width: 300px;
+  height: 50px;
+}
+
+.description {
+  width: 300px;
+  height: 100px;
+}
+
+.body{
+  min-width: 650px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat__select
+{
+  max-width: 180px;
+}
+
+.img__button
+{
+  width: 50px;
+  height: 50px;
+}

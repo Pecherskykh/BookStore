@@ -9,6 +9,7 @@ import {TypePrintingEdition} from 'src/app/shared/enums/type-printing-edition';
 import { MatDialog, PageEvent, MatSort } from '@angular/material';
 import { CreateComponent } from '../create/create.component';
 import { RemoveComponent } from '../remove/remove.component';
+import { UpdateComponent } from 'src/app/printing-edition/update/update.component';
 
 @Component({
   selector: 'app-printing-edition-management',
@@ -18,14 +19,14 @@ import { RemoveComponent } from '../remove/remove.component';
 })
 
 export class PrintingEditionManagementComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'description', 'category', 'author', 'price', 'editAndRemove'];
+  displayedColumns: string[] = ['id', 'name', 'description', 'category', 'author', 'price', 'editAndRemove']; //todo use const, init on constr
   typePrintingEditionItems: string[];
   typePrintingEdition: FormControl;
   items: Array<PrintingEditionModelItem>;
   searchByName: FormControl;
   minPrice: FormControl;
   maxPrice: FormControl;
-  printingEditionsFilterModel: PrintingEditionsFilterModel;
+  printingEditionsFilterModel: PrintingEditionsFilterModel; //todo get default from const
 
   countPrintingEditions: number;
   pageIndex: number;
@@ -44,7 +45,9 @@ export class PrintingEditionManagementComponent implements OnInit {
       TypePrintingEdition.magazine,
       TypePrintingEdition.newspaper
     ];
+
     this.typePrintingEditionItems = ['book', 'magazine', 'newspaper'];
+
     this.typePrintingEdition = new FormControl(this.typePrintingEditionItems);
     this.searchByName = new FormControl('');
     this.minPrice = new FormControl(0);
@@ -59,12 +62,16 @@ export class PrintingEditionManagementComponent implements OnInit {
     let dialogRef = this.dialog.open(CreateComponent).afterClosed().subscribe(() => this.GetPrintingEditions());
   }
 
-  remove() {
-    let dialogRef = this.dialog.open(RemoveComponent).afterClosed().subscribe(() => this.GetPrintingEditions());
+  remove(element: PrintingEditionModelItem) {
+    let dialogRef = this.dialog.open(RemoveComponent, {data: element}).afterClosed().subscribe(() => this.GetPrintingEditions());
   }
 
-  GetPrintingEditions() {
-    this.printingEditionService.getData(this.printingEditionsFilterModel).subscribe(data => {
+  edit(element: PrintingEditionModelItem) {
+    let dialogRef = this.dialog.open(UpdateComponent, {data: element}).afterClosed().subscribe(() => this.GetPrintingEditions());
+  }
+
+  private GetPrintingEditions() { //todo return type
+    this.printingEditionService.getData(this.printingEditionsFilterModel).subscribe(data => { //todo data -> add type, check errors (use Base functions)
       this.countPrintingEditions = data.countPrintingEditions;
       this.items = data.items;
   });
@@ -72,8 +79,10 @@ export class PrintingEditionManagementComponent implements OnInit {
 
   getServerData(event: PageEvent) {
     this.pageIndex = event.pageIndex;
+
     this.printingEditionsFilterModel.pageSize = event.pageSize;
     this.printingEditionsFilterModel.pageCount = this.pageIndex;
+
     this.GetPrintingEditions();
   }
 
@@ -82,7 +91,7 @@ export class PrintingEditionManagementComponent implements OnInit {
       this.printingEditionsFilterModel.SortType = PrintingEditionSortType.id;
     }
 
-    if (event.active === 'name') {
+    if (event.active === 'name') { //todo use enums
       this.printingEditionsFilterModel.SortType = PrintingEditionSortType.name;
     }
 
@@ -93,25 +102,29 @@ export class PrintingEditionManagementComponent implements OnInit {
     if (event.direction === 'asc') {
       this.printingEditionsFilterModel.sortingDirection = SortingDirection.lowToHigh;
     }
+
     if (event.direction === 'desc') {
       this.printingEditionsFilterModel.sortingDirection = SortingDirection.highToLow;
     }
+
     this.GetPrintingEditions();
   }
 
   FilterPrintingEditions() {
 
     this.pageIndex = 0;
+
     this.printingEditionsFilterModel.pageCount = 0;
 
     this.printingEditionsFilterModel.searchString = this.searchByName.value;
-
     this.printingEditionsFilterModel.MinPrice = Number.parseFloat(this.minPrice.value);
     this.printingEditionsFilterModel.MaxPrice = Number.parseFloat(this.maxPrice.value);
     this.printingEditionsFilterModel.Categories = new Array<TypePrintingEdition>();
+
     this.typePrintingEdition.value.forEach(element => {
       this.printingEditionsFilterModel.Categories.push(TypePrintingEdition[element]);
     });
+
     this.GetPrintingEditions();
   }
 }

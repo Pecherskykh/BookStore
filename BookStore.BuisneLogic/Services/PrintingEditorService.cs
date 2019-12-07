@@ -14,7 +14,7 @@ using System;
 
 namespace BookStore.BusinessLogic.Services
 {
-    public class PrintingEditorService : IPrintingEditorService
+    public class PrintingEditorService : IPrintingEditorService //todo rename
     {
         private readonly IPrintingEditionRepository _printingEditionRepository;
         private readonly IAuthorInPrintingEditionRepository _authorInPrintingEditionRepository;
@@ -62,7 +62,7 @@ namespace BookStore.BusinessLogic.Services
             }
             foreach (var author in printingEdition.Authors.Items)
             {
-                var result = await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author)); //todo check result
+                var result = await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author));
                 if (result == 0)
                 {
                     resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionNotCreatedError);
@@ -85,23 +85,23 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.DataNotUpdatedError);
             }
             var authorInPrintingEditions = _authorInPrintingEditionRepository.GetAuthorInPrintingEditionsAsync(printingEdition.Id);
-            if (authorInPrintingEditions.Count != printingEdition.Authors.Items.Count)
+            if (authorInPrintingEditions.Count != printingEdition.Authors.Items.Count) //todo if if, use private methods if need
             {
                 await _authorInPrintingEditionRepository.RemoveRangeAsync(authorInPrintingEditions);
 
                 foreach (var author in printingEdition.Authors.Items)
                 {
-                    var resultCreate = await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author)); //todo check result
+                    var resultCreate = await _authorInPrintingEditionRepository.CreateAsync(printingEdition.Map(author));
                     if (resultCreate == 0)
                     {
                         resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionNotCreatedError);
                     }
                 }
-                return resultModel; //todo write errors to this model
+                return resultModel;
             }
             foreach (var author in printingEdition.Authors.Items)
             {
-                var resultUpdate = await _authorInPrintingEditionRepository.UpdateAsync(printingEdition.Map(author)); //todo check result
+                var resultUpdate = await _authorInPrintingEditionRepository.UpdateAsync(printingEdition.Map(author));
                 if (!resultUpdate)
                 {
                     resultModel.Errors.Add(Constants.ErrorConstants.DataNotUpdatedError);

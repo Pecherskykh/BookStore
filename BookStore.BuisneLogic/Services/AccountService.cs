@@ -159,7 +159,7 @@ namespace BookStore.BusinessLogic.Services
             return resultModel;
         }
 
-        public async Task<UserModelItem> CheckUserAsync(LoginModel loginModel) //todo return BaseModel
+        public async Task<UserModelItem> CheckUserAsync(LoginModel loginModel) //todo LoginAsync or SignInAsync
         {
             var resultModel = new UserModelItem();
             if (loginModel == null)
@@ -167,7 +167,6 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.UserModelItemIsEmptyError);
                 return resultModel;
             }
-            //todo user check for null and map
             var applicationUser = await _userRepository.FindByEmailAsync(loginModel.Email);
             if (applicationUser == null)
             {
@@ -180,19 +179,18 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
-            var user = applicationUser.Map();
-            user.Role = await _userRepository.CheckRoleAsync(applicationUser.Id.ToString());
-            return user;
+            resultModel = applicationUser.Map();
+            resultModel.Role = await _userRepository.CheckRoleAsync(applicationUser.Id.ToString());
+            return resultModel;
         }
 
-        public async Task<string> CheckRoleAsync(UserModelItem user) //todo return BaseModel
+        public async Task<string> CheckRoleAsync(UserModelItem user) //todo add role directly
         {
             string result = null;
             if (user == null)
             {
                 return result;
             }
-            //todo user check for null and map
             var applicationUser = await _userRepository.FindByNameAsync(user.UserName);
             if (applicationUser == null)
             {

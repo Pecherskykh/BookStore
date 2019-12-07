@@ -53,6 +53,7 @@ export class UsersComponent implements OnInit {
     this.pageIndex = 0;
     this.usersFilterModel.pageCount = 0;
     this.usersFilterModel.searchString = this.searchByName.value;
+
     if (this.userStatus.value.length === 2) {
       this.usersFilterModel.userStatus = UserStatus.all;
     }
@@ -62,6 +63,7 @@ export class UsersComponent implements OnInit {
     if (this.userStatus.value.length === 1 && this.userStatus.value[0] === 'Blocked') {
       this.usersFilterModel.userStatus = UserStatus.blocked;
     }
+
     this.getUsers();
 }
 

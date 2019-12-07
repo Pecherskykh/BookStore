@@ -7,9 +7,10 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { RemoveComponent } from './remove/remove.component';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
-  declarations: [PrintingEditionManagementComponent, CreateComponent, RemoveComponent],
+  declarations: [PrintingEditionManagementComponent, CreateComponent, RemoveComponent, UpdateComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
