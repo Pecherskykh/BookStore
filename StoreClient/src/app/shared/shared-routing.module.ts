@@ -1,11 +1,6 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RemoveComponent } from './components/remove/remove.component';
+import { Routes } from '@angular/router';
 
-
-const routes: Routes = [];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class SharedRoutingModule { }
+export const routes: Routes = [
+  {path: 'remove', component: RemoveComponent }
+];

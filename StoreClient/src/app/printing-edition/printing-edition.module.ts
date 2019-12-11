@@ -8,10 +8,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { RemoveComponent } from './remove/remove.component';
 import { UpdateComponent } from './update/update.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [PrintingEditionManagementComponent, CreateComponent, RemoveComponent, UpdateComponent],
   imports: [
+    SharedModule,
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,

@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SharedRoutingModule } from './shared-routing.module';
+import { routes } from './shared-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
-import { HeaderComponent } from './components/header/header.component';
+import { RemoveComponent } from './components/remove/remove.component';
+import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent],
+  declarations: [FooterComponent, RemoveComponent],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    RouterModule.forChild(routes),
+    MaterialModule
   ]
 })
 export class SharedModule { }

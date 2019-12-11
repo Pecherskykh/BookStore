@@ -6,7 +6,9 @@ using BookStore.DataAccess.Models.Orders;
 using BookStore.DataAccess.Models.OrdersFilterModel;
 using BookStore.DataAccess.Repositories.Base;
 using BookStore.DataAccess.Repositories.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,9 +18,11 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 {
     public class OrderRepository : BaseEFRepository<Order>, IOrderRepository
     {
-        public OrderRepository(ApplicationContext applicationContext) : base(applicationContext)
-        {
+        private readonly UserManager<ApplicationUser> _userManager;
 
+        public OrderRepository(ApplicationContext applicationContext, UserManager<ApplicationUser> userManager) : base(applicationContext)
+        {
+            _userManager = userManager;
         }        
 
         public async Task<OrderModel> GetOrdersAsync(OrdersFilterModel ordersFilterModel)
@@ -42,27 +46,32 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
                                                          Title = printingEdition.Title,
                                                          Count = orderItem.Count
                                                      }).ToList(),
-                                       OrderAmount = 54,
+                                       OrderAmount = order.Amount,
                                    };
+
+            if (!string.IsNullOrWhiteSpace(ordersFilterModel.SearchString))
+            {
+                orders = SearchOrders(ordersFilterModel.SearchString, orders);
+            }
 
             orders = OrderBy(orders, ordersFilterModel.SortType, ordersFilterModel.SortingDirection == SortingDirection.LowToHigh);
 
-            var remainder = orders.Count() % ordersFilterModel.PageSize;
-            if (remainder > 0)
-            {
-                resultModel.PageAmount = (orders.Count() - remainder) / ordersFilterModel.PageSize + 1;
-            }
+            resultModel.Count = orders.Count();
 
-            if (remainder == 0)
-            {
-                resultModel.PageAmount = orders.Count() / ordersFilterModel.PageSize;
-            }
-
-            orders = orders.Skip((ordersFilterModel.PageCount - 1) * ordersFilterModel.PageSize).Take(ordersFilterModel.PageSize);
+            orders = orders.Skip((ordersFilterModel.PageCount) * ordersFilterModel.PageSize).Take(ordersFilterModel.PageSize);
 
             resultModel.Items = await orders.ToListAsync();
 
             return resultModel;
+        }
+
+        private IQueryable<OrderModelItem> SearchOrders(string searchString, IQueryable<OrderModelItem> orders)
+        {
+            orders = orders.Where(o =>
+            o.UserName.Substring(0, searchString.Length).ToLower().Contains(searchString.ToLower()) ||
+            o.UserEmail.Substring(0, searchString.Length).ToLower().Contains(searchString.ToLower())
+            );            
+            return orders;
         }
 
         private IQueryable<OrderModelItem> OrderBy(IQueryable<OrderModelItem> orders, OrderSortType sortType, bool lowToHigh)

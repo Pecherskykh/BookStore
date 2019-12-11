@@ -99,13 +99,16 @@ namespace BookStore.BusinessLogic.Services
                 }
                 return resultModel;
             }
+            var count = 0;
             foreach (var author in printingEdition.Authors.Items)
             {
-                var resultUpdate = await _authorInPrintingEditionRepository.UpdateAsync(printingEdition.Map(author));
+                authorInPrintingEditions[count].AuthorId = author.Id;
+                var resultUpdate = await _authorInPrintingEditionRepository.UpdateAsync(authorInPrintingEditions[count]);
                 if (!resultUpdate)
                 {
                     resultModel.Errors.Add(Constants.ErrorConstants.DataNotUpdatedError);
                 }
+                ++count;
             }
             return resultModel;
         }

@@ -121,24 +121,26 @@
   </div>
 
    <div class="wrapper">
-      <input type="text" placeholder="Min price" [formControl] = "minPrice"> - <input type="text" placeholder="Max price" [formControl] = "maxPrice"><br>
-
       <div class="name__page">
         <span>Product mangement</span>
         <img class = "img__button" src="assets/images/add-button-inside-black-circle.svg" alt="add" (click) = "create()">
       </div>
 
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Min price" [formControl] = "minPrice">
+      </mat-form-field><br>
+      <mat-form-field class="example-full-width">
+       <input matInput placeholder="Max price" [formControl] = "maxPrice">
+      </mat-form-field><br>
+
       <div>
         <mat-form-field class="example-full-width">
             <input matInput placeholder="Product Name" [formControl] = "searchByName" (keyup.enter)="FilterPrintingEditions()">
-        </mat-form-field>
-        <img (click)= "FilterPrintingEditions()" class = "img__button" src="assets/images/magnifying-glass.svg" alt="search"><br>
+        </mat-form-field><br>
+        <button mat-raised-button (click)= "FilterPrintingEditions()">Find</button><br><br>
       </div>
 
     <table mat-table [dataSource]="items" class="mat-elevation-z8" matSort (matSortChange)="sortData($event)">
-
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
 
         <!-- Position Column -->
         <ng-container matColumnDef="id">

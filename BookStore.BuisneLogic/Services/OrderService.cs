@@ -58,7 +58,6 @@ namespace BookStore.BusinessLogic.Services
             var paymentId = await _paymentRepository.CreateAsync(payment);
             var order = new Order()
             {
-                Description = cartModel.Description,
                 PaymentId = paymentId,
                 UserId = cartModel.UserId
             };

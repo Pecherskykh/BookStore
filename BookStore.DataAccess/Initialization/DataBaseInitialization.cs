@@ -161,7 +161,7 @@ namespace BookStore.DataAccess.Initialization
 
         public void InitializationOrder()
         {
-            List<Order> orders = new List<Order>()
+            /*List<Order> orders = new List<Order>()
             {
                 new Order
                 {
@@ -196,7 +196,7 @@ namespace BookStore.DataAccess.Initialization
             {
                 _applicationContext.Orders.Add(order);
             }
-            _applicationContext.SaveChanges();
+            _applicationContext.SaveChanges();*/
         }
 
         public void InitializationOrderItem()

@@ -8,8 +8,8 @@ import {SortingDirection} from 'src/app/shared/enums/sorting-direction';
 import {TypePrintingEdition} from 'src/app/shared/enums/type-printing-edition';
 import { MatDialog, PageEvent, MatSort } from '@angular/material';
 import { CreateComponent } from '../create/create.component';
-import { RemoveComponent } from '../remove/remove.component';
 import { UpdateComponent } from 'src/app/printing-edition/update/update.component';
+import { RemoveComponent } from 'src/app/shared/components/remove/remove.component';
 
 @Component({
   selector: 'app-printing-edition-management',
@@ -63,7 +63,13 @@ export class PrintingEditionManagementComponent implements OnInit {
   }
 
   remove(element: PrintingEditionModelItem) {
-    let dialogRef = this.dialog.open(RemoveComponent, {data: element}).afterClosed().subscribe(() => this.GetPrintingEditions());
+    let dialogRef = this.dialog.open(RemoveComponent, {data: {pageName: 'printing edition', name: element.title}})
+    .afterClosed().subscribe(data => {
+      if (data) {
+      this.printingEditionService.remove(element).subscribe();
+      this.GetPrintingEditions();
+      }
+    });
   }
 
   edit(element: PrintingEditionModelItem) {

@@ -6,8 +6,6 @@ namespace BookStore.DataAccess.Entities
 {
     public class OrderItem : BaseEntity
     {
-        public long Amount { get; set; }
-        public Currencys Currency { get; set; }
         public long Count { get; set; }
         public long PrintingEditionId { get; set; }
         public PrintingEdition PrintingEdition { get; set; }

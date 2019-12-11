@@ -6,6 +6,7 @@ using BookStore.DataAccess.Models.PrintingEditions;
 using BookStore.DataAccess.Models.PrintingEditionsFilterModels;
 using BookStore.DataAccess.Repositories.Base;
 using BookStore.DataAccess.Repositories.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,6 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 {
     public class PrintingEditionRepository : BaseEFRepository<PrintingEdition>, IPrintingEditionRepository
     {
-
         public PrintingEditionRepository(ApplicationContext applicationContext) : base(applicationContext)
         {
         }

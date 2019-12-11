@@ -15,7 +15,7 @@ namespace BookStore.BusinessLogic.Extensions.OrderExtensions
 
             return new OrderModel
             {
-                PageAmount = orderModel.PageAmount,
+                Count = orderModel.Count,
                 Items = items
             };
         }
