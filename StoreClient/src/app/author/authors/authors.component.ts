@@ -7,8 +7,9 @@ import {SortingDirection} from 'src/app/shared/enums/sorting-direction';
 import {PageEvent, MatDialog, MatSort} from '@angular/material';
 import { CreateComponent } from '../create/create.component';
 import { UpdateComponent } from '../update/update.component';
-import { RemoveComponent } from '../remove/remove.component';
 import { AuthorModel } from 'src/app/shared/models/Authors/author-model';
+import { RemoveComponent } from 'src/app/shared/components/remove/remove.component';
+import { AuthorDialogComponent } from '../author-dialog/author-dialog.component';
 
 @Component({
   selector: 'app-authors',
@@ -52,13 +53,22 @@ export class AuthorsComponent implements OnInit {
 }
 
   remove(authorModelItem: AuthorModelItem) {
-    let dialogRef = this.dialog.open(RemoveComponent, {data: authorModelItem}).
-    afterClosed().subscribe(() => this.getAuthors());
+    let dialogRef = this.dialog.open(RemoveComponent, {data: {pageName: 'author', name: authorModelItem.name}})
+    .afterClosed().subscribe(data => {
+      if (data) {
+      this.authorService.remove(authorModelItem).subscribe(() => this.getAuthors());
+      }
+    });
   }
 
   create() {
     let dialogRef = this.dialog.open(CreateComponent).afterClosed().subscribe(() => this.getAuthors());
   }
+
+  /*edit(authorModelItem: AuthorModelItem) {
+    let dialogRef = this.dialog.open(AuthorDialogComponent, {data: {pageName: 'printing edition',  name: element.title}});
+
+  }*/
 
   edit(authorModelItem: AuthorModelItem) {
     let dialogRef = this.dialog.open(UpdateComponent, {data: authorModelItem});

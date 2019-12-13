@@ -6,12 +6,12 @@ import { PrintingEditionManagementComponent } from './printing-edition-managemen
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
-import { RemoveComponent } from './remove/remove.component';
 import { UpdateComponent } from './update/update.component';
 import { SharedModule } from '../shared/shared.module';
+import { PrintingEditionDialogComponent } from './printing-edition-dialog/printing-edition-dialog.component';
 
 @NgModule({
-  declarations: [PrintingEditionManagementComponent, CreateComponent, RemoveComponent, UpdateComponent],
+  declarations: [PrintingEditionManagementComponent, CreateComponent, UpdateComponent, PrintingEditionDialogComponent],
   imports: [
     SharedModule,
     CommonModule,

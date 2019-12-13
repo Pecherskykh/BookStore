@@ -5,11 +5,13 @@ import {PrintingEditionsFilterModel} from 'src/app/shared/models/PeintingEdition
 import { FormControl } from '@angular/forms';
 import {PrintingEditionSortType} from 'src/app/shared/enums/printing-edition-sort-type';
 import {SortingDirection} from 'src/app/shared/enums/sorting-direction';
-import {TypePrintingEdition} from 'src/app/shared/enums/type-printing-edition';
+import { TypePrintingEdition } from 'src/app/shared/enums/type-printing-edition';
 import { MatDialog, PageEvent, MatSort } from '@angular/material';
 import { CreateComponent } from '../create/create.component';
 import { UpdateComponent } from 'src/app/printing-edition/update/update.component';
 import { RemoveComponent } from 'src/app/shared/components/remove/remove.component';
+import { PrintingEditionDialogComponent } from '../printing-edition-dialog/printing-edition-dialog.component';
+import { CreateUpdate } from 'src/app/shared/enums/create-update';
 
 @Component({
   selector: 'app-printing-edition-management',
@@ -58,8 +60,14 @@ export class PrintingEditionManagementComponent implements OnInit {
     this.GetPrintingEditions();
   }
 
-  create() {
+  /*create() {
     let dialogRef = this.dialog.open(CreateComponent).afterClosed().subscribe(() => this.GetPrintingEditions());
+  }*/
+
+  create() {
+    let dialogRef = this.dialog.open(PrintingEditionDialogComponent, {data: {pageName: 'Add new Product', buttonName: 'Add',
+    createUpdate: CreateUpdate.Create}}).
+    afterClosed().subscribe(() => this.GetPrintingEditions());
   }
 
   remove(element: PrintingEditionModelItem) {
@@ -72,12 +80,19 @@ export class PrintingEditionManagementComponent implements OnInit {
     });
   }
 
-  edit(element: PrintingEditionModelItem) {
+  /*edit(element: PrintingEditionModelItem) {
     let dialogRef = this.dialog.open(UpdateComponent, {data: element}).afterClosed().subscribe(() => this.GetPrintingEditions());
+  }*/
+
+  edit(element: PrintingEditionModelItem) {
+    let dialogRef = this.dialog.open(PrintingEditionDialogComponent, {data: {pageName: 'Edit', buttonName: 'Save',
+    createUpdate: CreateUpdate.Update, printingEditionModelItem: element}}).
+    afterClosed().subscribe(() => this.GetPrintingEditions());
   }
 
   private GetPrintingEditions() { //todo return type
-    this.printingEditionService.getData(this.printingEditionsFilterModel).subscribe(data => { //todo data -> add type, check errors (use Base functions)
+    this.printingEditionService.getData(this.printingEditionsFilterModel).subscribe(data => {
+      //todo data -> add type, check errors (use Base functions)
       this.countPrintingEditions = data.countPrintingEditions;
       this.items = data.items;
   });
@@ -127,7 +142,7 @@ export class PrintingEditionManagementComponent implements OnInit {
     this.printingEditionsFilterModel.MaxPrice = Number.parseFloat(this.maxPrice.value);
     this.printingEditionsFilterModel.Categories = new Array<TypePrintingEdition>();
 
-    this.typePrintingEdition.value.forEach(element => {
+    this.typePrintingEdition.value.forEach((element: string) => {
       this.printingEditionsFilterModel.Categories.push(TypePrintingEdition[element]);
     });
 

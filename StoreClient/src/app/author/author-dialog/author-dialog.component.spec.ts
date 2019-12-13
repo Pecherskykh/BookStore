@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RemoveComponent } from './remove.component';
+import { AuthorDialogComponent } from './author-dialog.component';
 
-describe('RemoveComponent', () => {
-  let component: RemoveComponent;
-  let fixture: ComponentFixture<RemoveComponent>;
+describe('AuthorDialogComponent', () => {
+  let component: AuthorDialogComponent;
+  let fixture: ComponentFixture<AuthorDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RemoveComponent ]
+      declarations: [ AuthorDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RemoveComponent);
+    fixture = TestBed.createComponent(AuthorDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

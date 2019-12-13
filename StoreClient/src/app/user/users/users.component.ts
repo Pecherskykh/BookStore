@@ -8,7 +8,7 @@ import {UserStatus} from 'src/app/shared/enums/user-status';
 import {SortingDirection} from 'src/app/shared/enums/sorting-direction';
 import { MatSort, PageEvent, MatDialog } from '@angular/material';
 import { UpdateComponent } from '../update/update.component';
-import { RemoveComponent } from '../remove/remove.component';
+import { RemoveComponent } from 'src/app/shared/components/remove/remove.component';
 
 @Component({
   selector: 'app-users',
@@ -100,7 +100,12 @@ getServerData(event: PageEvent) {
 }
 
   remove(userModelItem: UserModelItem) {
-    const dialogRef = this.dialog.open(RemoveComponent, {data: userModelItem}).
-    afterClosed().subscribe(() => this.getUsers());
+    let dialogRef = this.dialog.open(RemoveComponent, {data: {pageName: 'user', name: userModelItem.firstName +
+    ' ' + userModelItem.lastName}})
+    .afterClosed().subscribe(data => {
+      if (data) {
+        this.userService.remove(userModelItem).subscribe(() => this.getUsers());
+      }
+    });
   }
 }

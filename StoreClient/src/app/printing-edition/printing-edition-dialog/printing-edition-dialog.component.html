@@ -1,0 +1,41 @@
+<h2 *ngIf = "data">{{data.pageName}}</h2>
+
+<div class="body">
+    <div class = "left">
+        <mat-form-field>
+            <textarea matInput placeholder="Title" class="title" [formControl] = "title"></textarea>
+          </mat-form-field><br>
+          <mat-form-field>
+              <textarea matInput placeholder="Description" class="description" [formControl] = "description"></textarea>
+            </mat-form-field>
+          </div>
+      <div class = "right">
+          <img class = "img__button" src="assets/images/photo.svg" alt="edit"><br>
+          <mat-form-field>
+              <mat-label>Category</mat-label>
+              <select matNativeControl required [formControl] = "productType">
+                <option value="book">Book</option>
+                <option value="magazine">Magazine</option>
+                <option value="newspaper">Newspaper</option>
+              </select>
+            </mat-form-field>
+            <mat-form-field><br>
+            <mat-select multiple class="mat__select" [formControl] = "authors">
+                <mat-option *ngFor= "let author of items" [value]="author">{{author.name}}</mat-option>
+            </mat-select>
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Price" [formControl] = "price">
+            </mat-form-field><br>
+            <mat-form-field>
+                <mat-label>Currency</mat-label>
+                <select matNativeControl required [formControl] = "currency">
+                  <option *ngFor= "let item of currencys" [value]="item">{{item}}</option>
+                </select>
+              </mat-form-field>
+      </div>
+</div>
+<div class="buttons">
+    <button mat-raised-button mat-dialog-close>Cancle</button>
+    <button mat-raised-button mat-dialog-close (click) = "event()">{{data.buttonName}}</button>
+</div>
