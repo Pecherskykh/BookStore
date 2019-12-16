@@ -7,8 +7,6 @@ import {PrintingEditionSortType} from 'src/app/shared/enums/printing-edition-sor
 import {SortingDirection} from 'src/app/shared/enums/sorting-direction';
 import { TypePrintingEdition } from 'src/app/shared/enums/type-printing-edition';
 import { MatDialog, PageEvent, MatSort } from '@angular/material';
-import { CreateComponent } from '../create/create.component';
-import { UpdateComponent } from 'src/app/printing-edition/update/update.component';
 import { RemoveComponent } from 'src/app/shared/components/remove/remove.component';
 import { PrintingEditionDialogComponent } from '../printing-edition-dialog/printing-edition-dialog.component';
 import { CreateUpdate } from 'src/app/shared/enums/create-update';
@@ -21,7 +19,8 @@ import { CreateUpdate } from 'src/app/shared/enums/create-update';
 })
 
 export class PrintingEditionManagementComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'description', 'category', 'author', 'price', 'editAndRemove']; //todo use const, init on constr
+  displayedColumns: string[] = ['id', 'name', 'description', 'category',
+  'author', 'price', 'editAndRemove']; //todo use const, init on constr
   typePrintingEditionItems: string[];
   typePrintingEdition: FormControl;
   items: Array<PrintingEditionModelItem>;
@@ -60,13 +59,10 @@ export class PrintingEditionManagementComponent implements OnInit {
     this.GetPrintingEditions();
   }
 
-  /*create() {
-    let dialogRef = this.dialog.open(CreateComponent).afterClosed().subscribe(() => this.GetPrintingEditions());
-  }*/
-
   create() {
+    let element = new PrintingEditionModelItem();
     let dialogRef = this.dialog.open(PrintingEditionDialogComponent, {data: {pageName: 'Add new Product', buttonName: 'Add',
-    createUpdate: CreateUpdate.Create}}).
+    createUpdate: CreateUpdate.Create, printingEditionModelItem: element}}).
     afterClosed().subscribe(() => this.GetPrintingEditions());
   }
 
@@ -80,12 +76,9 @@ export class PrintingEditionManagementComponent implements OnInit {
     });
   }
 
-  /*edit(element: PrintingEditionModelItem) {
-    let dialogRef = this.dialog.open(UpdateComponent, {data: element}).afterClosed().subscribe(() => this.GetPrintingEditions());
-  }*/
-
   edit(element: PrintingEditionModelItem) {
-    let dialogRef = this.dialog.open(PrintingEditionDialogComponent, {data: {pageName: 'Edit', buttonName: 'Save',
+    let dialogRef = this.dialog.open(PrintingEditionDialogComponent, {data: {pageName:
+      'Edit Product - ' + element.title, buttonName: 'Save',
     createUpdate: CreateUpdate.Update, printingEditionModelItem: element}}).
     afterClosed().subscribe(() => this.GetPrintingEditions());
   }

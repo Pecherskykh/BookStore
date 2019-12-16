@@ -45,7 +45,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
                                    };
             if (!string.IsNullOrWhiteSpace(printingEditionsFilterModel.SearchString))
             {
-                printingEditions = printingEditions.Where(p => p.Title.ToLower().Equals(printingEditionsFilterModel.SearchString.ToLower()));
+                printingEditions = printingEditions.Where(p => p.Title.ToLower().Contains(printingEditionsFilterModel.SearchString.ToLower()));
             }
             var allCategories = (Enum.GetValues(typeof(TypePrintingEdition))).OfType<TypePrintingEdition>().ToList();
             allCategories = allCategories.Where(x => !printingEditionsFilterModel.Categories.Contains(x)).ToList();

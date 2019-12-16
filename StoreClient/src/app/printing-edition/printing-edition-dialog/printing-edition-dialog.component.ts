@@ -18,19 +18,10 @@ import { PrintingEditionService } from 'src/app/shared/services/printing-edition
 })
 export class PrintingEditionDialogComponent implements OnInit {
 
-  /*items: Array<AuthorModelItem>;
-  title = new FormControl(''); //todo init on constructor
-  description = new FormControl('');
-  authors = new FormControl();
-  productType = new FormControl('');
-  price = new FormControl();
-  currencys: Array<string>;
-  currency: FormControl; //todo use FormGroup*/
-
   items: Array<AuthorModelItem>;
   title = new FormControl(this.data.printingEditionModelItem.title); //todo init on constructor
   description = new FormControl(this.data.printingEditionModelItem.description);
-  authors: FormControl;
+  authors = new FormControl();
   productType = new FormControl(TypePrintingEdition[this.data.printingEditionModelItem.productType]);
   price = new FormControl(this.data.printingEditionModelItem.price);
   currencys: Array<string>;

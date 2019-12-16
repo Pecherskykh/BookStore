@@ -35,7 +35,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
 
             if (!string.IsNullOrWhiteSpace(baseFilterModel.SearchString))
             {
-                authors = authors.Where(a => a.Name.ToLower().Equals(baseFilterModel.SearchString.ToLower()));
+                authors = authors.Where(a => a.Name.ToLower().Contains(baseFilterModel.SearchString.ToLower()));
             }
 
             authors = authors.OrderDirection(a => a.Id, baseFilterModel.SortingDirection == SortingDirection.LowToHigh);
@@ -48,35 +48,4 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             return resultModel;
         }
     }
-
-   /* public async Task<AuthorModel> GetAllAuthorsAsync(BaseFilterModel baseFilterModel)
-    {
-        var resultModel = new AuthorModel();
-        var authors = from author in _applicationContext.Authors
-                      where !author.IsRemoved
-                      select new AuthorModelItem
-                      {
-                          Id = author.Id,
-                          Name = author.Name,
-                          PrintingEditions = (from authorInPrintingEdition in _applicationContext.AuthorInPrintingEditions
-                                              join printingEdition in _applicationContext.PrintingEditions on authorInPrintingEdition.PrintingEditionId equals printingEdition.Id
-                                              where authorInPrintingEdition.AuthorId == author.Id
-                                              select printingEdition.Title).ToArray()
-                      };
-
-        if (!string.IsNullOrWhiteSpace(baseFilterModel.SearchString))
-        {
-            authors = authors.Where(a => a.Name.ToLower().Equals(baseFilterModel.SearchString.ToLower()));
-        }
-
-        authors = authors.OrderDirection(a => a.Id, baseFilterModel.SortingDirection == SortingDirection.LowToHigh);
-
-        resultModel.PageAmount = authors.Count();
-
-        authors = authors.Skip((baseFilterModel.PageCount) * baseFilterModel.PageSize).Take(baseFilterModel.PageSize);
-
-        resultModel.Items = await authors.ToListAsync();
-        return resultModel;
-    }*/
-//}
 }

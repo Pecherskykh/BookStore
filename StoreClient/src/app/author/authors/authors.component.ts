@@ -5,11 +5,10 @@ import {BaseFilterModel} from 'src/app/shared/models/Base/base-filter-model';
 import { FormControl } from '@angular/forms';
 import {SortingDirection} from 'src/app/shared/enums/sorting-direction';
 import {PageEvent, MatDialog, MatSort} from '@angular/material';
-import { CreateComponent } from '../create/create.component';
-import { UpdateComponent } from '../update/update.component';
 import { AuthorModel } from 'src/app/shared/models/Authors/author-model';
 import { RemoveComponent } from 'src/app/shared/components/remove/remove.component';
 import { AuthorDialogComponent } from '../author-dialog/author-dialog.component';
+import { CreateUpdate } from 'src/app/shared/enums/create-update';
 
 @Component({
   selector: 'app-authors',
@@ -62,16 +61,16 @@ export class AuthorsComponent implements OnInit {
   }
 
   create() {
-    let dialogRef = this.dialog.open(CreateComponent).afterClosed().subscribe(() => this.getAuthors());
+    let element = new AuthorModelItem();
+    let dialogRef = this.dialog.open(AuthorDialogComponent, {data: {pageName: 'Add new Author', buttonName: 'Add',
+    createUpdate: CreateUpdate.Create, authorModelItem: element}}).
+    afterClosed().subscribe(() => this.getAuthors());
   }
 
-  /*edit(authorModelItem: AuthorModelItem) {
-    let dialogRef = this.dialog.open(AuthorDialogComponent, {data: {pageName: 'printing edition',  name: element.title}});
-
-  }*/
-
-  edit(authorModelItem: AuthorModelItem) {
-    let dialogRef = this.dialog.open(UpdateComponent, {data: authorModelItem});
+  edit(element: AuthorModelItem) {
+    let dialogRef = this.dialog.open(AuthorDialogComponent, {data: {pageName: 'Edit Author', buttonName: 'Save',
+    createUpdate: CreateUpdate.Update, authorModelItem: element}}).
+    afterClosed().subscribe(() => this.getAuthors());
   }
 
   getServerData(event: PageEvent) {

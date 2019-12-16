@@ -1,8 +1,8 @@
-<h2>Add new Author</h2>
+<h2>{{data.pageName}}</h2>
 <mat-form-field class="example-full-width">
     <input matInput placeholder="Author Name" [formControl] = "nameAuthor">
 </mat-form-field>
 <div class="buttons">
   <button mat-raised-button mat-dialog-close>Cancle</button>
-  <button mat-raised-button mat-dialog-close (click)="create()">Add</button>
+  <button mat-raised-button mat-dialog-close (click)="event()">{{data.buttonName}}</button>
 </div>
