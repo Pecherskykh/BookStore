@@ -87,7 +87,7 @@ namespace BookStore.BusinessLogic.Services
 
             var applicationUser = user.Map();
 
-            var result = await _userRepository.CreateAsync(applicationUser);
+            var result = await _userRepository.CreateAsync(applicationUser, user.Password);
             if (!result)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserNotCreatedError);

@@ -28,7 +28,7 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.UserModelItemIsEmptyError);
                 return resultModel;
             }
-            var result = await _userRepository.CreateAsync(user.Map());
+            var result = await _userRepository.CreateAsync(user.Map(), user.Password);
             if (!result)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserNotCreatedError);

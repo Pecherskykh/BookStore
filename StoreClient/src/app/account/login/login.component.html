@@ -6,7 +6,8 @@
   <h2 class="form__caption">Sign-In</h2>
   <div class="form__row">
       <span>E-mail</span>
-      <input type="email" name="email" class="form__field" title="Enter your email" [formControl] = "email" placeholder="Email" required pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}">
+      <input type="email" name="email" class="form__field" title="Enter your email" [formControl] = "email" placeholder="Email">
+      <!-- required pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" -->
       <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
         Некорректный email
       </div>
@@ -14,7 +15,8 @@
   <div class="form__row">
       <span>Password</span>
       <a href="http://localhost:4200/account/forgot-password" class="forgotLink">Forgot your password?</a>
-      <input type="password" name="password" class="form__field" title="Enter your password" [formControl] = "password" placeholder="Password" required pattern="[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()-_=+.,'?/\\|]">
+      <input type="password" name="password" class="form__field" title="Enter your password" [formControl] = "password" placeholder="Password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$">
+      <!-- required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$" -->
       <div [hidden]="password.valid || password.untouched" class="alert alert-danger">
         Некорректный email
       </div>
@@ -24,10 +26,10 @@
           <input type="checkbox" name="remember">
           <span>Remember me</span>
       </label>
-      <input [disabled]="email.invalid || password.invalid" type="submit" class="form__signInButton pointer button" value="Sign In" (click)="signIn(user)">
+      <input [disabled]="email.invalid || password.invalid" type="submit" class="form__signInButton pointer button" value="Sign In" (click)="signIn()">
   </div>
 </div>
   <footer class="form__footer">
       <span>New to Bock Publishing Company?</span>
-      <button class="form__signUpButton pointer button">SignUp</button>
+      <button class="form__signUpButton pointer button" onClick='location.href="http://localhost:4200/account/register"' >SignUp</button>
   </footer>

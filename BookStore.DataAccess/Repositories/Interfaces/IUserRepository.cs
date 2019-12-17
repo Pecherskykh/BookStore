@@ -14,7 +14,7 @@ namespace BookStore.DataAccess.Repositories.Interfaces
         Task<ApplicationUser> FindByIdAsync(string userId);
         Task<ApplicationUser> FindByEmailAsync(string email);
         Task<ApplicationUser> FindByNameAsync(string userName);
-        Task<bool> CreateAsync(ApplicationUser user);
+        Task<bool> CreateAsync(ApplicationUser user, string password);
         Task<bool> UpdateAsync(ApplicationUser user);
         Task<bool> RemoveAsync(ApplicationUser user);
         Task<string> CheckRoleAsync(string userId);

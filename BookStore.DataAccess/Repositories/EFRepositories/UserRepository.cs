@@ -42,14 +42,14 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             return await _userManager.FindByNameAsync(userName);
         }
 
-        public async Task<bool> CreateAsync(ApplicationUser user)
+        public async Task<bool> CreateAsync(ApplicationUser user, string password)
         {
             var existingUser = await FindByEmailAsync(user.Email);
             if (existingUser != null)
             {
                 return false;
             }
-            var result = await _userManager.CreateAsync(user);
+            var result = await _userManager.CreateAsync(user, password);
             if (!result.Succeeded)
             {
                 return result.Succeeded;
@@ -120,7 +120,7 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
         {
             var resultModel = new UserModel();
 
-            var users = _applicationContext.Users.Where(u => !u.IsRemoved).AsQueryable();
+            var users = _applicationContext.Users.Where(u => !u.IsRemoved && u.Id != 40).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(usersFilter.SearchString))
             {

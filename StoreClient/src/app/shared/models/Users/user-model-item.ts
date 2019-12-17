@@ -5,4 +5,5 @@ export class UserModelItem {
   status: boolean;
   firstName: string;
   lastName: string;
+  password: string;
 }

@@ -9,9 +9,10 @@ import { LogOutComponent } from './log-out/log-out.component';
 import { RefreshTokensComponent } from './refresh-tokens/refresh-tokens.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), ReactiveFormsModule],
+  imports: [RouterModule.forChild(routes), ReactiveFormsModule, MaterialModule],
   declarations: [LoginComponent, ConfirmEmailComponent, ForgotPasswordComponent, LogOutComponent, RefreshTokensComponent, RegisterComponent]
 })
 export class AccountModule { }
