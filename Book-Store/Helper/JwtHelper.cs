@@ -18,7 +18,7 @@ namespace BookStore.Presentation.Helper
                 {
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), //todo remove copypaste
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Role, "Admin"), //todo remove hardCode
+                    new Claim(ClaimTypes.Role, "User"), //todo remove hardCode
                     new Claim(ClaimTypes.Name, user.UserName),
                 };
 

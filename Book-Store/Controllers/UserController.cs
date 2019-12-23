@@ -21,10 +21,12 @@ namespace BookStore.Presentation.Controllers
             _userService = userService;
         }
 
-        [HttpPost("find")]
-        public async Task<IActionResult> GetByIdAsync(string userId)
+        [HttpGet("find")]
+        public async Task<IActionResult> GetByIdAsync()
         {
-            var user = await _userService.FindByIdAsync(userId);
+            var id = this.HttpContext.User.Claims
+               .FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            var user = await _userService.FindByIdAsync(id);
             return Ok(user);
         }
 

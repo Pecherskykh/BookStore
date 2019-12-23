@@ -85,6 +85,12 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             return result.Succeeded;
         }
 
+        public async Task<bool> ChangePasswordAsync(ApplicationUser user, string currentPassword, string newPassword)
+        {
+            var result = await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
+            return result.Succeeded;
+        }
+
         public async Task<string> CheckRoleAsync(string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);

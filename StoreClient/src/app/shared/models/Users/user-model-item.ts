@@ -5,5 +5,6 @@ export class UserModelItem {
   status: boolean;
   firstName: string;
   lastName: string;
-  password: string;
+  newPassword: string;
+  currentPassword: string;
 }

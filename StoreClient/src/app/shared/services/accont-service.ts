@@ -9,8 +9,8 @@ import { UserModelItem } from '../models/Users/user-model-item';
 export class AccontService {
     constructor(private http: HttpClient) { }
 
-    postData(loginModel: LoginModel) {
-        return this.http.post<LoginModel>('https://localhost:44319/api/account/login', loginModel, { withCredentials: true });
+    postData(loginModel: LoginModel): Observable<UserModelItem> {
+        return this.http.post<UserModelItem>('https://localhost:44319/api/account/login', loginModel, { withCredentials: true });
     }
 
   ForgotPassword(email: string) {

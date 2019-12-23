@@ -13,12 +13,6 @@ using BookStore.BusinessLogic.Models.Login;
 
 namespace BookStore.Presentation.Controllers
 {
-    public class User //todo remove
-    {
-        public string UserName { get; set; }
-        public string Password { get; set; }
-    }
-
     [ApiController]
     //[AllowAnonymous]
     [Route("api/[controller]")]
@@ -33,38 +27,24 @@ namespace BookStore.Presentation.Controllers
             _jwtHelper = jwtHelper;
         }
 
-        [HttpPost("testPost")]
-        public async Task<IActionResult> TestPost(User user) //todo remove
-        {
-            return Ok(new User { UserName = "name", Password = "pass" });
-        }
-        
-
-        [HttpGet("testGet")]
-        [Authorize]
-        public async Task<IActionResult> TestGet() //todo remove
-        {
-            return Ok(new User { UserName = "name", Password = "pass" });
-        }
-
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginModel loginModel)
         {
-            var resultModel = new BaseModel();
+            var resultModel = new UserModelItem();
 
             if (loginModel == null)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserModelItemIsEmptyError);
                 return Ok(resultModel);
             }
-            var user = await _accountService.CheckUserAsync(loginModel);
+            resultModel = await _accountService.CheckUserAsync(loginModel);
 
-            if(user.Errors.Count != 0)
+            if(resultModel.Errors.Count != 0)
             {
                 return Ok(resultModel);
             }
 
-            var encodedJwt = _jwtHelper.GenerateTokenModel(user);
+            var encodedJwt = _jwtHelper.GenerateTokenModel(resultModel);
 
             if (encodedJwt != null)
             {

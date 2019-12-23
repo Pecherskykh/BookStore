@@ -77,3 +77,13 @@ a {
   width: 100%;
   margin-top: 5px;
 }
+
+.img__edit{
+  width: 25px;
+  height: 25px;
+  vertical-align: top;
+}
+
+#edit {
+  display: none;
+}

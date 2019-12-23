@@ -31,11 +31,10 @@ export class RegisterComponent implements OnInit {
     userModelItem.firstName = this.firstName.value;
     userModelItem.lastName = this.lastName.value;
     userModelItem.email = this.email.value;
-    userModelItem.password = this.password.value;
-    this.accontService.register(userModelItem).subscribe();
+    userModelItem.newPassword = this.password.value;
+    this.accontService.register(userModelItem).subscribe(() => location.href = 'http://localhost:4200/account/confirm-email');
   }
 
   ngOnInit() {
   }
-
 }

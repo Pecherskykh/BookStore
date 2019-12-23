@@ -15,7 +15,7 @@
   <div class="form__row">
       <span>Password</span>
       <a href="http://localhost:4200/account/forgot-password" class="forgotLink">Forgot your password?</a>
-      <input type="password" name="password" class="form__field" title="Enter your password" [formControl] = "password" placeholder="Password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$">
+      <input type="password" name="password" class="form__field" title="Enter your password" [formControl] = "password" placeholder="Password">
       <!-- required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$" -->
       <div [hidden]="password.valid || password.untouched" class="alert alert-danger">
         Некорректный email
@@ -31,5 +31,5 @@
 </div>
   <footer class="form__footer">
       <span>New to Bock Publishing Company?</span>
-      <button class="form__signUpButton pointer button" onClick='location.href="http://localhost:4200/account/register"' >SignUp</button>
+      <button class="form__signUpButton pointer button" onClick='location.href="http://localhost:4200/account/register"'>SignUp</button>
   </footer>

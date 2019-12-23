@@ -1,16 +1,30 @@
   <div action="#" class="form">
       <h2 class="form__caption">My Profile</h2>
-    <img src="assets/images/man-user.svg" class="form__logo" alt="person">
+    <div class = "images__modal">
+      <img src="assets/images/man-user.svg" class="form__logo" alt="person">
+      <img src="assets/images/pencil-edit-button.svg" alt="edit" class = "img__edit" (click) = "edit()">
+    </div>
     <div class="form__row">
         <span>Your First name</span>
-        <input type="text" class="form__field">
+        <input type="text" [value] = "user.firstName" class="form__field">
     </div>
     <div class="form__row">
         <span>Your Last name</span>
-        <input type="text" class="form__field">
+        <input type="text" [value] = "user.lastName" class="form__field">
     </div>
     <div class="form__row">
         <span>E-mail</span>
-        <input type="text" class="form__field">
+        <input type="text" [value] = "user.email" class="form__field">
+    </div>
+    <div id = "edit">
+    <div class="form__row">
+      <span>Password</span>
+      <input type="password" class="form__field" [formControl] = "currentPassword">
+    </div>
+    <div class="form__row">
+      <span>Confirm password</span>
+      <input type="password" class="form__field" [formControl] = "newPassword">
+    </div>
+      <button (click) = "save()">Save</button> <button (click) = "cansel()">Cansel</button>
     </div>
   </div>

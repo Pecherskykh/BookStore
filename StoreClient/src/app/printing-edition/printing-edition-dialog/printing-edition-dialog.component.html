@@ -1,5 +1,4 @@
 <h2 *ngIf = "data">{{data.pageName}}</h2>
-
 <div class="body">
     <div class = "left">
         <mat-form-field>
@@ -32,7 +31,7 @@
                 <select matNativeControl required [formControl] = "currency">
                   <option *ngFor= "let item of currencys" [value]="item">{{item}}</option>
                 </select>
-              </mat-form-field>
+            </mat-form-field>
       </div>
 </div>
 <div class="buttons">

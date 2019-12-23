@@ -29,4 +29,8 @@ export class UserService {
   remove(element: UserModelItem) {
     return this.http.post('https://localhost:44319/api/user/remove', element);
   }
+
+  testGet(): Observable<UserModelItem> {
+    return this.http.get<UserModelItem>('https://localhost:44319/api/user/find');
+  }
 }
