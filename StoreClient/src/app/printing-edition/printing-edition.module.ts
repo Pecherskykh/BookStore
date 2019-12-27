@@ -7,9 +7,10 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { PrintingEditionDialogComponent } from './printing-edition-dialog/printing-edition-dialog.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
-  declarations: [PrintingEditionManagementComponent, PrintingEditionDialogComponent],
+  declarations: [PrintingEditionManagementComponent, PrintingEditionDialogComponent, HomePageComponent],
   imports: [
     SharedModule,
     CommonModule,

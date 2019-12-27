@@ -7,7 +7,9 @@ import {
   MatInputModule,
   MatSortModule,
   MatSlideToggleModule,
-  MatSelectModule
+  MatSelectModule,
+  MatCheckboxModule,
+  MatGridListModule
 } from '@angular/material';
 
 const MaterialComponents = [
@@ -18,7 +20,9 @@ const MaterialComponents = [
   MatInputModule,
   MatSortModule,
   MatSlideToggleModule,
-  MatSelectModule
+  MatSelectModule,
+  MatCheckboxModule,
+  MatGridListModule
 ];
 
 @NgModule({

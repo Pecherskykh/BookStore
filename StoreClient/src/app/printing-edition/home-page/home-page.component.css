@@ -1,0 +1,64 @@
+.head
+{
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper
+{
+  margin: 0 auto;
+  width: 95%;
+  display: flex;
+}
+
+.page__name
+{
+  font-weight: bold;
+  font-size: 18pt;
+}
+
+.left {
+  width: 10%;
+  border-right: solid 1px black;
+}
+
+.right {
+  width: 70%;
+}
+
+.min__max {
+  display: flex;
+}
+
+.price {
+  width: 50px;
+}
+
+.categories{
+  border-bottom: solid 1px black;
+}
+
+mat-grid-tile {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.head__right {
+  text-align: right;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 18pt;
+}
+
+.price__span {
+  color: red;
+  font-size: 18pt;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}

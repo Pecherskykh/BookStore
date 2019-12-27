@@ -1,12 +1,14 @@
 import { UserModelItem } from '../models/Users/user-model-item';
+import { BehaviorSubject } from 'rxjs';
 
 export class LocalSorage {
   setUser(user: UserModelItem) {
-    localStorage.setItem('id', user.id.toString());
-    localStorage.setItem('userName', user.userName);
-    localStorage.setItem('firstName', user.firstName);
-    localStorage.setItem('lastName', user.lastName);
-    localStorage.setItem('email', user.email);
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  getUser() {
+    debugger;
+    return JSON.parse(localStorage.getItem('user'));
   }
 
   /*getUser(user: UserModelItem) {

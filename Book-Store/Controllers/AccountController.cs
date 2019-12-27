@@ -103,7 +103,7 @@ namespace BookStore.Presentation.Controllers
         }
 
         [Authorize]
-        [HttpPost("logOut")]
+        [HttpGet("logOut")]
         public async Task<IActionResult> LogOut()
         {
             await _accountService.LogOutAsync();

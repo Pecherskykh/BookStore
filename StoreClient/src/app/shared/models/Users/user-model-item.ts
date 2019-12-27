@@ -7,4 +7,5 @@ export class UserModelItem {
   lastName: string;
   newPassword: string;
   currentPassword: string;
+  role: string;
 }

@@ -36,11 +36,9 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user.email = localStorage.getItem('email');
-    //this.user.id = localStorage.getItem('id');
-    this.user.firstName = localStorage.getItem('firstName');
-    this.user.lastName = localStorage.getItem('lastName');
-    this.user.userName = localStorage.getItem('userName');
-    //this.userService.testGet().subscribe((data: UserModelItem) => this.user = data);
+    this.user = JSON.parse(localStorage.getItem('user'));
+    if (this.user === null) {
+      location.href = 'http://localhost:4200/account/login';
+    }
   }
 }

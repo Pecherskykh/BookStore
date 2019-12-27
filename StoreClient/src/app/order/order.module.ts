@@ -5,10 +5,11 @@ import { OrderManagmentComponent } from './order-managment/order-managment.compo
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 
 @NgModule({
-  declarations: [OrderManagmentComponent],
+  declarations: [OrderManagmentComponent, MyOrdersComponent],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,

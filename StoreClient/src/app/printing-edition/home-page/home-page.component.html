@@ -1,0 +1,77 @@
+<div class="head">
+  <span class = "page__name">Catalog</span>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Product Name">
+  </mat-form-field>
+</div>
+
+<div class = "wrapper">
+  <div class = "left">
+    <div class="categories">
+      <p>Categories</p>
+      <mat-select multiple [formControl] = "typePrintingEdition">
+        <mat-option
+          *ngFor="let item of typePrintingEditionItems"
+          [value]="item"
+          [disabled]="typePrintingEdition.value.length === 1 && typePrintingEdition.value[0] === item"
+          (click) = "FilterPrintingEditions()">{{item}}
+      </mat-option>
+      </mat-select>
+      <p></p>
+    </div>
+    <div class = "price">
+      <p>Price</p>
+      <div class="min__max">
+      <mat-form-field class="price">
+        <input matInput placeholder="Min" [formControl] = "minPrice">
+      </mat-form-field>
+      <mat-form-field class="price">
+        <input matInput placeholder="Max" [formControl] = "maxPrice">
+      </mat-form-field> $
+      <button mat-raised-button (click) = "FilterPrintingEditions()">OK</button>
+      </div>
+    </div>
+  </div>
+  <div class = "right">
+    <div class = "head__right">
+      <span>Currency</span>
+      <mat-form-field class = "currency">
+        <select matNativeControl required [formControl] = "productType">
+          <option value="book">Book</option>
+          <option value="magazine">Magazine</option>
+          <option value="newspaper">Newspaper</option>
+        </select>
+      </mat-form-field>
+      <span>Sort by</span>
+      <mat-form-field>
+        <select matNativeControl required [formControl] = "sortBy">
+          <option value="book">Price: Low to High</option>
+          <option value="magazine">Price: High to Low</option>
+        </select>
+      </mat-form-field>
+    </div>
+      <mat-grid-list cols="3" rowHeight="1.5:1">
+      <mat-grid-tile *ngFor= "let item of items">
+        <div>
+        <img src="assets/images/book.svg" class="form__logo" alt="book"><br>
+        <span class = "title">{{item.title}}</span><br>
+        <span *ngFor= "let author of item.authors.items">{{author.name}}, </span><br>
+        <span class = "price__span">${{item.price}}</span>
+        </div>
+      </mat-grid-tile>
+      <!-- <mat-grid-tile>1</mat-grid-tile>
+      <mat-grid-tile>2</mat-grid-tile>
+      <mat-grid-tile>3</mat-grid-tile>
+      <mat-grid-tile>4</mat-grid-tile>
+      <mat-grid-tile>5</mat-grid-tile>
+      <mat-grid-tile>6</mat-grid-tile> -->
+    </mat-grid-list>
+  </div>
+</div>
+<mat-paginator
+  [length] = "countPrintingEditions"
+  [pageSize] = "6"
+  [pageIndex]="pageIndex"
+  [pageSizeOptions] = "[5, 10, 25, 100]"
+  (page)="pageEvent = getServerData($event)" showFirstLastButtons >
+</mat-paginator>

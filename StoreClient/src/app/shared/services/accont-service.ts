@@ -20,4 +20,8 @@ export class AccontService {
   register(userModelItem: UserModelItem) {
       return this.http.post('https://localhost:44319/api/account/register', userModelItem);
   }
+
+  logOut() {
+    return this.http.get('https://localhost:44319/api/account/logOut');
+  }
 }
