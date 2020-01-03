@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { UserService } from 'src/app/shared/services/user-service';
 import { FormControl } from '@angular/forms';
@@ -9,20 +9,19 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./update.component.css'],
   providers: [UserService]
 })
-export class UpdateComponent implements OnInit {
+export class UpdateComponent {
 
-  firstName = new FormControl('');
-  lastName = new FormControl('');
+  firstName: FormControl;
+  lastName: FormControl;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private userService: UserService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private userService: UserService) {
+    this.firstName = new FormControl('');
+    this.lastName = new FormControl('');
+  }
 
   save() {
     this.data.firstName = this.firstName.value;
     this.data.lastName = this.lastName.value;
     this.userService.update(this.data).subscribe();
   }
-
-  ngOnInit() {
-  }
-
 }

@@ -1,7 +1,7 @@
 <div class="head">
   <span class = "page__name">Catalog</span>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Product Name">
+    <input matInput placeholder="Product Name" [formControl] = "searchByName" (keyup.enter)="FilterPrintingEditions()">
   </mat-form-field>
 </div>
 
@@ -15,7 +15,7 @@
           [value]="item"
           [disabled]="typePrintingEdition.value.length === 1 && typePrintingEdition.value[0] === item"
           (click) = "FilterPrintingEditions()">{{item}}
-      </mat-option>
+        </mat-option>
       </mat-select>
       <p></p>
     </div>
@@ -27,7 +27,7 @@
       </mat-form-field>
       <mat-form-field class="price">
         <input matInput placeholder="Max" [formControl] = "maxPrice">
-      </mat-form-field> $
+      </mat-form-field> {{currency.value}}
       <button mat-raised-button (click) = "FilterPrintingEditions()">OK</button>
       </div>
     </div>
@@ -36,27 +36,25 @@
     <div class = "head__right">
       <span>Currency</span>
       <mat-form-field class = "currency">
-        <select matNativeControl required [formControl] = "productType">
-          <option value="book">Book</option>
-          <option value="magazine">Magazine</option>
-          <option value="newspaper">Newspaper</option>
+        <select matNativeControl required [formControl] = "currency">
+          <option *ngFor= "let item of currencys" [value]="item" (click) = "selectCurrency()">{{item}}</option>
         </select>
       </mat-form-field>
       <span>Sort by</span>
       <mat-form-field>
         <select matNativeControl required [formControl] = "sortBy">
-          <option value="book">Price: Low to High</option>
-          <option value="magazine">Price: High to Low</option>
+          <option value="asc" (click) = "sortData()">Price: Low to High</option>
+          <option value="desc" (click) = "sortData()">Price: High to Low</option>
         </select>
       </mat-form-field>
     </div>
       <mat-grid-list cols="3" rowHeight="1.5:1">
       <mat-grid-tile *ngFor= "let item of items">
-        <div>
+        <div (click) = "rout(item)">
         <img src="assets/images/book.svg" class="form__logo" alt="book"><br>
         <span class = "title">{{item.title}}</span><br>
         <span *ngFor= "let author of item.authors.items">{{author.name}}, </span><br>
-        <span class = "price__span">${{item.price}}</span>
+        <span class = "price__span">{{item.price}} {{currency.value}}</span>
         </div>
       </mat-grid-tile>
       <!-- <mat-grid-tile>1</mat-grid-tile>

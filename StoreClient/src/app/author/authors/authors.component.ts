@@ -9,6 +9,7 @@ import { AuthorModel } from 'src/app/shared/models/Authors/author-model';
 import { RemoveComponent } from 'src/app/shared/components/remove/remove.component';
 import { AuthorDialogComponent } from '../author-dialog/author-dialog.component';
 import { CreateUpdate } from 'src/app/shared/enums/create-update';
+import { DisplayedColumnsConstans } from 'src/app/shared/constans/displayed-columns-constans';
 
 @Component({
   selector: 'app-authors',
@@ -19,14 +20,18 @@ import { CreateUpdate } from 'src/app/shared/enums/create-update';
 
 export class AuthorsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'product', 'editAndRemove'];
-  searchByName = new FormControl('');
+  displayedColumns: string[];
+  searchByName: FormControl;
   items: Array<AuthorModelItem>;
   amountPages: number;
   pageIndex: number;
-  baseFilterModel = new BaseFilterModel();
+  baseFilterModel: BaseFilterModel;
 
-  constructor(private authorService: AuthorService, public dialog: MatDialog) { }
+  constructor(private authorService: AuthorService, public dialog: MatDialog) {
+    this.displayedColumns = DisplayedColumnsConstans.authors;
+    this.searchByName = new FormControl('');
+    this.baseFilterModel = new BaseFilterModel();
+  }
 
   ngOnInit() {
     this.pageIndex = 0;
@@ -81,11 +86,11 @@ export class AuthorsComponent implements OnInit {
   }
 
   sortData(event: MatSort) {
-    if (event.direction === 'asc') {
-      this.baseFilterModel.sortingDirection = SortingDirection.lowToHigh;
+    if (event.direction === SortingDirection[SortingDirection.asc]) {
+      this.baseFilterModel.sortingDirection = SortingDirection.asc;
     }
-    if (event.direction === 'desc') {
-      this.baseFilterModel.sortingDirection = SortingDirection.highToLow;
+    if (event.direction === SortingDirection[SortingDirection.desc]) {
+      this.baseFilterModel.sortingDirection = SortingDirection.desc;
     }
     this.getAuthors();
   }

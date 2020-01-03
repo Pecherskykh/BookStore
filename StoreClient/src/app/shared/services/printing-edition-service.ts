@@ -14,19 +14,6 @@ export class PrintingEditionService {
   getData(element: PrintingEditionsFilterModel): Observable<PrintingEditionModel> {
     return this.http.post<PrintingEditionModel>(
       'https://localhost:44319/api/printingedition/getPrintingEditions',
-      /*{
-        categories: [
-          1,
-          2
-        ],
-        sortType: 6,
-        minPrice: 0,
-        maxPrice: 100,
-        sortingDirection: 1,
-        searchString: null,
-        pageCount: 1,
-        pageSize: 10
-      }*/
       element
     );
   }
@@ -36,11 +23,14 @@ export class PrintingEditionService {
   }
 
   update(element: PrintingEditionModelItem) {
-    debugger;
     return this.http.post('https://localhost:44319/api/printingedition/update', element);
   }
 
   remove(element: PrintingEditionModelItem) {
     return this.http.post('https://localhost:44319/api/printingedition/remove', element);
+  }
+
+  findById(id: number): Observable<PrintingEditionModelItem> {
+    return this.http.get<PrintingEditionModelItem>(`https://localhost:44319/api/printingedition/findById?id=${id}`);
   }
 }

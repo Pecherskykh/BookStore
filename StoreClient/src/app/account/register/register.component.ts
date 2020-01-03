@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { UserModelItem } from 'src/app/shared/models/Users/user-model-item';
 import { AccontService } from 'src/app/shared/services/accont-service';
@@ -9,7 +9,7 @@ import { AccontService } from 'src/app/shared/services/accont-service';
   styleUrls: ['./register.component.css'],
   providers: [AccontService]
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   userName: FormControl;
   firstName: FormControl;
@@ -33,8 +33,5 @@ export class RegisterComponent implements OnInit {
     userModelItem.email = this.email.value;
     userModelItem.newPassword = this.password.value;
     this.accontService.register(userModelItem).subscribe(() => location.href = 'http://localhost:4200/account/confirm-email');
-  }
-
-  ngOnInit() {
   }
 }

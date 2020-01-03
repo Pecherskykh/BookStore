@@ -9,6 +9,7 @@ import {SortingDirection} from 'src/app/shared/enums/sorting-direction';
 import { MatSort, PageEvent, MatDialog } from '@angular/material';
 import { UpdateComponent } from '../update/update.component';
 import { RemoveComponent } from 'src/app/shared/components/remove/remove.component';
+import { DisplayedColumnsConstans } from 'src/app/shared/constans/displayed-columns-constans';
 
 @Component({
   selector: 'app-users',
@@ -21,7 +22,7 @@ export class UsersComponent implements OnInit {
   usersFilterModel: UsersFilterModel;
   count: number;
   pageIndex: number;
-  displayedColumns: Array<string>;
+  displayedColumns: string[];
   items: Array<UserModelItem>;
   user: UserModelItem;
   searchByName = new FormControl('');
@@ -35,7 +36,7 @@ export class UsersComponent implements OnInit {
     this.usersFilterModel.userStatus = UserStatus.all;
     this.usersFilterModel.pageSize = 10;
     this.usersFilterModel.pageCount = 0;
-    this.displayedColumns = ['userName', 'userEmail', 'status', 'editAndRemove'];
+    this.displayedColumns = DisplayedColumnsConstans.users;
   }
 
   ngOnInit() {
@@ -72,18 +73,18 @@ export class UsersComponent implements OnInit {
 }
 
 sortData(event: MatSort) {
-  if (event.active === 'userName') {
+  if (event.active === UserSortType[UserSortType.userName]) {
     this.usersFilterModel.sortType = UserSortType.userName;
   }
 
-  if (event.active === 'userEmail') {
+  if (event.active === UserSortType[UserSortType.email]) {
     this.usersFilterModel.sortType = UserSortType.email;
   }
   if (event.direction === 'asc') {
-    this.usersFilterModel.sortingDirection = SortingDirection.lowToHigh;
+    this.usersFilterModel.sortingDirection = SortingDirection.asc;
   }
   if (event.direction === 'desc') {
-    this.usersFilterModel.sortingDirection = SortingDirection.highToLow;
+    this.usersFilterModel.sortingDirection = SortingDirection.desc;
   }
   this.getUsers();
 }

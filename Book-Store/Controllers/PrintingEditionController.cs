@@ -25,6 +25,13 @@ namespace BookStore.Presentation.Controllers
             return Ok(printingEditionModel);
         }
 
+        [HttpGet("findById")]
+        public async Task<IActionResult> FindById(long id)
+        {
+            var printingEditionModelItem = await _printingEditorService.FindByIdAsync(id);
+            return Ok(printingEditionModelItem);
+        }
+
         [HttpPost("create")]
         public async Task<IActionResult> Create(PrintingEditionModelItem printingEditionsItem)
         {

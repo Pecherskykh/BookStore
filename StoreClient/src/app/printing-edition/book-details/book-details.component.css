@@ -1,0 +1,49 @@
+.wrapper {
+  margin: 0 auto;
+  width: 95%;
+}
+
+.book__add__cart {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.book {
+  display: flex;
+}
+
+.title__author {
+  margin-left: 40px;
+}
+
+.add {
+  width: 12%;
+}
+
+.quantity {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  color: red;
+}
+
+.description {
+  margin-top: 40px;
+}
+
+button {
+  width: 100%;
+}
+
+input {
+  width: 20px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}

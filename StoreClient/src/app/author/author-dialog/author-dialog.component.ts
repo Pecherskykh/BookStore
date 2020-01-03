@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { AuthorService } from 'src/app/shared/services/author-service';
 import { CreateUpdate } from 'src/app/shared/enums/create-update';
@@ -11,10 +11,13 @@ import { AuthorModelItem } from 'src/app/shared/models/Authors/author-model-item
   styleUrls: ['./author-dialog.component.css'],
   providers: [AuthorService]
 })
-export class AuthorDialogComponent implements OnInit {
+export class AuthorDialogComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private authorService: AuthorService) { }
-  nameAuthor = new FormControl(this.data.authorModelItem.name);
+  nameAuthor: FormControl;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private authorService: AuthorService) {
+    this.nameAuthor = new FormControl(this.data.authorModelItem.name);
+  }
 
   event() {
     if (this.data.createUpdate === CreateUpdate.Create) {
@@ -35,10 +38,5 @@ export class AuthorDialogComponent implements OnInit {
   update() {
     this.data.authorModelItem.name = this.nameAuthor.value;
     this.authorService.update(this.data.authorModelItem).subscribe();
-  }
-
-
-  ngOnInit() {
-
   }
 }

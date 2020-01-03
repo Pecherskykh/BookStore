@@ -7,6 +7,7 @@ import { OrderSortType } from 'src/app/shared/enums/order-sort-type';
 import { SortingDirection } from 'src/app/shared/enums/sorting-direction';
 import { FormControl } from '@angular/forms';
 import { debug } from 'util';
+import { DisplayedColumnsConstans } from 'src/app/shared/constans/displayed-columns-constans';
 
 @Component({
   selector: 'app-order-managment',
@@ -15,12 +16,13 @@ import { debug } from 'util';
   providers: [OrderService]
 })
 export class OrderManagmentComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'date', 'userName', 'userEmail', 'product', 'title', 'qty', 'orderAmount'];
+  displayedColumns: string[];
   search: FormControl;
   typePrintingEditionItems: string[];
   count: number;
   pageIndex: number;
   ordersFilterModel: OrdersFilterModel;
+  items: Array<OrderManagmentModelItem>;
 
   constructor(private orderService: OrderService) {
     this.ordersFilterModel = new OrdersFilterModel();
@@ -29,10 +31,13 @@ export class OrderManagmentComponent implements OnInit {
     this.ordersFilterModel.pageCount = 0;
     this.ordersFilterModel.pageSize = 10;
     this.search = new FormControl('');
+    this.displayedColumns = DisplayedColumnsConstans.orders;
     this.typePrintingEditionItems = ['book', 'magazine', 'newspaper'];
    }
 
-  items: Array<OrderManagmentModelItem>;
+  ngOnInit() {
+    this.GetOrders();
+  }
 
   GetOrders() {
     this.orderService.getData(this.ordersFilterModel).subscribe(data => {
@@ -83,14 +88,10 @@ sortData(event: MatSort) {
   this.GetOrders();
 }
 
-getServerData(event: PageEvent) {
-  this.pageIndex = event.pageIndex;
-  this.ordersFilterModel.pageSize = event.pageSize;
-  this.ordersFilterModel.pageCount = this.pageIndex;
-  this.GetOrders();
-}
-
-  ngOnInit() {
+  getServerData(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.ordersFilterModel.pageSize = event.pageSize;
+    this.ordersFilterModel.pageCount = this.pageIndex;
     this.GetOrders();
   }
 }

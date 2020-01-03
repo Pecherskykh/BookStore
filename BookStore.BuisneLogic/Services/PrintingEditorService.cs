@@ -137,7 +137,17 @@ namespace BookStore.BusinessLogic.Services
 
         public async Task<PrintingEditionModel> GetPrintingEditionsAsync(PrintingEditionsFilterModel printingEditionsFilterModels)
         {
+            printingEditionsFilterModels.MinPrice = (decimal)_convertCurrencyHelper.ConvertCurrency((double)printingEditionsFilterModels.MinPrice,
+                printingEditionsFilterModels.Currency, Currencys.USD);
+
+            printingEditionsFilterModels.MaxPrice = (decimal)_convertCurrencyHelper.ConvertCurrency((double)printingEditionsFilterModels.MaxPrice,
+                printingEditionsFilterModels.Currency, Currencys.USD);
+
             var resultModel = (await _printingEditionRepository.GetPrintingEditionsAsync(printingEditionsFilterModels.Map())).Map();
+            foreach(var item in resultModel.Items)
+            {
+                item.Price = (decimal)_convertCurrencyHelper.ConvertCurrency((double)item.Price, Currencys.USD, printingEditionsFilterModels.Currency);
+            }
             return resultModel;
         }
     }

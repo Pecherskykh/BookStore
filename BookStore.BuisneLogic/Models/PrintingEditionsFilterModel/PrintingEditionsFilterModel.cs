@@ -8,6 +8,7 @@ namespace BookStore.BusinessLogic.Models.PrintingEditionsFilterModel
     {
         public List<TypePrintingEdition> Categories { get; set; }
         public PrintingEditionSortType SortType { get; set; }
+        public Currencys Currency { get; set; }
         public decimal MinPrice { get; set; }
         public decimal MaxPrice { get; set; }
     }

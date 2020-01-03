@@ -12,11 +12,13 @@ import { FormControl } from '@angular/forms';
 export class ProfileComponent implements OnInit {
 
   user: UserModelItem;
-  currentPassword = new FormControl('');
-  newPassword = new FormControl('');
+  currentPassword: FormControl;
+  newPassword: FormControl;
 
   constructor(private userService: UserService) {
     this.user = new UserModelItem();
+    this.currentPassword = new FormControl('');
+    this.newPassword = new FormControl('');
   }
 
   edit() {

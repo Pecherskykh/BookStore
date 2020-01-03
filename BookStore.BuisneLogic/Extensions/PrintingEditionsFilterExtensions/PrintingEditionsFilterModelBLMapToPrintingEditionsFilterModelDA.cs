@@ -21,7 +21,8 @@ namespace BookStore.BusinessLogic.Extensions.PrintingEditionsFilterExtensions
                 MinPrice = printingEditionsFilterModel.MinPrice,
                 SearchString = printingEditionsFilterModel.SearchString,
                 SortType = (DataAccess.Models.Enums.Enums.PrintingEditionSortType)printingEditionsFilterModel.SortType,
-                SortingDirection = (DataAccess.Models.Enums.Enums.SortingDirection)printingEditionsFilterModel.SortingDirection
+                SortingDirection = (DataAccess.Models.Enums.Enums.SortingDirection)printingEditionsFilterModel.SortingDirection,
+                Currency = (DataAccess.Entities.Enums.Enums.Currencys)printingEditionsFilterModel.Currency
             };
         }
     }

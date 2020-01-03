@@ -10,6 +10,8 @@ import { MatDialog, PageEvent, MatSort } from '@angular/material';
 import { RemoveComponent } from 'src/app/shared/components/remove/remove.component';
 import { PrintingEditionDialogComponent } from '../printing-edition-dialog/printing-edition-dialog.component';
 import { CreateUpdate } from 'src/app/shared/enums/create-update';
+import { Currencys } from 'src/app/shared/enums/currencys';
+import { DisplayedColumnsConstans } from 'src/app/shared/constans/displayed-columns-constans';
 
 @Component({
   selector: 'app-printing-edition-management',
@@ -19,8 +21,7 @@ import { CreateUpdate } from 'src/app/shared/enums/create-update';
 })
 
 export class PrintingEditionManagementComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'description', 'category',
-  'author', 'price', 'editAndRemove']; //todo use const, init on constr
+  displayedColumns: string[]; //todo use const, init on constr
   typePrintingEditionItems: string[];
   typePrintingEdition: FormControl;
   items: Array<PrintingEditionModelItem>;
@@ -40,6 +41,7 @@ export class PrintingEditionManagementComponent implements OnInit {
     this.printingEditionsFilterModel.pageCount = 0;
     this.printingEditionsFilterModel.pageSize = 10;
     this.printingEditionsFilterModel.sortingDirection = SortingDirection.lowToHigh;
+    this.printingEditionsFilterModel.currency = Currencys.USD;
     this.printingEditionsFilterModel.Categories =
     [
       TypePrintingEdition.book,
@@ -47,6 +49,7 @@ export class PrintingEditionManagementComponent implements OnInit {
       TypePrintingEdition.newspaper
     ];
 
+    this.displayedColumns = DisplayedColumnsConstans.printingEditions;
     this.typePrintingEditionItems = ['book', 'magazine', 'newspaper'];
 
     this.typePrintingEdition = new FormControl(this.typePrintingEditionItems);

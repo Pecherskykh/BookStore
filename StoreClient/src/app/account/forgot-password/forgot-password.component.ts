@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {AccontService} from 'src/app/shared/services/accont-service';
 
@@ -8,17 +8,15 @@ import {AccontService} from 'src/app/shared/services/accont-service';
   styleUrls: ['./forgot-password.component.css'],
   providers: [AccontService]
 })
-export class ForgotPasswordComponent implements OnInit {
+export class ForgotPasswordComponent {
 
-  constructor(private accontService: AccontService) { }
+  email: FormControl;
 
-  email = new FormControl('');
+  constructor(private accontService: AccontService) {
+    this.email = new FormControl('');
+  }
 
   continue() {
     this.accontService.ForgotPassword(this.email.value).subscribe();
   }
-
-  ngOnInit() {
-  }
-
 }

@@ -6,9 +6,9 @@ import { OrdersFilterModel } from 'src/app/shared/models/Orders/orders-filter-mo
 import { OrderSortType } from 'src/app/shared/enums/order-sort-type';
 import { SortingDirection } from 'src/app/shared/enums/sorting-direction';
 import { FormControl } from '@angular/forms';
-import { debug } from 'util';
 import { UserModelItem } from 'src/app/shared/models/Users/user-model-item';
 import { LocalSorage } from 'src/app/shared/services/local-sorage';
+import { DisplayedColumnsConstans } from 'src/app/shared/constans/displayed-columns-constans';
 
 @Component({
   selector: 'app-my-orders',
@@ -18,7 +18,7 @@ import { LocalSorage } from 'src/app/shared/services/local-sorage';
 })
 export class MyOrdersComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'date', 'product', 'title', 'qty', 'orderAmount'];
+  displayedColumns: string[];
   search: FormControl;
   typePrintingEditionItems: string[];
   count: number;
@@ -34,6 +34,7 @@ export class MyOrdersComponent implements OnInit {
     this.ordersFilterModel.pageCount = 0;
     this.ordersFilterModel.pageSize = 10;
     this.search = new FormControl('');
+    this.displayedColumns = DisplayedColumnsConstans.myOrders;
     this.typePrintingEditionItems = ['book', 'magazine', 'newspaper'];
    }
 
@@ -79,12 +80,10 @@ getServerData(event: PageEvent) {
 }
 
   ngOnInit() {
-    debugger;
     this.pageIndex = 0;
     this.user = this.localStorage.getUser();
     this.ordersFilterModel.searchString = this.user.userName;
     this.ordersFilterModel.pageCount = 0;
     this.GetOrders();
   }
-
 }

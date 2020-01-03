@@ -14,12 +14,6 @@ export class AuthorService {
   getData(element: BaseFilterModel): Observable<AuthorModel> {
     return this.http.post<AuthorModel>(
       'https://localhost:44319/api/author/getAuthor',
-      /*{
-        sortingDirection: 1,
-        searchString: null,
-        pageCount: 1,
-        pageSize: 10
-      }*/
       element
     );
 }
