@@ -60,22 +60,23 @@ th {
 .row {
   border-right: 1px solid black;
 }
-.row1 {
+
+.id {
   color: black;
   font-weight: bold;
   width: 4%;
 }
-.row2 {
+.name {
   color: black;
   font-weight: bold;
   width: 46%;
 }
-.row3 {
+.product {
   color: black;
   font-weight: bold;
   width: 46%;
 }
-.row4 {
+.editAndRemove {
   width: 4%;
 }
 

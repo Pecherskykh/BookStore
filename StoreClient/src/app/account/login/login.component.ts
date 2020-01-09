@@ -1,8 +1,9 @@
 import { Component} from '@angular/core';
 import { AccontService } from 'src/app/shared/services/accont-service';
-import { FormControl } from '@angular/forms';
 import { UserModelItem } from 'src/app/shared/models/Users/user-model-item';
 import { LocalSorage } from 'src/app/shared/services/local-sorage';
+import { FormBuilder } from '@angular/forms';
+import { BaseConstants } from 'src/app/shared/constans/base-constants';
 
 @Component({
   selector: 'app-login',
@@ -13,16 +14,25 @@ import { LocalSorage } from 'src/app/shared/services/local-sorage';
 
 export class LoginComponent {
 
-  email: FormControl;
-  password: FormControl;
+  loginForm;
 
-  constructor(private accontService: AccontService, private localStorage: LocalSorage) {
-    this.email = new FormControl('');
-    this.password = new FormControl('');
+  constructor(
+    private accontService: AccontService,
+    private localStorage: LocalSorage,
+    private formBuilder: FormBuilder) {
+    this.loginForm = this.formBuilder.group({
+      email: BaseConstants.stringEmpty,
+      password: BaseConstants.stringEmpty
+    });
   }
 
-    signIn() {
-      this.accontService.postData({email: this.email.value, password: this.password.value}).subscribe((data: UserModelItem) => {
+  Click() {
+    alert(this.loginForm.value.email);
+  }
+
+    signIn(): void {
+      this.accontService.postData(this.loginForm.value).
+      subscribe((data: UserModelItem) => {
         this.localStorage.setUser(data);
         location.href = 'http://localhost:4200/user/profile';
       });

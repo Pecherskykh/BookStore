@@ -1,4 +1,4 @@
-<div class = "wrapper">
+<div class = "wrapper" [formGroup] = "updateForm">
   <div class = "header__modal">
     <h2>Edit profile - {{data.firstName}} {{data.lastName}}</h2>
   </div>
@@ -9,13 +9,13 @@
   <div class="form__row">
     <span>First name</span>
     <mat-form-field class="form__field">
-      <input [formControl] ="firstName" matInput placeholder="First Name" [value]="data.firstName">
+      <input formControlName ="firstName" matInput placeholder="First Name" [value]="data.firstName">
     </mat-form-field>
   </div>
   <div class="form__row">
     <span>Last name</span>
     <mat-form-field class="form__field">
-      <input [formControl] ="lastName" matInput placeholder="Last Name" [value]="data.lastName">
+      <input formControlName ="lastName" matInput placeholder="Last Name" [value]="data.lastName">
     </mat-form-field>
   </div>
   <div class="modal__buttons">

@@ -1,18 +1,18 @@
 <h2 *ngIf = "data">{{data.pageName}}</h2>
-<div class="body">
+<div class="body" [formGroup] = "printingEditionDialogForm">
     <div class = "left">
         <mat-form-field>
-            <textarea matInput placeholder="Title" class="title" [formControl] = "title"></textarea>
+            <textarea matInput placeholder="Title" class="title" formControlName = "title"></textarea>
           </mat-form-field><br>
           <mat-form-field>
-              <textarea matInput placeholder="Description" class="description" [formControl] = "description"></textarea>
+              <textarea matInput placeholder="Description" class="description" formControlName = "description"></textarea>
             </mat-form-field>
           </div>
       <div class = "right">
           <img class = "img__button" src="assets/images/photo.svg" alt="edit"><br>
           <mat-form-field>
               <mat-label>Category</mat-label>
-              <select matNativeControl required [formControl] = "productType">
+              <select matNativeControl required formControlName = "productType">
                 <option value="book">Book</option>
                 <option value="magazine">Magazine</option>
                 <option value="newspaper">Newspaper</option>
@@ -24,11 +24,11 @@
             </mat-select>
             </mat-form-field><br>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Price" [formControl] = "price">
+                <input matInput placeholder="Price" formControlName = "price">
             </mat-form-field><br>
             <mat-form-field>
                 <mat-label>Currency</mat-label>
-                <select matNativeControl required [formControl] = "currency">
+                <select matNativeControl required formControlName = "currency">
                   <option *ngFor= "let item of currencys" [value]="item">{{item}}</option>
                 </select>
             </mat-form-field>

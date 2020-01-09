@@ -1,182 +1,63 @@
-<!-- Order managment<br>
-<button (click)="GetPrintingEditions()">Get</button>
-<table border="1" id = "table">
-  <tr>
-   <th>Id</th>
-   <th>Name</th>
-   <th>Description</th>
-   <th>Category</th>
-   <th>Author</th>
-   <th>Price</th>
-   <th></th>
-  </tr>
-  <tr *ngFor="let item of items">
-    <td>{{item.id}}</td>
-    <td>{{item.title}}</td>
-    <td>{{item.description}}</td>
-    <td>{{item.productType}}</td>
-    <td><span *ngFor="let author of item.authors.items">{{author.name}}<br></span></td>
-    <td>{{item.price}}</td>
-    <td></td>
-  </tr>
- </table>
- -->
-
- <!-- <div id = "back"></div>
-<div id = "edit">
-  <div class = "header__modal">
-    <h2>Add new Product</h2>
-  </div>
-</div>
-
- <div class="wrapper">
-
-    <input type="text" placeholder="Search by name" [formControl] = "searchByName"><br>
-    <span>Sort type </span>
-    <select [formControl] = "sortType">
-        <option>Id</option>
-        <option>Name</option>
-        <option>Category</option>
-        <option>Author</option>
-        <option>Price</option>
-      </select><br>
-    <span>Sorting direction </span>
-    <select [formControl] = "sortingDirection">
-        <option>Low To High</option>
-        <option>High To Low</option>
-    </select><br>
-    <span>Categories </span><br>
-    <input type="checkbox" [formControl] = "books"> Books<br>
-    <input type="checkbox" [formControl] = "magazines"> Magazines<br>
-    <input type="checkbox" [formControl] = "newspapers"> Newspapers<br>
-    <input type="text" placeholder="Min price" [formControl] = "minPrice"> - <input type="text" placeholder="Max price" [formControl] = "maxPrice"><br>
-    <button (click)="GetPrintingEditions()">Ok</button>
-
-  <h2>Product mangement <img class = "img__button" src="assets/images/add-button-inside-black-circle.svg" alt="edit"></h2>
-  <table>
-      <thead class="header">
-          <tr class="header__row">
-              <th class="row row1">
-                  <div class="th__container">
-                      <button class="trigger-multiselect">Id</button>
-                      <div class="multiselect"></div>
-                  </div>
-              </th>
-              <th class="row row2">
-                  <div class="th__container">
-                      <button>Name</button>
-                  </div>
-              </th>
-              <th class="row row3">
-                  <div class="th__container">
-                      <button class="trigger-multiselect" (click)="modal()">Description</button>
-                      <div class="multiselect" id = "m"></div>
-                  </div>
-              </th>
-              <th class="row row4">
-                  <div class="th__container">
-                      <button class="trigger-multiselect" (click)="modal()">Category</button>
-                      <div class="multiselect" id = "m"></div>
-                  </div>
-              </th>
-              <th class="row row5">
-                  <div class="th__container">
-                      <button class="trigger-multiselect" (click)="modal()">Author</button>
-                      <div class="multiselect" id = "m"></div>
-                  </div>
-              </th>
-              <th class="row row6">
-                  <div class="th__container">
-                      <button class="trigger-multiselect" (click)="modal()">Price</button>
-                      <div class="multiselect" id = "m"></div>
-                  </div>
-              </th>
-              <th class="row row7"></th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let item of items">
-              <td class="row row1">{{item.id}}</td>
-              <td class="row row2">{{item.title}}</td>
-              <td class="row row3">{{item.description}}</td>
-              <td class="row row4">{{item.productType}}</td>
-              <td class="row row5"><span *ngFor="let author of item.authors.items">{{author.name}}<br></span></td>
-              <td class="row row6">{{item.price}}</td>
-              <td class="row row7">
-                  <div class="td__container">
-                    <img class = "img__button" src="assets/images/pencil-edit-button.svg" alt="edit" (click)="Edit(item)">
-                    <img class = "img__button" src="assets/images/remove.svg" alt="remove" (click)="Remove(item.id)">
-                  </div>
-              </td>
-          </tr>
-      </tbody>
-  </table>
-</div>
--->
-
 <div id = "edit">
     <div class = "header__modal">
       <h2>Add new Product</h2>
     </div>
   </div>
 
-   <div class="wrapper">
+   <div class="wrapper" [formGroup] = "printingEditionManagementForm">
       <div class="name__page">
         <span>Product mangement</span>
         <img class = "img__button" src="assets/images/add-button-inside-black-circle.svg" alt="add" (click) = "create()">
       </div>
 
       <mat-form-field class="example-full-width">
-          <input matInput placeholder="Min price" [formControl] = "minPrice">
+          <input matInput placeholder="Min price" formControlName = "minPrice">
       </mat-form-field><br>
       <mat-form-field class="example-full-width">
-       <input matInput placeholder="Max price" [formControl] = "maxPrice">
+       <input matInput placeholder="Max price" formControlName = "maxPrice">
       </mat-form-field><br>
 
       <div>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Product Name" [formControl] = "searchByName" (keyup.enter)="FilterPrintingEditions()">
+            <input matInput placeholder="Product Name" formControlName = "searchByName" (keyup.enter)="filterPrintingEditions()">
         </mat-form-field><br>
-        <button mat-raised-button (click)= "FilterPrintingEditions()">Find</button><br><br>
+        <button mat-raised-button (click)= "filterPrintingEditions()">Find</button><br><br>
       </div>
 
     <table mat-table [dataSource]="items" class="mat-elevation-z8" matSort (matSortChange)="sortData($event)">
 
-        <!-- Position Column -->
         <ng-container matColumnDef="id">
-          <th class="row row1" mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-          <td class="row row1" mat-cell *matCellDef="let element"> {{element.id}} </td>
+          <th class="row id" mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td class="row id" mat-cell *matCellDef="let element"> {{element.id}} </td>
         </ng-container>
 
-        <!-- Name Column -->
         <ng-container matColumnDef="name">
-          <th class="row row2" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-          <td class="row row2" mat-cell *matCellDef="let element"> {{element.title}} </td>
+          <th class="row name" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+          <td class="row name" mat-cell *matCellDef="let element"> {{element.title}} </td>
         </ng-container>
 
-        <!-- Product Column -->
         <ng-container matColumnDef="description">
-            <th class="row row3" mat-header-cell *matHeaderCellDef> Description </th>
-            <td class="row row3" mat-cell *matCellDef="let element"> {{element.description}} </td>
+            <th class="row description" mat-header-cell *matHeaderCellDef> Description </th>
+            <td class="row description" mat-cell *matCellDef="let element"> {{element.description}} </td>
         </ng-container>
 
         <ng-container matColumnDef="category">
-            <th class="row row4" mat-header-cell *matHeaderCellDef>
-              <mat-select multiple [formControl] = "typePrintingEdition">
+            <th class="row category" mat-header-cell *matHeaderCellDef>
+              <mat-select multiple formControlName = "typePrintingEdition">
                 <mat-option
                   *ngFor="let item of typePrintingEditionItems"
                   [value]="item"
-                  [disabled]="typePrintingEdition.value.length === 1 && typePrintingEdition.value[0] === item"
-                  (click) = "FilterPrintingEditions()">{{item}}
+                  [disabled]="printingEditionManagementForm.value.typePrintingEdition.length === 1 && printingEditionManagementForm.value.typePrintingEdition[0] === item"
+                  (click) = "filterPrintingEditions()">{{item}}
               </mat-option>
               </mat-select>
             </th>
-            <td class="row row4" mat-cell *matCellDef="let element"> {{typePrintingEditionItems[element.productType - 1]}} </td>
+            <td class="row category" mat-cell *matCellDef="let element"> {{typePrintingEditionItems[element.productType - 1]}} </td>
         </ng-container>
 
         <ng-container matColumnDef="author">
-            <th class="row row5" mat-header-cell *matHeaderCellDef> Author </th>
-            <td class="row row5" mat-cell *matCellDef="let element">
+            <th class="row author" mat-header-cell *matHeaderCellDef> Author </th>
+            <td class="row author" mat-cell *matCellDef="let element">
                 <span *ngFor= "let author of element.authors.items">
                     {{author.name}}<br>
                   </span>
@@ -184,13 +65,13 @@
         </ng-container>
 
         <ng-container matColumnDef="price">
-            <th class="row row6" mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
-            <td class="row row6" mat-cell *matCellDef="let element"> {{element.price}} </td>
+            <th class="row price" mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+            <td class="row price" mat-cell *matCellDef="let element"> {{element.price}} </td>
         </ng-container>
 
         <ng-container matColumnDef="editAndRemove">
-            <th class="row row7" mat-header-cell *matHeaderCellDef></th>
-            <td class="row row7" mat-cell *matCellDef="let element">
+            <th class="row editAndRemove" mat-header-cell *matHeaderCellDef></th>
+            <td class="row editAndRemove" mat-cell *matCellDef="let element">
                 <div class="td__container">
                   <img class = "img__button" src="assets/images/pencil-edit-button.svg" alt="edit" (click)= "edit(element)">
                   <img class = "img__button" src="assets/images/remove.svg" alt="remove" (click)= "remove(element)">
@@ -203,9 +84,9 @@
       </table>
       <mat-paginator
         [length] = "countPrintingEditions"
-        [pageSize] = "10"
+        [pageSize] = "pageSizeOptions[1]"
         [pageIndex]="pageIndex"
-        [pageSizeOptions] = "[5, 10, 25, 100]"
+        [pageSizeOptions] = "pageSizeOptions"
         (page)="pageEvent = getServerData($event)" showFirstLastButtons >
     </mat-paginator>
   </div>

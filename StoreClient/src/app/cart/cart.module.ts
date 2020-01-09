@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CartRoutingModule } from './cart-routing.module';
+import { routes } from './cart-routing.module';
+import { CartItemsComponent } from './cart-items/cart-items.component';
+import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../material/material.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [CartItemsComponent],
   imports: [
+    SharedModule,
+    RouterModule.forChild(routes),
     CommonModule,
-    CartRoutingModule
+    MaterialModule
   ]
 })
 export class CartModule { }

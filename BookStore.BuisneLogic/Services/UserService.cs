@@ -28,7 +28,7 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.UserModelItemIsEmptyError);
                 return resultModel;
             }
-            var result = await _userRepository.CreateAsync(user.Map(), user.newPassword);
+            var result = await _userRepository.CreateAsync(user.Map(), user.NewPassword);
             if (!result)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.UserNotCreatedError);
@@ -77,7 +77,7 @@ namespace BookStore.BusinessLogic.Services
                 applicationUser.FirstName = user.FirstName;
                 applicationUser.LastName = user.LastName;
                 applicationUser.Email = user.Email;
-                await _userRepository.ChangePasswordAsync(applicationUser, user.currentPassword, user.newPassword);
+                await _userRepository.ChangePasswordAsync(applicationUser, user.CurrentPassword, user.NewPassword);
             }
 
             var result = await _userRepository.UpdateAsync(applicationUser);

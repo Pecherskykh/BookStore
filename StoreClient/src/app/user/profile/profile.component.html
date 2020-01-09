@@ -1,4 +1,4 @@
-  <div action="#" class="form">
+  <div action="#" class="form" [formGroup] = "profileForm">
       <h2 class="form__caption">My Profile</h2>
     <div class = "images__modal">
       <img src="assets/images/man-user.svg" class="form__logo" alt="person">
@@ -19,11 +19,11 @@
     <div id = "edit">
     <div class="form__row">
       <span>Password</span>
-      <input type="password" class="form__field" [formControl] = "currentPassword">
+      <input type="password" class="form__field" formControlName = "currentPassword">
     </div>
     <div class="form__row">
       <span>Confirm password</span>
-      <input type="password" class="form__field" [formControl] = "newPassword">
+      <input type="password" class="form__field" formControlName = "newPassword">
     </div>
       <button (click) = "save()">Save</button> <button (click) = "cansel()">Cansel</button>
     </div>

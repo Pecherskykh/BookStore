@@ -2,13 +2,15 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { CreateUpdate } from 'src/app/shared/enums/create-update';
 import { AuthorModelItem } from 'src/app/shared/models/Authors/author-model-item';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormBuilder } from '@angular/forms';
 import { Currencys } from 'src/app/shared/enums/currencys';
 import { AuthorModel } from 'src/app/shared/models/Authors/author-model';
 import { TypePrintingEdition } from 'src/app/shared/enums/type-printing-edition';
 import { PrintingEditionModelItem } from 'src/app/shared/models/PeintingEditions/printing-edition-model-item';
 import { AuthorService } from 'src/app/shared/services/author-service';
 import { PrintingEditionService } from 'src/app/shared/services/printing-edition-service';
+import { PrintingEditionConstants } from 'src/app/shared/constans/printing-edition-constants';
+import { BaseConstants } from 'src/app/shared/constans/base-constants';
 
 @Component({
   selector: 'app-printing-edition-dialog',
@@ -19,29 +21,26 @@ import { PrintingEditionService } from 'src/app/shared/services/printing-edition
 export class PrintingEditionDialogComponent implements OnInit {
 
   items: Array<AuthorModelItem>;
-  title = new FormControl(this.data.printingEditionModelItem.title); //todo init on constructor
-  description = new FormControl(this.data.printingEditionModelItem.description);
-  authors = new FormControl();
-  productType = new FormControl(TypePrintingEdition[this.data.printingEditionModelItem.productType]);
-  price = new FormControl(this.data.printingEditionModelItem.price);
   currencys: Array<string>;
-  currency: FormControl; //todo use FormGroup
+  authors: FormControl;
+  printingEditionDialogForm;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private authorService: AuthorService,
-    private printingEditionService: PrintingEditionService
+    private printingEditionService: PrintingEditionService,
+    private formBuilder: FormBuilder
     ) {
-    this.currencys = [
-      Currencys[Currencys.AUD],
-      Currencys[Currencys.BYN],
-      Currencys[Currencys.EUR],
-      Currencys[Currencys.GBP],
-      Currencys[Currencys.PLN],
-      Currencys[Currencys.UAH],
-      Currencys[Currencys.USD] //todo use const
-    ];
-    this.currency = new FormControl('');
+      this.printingEditionDialogForm = this.formBuilder.group({
+        title: this.data.printingEditionModelItem.title,
+        description: this.data.printingEditionModelItem.description,
+        productType: TypePrintingEdition[this.data.printingEditionModelItem.productType],
+        authors: new FormControl(),
+        price: this.data.printingEditionModelItem.price,
+        currency: BaseConstants.stringEmpty
+      });
+      this.authors = new FormControl();
+      this.currencys = PrintingEditionConstants.currencys;
   }
 
   ngOnInit() {
@@ -66,24 +65,24 @@ export class PrintingEditionDialogComponent implements OnInit {
     let printingEditionModelItem = new PrintingEditionModelItem();
 
     let authorModel = new AuthorModel();
-    authorModel.items = this.authors.value;
+    authorModel.items = this.printingEditionDialogForm.value.authors;
     printingEditionModelItem.authors = authorModel;
-    printingEditionModelItem.title = this.title.value;
-    printingEditionModelItem.description = this.description.value;
-    printingEditionModelItem.price = parseFloat(this.price.value);
+    printingEditionModelItem.title = this.printingEditionDialogForm.value.title;
+    printingEditionModelItem.description = this.printingEditionDialogForm.value.description;
+    printingEditionModelItem.price = parseFloat(this.printingEditionDialogForm.value.price);
 
     //todo replace to private method
-    if (this.productType.value === 'book') { //todo use enums
+    if (this.printingEditionDialogForm.value.productType === TypePrintingEdition[TypePrintingEdition.book]) {
       printingEditionModelItem.productType = TypePrintingEdition.book;
     }
-    if (this.productType.value === 'magazine') {
+    if (this.printingEditionDialogForm.value.productType === TypePrintingEdition[TypePrintingEdition.magazine]) {
       printingEditionModelItem.productType = TypePrintingEdition.magazine;
     }
-    if (this.productType.value === 'newspaper') {
+    if (this.printingEditionDialogForm.value.productType === TypePrintingEdition[TypePrintingEdition.newspaper]) {
       printingEditionModelItem.productType = TypePrintingEdition.newspaper;
     }
 
-    printingEditionModelItem.currencys = Currencys[this.currency.value as string]; //todo
+    printingEditionModelItem.currencys = Currencys[this.printingEditionDialogForm.value.currency as string];
 
     this.printingEditionService.create(printingEditionModelItem).subscribe();
   }
@@ -103,11 +102,11 @@ export class PrintingEditionDialogComponent implements OnInit {
   }
 
   update() {
-    this.data.printingEditionModelItem.title = this.title.value;
-    this.data.printingEditionModelItem.description = this.description.value;
-    this.data.printingEditionModelItem.productType = TypePrintingEdition[this.productType.value];
-    this.data.printingEditionModelItem.price = parseFloat(this.price.value);
-    this.data.printingEditionModelItem.currencys = Currencys[this.currency.value];
+    this.data.printingEditionModelItem.title = this.printingEditionDialogForm.value.title;
+    this.data.printingEditionModelItem.description = this.printingEditionDialogForm.value.description;
+    this.data.printingEditionModelItem.productType = TypePrintingEdition[this.printingEditionDialogForm.value.productType];
+    this.data.printingEditionModelItem.price = parseFloat(this.printingEditionDialogForm.value.price);
+    this.data.printingEditionModelItem.currencys = Currencys[this.printingEditionDialogForm.value.currency];
     this.data.printingEditionModelItem.authors.items = this.authors.value;
     this.printingEditionService.update(this.data.printingEditionModelItem).subscribe();
   }

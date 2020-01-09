@@ -2,11 +2,12 @@
   <p class="catalog__text">Catalog</p>
 </div>
 <div action="#" class="form">
+  <form [formGroup]="loginForm">
   <img src="assets/images/man-user.svg" class="form__logo" alt="person">
   <h2 class="form__caption">Sign-In</h2>
   <div class="form__row">
       <span>E-mail</span>
-      <input type="email" name="email" class="form__field" title="Enter your email" [formControl] = "email" placeholder="Email">
+      <input type="email" name="email" class="form__field" title="Enter your email" formControlName="email" placeholder="Email">
       <!-- required pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" -->
       <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
         Некорректный email
@@ -15,7 +16,7 @@
   <div class="form__row">
       <span>Password</span>
       <a href="http://localhost:4200/account/forgot-password" class="forgotLink">Forgot your password?</a>
-      <input type="password" name="password" class="form__field" title="Enter your password" [formControl] = "password" placeholder="Password">
+      <input type="password" name="password" class="form__field" title="Enter your password" formControlName = "password" placeholder="Password">
       <!-- required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$" -->
       <div [hidden]="password.valid || password.untouched" class="alert alert-danger">
         Некорректный email
@@ -28,6 +29,7 @@
       </label>
       <input [disabled]="email.invalid || password.invalid" type="submit" class="form__signInButton pointer button" value="Sign In" (click)="signIn()">
   </div>
+  </form>
 </div>
   <footer class="form__footer">
       <span>New to Bock Publishing Company?</span>

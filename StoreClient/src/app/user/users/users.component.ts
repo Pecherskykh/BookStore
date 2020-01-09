@@ -10,6 +10,8 @@ import { MatSort, PageEvent, MatDialog } from '@angular/material';
 import { UpdateComponent } from '../update/update.component';
 import { RemoveComponent } from 'src/app/shared/components/remove/remove.component';
 import { DisplayedColumnsConstans } from 'src/app/shared/constans/displayed-columns-constans';
+import { UserConstans } from 'src/app/shared/constans/user-constans';
+import { BaseConstants } from 'src/app/shared/constans/base-constants';
 
 @Component({
   selector: 'app-users',
@@ -18,25 +20,30 @@ import { DisplayedColumnsConstans } from 'src/app/shared/constans/displayed-colu
   providers: [UserService]
 })
 export class UsersComponent implements OnInit {
-
+  pageSizeOptions: number[];
   usersFilterModel: UsersFilterModel;
   count: number;
   pageIndex: number;
   displayedColumns: string[];
   items: Array<UserModelItem>;
   user: UserModelItem;
-  searchByName = new FormControl('');
-  userStatusItems: string[] = ['Active', 'Blocked'];
-  userStatus = new FormControl(this.userStatusItems);
+  userStatusItems: string[];
+
+  searchByName: FormControl;
+  userStatus: FormControl;
 
   constructor(private userService: UserService, public dialog: MatDialog) {
     this.usersFilterModel = new UsersFilterModel();
     this.usersFilterModel.sortType = UserSortType.userName;
-    this.usersFilterModel.sortingDirection = SortingDirection.lowToHigh;
+    this.usersFilterModel.sortingDirection = SortingDirection.asc;
     this.usersFilterModel.userStatus = UserStatus.all;
-    this.usersFilterModel.pageSize = 10;
-    this.usersFilterModel.pageCount = 0;
+    this.usersFilterModel.pageSize = BaseConstants.ten;
+    this.usersFilterModel.pageCount = BaseConstants.zero;
     this.displayedColumns = DisplayedColumnsConstans.users;
+    this.userStatusItems = UserConstans.userStatusItems;
+
+    this.userStatus = new FormControl(this.userStatusItems);
+    this.searchByName = new FormControl(BaseConstants.stringEmpty);
   }
 
   ngOnInit() {
@@ -58,10 +65,10 @@ export class UsersComponent implements OnInit {
     if (this.userStatus.value.length === 2) {
       this.usersFilterModel.userStatus = UserStatus.all;
     }
-    if (this.userStatus.value.length === 1 && this.userStatus.value[0] === 'Active') {
+    if (this.userStatus.value.length === 1 && this.userStatus.value[0] === this.userStatusItems[0]) {
       this.usersFilterModel.userStatus = UserStatus.active;
     }
-    if (this.userStatus.value.length === 1 && this.userStatus.value[0] === 'Blocked') {
+    if (this.userStatus.value.length === 1 && this.userStatus.value[0] === this.userStatusItems[1]) {
       this.usersFilterModel.userStatus = UserStatus.blocked;
     }
 
@@ -76,14 +83,13 @@ sortData(event: MatSort) {
   if (event.active === UserSortType[UserSortType.userName]) {
     this.usersFilterModel.sortType = UserSortType.userName;
   }
-
   if (event.active === UserSortType[UserSortType.email]) {
     this.usersFilterModel.sortType = UserSortType.email;
   }
-  if (event.direction === 'asc') {
+  if (event.direction === SortingDirection[SortingDirection.asc]) {
     this.usersFilterModel.sortingDirection = SortingDirection.asc;
   }
-  if (event.direction === 'desc') {
+  if (event.direction === SortingDirection[SortingDirection.desc]) {
     this.usersFilterModel.sortingDirection = SortingDirection.desc;
   }
   this.getUsers();
@@ -101,7 +107,7 @@ getServerData(event: PageEvent) {
 }
 
   remove(userModelItem: UserModelItem) {
-    let dialogRef = this.dialog.open(RemoveComponent, {data: {pageName: 'user', name: userModelItem.firstName +
+    let dialogRef = this.dialog.open(RemoveComponent, {data: {pageName: UserConstans.user, name: userModelItem.firstName +
     ' ' + userModelItem.lastName}})
     .afterClosed().subscribe(data => {
       if (data) {

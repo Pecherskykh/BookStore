@@ -8,7 +8,7 @@
             Date = 2,
             UserName = 3,
             UserEmail = 4,
-            OrderAmount = 8,
+            OrderAmount = 5,
         }
     }
 }

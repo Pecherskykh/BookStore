@@ -1,48 +1,48 @@
 <div class="head">
   <span class = "page__name">Catalog</span>
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Product Name" [formControl] = "searchByName" (keyup.enter)="FilterPrintingEditions()">
+  <mat-form-field class="example-full-width" [formGroup]="homeForm">
+    <input matInput placeholder="Product Name" formControlName = "searchByName" (keyup.enter)="filterPrintingEditions()">
   </mat-form-field>
 </div>
 
 <div class = "wrapper">
   <div class = "left">
-    <div class="categories">
+    <div class="categories" [formGroup]="homeForm">
       <p>Categories</p>
-      <mat-select multiple [formControl] = "typePrintingEdition">
+      <mat-select multiple formControlName = "typePrintingEdition">
         <mat-option
           *ngFor="let item of typePrintingEditionItems"
           [value]="item"
-          [disabled]="typePrintingEdition.value.length === 1 && typePrintingEdition.value[0] === item"
-          (click) = "FilterPrintingEditions()">{{item}}
+          [disabled]="homeForm.value.typePrintingEdition.length === 1 && homeForm.value.typePrintingEdition[0] === item"
+          (click) = "filterPrintingEditions()">{{item}}
         </mat-option>
       </mat-select>
       <p></p>
     </div>
     <div class = "price">
       <p>Price</p>
-      <div class="min__max">
+      <div class="min__max" [formGroup]="homeForm">
       <mat-form-field class="price">
-        <input matInput placeholder="Min" [formControl] = "minPrice">
+        <input matInput placeholder="Min" formControlName = "minPrice">
       </mat-form-field>
       <mat-form-field class="price">
-        <input matInput placeholder="Max" [formControl] = "maxPrice">
-      </mat-form-field> {{currency.value}}
-      <button mat-raised-button (click) = "FilterPrintingEditions()">OK</button>
+        <input matInput placeholder="Max" formControlName = "maxPrice">
+      </mat-form-field> {{homeForm.value.currency}}
+      <button mat-raised-button (click) = "filterPrintingEditions()">OK</button>
       </div>
     </div>
   </div>
   <div class = "right">
     <div class = "head__right">
       <span>Currency</span>
-      <mat-form-field class = "currency">
-        <select matNativeControl required [formControl] = "currency">
+      <mat-form-field class = "currency" [formGroup]="homeForm">
+        <select matNativeControl required formControlName = "currency">
           <option *ngFor= "let item of currencys" [value]="item" (click) = "selectCurrency()">{{item}}</option>
         </select>
       </mat-form-field>
       <span>Sort by</span>
-      <mat-form-field>
-        <select matNativeControl required [formControl] = "sortBy">
+      <mat-form-field [formGroup]="homeForm">
+        <select matNativeControl required formControlName = "sortBy">
           <option value="asc" (click) = "sortData()">Price: Low to High</option>
           <option value="desc" (click) = "sortData()">Price: High to Low</option>
         </select>
@@ -54,22 +54,16 @@
         <img src="assets/images/book.svg" class="form__logo" alt="book"><br>
         <span class = "title">{{item.title}}</span><br>
         <span *ngFor= "let author of item.authors.items">{{author.name}}, </span><br>
-        <span class = "price__span">{{item.price}} {{currency.value}}</span>
+        <span class = "price__span">{{item.price}} {{homeForm.value.currency}}</span>
         </div>
       </mat-grid-tile>
-      <!-- <mat-grid-tile>1</mat-grid-tile>
-      <mat-grid-tile>2</mat-grid-tile>
-      <mat-grid-tile>3</mat-grid-tile>
-      <mat-grid-tile>4</mat-grid-tile>
-      <mat-grid-tile>5</mat-grid-tile>
-      <mat-grid-tile>6</mat-grid-tile> -->
     </mat-grid-list>
   </div>
 </div>
 <mat-paginator
   [length] = "countPrintingEditions"
-  [pageSize] = "6"
+  [pageSize] = "pageSizeOptions[0]"
   [pageIndex]="pageIndex"
-  [pageSizeOptions] = "[5, 10, 25, 100]"
-  (page)="pageEvent = getServerData($event)" showFirstLastButtons >
+  [pageSizeOptions] = "pageSizeOptions"
+  (page)="pageEvent = getServerData($event)" showFirstLastButtons>
 </mat-paginator>

@@ -4,6 +4,7 @@ import {PrintingEditionModel} from '../models/PeintingEditions/printing-edition-
 import {PrintingEditionsFilterModel} from 'src/app/shared/models/PeintingEditions/printing-editions-filter-model';
 import { Observable } from 'rxjs';
 import { PrintingEditionModelItem } from '../models/PeintingEditions/printing-edition-model-item';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 
@@ -13,24 +14,24 @@ export class PrintingEditionService {
 
   getData(element: PrintingEditionsFilterModel): Observable<PrintingEditionModel> {
     return this.http.post<PrintingEditionModel>(
-      'https://localhost:44319/api/printingedition/getPrintingEditions',
+      `${environment.apiUrl}printingedition/getPrintingEditions`,
       element
     );
   }
 
   create(element: PrintingEditionModelItem) {
-    return this.http.post('https://localhost:44319/api/printingedition/create', element);
+    return this.http.post(`${environment.apiUrl}printingedition/create`, element);
   }
 
   update(element: PrintingEditionModelItem) {
-    return this.http.post('https://localhost:44319/api/printingedition/update', element);
+    return this.http.post(`${environment.apiUrl}printingedition/update`, element);
   }
 
   remove(element: PrintingEditionModelItem) {
-    return this.http.post('https://localhost:44319/api/printingedition/remove', element);
+    return this.http.post(`${environment.apiUrl}printingedition/remove`, element);
   }
 
   findById(id: number): Observable<PrintingEditionModelItem> {
-    return this.http.get<PrintingEditionModelItem>(`https://localhost:44319/api/printingedition/findById?id=${id}`);
+    return this.http.get<PrintingEditionModelItem>(`${environment.apiUrl}printingedition/findById?id=${id}`);
   }
 }

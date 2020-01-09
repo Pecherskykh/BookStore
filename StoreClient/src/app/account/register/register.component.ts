@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { UserModelItem } from 'src/app/shared/models/Users/user-model-item';
+import { FormBuilder } from '@angular/forms';
 import { AccontService } from 'src/app/shared/services/accont-service';
+import { BaseConstants } from 'src/app/shared/constans/base-constants';
 
 @Component({
   selector: 'app-register',
@@ -9,29 +9,23 @@ import { AccontService } from 'src/app/shared/services/accont-service';
   styleUrls: ['./register.component.css'],
   providers: [AccontService]
 })
+
 export class RegisterComponent {
 
-  userName: FormControl;
-  firstName: FormControl;
-  lastName: FormControl;
-  email: FormControl;
-  password: FormControl;
+  registerForm;
 
-  constructor(private accontService: AccontService) {
-    this.firstName = new FormControl('');
-    this.lastName = new FormControl('');
-    this.email = new FormControl('');
-    this.password = new FormControl('');
-    this.userName = new FormControl('');
+  constructor(private accontService: AccontService, private formBuilder: FormBuilder) {
+    this.registerForm = this.formBuilder.group({
+      firstName: BaseConstants.stringEmpty,
+      lastName: BaseConstants.stringEmpty,
+      email: BaseConstants.stringEmpty,
+      password: BaseConstants.stringEmpty,
+      userName: BaseConstants.stringEmpty
+    });
   }
 
-  signUp() {
-    let userModelItem = new UserModelItem();
-    userModelItem.userName = this.userName.value;
-    userModelItem.firstName = this.firstName.value;
-    userModelItem.lastName = this.lastName.value;
-    userModelItem.email = this.email.value;
-    userModelItem.newPassword = this.password.value;
-    this.accontService.register(userModelItem).subscribe(() => location.href = 'http://localhost:4200/account/confirm-email');
+  signUp(): void {
+    this.accontService.register(this.registerForm.value).
+    subscribe(() => location.href = 'http://localhost:4200/account/confirm-email');
   }
 }

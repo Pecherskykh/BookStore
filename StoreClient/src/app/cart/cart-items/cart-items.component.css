@@ -1,0 +1,107 @@
+/*table {
+  margin-left: 10%;
+  margin-right: 10%;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+table, th, td {
+  height: 50px;
+  border: 1px solid black;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+.tf{
+  height: 100px;
+}
+th {
+  background-color: #4CAF50;
+  color: white;
+}*/
+
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 50px auto 0 auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+th {
+  color: black;
+  font-size: 18pt;
+  font-weight: bold;
+  background-color: rgb(204, 204, 204);
+}
+
+.name__page
+{
+  width: 100%;
+  position: relative;
+  display: flex;
+  font-weight: bold;
+  font-size: 18pt;
+  justify-content: space-between;
+}
+
+.td__container
+{
+  width: 120%;
+  margin-left: 15%;
+  margin-right: 15%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.row {
+  border-right: 1px solid black;
+}
+
+.product {
+  color: black;
+  font-weight: bold;
+  width: 46%;
+}
+.unitPrice {
+  color: black;
+  font-weight: bold;
+  width: 10%;
+}
+.qty {
+  color: black;
+  font-weight: bold;
+  width: 4%;
+}
+.orderAmount {
+  width: 46%;
+}
+
+.img__button{
+  width: 25px;
+  height: 25px;
+}
+
+.count{
+  border: solid, black, 1px;
+}
+
+.head {
+  color: rgb(100, 80, 8);
+  text-align: center;
+}
+
+.total {
+  font-size: 20pt;
+}
+
+.price {
+  color: rgb(5, 155, 25);
+}
+
+.cart__button {
+  width: 50%;
+}

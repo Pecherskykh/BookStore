@@ -38,37 +38,37 @@
           <table mat-table [dataSource]="items" class="mat-elevation-z8" matSort (matSortChange)="sortData($event)">
               <!-- Position Column -->
               <ng-container matColumnDef="id">
-                <th class="row row1" mat-header-cell *matHeaderCellDef mat-sort-header> Order </th>
-                <td class="row row1" mat-cell *matCellDef="let element"> {{element.id}} </td>
+                <th class="row id" mat-header-cell *matHeaderCellDef mat-sort-header> Order </th>
+                <td class="row id" mat-cell *matCellDef="let element"> {{element.id}} </td>
               </ng-container>
 
               <!-- Name Column -->
               <ng-container matColumnDef="date">
-                <th class="row row2" mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
-                <td class="row row2" mat-cell *matCellDef="let element">{{element.date}} </td>
+                <th class="row" mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+                <td class="row" mat-cell *matCellDef="let element">{{element.date}} </td>
               </ng-container>
 
               <!-- Product Column -->
               <ng-container matColumnDef="userName">
-                  <th class="row row3" mat-header-cell *matHeaderCellDef mat-sort-header> User name </th>
-                  <td class="row row3" mat-cell *matCellDef="let element">{{element.userName}} </td>
+                  <th class="row" mat-header-cell *matHeaderCellDef mat-sort-header> User name </th>
+                  <td class="row" mat-cell *matCellDef="let element">{{element.userName}} </td>
               </ng-container>
 
               <ng-container matColumnDef="userEmail">
-                  <th class="row row3" mat-header-cell *matHeaderCellDef mat-sort-header> User Email </th>
-                  <td class="row row3" mat-cell *matCellDef="let element">{{element.userEmail}} </td>
+                  <th class="row" mat-header-cell *matHeaderCellDef mat-sort-header> User Email </th>
+                  <td class="row" mat-cell *matCellDef="let element">{{element.userEmail}} </td>
               </ng-container>
 
               <ng-container matColumnDef="product">
-                  <th class="row row3" mat-header-cell *matHeaderCellDef> Product </th>
-                  <td class="row row3" mat-cell *matCellDef="let element">
+                  <th class="row" mat-header-cell *matHeaderCellDef> Product </th>
+                  <td class="row" mat-cell *matCellDef="let element">
                       <span *ngFor="let orderItem of element.orderItems">{{typePrintingEditionItems[orderItem.type - 1]}}<br></span>
                   </td>
               </ng-container>
 
               <ng-container matColumnDef="title">
-                  <th class="row row3" mat-header-cell *matHeaderCellDef> Title </th>
-                  <td class="row row3" mat-cell *matCellDef="let element">
+                  <th class="row" mat-header-cell *matHeaderCellDef> Title </th>
+                  <td class="row" mat-cell *matCellDef="let element">
                       <span *ngFor="let orderItem of element.orderItems">{{orderItem.title}}<br></span>
                   </td>
               </ng-container>
@@ -90,8 +90,8 @@
             </table>
             <mat-paginator
               [length] = "count"
-              [pageSize] = "10"
+              [pageSize] = "pageSizeOptions[1]"
               [pageIndex]="pageIndex"
-              [pageSizeOptions] = "[5, 10, 25, 100]"
+              [pageSizeOptions] = "pageSizeOptions"
               (page)="pageEvent = getServerData($event)" showFirstLastButtons>
             </mat-paginator>

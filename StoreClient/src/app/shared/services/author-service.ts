@@ -4,6 +4,7 @@ import {AuthorModel} from '../models/Authors/author-model';
 import {AuthorModelItem} from '../models/Authors/author-model-item';
 import { Observable } from 'rxjs';
 import {BaseFilterModel} from 'src/app/shared/models/Base/base-filter-model';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 
@@ -19,18 +20,18 @@ export class AuthorService {
 }
 
 getAll(): Observable<AuthorModel> {
-  return this.http.get<AuthorModel>('https://localhost:44319/api/author/getAllAuthors');
+  return this.http.get<AuthorModel>(`${environment.apiUrl}author/getAllAuthors`);
 }
 
   create(element: AuthorModelItem) {
-    return this.http.post('https://localhost:44319/api/author/create', element);
+    return this.http.post(`${environment.apiUrl}author/create`, element);
   }
 
   update(element: AuthorModelItem) {
-    return this.http.post('https://localhost:44319/api/author/update', element);
+    return this.http.post(`${environment.apiUrl}author/update`, element);
   }
 
   remove(element: AuthorModelItem) {
-    return this.http.post('https://localhost:44319/api/author/remove', element);
+    return this.http.post(`${environment.apiUrl}author/remove`, element);
   }
 }

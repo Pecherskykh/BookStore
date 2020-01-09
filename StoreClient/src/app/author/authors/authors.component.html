@@ -1,68 +1,3 @@
-<!-- Authors Page<br>
-<input type="text" placeholder="Search by name" [formControl] = "searchByName"><br>
-<span>Sorting direction </span>
-    <select [formControl] = "sortingDirection">
-        <option>Low To High</option>
-        <option>High To Low</option>
-    </select><br>
-<button (click)="filterAuthors()">Ok</button><br>
-<input type="text" placeholder="Name author" [formControl] = "nameAuthor"><br>
-<button (click)="Create()">Create</button><br>
-<table border="1" id = "table">
-  <tr>
-   <th>ID</th>
-   <th>Name</th>
-   <th>Product</th>
-   <th></th>
-  </tr>
-  <tr *ngFor="let item of items">
-    <td>{{item.id}}</td>
-    <td>{{item.name}}</td>
-    <td><span *ngFor="let printingEditionsName of item.printingEditionsName">{{printingEditionsName}}<br></span></td>
-    <td><button>Edit</button> <button (click)= "Remove(item)"> Remove</button></td>
-  </tr>
- </table><br>
- <button (click)="Previous()">Previous</button> {{countPage}} <button (click)="Next()">Next</button> Amount pages: {{amountPages}}
-
-   <table>
-      <thead class="header">
-          <tr class="header__row">
-              <th class="row row1">
-                  <div class="th__container">
-                      <button class="trigger-multiselect">ID</button>
-                      <div class="multiselect"></div>
-                  </div>
-              </th>
-              <th class="row row2">
-                  <div class="th__container">
-                      <button>Name</button>
-                  </div>
-              </th>
-              <th class="row row3">
-                  <div class="th__container">
-                      <button class="trigger-multiselect">Product</button>
-                      <div class="multiselect" id = "m"></div>
-                  </div>
-              </th>
-              <th class="row row4"></th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let item of items">
-              <td class="row row1">{{item.id}}</td>
-              <td class="row row2">{{item.name}}</td>
-              <td class="row row3"><span *ngFor="let printingEditionsName of item.printingEditionsName">{{printingEditionsName}}<br></span></td>
-              <td class="row row4">
-                  <div class="td__container">
-                    <img class = "img__button" src="assets/images/pencil-edit-button.svg" alt="edit">
-                    <img class = "img__button" src="assets/images/remove.svg" alt="remove" (click)= "Remove(item)">
-                  </div>
-              </td>
-          </tr>
-      </tbody>
-  </table>
-
--->
 <div class="wrapper">
   <div class="name__page">
     <span>Authors Page</span>
@@ -76,26 +11,19 @@
     </div>
 <div>
     <table mat-table [dataSource]="items" class="mat-elevation-z8" matSort (matSortChange)="sortData($event)">
-
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
         <ng-container matColumnDef="id">
-          <th class="row row1" mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-          <td class="row row1" mat-cell *matCellDef="let element"> {{element.id}} </td>
+          <th class="row id" mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td class="row id" mat-cell *matCellDef="let element"> {{element.id}} </td>
         </ng-container>
 
-        <!-- Name Column -->
         <ng-container matColumnDef="name">
-          <th class="row row2" mat-header-cell *matHeaderCellDef> Name </th>
-          <td class="row row2" mat-cell *matCellDef="let element">{{element.name}} </td>
+          <th class="row name" mat-header-cell *matHeaderCellDef> Name </th>
+          <td class="row name" mat-cell *matCellDef="let element">{{element.name}} </td>
         </ng-container>
 
-        <!-- Product Column -->
         <ng-container matColumnDef="product">
-            <th class="row row3" mat-header-cell *matHeaderCellDef> Product </th>
-            <td class="row row3" mat-cell *matCellDef="let element">
+            <th class="row product" mat-header-cell *matHeaderCellDef> Product </th>
+            <td class="row product" mat-cell *matCellDef="let element">
               <span *ngFor="let printingEditionsName of element.printingEditionsName">
                 {{printingEditionsName}}<br>
               </span>
@@ -103,8 +31,8 @@
         </ng-container>
 
         <ng-container matColumnDef="editAndRemove">
-            <th class="row row4" mat-header-cell *matHeaderCellDef></th>
-            <td class="row row4" mat-cell *matCellDef="let element">
+            <th class="row editAndRemove" mat-header-cell *matHeaderCellDef></th>
+            <td class="row editAndRemove" mat-cell *matCellDef="let element">
                 <div class="td__container">
                   <img class = "img__button" src="assets/images/pencil-edit-button.svg" alt="edit" (click)= "edit(element)">
                   <img class = "img__button" src="assets/images/remove.svg" alt="remove" (click)= "remove(element)">
@@ -117,8 +45,9 @@
       </table>
       <mat-paginator
         [length] = "amountPages"
-        [pageSize] = "10"
+        [pageSize] = "pageSizeOptions[1]"
         [pageIndex]="pageIndex"
-        [pageSizeOptions] = "[5, 10, 25, 100]"
+        [pageSizeOptions] = "pageSizeOptions"
         (page)="pageEvent = getServerData($event)" showFirstLastButtons >
       </mat-paginator>
+      </div>

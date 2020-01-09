@@ -11,11 +11,11 @@
   <div class="add">
     <div class="quantity">
         <div>
-        Qty: <input matInput [formControl] = "quantity" (keyup.enter)="FilterPrintingEditions()">
+        Qty: <input matInput [formControl] = "quantity">
         </div>
       <span class="price">{{printingEdition.price * quantity.value}}$</span>
   </div><br>
-  <button mat-raised-button (click) = "FilterPrintingEditions()">Add to Cart</button>
+  <button mat-raised-button (click)="add()">Add to Cart</button>
   </div>
   </div>
   <div class="description ">

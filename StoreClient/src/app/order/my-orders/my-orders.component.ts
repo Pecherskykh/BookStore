@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {OrderService} from 'src/app/shared/services/order-service';
-import {OrderManagmentModelItem} from 'src/app/shared/models/Orders/order-managment-model-item';
+import { OrderService } from 'src/app/shared/services/order-service';
+import { OrderManagmentModelItem } from 'src/app/shared/models/Orders/order-managment-model-item';
 import { PageEvent, MatSort } from '@angular/material';
 import { OrdersFilterModel } from 'src/app/shared/models/Orders/orders-filter-model';
 import { OrderSortType } from 'src/app/shared/enums/order-sort-type';
@@ -9,6 +9,10 @@ import { FormControl } from '@angular/forms';
 import { UserModelItem } from 'src/app/shared/models/Users/user-model-item';
 import { LocalSorage } from 'src/app/shared/services/local-sorage';
 import { DisplayedColumnsConstans } from 'src/app/shared/constans/displayed-columns-constans';
+import { PrintingEditionConstants } from 'src/app/shared/constans/printing-edition-constants';
+import { BaseConstants } from 'src/app/shared/constans/base-constants';
+import { OrderManagmentModel } from 'src/app/shared/models/Orders/order-managment-model';
+import { PaginationConstants } from 'src/app/shared/constans/pagination-constants';
 
 @Component({
   selector: 'app-my-orders',
@@ -18,6 +22,7 @@ import { DisplayedColumnsConstans } from 'src/app/shared/constans/displayed-colu
 })
 export class MyOrdersComponent implements OnInit {
 
+  pageSizeOptions: number[];
   displayedColumns: string[];
   search: FormControl;
   typePrintingEditionItems: string[];
@@ -25,65 +30,60 @@ export class MyOrdersComponent implements OnInit {
   pageIndex: number;
   ordersFilterModel: OrdersFilterModel;
   user: UserModelItem;
-
-  constructor(private orderService: OrderService, private localStorage: LocalSorage) {
-    this.user = new UserModelItem();
-    this.ordersFilterModel = new OrdersFilterModel();
-    this.ordersFilterModel.sortType = OrderSortType.Id;
-    this.ordersFilterModel.sortingDirection = SortingDirection.lowToHigh;
-    this.ordersFilterModel.pageCount = 0;
-    this.ordersFilterModel.pageSize = 10;
-    this.search = new FormControl('');
-    this.displayedColumns = DisplayedColumnsConstans.myOrders;
-    this.typePrintingEditionItems = ['book', 'magazine', 'newspaper'];
-   }
-
   items: Array<OrderManagmentModelItem>;
 
-  GetOrders() {
-    debugger;
-    this.orderService.getData(this.ordersFilterModel).subscribe(data => {
+  constructor(private orderService: OrderService, private localStorage: LocalSorage) {
+    this.pageSizeOptions = PaginationConstants.pageSizeOptions;
+    this.user = this.localStorage.getUser();
+    this.ordersFilterModel = new OrdersFilterModel();
+    this.ordersFilterModel.sortType = OrderSortType.id;
+    this.ordersFilterModel.sortingDirection = SortingDirection.asc;
+    this.ordersFilterModel.pageCount = BaseConstants.zero;
+    this.ordersFilterModel.pageSize = BaseConstants.ten;
+    this.ordersFilterModel.searchString = this.user.userName;
+    this.displayedColumns = DisplayedColumnsConstans.myOrders;
+    this.typePrintingEditionItems = PrintingEditionConstants.typePrintingEditionItems;
+   }
+
+  getOrders(): void {
+    this.orderService.getData(this.ordersFilterModel).subscribe((data: OrderManagmentModel) => {
       this.items = data.items;
       this.count = data.count;
   });
 }
 
-sortData(event: MatSort) {
-  if (event.active === 'id') {
-    this.ordersFilterModel.sortType = OrderSortType.Id;
+sortData(event: MatSort): void {
+  if (event.active === OrderSortType[OrderSortType.id]) {
+    this.ordersFilterModel.sortType = OrderSortType.id;
   }
 
-  if (event.active === 'date') { //todo use enums
-    this.ordersFilterModel.sortType = OrderSortType.Date;
+  if (event.active === OrderSortType[OrderSortType.id]) { //todo use enums
+    this.ordersFilterModel.sortType = OrderSortType.date;
   }
 
-  if (event.active === 'orderAmount') {
-    this.ordersFilterModel.sortType = OrderSortType.OrderAmount;
+  if (event.active === OrderSortType[OrderSortType.orderAmount]) {
+    this.ordersFilterModel.sortType = OrderSortType.orderAmount;
   }
 
-  if (event.direction === 'asc') {
-    this.ordersFilterModel.sortingDirection = SortingDirection.lowToHigh;
+  if (event.direction === SortingDirection[SortingDirection.asc]) {
+    this.ordersFilterModel.sortingDirection = SortingDirection.asc;
   }
 
-  if (event.direction === 'desc') {
-    this.ordersFilterModel.sortingDirection = SortingDirection.highToLow;
+  if (event.direction === SortingDirection[SortingDirection.desc]) {
+    this.ordersFilterModel.sortingDirection = SortingDirection.desc;
   }
 
-  this.GetOrders();
+  this.getOrders();
 }
 
-getServerData(event: PageEvent) {
+getServerData(event: PageEvent): void {
   this.pageIndex = event.pageIndex;
   this.ordersFilterModel.pageSize = event.pageSize;
   this.ordersFilterModel.pageCount = this.pageIndex;
-  this.GetOrders();
+  this.getOrders();
 }
 
-  ngOnInit() {
-    this.pageIndex = 0;
-    this.user = this.localStorage.getUser();
-    this.ordersFilterModel.searchString = this.user.userName;
-    this.ordersFilterModel.pageCount = 0;
-    this.GetOrders();
+  ngOnInit(): void {
+    this.getOrders();
   }
 }

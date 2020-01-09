@@ -1,0 +1,40 @@
+<div>
+  <h1 class="head">Checkout</h1>
+  <table mat-table [dataSource]="cart.orderItemModel.items" class="mat-elevation-z8">
+      <ng-container matColumnDef="product">
+        <th class="row product" mat-header-cell *matHeaderCellDef> Product </th>
+        <td class="row product" mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="unitPrice">
+        <th class="row unitPrice" mat-header-cell *matHeaderCellDef> Unit price </th>
+        <td class="row unitPrice" mat-cell *matCellDef="let element">{{element.unitPrice}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="qty">
+          <th class="row qty" mat-header-cell *matHeaderCellDef> Qty </th>
+          <td class="row qty" mat-cell *matCellDef="let element"> <input class="count" type="text" [value] = "element.count"></td>
+      </ng-container>
+
+      <ng-container matColumnDef="orderAmount">
+          <th class="row orderAmount" mat-header-cell *matHeaderCellDef> Order amount </th>
+          <td class="row orderAmount" mat-cell *matCellDef="let element"> {{element.unitPrice * element.count}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="remove">
+        <th class="row orderAmount" mat-header-cell *matHeaderCellDef></th>
+        <td class="row orderAmount" mat-cell *matCellDef="let element">
+          <div class="td__container">
+            <img class = "img__button" src="assets/images/minus-button.svg" alt="remove" (click) = "remove(element)">
+          </div>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <span class="total">TOTAL PRICE </span><span class="total price">USD 117</span>
+    <div>
+      <button mat-raised-button class="cart__button" mat-dialog-close>Cancel</button>
+      <button mat-raised-button class="cart__button" (click) = "create()">Buy Now</button>
+    </div>
+</div>

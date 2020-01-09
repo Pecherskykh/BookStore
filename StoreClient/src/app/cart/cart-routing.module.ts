@@ -1,11 +1,6 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { CartItemsComponent } from './cart-items/cart-items.component';
+import { Routes } from '@angular/router';
 
-
-const routes: Routes = [];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class CartRoutingModule { }
+export const routes: Routes = [
+  {path: 'cart-items', component: CartItemsComponent }
+];

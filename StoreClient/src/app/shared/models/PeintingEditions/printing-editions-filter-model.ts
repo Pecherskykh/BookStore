@@ -4,9 +4,9 @@ import {BaseFilterModel} from '../Base/base-filter-model';
 import { Currencys } from '../../enums/currencys';
 
 export class PrintingEditionsFilterModel extends BaseFilterModel {
-  Categories: Array<TypePrintingEdition>;
-  SortType: PrintingEditionSortType;
-  MinPrice: number;
-  MaxPrice: number;
+  categories: Array<TypePrintingEdition>;
+  sortType: PrintingEditionSortType;
+  minPrice: number;
+  maxPrice: number;
   currency: Currencys;
 }

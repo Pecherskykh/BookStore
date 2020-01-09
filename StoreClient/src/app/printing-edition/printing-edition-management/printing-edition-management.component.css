@@ -53,28 +53,29 @@ tbody > tr:nth-child(2n+1) {
 .row {
   border-right: 1px solid black;
 }
-.row1 {
+
+.id {
   width: 4%;
 }
-.row2 {
+.name {
   width: 10%;
 }
-.row3 {
+.description {
   width: 40%;
 }
-.row4 {
+.category {
   width: 10%;
 }
 
-.row5 {
+.author {
   width: 10%;
 }
 
-.row6 {
+.price {
   width: 5%;
 }
 
-.row7 {
+.editAndRemove {
   width: 4%;
 }
 

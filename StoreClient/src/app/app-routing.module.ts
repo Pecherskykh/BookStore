@@ -8,7 +8,8 @@ const routes: Routes = [
   {path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
   {path: 'order', loadChildren: () => import('./order/order.module').then(m => m.OrderModule) },
   {path: 'printing-edition', loadChildren: () => import('./printing-edition/printing-edition.module').then(m => m.PrintingEditionModule) },
-  {path: 'shared', loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule) }
+  {path: 'shared', loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule) },
+  {path: 'cart', loadChildren: () => import('./cart/cart.module').then(m => m.CartModule) }
 ];
 
 @NgModule({

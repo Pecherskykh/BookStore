@@ -1,7 +1,5 @@
 ﻿using BookStore.BusinessLogic.Models.Authors;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BookStore.BusinessLogic.Extensions.AuthorExtensions
 {
@@ -10,7 +8,7 @@ namespace BookStore.BusinessLogic.Extensions.AuthorExtensions
         public static List<AuthorModelItem> Map(this ICollection<BookStore.DataAccess.Models.Authors.AuthorModelItem> authorModelItems)
         {
             List<AuthorModelItem> author = new List<AuthorModelItem>();
-            foreach (BookStore.DataAccess.Models.Authors.AuthorModelItem authorModelItem in authorModelItems)
+            foreach (var authorModelItem in authorModelItems)
             {
                 author.Add(authorModelItem.Map());
             }

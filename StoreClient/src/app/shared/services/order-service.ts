@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {OrderManagmentModel} from '../models/Orders/order-managment-model';
 import { Observable } from 'rxjs';
 import { OrdersFilterModel } from '../models/Orders/orders-filter-model';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 
@@ -12,6 +13,6 @@ export class OrderService {
 
   getData(ordersFilterModel: OrdersFilterModel): Observable<OrderManagmentModel> {
     return this.http.post<OrderManagmentModel>(
-      'https://localhost:44319/api/order/getOrders', ordersFilterModel);
+      `${environment.apiUrl}order/getOrders`, ordersFilterModel);
   }
 }

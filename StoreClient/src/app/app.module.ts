@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HeaderComponent} from './shared/components/header/header.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 import { Interceptor } from './shared/Interceptors/interceptor';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthenticationService } from './shared/services/AuthenticationService';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule,
+    CartModule
   ],
   providers: [
     {
