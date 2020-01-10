@@ -12,7 +12,7 @@ namespace BookStore.DataAccess.Entities
 
         [ForeignKey("UserId")]
         public long UserId { get; set; }
-        public long Amount { get; set; }
+        public decimal Amount { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }
     }

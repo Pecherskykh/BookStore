@@ -14,6 +14,6 @@ namespace BookStore.BusinessLogic.Models.Orders
         public string UserName { get; set; }
         public string UserEmail { get; set; }
         public ICollection<OrderItemModelItem> OrderItems { get; set; } = new List<OrderItemModelItem>();
-        public long OrderAmount { get; set; }
+        public decimal OrderAmount { get; set; }
     }
 }

@@ -15,14 +15,20 @@ export class CartItemsComponent implements OnInit {
 
   displayedColumns: string[];
   cart: CartModel;
+  orderAmount: number;
 
   constructor(private cartService: CartService, private localStorage: LocalSorage) {
     this.displayedColumns = DisplayedColumnsConstans.cartItems;
+    this.orderAmount = 0;
   }
 
-  getOrderItemItems(): void {
+  getCart(): void {
     debugger;
     this.cart = this.localStorage.getCart();
+
+    this.cart.orderItemModel.items.forEach((element: OrderItemModelItem) => {
+      this.orderAmount += element.unitPrice * element.count;
+    });
   }
 
   remove(element: OrderItemModelItem): void {
@@ -31,15 +37,18 @@ export class CartItemsComponent implements OnInit {
       this.cart.orderItemModel.items.splice(index, 1);
     }
     this.localStorage.setCart(this.cart);
-    this.getOrderItemItems();
+    this.getCart();
   }
 
   create() {
     debugger;
+    this.cart.userId = 54;
+    this.cart.orderAmount = this.orderAmount;
     this.cartService.postData(this.cart).subscribe();
+    localStorage.removeItem('cart');
   }
 
   ngOnInit() {
-    this.getOrderItemItems();
+    this.getCart();
   }
 }

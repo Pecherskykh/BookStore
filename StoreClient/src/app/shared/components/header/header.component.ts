@@ -19,9 +19,9 @@ export class HeaderComponent implements OnInit {
   }
 
   logOut() {
-    localStorage.removeItem('user');
+    /*localStorage.removeItem('user');
     localStorage.removeItem('cart');
-    this.accontService.logOut();
+    this.accontService.logOut();*/
     location.href = 'http://localhost:4200/account/login';
   }
 

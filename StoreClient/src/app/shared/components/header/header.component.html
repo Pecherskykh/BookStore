@@ -3,11 +3,17 @@
       <img src="assets/images/open-book-book-svgrepo-com.svg" class="header__logo" alt="logotype">
       <h1 class="header__title">Book Publishing Company</h1>
   </a>
-  <button (click) = "logOut()">LogOut</button>
-  <a href="http://localhost:4200/printing-edition/home">Home</a>;
-  <a href="http://localhost:4200/user/users">User mangement</a>;
-  <a href="http://localhost:4200/printing-edition/printing-edition-management">Product mangement</a>;
-  <a href="http://localhost:4200/author/authors">Authors Page</a>;
-  <a href="http://localhost:4200/order/order-managment">Order managment</a>
-  <img class="cart" src="assets/images/cart.svg" (click) = "cart()">
+  <div class="tools">
+    <img class="user" src="assets/images/user.svg" [matMenuTriggerFor]="menu">
+    <mat-menu #menu="matMenu">
+      <a mat-menu-item href="http://localhost:4200/order/order-managment">Order managment</a>
+      <a mat-menu-item href="http://localhost:4200/user/users">User mangement</a>
+      <a mat-menu-item href="http://localhost:4200/printing-edition/printing-edition-management">Product mangement</a>
+      <a mat-menu-item href="http://localhost:4200/author/authors">Authors Page</a>
+      <a mat-menu-item href="http://localhost:4200/printing-edition/home">My Profile</a>
+      <a mat-menu-item href="http://localhost:4200/printing-edition/home">Home</a>
+      <button mat-menu-item (click) = "logOut()">Log Out</button>
+    </mat-menu>
+    <img class="cart" src="assets/images/cart.svg" (click) = "cart()">
+  </div>
 </header>

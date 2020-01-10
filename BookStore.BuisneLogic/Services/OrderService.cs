@@ -59,7 +59,8 @@ namespace BookStore.BusinessLogic.Services
             var order = new Order()
             {
                 PaymentId = paymentId,
-                UserId = cartModel.UserId
+                UserId = cartModel.UserId,
+                Amount = cartModel.OrderAmount
             };
             var orderId = await _orderRepository.CreateAsync(order);
             foreach (var orderItem in cartModel.OrderItemModel.Items)

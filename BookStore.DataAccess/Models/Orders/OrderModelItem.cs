@@ -11,6 +11,6 @@ namespace BookStore.DataAccess.Models.Orders
         public string UserName { get; set; }
         public string UserEmail { get; set; }
         public ICollection<OrderItemModelItem> OrderItems { get; set; }
-        public long OrderAmount { get; set; }
+        public decimal OrderAmount { get; set; }
     }
 }
