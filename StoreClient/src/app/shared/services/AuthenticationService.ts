@@ -8,6 +8,7 @@ export class AuthenticationService {
   getJwtToken() {
     return this.cookieService.get('accessToken');
   }
-  refreshToken() {
+  refreshToken(): TokensModel {
+
   }
 }

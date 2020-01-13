@@ -19,18 +19,24 @@ export class LocalSorage {
 
   getCart(): CartModel {
 
+    let localCart: CartModel;
+    localCart = JSON.parse(localStorage.getItem('cart'));
+    if (localCart === null) {
+      return null;
+    }
+
     let cartModel: CartModel = new CartModel();
     cartModel.orderItemModel = new OrderItemModel();
     cartModel.orderItemModel.items = new Array<OrderItemModelItem>();
-    let localCart: CartModel;
-    localCart = JSON.parse(localStorage.getItem('cart'));
 
     localCart.orderItemModel.items.forEach((element: OrderItemModelItem) => {
       cartModel.orderItemModel.items.push({
-        count: parseInt(element.count),
-        printingEditionId: parseInt(element.printingEditionId),
+        // tslint:disable-next-line: radix
+        count: parseInt(element.count.toString()),
+        // tslint:disable-next-line: radix
+        printingEditionId: parseInt(element.printingEditionId.toString()),
         title: element.title.toString(),
-        unitPrice: parseFloat(element.unitPrice)
+        unitPrice: parseFloat(element.unitPrice.toString())
       });
     });
 

@@ -24,6 +24,6 @@ export class AccontService {
     }
 
     logOut() {
-      return this.http.get(`${environment.apiUrl}account/logOut`);
+      return this.http.get(`${environment.apiUrl}account/logout`);
     }
 }

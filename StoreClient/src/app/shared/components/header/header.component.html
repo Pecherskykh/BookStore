@@ -1,19 +1,24 @@
 <header class="header">
-  <a href="#" class="header__link">
+  <a href="http://localhost:4200/printing-edition/home" class="header__link">
       <img src="assets/images/open-book-book-svgrepo-com.svg" class="header__logo" alt="logotype">
       <h1 class="header__title">Book Publishing Company</h1>
   </a>
-  <div class="tools">
+
+  <div class="right tools">
+    <a href="http://localhost:4200/account/login" *ngIf = "user === null">Log in</a>
+    <div class="tools" *ngIf = "user !== null">
     <img class="user" src="assets/images/user.svg" [matMenuTriggerFor]="menu">
     <mat-menu #menu="matMenu">
-      <a mat-menu-item href="http://localhost:4200/order/order-managment">Order managment</a>
-      <a mat-menu-item href="http://localhost:4200/user/users">User mangement</a>
-      <a mat-menu-item href="http://localhost:4200/printing-edition/printing-edition-management">Product mangement</a>
-      <a mat-menu-item href="http://localhost:4200/author/authors">Authors Page</a>
-      <a mat-menu-item href="http://localhost:4200/printing-edition/home">My Profile</a>
-      <a mat-menu-item href="http://localhost:4200/printing-edition/home">Home</a>
+      <a mat-menu-item *ngIf = "user.role === 'Admin'" href="http://localhost:4200/order/order-managment">Order managment</a>
+      <a mat-menu-item *ngIf = "user.role === 'Admin'" href="http://localhost:4200/user/users">User mangement</a>
+      <a mat-menu-item *ngIf = "user.role === 'Admin'" href="http://localhost:4200/printing-edition/printing-edition-management">Product mangement</a>
+      <a mat-menu-item *ngIf = "user.role === 'Admin'" href="http://localhost:4200/author/authors">Authors Page</a>
+      <a mat-menu-item href="http://localhost:4200/user/profile">My Profile</a>
+      <a mat-menu-item *ngIf = "user.role === 'User'" href="http://localhost:4200/order/my-orders">My Orders</a>
+      <a mat-menu-item *ngIf = "user.role === 'User'" href="http://localhost:4200/printing-edition/home">Home</a>
       <button mat-menu-item (click) = "logOut()">Log Out</button>
     </mat-menu>
-    <img class="cart" src="assets/images/cart.svg" (click) = "cart()">
+    <img class="cart" src="assets/images/cart.svg" *ngIf = "user.role === 'User'" (click) = "cart()">
+  </div>
   </div>
 </header>

@@ -48,7 +48,37 @@ export class CartItemsComponent implements OnInit {
     localStorage.removeItem('cart');
   }
 
+
+  pay() {
+    let handler = (window as any).StripeCheckout.configure({
+      key: 'pk_test_aeUUjYYcx4XNfKVW60pmHTtI',
+      locale: 'auto',
+      token(token: any) {
+
+        console.log(token);
+        alert('Token Created!!');
+      }
+    });
+
+    handler.open({
+      name: 'Demo Site',
+      description: '2 widgets',
+      amount: this.orderAmount * 100
+    });
+  }
+
+  loadStripe() {
+    if (!window.document.getElementById('stripe-script')) {
+      let s = window.document.createElement('script');
+      s.id = 'stripe-script';
+      s.type = 'text/javascript';
+      s.src = 'https://checkout.stripe.com/checkout.js';
+      window.document.body.appendChild(s);
+    }
+}
+
   ngOnInit() {
     this.getCart();
+    this.loadStripe();
   }
 }

@@ -2,6 +2,7 @@
 using BookStore.BusinessLogic.Models.PrintingEditions;
 using BookStore.BusinessLogic.Models.PrintingEditionsFilterModel;
 using BookStore.BusinessLogic.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Presentation.Controllers
@@ -32,6 +33,7 @@ namespace BookStore.Presentation.Controllers
             return Ok(printingEditionModelItem);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("create")]
         public async Task<IActionResult> Create(PrintingEditionModelItem printingEditionsItem)
         {
@@ -39,6 +41,7 @@ namespace BookStore.Presentation.Controllers
             return Ok(printingEditionModel);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("update")]
         public async Task<IActionResult> Update(PrintingEditionModelItem printingEditionsItem)
         {
@@ -46,6 +49,7 @@ namespace BookStore.Presentation.Controllers
             return Ok(printingEditionModel);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("remove")]
         public async Task<IActionResult> Remove(PrintingEditionModelItem printingEditionsItem)
         {
