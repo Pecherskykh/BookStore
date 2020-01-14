@@ -1,34 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Predicate } from '@angular/core';
 import { DisplayedColumnsConstans } from 'src/app/shared/constans/displayed-columns-constans';
 import { OrderItemModelItem } from 'src/app/shared/models/OrderItem/order-item-model-item';
-import { LocalSorage } from 'src/app/shared/services/local-sorage';
+import { LocalStorage } from 'src/app/shared/services/local-storage';
 import { CartModel } from 'src/app/shared/models/Cart/cart-model';
 import { CartService } from 'src/app/shared/services/cart-service';
+import { PaymentService } from 'src/app/shared/services/payment-service';
+import { MatDialog } from '@angular/material';
+import { PaymentSuccessComponent } from '../payment-success/payment-success.component';
+import { OrderManagmentModelItem } from 'src/app/shared/models/Orders/order-managment-model-item';
 
 @Component({
   selector: 'app-cart-items',
   templateUrl: './cart-items.component.html',
   styleUrls: ['./cart-items.component.css'],
-  providers: [CartService, LocalSorage]
+  providers: [
+    CartService,
+    LocalStorage,
+    PaymentService
+  ]
 })
 export class CartItemsComponent implements OnInit {
 
   displayedColumns: string[];
   cart: CartModel;
   orderAmount: number;
+  paymentCallBack: Predicate<string>;
 
-  constructor(private cartService: CartService, private localStorage: LocalSorage) {
+  constructor(
+    private cartService: CartService,
+    private dialog: MatDialog,
+    private localStorage: LocalStorage,
+    private paymentService: PaymentService
+    ) {
     this.displayedColumns = DisplayedColumnsConstans.cartItems;
-    this.orderAmount = 0;
+    this.paymentCallBack = this.create.bind(this);
   }
 
   getCart(): void {
-    debugger;
     this.cart = this.localStorage.getCart();
-
+    if (this.cart === null || this.cart.orderItemModel.items.length === 0) {
+      this.dialog.closeAll();
+    }
+    this.orderAmount = 0;
     this.cart.orderItemModel.items.forEach((element: OrderItemModelItem) => {
       this.orderAmount += element.unitPrice * element.count;
     });
+  }
+
+  openDialog(orderId: number) {
+    this.dialog.closeAll();
+    let dialogRef = this.dialog.open(PaymentSuccessComponent, {data: orderId});
   }
 
   remove(element: OrderItemModelItem): void {
@@ -40,45 +61,22 @@ export class CartItemsComponent implements OnInit {
     this.getCart();
   }
 
-  create() {
-    debugger;
-    this.cart.userId = 54;
+  create(transactionId: string) {
+    this.cart.userId = this.localStorage.getUser().id;
+    this.cart.transactionId = transactionId;
     this.cart.orderAmount = this.orderAmount;
-    this.cartService.postData(this.cart).subscribe();
+    this.cartService.postData(this.cart).subscribe((data: OrderManagmentModelItem) => {
+      this.openDialog(data.id);
+    });
     localStorage.removeItem('cart');
   }
 
-
   pay() {
-    let handler = (window as any).StripeCheckout.configure({
-      key: 'pk_test_aeUUjYYcx4XNfKVW60pmHTtI',
-      locale: 'auto',
-      token(token: any) {
-
-        console.log(token);
-        alert('Token Created!!');
-      }
-    });
-
-    handler.open({
-      name: 'Demo Site',
-      description: '2 widgets',
-      amount: this.orderAmount * 100
-    });
+    this.paymentService.pay(this.orderAmount, this.paymentCallBack);
   }
-
-  loadStripe() {
-    if (!window.document.getElementById('stripe-script')) {
-      let s = window.document.createElement('script');
-      s.id = 'stripe-script';
-      s.type = 'text/javascript';
-      s.src = 'https://checkout.stripe.com/checkout.js';
-      window.document.body.appendChild(s);
-    }
-}
 
   ngOnInit() {
     this.getCart();
-    this.loadStripe();
+    this.paymentService.loadStripe();
   }
 }

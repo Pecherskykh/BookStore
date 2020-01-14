@@ -6,14 +6,14 @@ import { PrintingEditionModelItem } from 'src/app/shared/models/PeintingEditions
 import { FormControl } from '@angular/forms';
 import { CartModel } from 'src/app/shared/models/Cart/cart-model';
 import { OrderItemModelItem } from 'src/app/shared/models/OrderItem/order-item-model-item';
-import { LocalSorage } from 'src/app/shared/services/local-sorage';
+import { LocalStorage } from 'src/app/shared/services/local-storage';
 import { OrderItemModel } from 'src/app/shared/models/OrderItem/order-item-model';
 
 @Component({
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.css'],
-  providers: [PrintingEditionService, LocalSorage]
+  providers: [PrintingEditionService, LocalStorage]
 })
 export class BookDetailsComponent implements OnInit {
 
@@ -27,7 +27,7 @@ export class BookDetailsComponent implements OnInit {
 
   constructor(private activateRoute: ActivatedRoute,
               private printingEditionService: PrintingEditionService,
-              private localStorage: LocalSorage) {
+              private localStorage: LocalStorage) {
 
     this.quantity = new FormControl(1);
     this.subscription = activateRoute.params.

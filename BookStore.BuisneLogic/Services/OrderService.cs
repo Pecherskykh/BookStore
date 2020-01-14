@@ -43,9 +43,9 @@ namespace BookStore.BusinessLogic.Services
             return order.Map();
         }
 
-        public async Task<BaseModel> CreateAsync(CartModel cartModel)
+        public async Task<OrderModelItem> CreateAsync(CartModel cartModel)
         {
-            var resultModel = new BaseModel();
+            var resultModel = new OrderModelItem();
             if(cartModel == null)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.CartModelIsEmptyError);
@@ -69,6 +69,7 @@ namespace BookStore.BusinessLogic.Services
                 var orderItemEntity = orderItem.Map();
                 await _orderItemRepository.CreateAsync(orderItemEntity);
             }
+            resultModel.Id = orderId;
             return resultModel;
         }
 

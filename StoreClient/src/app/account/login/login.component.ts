@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 import { AccontService } from 'src/app/shared/services/accont-service';
 import { UserModelItem } from 'src/app/shared/models/Users/user-model-item';
-import { LocalSorage } from 'src/app/shared/services/local-sorage';
+import { LocalStorage } from 'src/app/shared/services/local-storage';
 import { FormBuilder } from '@angular/forms';
 import { BaseConstants } from 'src/app/shared/constans/base-constants';
 
@@ -9,7 +9,7 @@ import { BaseConstants } from 'src/app/shared/constans/base-constants';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [AccontService, LocalSorage]
+  providers: [AccontService, LocalStorage]
 })
 
 export class LoginComponent {
@@ -18,7 +18,7 @@ export class LoginComponent {
 
   constructor(
     private accontService: AccontService,
-    private localStorage: LocalSorage,
+    private localStorage: LocalStorage,
     private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
       email: BaseConstants.stringEmpty,

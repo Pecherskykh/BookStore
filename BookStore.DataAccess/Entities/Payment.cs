@@ -4,6 +4,6 @@ namespace BookStore.DataAccess.Entities
 {
     public class Payment : BaseEntity
     {
-        public long TransactionId { get; set; }
+        public string TransactionId { get; set; }
     }
 }

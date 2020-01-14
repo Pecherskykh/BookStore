@@ -4,7 +4,7 @@ import { CartModel } from '../models/Cart/cart-model';
 import { OrderItemModelItem } from '../models/OrderItem/order-item-model-item';
 import { OrderItemModel } from '../models/OrderItem/order-item-model';
 
-export class LocalSorage {
+export class LocalStorage {
   setUser(user: UserModelItem) {
     localStorage.setItem('user', JSON.stringify(user));
   }

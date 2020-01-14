@@ -9,7 +9,7 @@ namespace BookStore.BusinessLogic.Services.Interfaces
     public interface IOrderService
     {
         Task<OrderModelItem> FindByIdAsync(long orderId);
-        Task<BaseModel> CreateAsync(CartModel cartModel);
+        Task<OrderModelItem> CreateAsync(CartModel cartModel);
         Task<OrderModel> GetOrdersAsync(OrdersFilterModel ordersFilterModel);
     }
 }

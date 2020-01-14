@@ -6,10 +6,11 @@ import { CartItemsComponent } from './cart-items/cart-items.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 
 
 @NgModule({
-  declarations: [CartItemsComponent],
+  declarations: [CartItemsComponent, PaymentSuccessComponent],
   imports: [
     SharedModule,
     RouterModule.forChild(routes),
