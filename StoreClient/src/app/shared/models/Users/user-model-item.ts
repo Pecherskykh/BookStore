@@ -1,4 +1,6 @@
-export class UserModelItem {
+import { BaseModel } from '../Base/base-model';
+
+export class UserModelItem extends BaseModel {
   id: number;
   userName: string;
   email: string;

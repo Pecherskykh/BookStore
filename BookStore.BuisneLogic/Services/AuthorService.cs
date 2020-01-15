@@ -61,6 +61,7 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.AuthorModelItemIsEmptyError);
                 return resultModel;
             }
+
             var result = await _authorRepository.UpdateAsync(author.Map());
             if(!result)
             {

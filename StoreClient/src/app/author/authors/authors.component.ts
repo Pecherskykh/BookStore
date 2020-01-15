@@ -22,6 +22,7 @@ import { PaginationConstants } from 'src/app/shared/constans/pagination-constant
 
 export class AuthorsComponent implements OnInit {
 
+  errors;
   pageSizeOptions: number[];
   displayedColumns: string[];
   searchByName: FormControl;
@@ -49,6 +50,7 @@ export class AuthorsComponent implements OnInit {
     this.authorService.getData(this.baseFilterModel).subscribe((data: AuthorModel) => {
       this.items = data.items;
       this.amountPages = data.pageAmount;
+      this.errors = data.errors;
   });
   }
 

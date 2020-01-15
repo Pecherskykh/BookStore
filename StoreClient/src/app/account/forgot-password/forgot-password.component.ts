@@ -18,9 +18,17 @@ export class ForgotPasswordComponent {
     this.email = new FormControl();
   }
 
+  /*er(baseModel: BaseModel) {
+    if (baseModel.errors.length !== 0) {
+      alert(baseModel.errors[0]);
+    }
+  }*/
+
   continue(): void {
     this.accontService.forgotPassword(this.email.value).subscribe((data: BaseModel) => {
-      this.errors = data.errors;
+      if (data.errors.length !== 0) {
+        alert(data.errors[0]);
+      }
     });
   }
 }

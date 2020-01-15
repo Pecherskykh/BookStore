@@ -41,8 +41,6 @@ export class BookDetailsComponent implements OnInit {
   }
 
   add() {
-    debugger;
-
     this.cart = this.localStorage.getCart();
     if (this.cart === null) {
       this.cart = new CartModel();

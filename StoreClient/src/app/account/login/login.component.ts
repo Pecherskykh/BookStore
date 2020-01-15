@@ -30,11 +30,19 @@ export class LoginComponent {
     alert(this.loginForm.value.email);
   }
 
+  authentication(user: UserModelItem): void {
+    if (user.errors.length !== 0) {
+      alert(user.errors[0]);
+      return;
+    }
+    this.localStorage.setUser(user);
+    location.href = 'http://localhost:4200/user/profile';
+  }
+
     signIn(): void {
       this.accontService.postData(this.loginForm.value).
       subscribe((data: UserModelItem) => {
-        this.localStorage.setUser(data);
-        location.href = 'http://localhost:4200/user/profile';
+        this.authentication(data);
       });
   }
 }

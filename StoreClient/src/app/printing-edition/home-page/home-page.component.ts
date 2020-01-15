@@ -50,6 +50,7 @@ export class HomePageComponent implements OnInit {
     ];
     this.typePrintingEditionItems = PrintingEditionConstants.typePrintingEditionItems;
     this.currencys = PrintingEditionConstants.currencys;
+
     this.homeForm = this.formBuilder.group({
       currency: Currencys[Currencys.USD],
       sortBy: SortingDirection[SortingDirection.asc],
@@ -113,6 +114,7 @@ export class HomePageComponent implements OnInit {
   }
 
   rout(item: PrintingEditionModelItem) {
+    this.printingEditionService.printingEdition = item;
     location.href = `http://localhost:4200/printing-edition/book-details/${item.id}`;
   }
 

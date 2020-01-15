@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
 
 export class PrintingEditionService {
 
+  printingEdition: PrintingEditionModelItem;
+
   constructor(private http: HttpClient) { }
 
   getData(element: PrintingEditionsFilterModel): Observable<PrintingEditionModel> {

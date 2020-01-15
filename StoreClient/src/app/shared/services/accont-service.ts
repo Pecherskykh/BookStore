@@ -19,8 +19,8 @@ export class AccontService {
         return this.http.get<BaseModel>(`${environment.apiUrl}account/forgotPassword?email=${email}`);
     }
 
-    register(userModelItem: UserModelItem) {
-        return this.http.post(`${environment.apiUrl}account/register`, userModelItem);
+    register(userModelItem: UserModelItem): Observable<BaseModel> {
+        return this.http.post<BaseModel>(`${environment.apiUrl}account/register`, userModelItem);
     }
 
     logOut() {
