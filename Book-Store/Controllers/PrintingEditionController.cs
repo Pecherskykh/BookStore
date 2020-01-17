@@ -33,7 +33,7 @@ namespace BookStore.Presentation.Controllers
             return Ok(printingEditionModelItem);
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost("create")]
         public async Task<IActionResult> Create(PrintingEditionModelItem printingEditionsItem)
         {

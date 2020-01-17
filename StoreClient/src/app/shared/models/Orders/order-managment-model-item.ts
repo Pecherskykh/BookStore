@@ -1,6 +1,7 @@
 import {OrderItemModelItem} from '../OrderItem/order-item-model-item';
+import { BaseModel } from '../Base/base-model';
 
-export class OrderManagmentModelItem {
+export class OrderManagmentModelItem extends BaseModel {
   id: number;
   date: Date;
   userName: string;

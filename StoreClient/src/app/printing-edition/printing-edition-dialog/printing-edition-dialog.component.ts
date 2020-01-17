@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { CreateUpdate } from 'src/app/shared/enums/create-update';
 import { AuthorModelItem } from 'src/app/shared/models/Authors/author-model-item';
 import { FormControl, FormBuilder } from '@angular/forms';
@@ -11,6 +11,8 @@ import { AuthorService } from 'src/app/shared/services/author-service';
 import { PrintingEditionService } from 'src/app/shared/services/printing-edition-service';
 import { PrintingEditionConstants } from 'src/app/shared/constans/printing-edition-constants';
 import { BaseConstants } from 'src/app/shared/constans/base-constants';
+import { BaseModel } from 'src/app/shared/models/Base/base-model';
+import { ErrorListComponent } from 'src/app/shared/components/error-list/error-list.component';
 
 @Component({
   selector: 'app-printing-edition-dialog',
@@ -29,7 +31,8 @@ export class PrintingEditionDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private authorService: AuthorService,
     private printingEditionService: PrintingEditionService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private dialog: MatDialog
     ) {
       this.printingEditionDialogForm = this.formBuilder.group({
         title: this.data.printingEditionModelItem.title,
@@ -84,7 +87,11 @@ export class PrintingEditionDialogComponent implements OnInit {
 
     printingEditionModelItem.currencys = Currencys[this.printingEditionDialogForm.value.currency as string];
 
-    this.printingEditionService.create(printingEditionModelItem).subscribe();
+    this.printingEditionService.create(printingEditionModelItem).subscribe((data: BaseModel) => {
+      if (data.errors.length > 0) {
+        let dialogRef = this.dialog.open(ErrorListComponent, {data: data.errors});
+      }
+    });
   }
 
   selectedAuthors() {
@@ -108,6 +115,10 @@ export class PrintingEditionDialogComponent implements OnInit {
     this.data.printingEditionModelItem.price = parseFloat(this.printingEditionDialogForm.value.price);
     this.data.printingEditionModelItem.currencys = Currencys[this.printingEditionDialogForm.value.currency];
     this.data.printingEditionModelItem.authors.items = this.authors.value;
-    this.printingEditionService.update(this.data.printingEditionModelItem).subscribe();
+    this.printingEditionService.update(this.data.printingEditionModelItem).subscribe((data: BaseModel) => {
+      if (data.errors.length > 0) {
+        let dialogRef = this.dialog.open(ErrorListComponent, {data: data.errors});
+      }
+    });
   }
 }

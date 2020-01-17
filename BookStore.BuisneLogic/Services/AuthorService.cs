@@ -6,7 +6,6 @@ using BookStore.BusinessLogic.Extensions.BaseFilterExtensions;
 using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Repositories.Interfaces;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -44,6 +43,13 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.AuthorModelItemIsEmptyError);
                 return resultModel;
             }
+
+            if (string.IsNullOrWhiteSpace(author.Name))
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.AuthorNameIsMissingError);
+                return resultModel;
+            }
+
             var result = await _authorRepository.CreateAsync(author.Map());
             if(result == 0)
             {
@@ -59,6 +65,12 @@ namespace BookStore.BusinessLogic.Services
             if (author == null)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.AuthorModelItemIsEmptyError);
+                return resultModel;
+            }
+
+            if (string.IsNullOrWhiteSpace(author.Name))
+            {
+                resultModel.Errors.Add(Constants.ErrorConstants.AuthorNameIsMissingError);
                 return resultModel;
             }
 

@@ -15,6 +15,9 @@ import { DisplayedColumnsConstans } from 'src/app/shared/constans/displayed-colu
 import { PrintingEditionConstants } from 'src/app/shared/constans/printing-edition-constants';
 import { BaseConstants } from 'src/app/shared/constans/base-constants';
 import { PaginationConstants } from 'src/app/shared/constans/pagination-constants';
+import { ErrorListComponent } from 'src/app/shared/components/error-list/error-list.component';
+import { PrintingEditionModel } from 'src/app/shared/models/PeintingEditions/printing-edition-model';
+import { BaseModel } from 'src/app/shared/models/Base/base-model';
 
 @Component({
   selector: 'app-printing-edition-management',
@@ -80,7 +83,13 @@ export class PrintingEditionManagementComponent implements OnInit {
     let dialogRef = this.dialog.open(RemoveComponent, {data: {pageName: 'printing edition', name: element.title}})
     .afterClosed().subscribe(data => {
       if (data) {
-      this.printingEditionService.remove(element).subscribe();
+      this.printingEditionService.remove(element).subscribe((baseDate: BaseModel) => {
+        if (baseDate.errors.length > 0) {
+            let dialogRef = this.dialog.open(ErrorListComponent, {data: baseDate.errors});
+            return;
+          }
+        }
+      );
       this.getPrintingEditions();
       }
     });
@@ -94,8 +103,11 @@ export class PrintingEditionManagementComponent implements OnInit {
   }
 
   private getPrintingEditions(): void { //todo return type
-    this.printingEditionService.getData(this.printingEditionsFilterModel).subscribe(data => {
-      //todo data -> add type, check errors (use Base functions)
+    this.printingEditionService.getData(this.printingEditionsFilterModel).subscribe((data: PrintingEditionModel) => {
+      if (data.errors.length > 0) {
+        let dialogRef = this.dialog.open(ErrorListComponent, {data: data.errors});
+        return;
+      }
       this.countPrintingEditions = data.countPrintingEditions;
       this.items = data.items;
   });

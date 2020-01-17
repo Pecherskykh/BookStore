@@ -6,31 +6,56 @@
   <img src="assets/images/man-user.svg" class="form__logo" alt="person">
   <h2 class="form__caption">Create account</h2>
   <div class="form__row">
-    <span>Your First name</span>
-    <input type="userName" name="userName" class="form__field" title="Your user name" formControlName = "userName" placeholder="User name">
+    <span>User name</span>
+    <mat-form-field class="form__field">
+      <input matInput placeholder="User name"  formControlName = "userName">
+      <mat-error>
+        This field must be filled
+      </mat-error>
+    </mat-form-field>
   </div>
   <div class="form__row">
       <span>Your First name</span>
-      <input type="firstName" name="firstName" class="form__field" title="Your First name" formControlName = "firstName" placeholder="First name">
+      <mat-form-field class="form__field">
+        <input matInput placeholder="First name"  formControlName = "firstName">
+        <mat-error>
+          This field must be filled
+        </mat-error>
+      </mat-form-field>
   </div>
   <div class="form__row">
     <span>Your Last name</span>
-    <input type="lastName" name="lastName" class="form__field" title="Your Last name" formControlName = "lastName" placeholder="Last name">
+    <mat-form-field class="form__field">
+      <input matInput placeholder="Last name"  formControlName = "lastName">
+      <mat-error>
+        This field must be filled
+      </mat-error>
+    </mat-form-field>
   </div>
   <div class="form__row">
     <span>E-mail</span>
-    <input type="email" name="email" class="form__field" title="Enter your email" formControlName = "email" placeholder="Email">
+    <mat-form-field class="form__field">
+      <input matInput placeholder="Email"  formControlName = "email">
+      <mat-error>
+        Email incorrect
+      </mat-error>
+    </mat-form-field>
   </div>
   <div class="form__row">
       <span>Password</span>
-      <input type="password" name="password" class="form__field" title="Enter your password" formControlName = "newPassword" placeholder="At least 6 characters">
+      <mat-form-field class="form__field">
+        <input matInput placeholder="At least 8 characters" type="password" formControlName = "newPassword">
+        <mat-error>
+          Password incorrect
+        </mat-error>
+      </mat-form-field>
   </div>
   <div class="form__row">
     <span>Confirm password</span>
-    <input type="password" name="password" class="form__field" title="Enter your password" formControlName = "newPassword" placeholder="Password should be the same">
+
   </div>
   <div class="form__footer">
-      <input type="submit" class="form__signInButton pointer button" value="Sign Up your account" (click)="signUp()">
+      <button [disabled] = "!registerForm.valid" mat-raised-button class="form__signUpButton pointer button" (click)="signUp()">Sign Up your account</button>
   </div>
 </form>
   <div class="form__row">

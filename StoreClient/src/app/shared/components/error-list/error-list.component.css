@@ -1,0 +1,14 @@
+.wrapper{
+  text-align: center;
+}
+
+ul{
+  text-align: left;
+}
+
+.errors{
+  align-items: center;
+  border: 2px solid black;
+}
+
+

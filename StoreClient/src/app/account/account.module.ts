@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), ReactiveFormsModule, MaterialModule],
+  imports: [RouterModule.forChild(routes), ReactiveFormsModule, MaterialModule, CommonModule],
   declarations: [LoginComponent, ConfirmEmailComponent, ForgotPasswordComponent, RegisterComponent]
 })
 export class AccountModule { }

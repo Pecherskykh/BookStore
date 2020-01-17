@@ -22,6 +22,7 @@
             public const string AuthorIdIsZeroError = "Author id is zero";
             public const string AuthorNotFoundError = "Author not found";
             public const string AuthorModelItemIsEmptyError = "AuthorModelItem Is empty";
+            public const string AuthorNameIsMissingError = "Author name is missing";
 
             public const string DataNotUpdatedError = "Data not updated";
             public const string DataNotRemovedError = "Data not removed";

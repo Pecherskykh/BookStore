@@ -2,8 +2,10 @@ import { Component} from '@angular/core';
 import { AccontService } from 'src/app/shared/services/accont-service';
 import { UserModelItem } from 'src/app/shared/models/Users/user-model-item';
 import { LocalStorage } from 'src/app/shared/services/local-storage';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { BaseConstants } from 'src/app/shared/constans/base-constants';
+import { ErrorListComponent } from 'src/app/shared/components/error-list/error-list.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -19,10 +21,12 @@ export class LoginComponent {
   constructor(
     private accontService: AccontService,
     private localStorage: LocalStorage,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private dialog: MatDialog) {
     this.loginForm = this.formBuilder.group({
-      email: BaseConstants.stringEmpty,
-      password: BaseConstants.stringEmpty
+      email: new FormControl(BaseConstants.stringEmpty, [Validators.required, Validators.email]),
+      password: new FormControl(BaseConstants.stringEmpty, [Validators.required, Validators.minLength(8),
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')])
     });
   }
 
@@ -31,8 +35,8 @@ export class LoginComponent {
   }
 
   authentication(user: UserModelItem): void {
-    if (user.errors.length !== 0) {
-      alert(user.errors[0]);
+    if (user.errors.length > 0) {
+      let dialogRef = this.dialog.open(ErrorListComponent, {data: user.errors});
       return;
     }
     this.localStorage.setUser(user);

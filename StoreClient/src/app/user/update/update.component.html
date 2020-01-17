@@ -9,17 +9,20 @@
   <div class="form__row">
     <span>First name</span>
     <mat-form-field class="form__field">
-      <input formControlName ="firstName" matInput placeholder="First Name" [value]="data.firstName">
+      <input formControlName ="firstName" matInput placeholder="First Name">
+      <mat-error>
+        fdsgffdgdg
+      </mat-error>
     </mat-form-field>
   </div>
   <div class="form__row">
     <span>Last name</span>
     <mat-form-field class="form__field">
-      <input formControlName ="lastName" matInput placeholder="Last Name" [value]="data.lastName">
+      <input formControlName ="lastName" matInput placeholder="Last Name">
     </mat-form-field>
   </div>
   <div class="modal__buttons">
     <button mat-raised-button mat-dialog-close>Cansel</button>
-    <button mat-raised-button mat-dialog-close (click)="save()">Save</button>
+    <button [disabled] = "!updateForm.valid" mat-raised-button mat-dialog-close (click)="save()">Save</button>
   </div>
 </div>

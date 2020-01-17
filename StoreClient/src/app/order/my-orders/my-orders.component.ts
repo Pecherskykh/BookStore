@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/shared/services/order-service';
 import { OrderManagmentModelItem } from 'src/app/shared/models/Orders/order-managment-model-item';
-import { PageEvent, MatSort } from '@angular/material';
+import { PageEvent, MatSort, MatDialog } from '@angular/material';
 import { OrdersFilterModel } from 'src/app/shared/models/Orders/orders-filter-model';
 import { OrderSortType } from 'src/app/shared/enums/order-sort-type';
 import { SortingDirection } from 'src/app/shared/enums/sorting-direction';
@@ -13,6 +13,7 @@ import { PrintingEditionConstants } from 'src/app/shared/constans/printing-editi
 import { BaseConstants } from 'src/app/shared/constans/base-constants';
 import { OrderManagmentModel } from 'src/app/shared/models/Orders/order-managment-model';
 import { PaginationConstants } from 'src/app/shared/constans/pagination-constants';
+import { ErrorListComponent } from 'src/app/shared/components/error-list/error-list.component';
 
 @Component({
   selector: 'app-my-orders',
@@ -32,7 +33,11 @@ export class MyOrdersComponent implements OnInit {
   user: UserModelItem;
   items: Array<OrderManagmentModelItem>;
 
-  constructor(private orderService: OrderService, private localStorage: LocalStorage) {
+  constructor(
+    private orderService: OrderService,
+    private localStorage: LocalStorage,
+    private dialog: MatDialog
+    ) {
     this.pageSizeOptions = PaginationConstants.pageSizeOptions;
     this.user = this.localStorage.getUser();
     this.ordersFilterModel = new OrdersFilterModel();
@@ -47,6 +52,10 @@ export class MyOrdersComponent implements OnInit {
 
   getOrders(): void {
     this.orderService.getData(this.ordersFilterModel).subscribe((data: OrderManagmentModel) => {
+      if (data.errors.length > 0) {
+        let dialogRef = this.dialog.open(ErrorListComponent, {data: data.errors});
+        return;
+      }
       this.items = data.items;
       this.count = data.count;
   });

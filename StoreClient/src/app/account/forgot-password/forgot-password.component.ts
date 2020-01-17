@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { AccontService } from 'src/app/shared/services/accont-service';
 import { BaseModel } from 'src/app/shared/models/Base/base-model';
+import { MatDialog } from '@angular/material';
+import { ErrorListComponent } from 'src/app/shared/components/error-list/error-list.component';
+import { BaseConstants } from 'src/app/shared/constans/base-constants';
 
 @Component({
   selector: 'app-forgot-password',
@@ -14,20 +17,14 @@ export class ForgotPasswordComponent {
   email: FormControl;
   errors: Array<string>;
 
-  constructor(private accontService: AccontService) {
-    this.email = new FormControl();
+  constructor(private accontService: AccontService, private dialog: MatDialog) {
+    this.email = new FormControl(BaseConstants.stringEmpty, [Validators.required, Validators.email]);
   }
-
-  /*er(baseModel: BaseModel) {
-    if (baseModel.errors.length !== 0) {
-      alert(baseModel.errors[0]);
-    }
-  }*/
 
   continue(): void {
     this.accontService.forgotPassword(this.email.value).subscribe((data: BaseModel) => {
-      if (data.errors.length !== 0) {
-        alert(data.errors[0]);
+      if (data.errors.length > 0) {
+        let dialogRef = this.dialog.open(ErrorListComponent, {data: data.errors});
       }
     });
   }

@@ -8,6 +8,7 @@ import { PaymentService } from 'src/app/shared/services/payment-service';
 import { MatDialog } from '@angular/material';
 import { PaymentSuccessComponent } from '../payment-success/payment-success.component';
 import { OrderManagmentModelItem } from 'src/app/shared/models/Orders/order-managment-model-item';
+import { ErrorListComponent } from 'src/app/shared/components/error-list/error-list.component';
 
 @Component({
   selector: 'app-cart-items',
@@ -66,6 +67,10 @@ export class CartItemsComponent implements OnInit {
     this.cart.transactionId = transactionId;
     this.cart.orderAmount = this.orderAmount;
     this.cartService.postData(this.cart).subscribe((data: OrderManagmentModelItem) => {
+      if (data.errors.length > 0) {
+        let dialogRef = this.dialog.open(ErrorListComponent, {data: data.errors});
+        return;
+      }
       this.openDialog(data.id);
     });
     localStorage.removeItem('cart');

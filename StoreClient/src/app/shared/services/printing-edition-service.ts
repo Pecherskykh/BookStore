@@ -5,6 +5,7 @@ import {PrintingEditionsFilterModel} from 'src/app/shared/models/PeintingEdition
 import { Observable } from 'rxjs';
 import { PrintingEditionModelItem } from '../models/PeintingEditions/printing-edition-model-item';
 import { environment } from 'src/environments/environment';
+import { BaseModel } from '../models/Base/base-model';
 
 @Injectable()
 
@@ -21,16 +22,16 @@ export class PrintingEditionService {
     );
   }
 
-  create(element: PrintingEditionModelItem) {
-    return this.http.post(`${environment.apiUrl}printingedition/create`, element);
+  create(element: PrintingEditionModelItem): Observable<BaseModel> {
+    return this.http.post<BaseModel>(`${environment.apiUrl}printingedition/create`, element);
   }
 
-  update(element: PrintingEditionModelItem) {
-    return this.http.post(`${environment.apiUrl}printingedition/update`, element);
+  update(element: PrintingEditionModelItem): Observable<BaseModel> {
+    return this.http.post<BaseModel>(`${environment.apiUrl}printingedition/update`, element);
   }
 
-  remove(element: PrintingEditionModelItem) {
-    return this.http.post(`${environment.apiUrl}printingedition/remove`, element);
+  remove(element: PrintingEditionModelItem): Observable<BaseModel> {
+    return this.http.post<BaseModel>(`${environment.apiUrl}printingedition/remove`, element);
   }
 
   findById(id: number): Observable<PrintingEditionModelItem> {

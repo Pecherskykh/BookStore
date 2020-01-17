@@ -171,13 +171,13 @@ namespace BookStore.BusinessLogic.Services
             var applicationUser = await _userRepository.FindByEmailAsync(loginModel.Email);
             if (applicationUser == null)
             {
-                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add("Neorvilniy email ili parol");
                 return resultModel;
             }
             var result = await _userRepository.CheckUserAsync(applicationUser, loginModel.Password);
             if(!result)
             {
-                resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
+                resultModel.Errors.Add("Neorvilniy email ili parol");
                 return resultModel;
             }
             resultModel = applicationUser.Map();

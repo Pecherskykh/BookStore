@@ -5,7 +5,7 @@ import { OrderItemModelItem } from '../models/OrderItem/order-item-model-item';
 import { OrderItemModel } from '../models/OrderItem/order-item-model';
 
 export class LocalStorage {
-  setUser(user: UserModelItem) {
+  setUser(user: UserModelItem): void {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
@@ -13,7 +13,7 @@ export class LocalStorage {
     return JSON.parse(localStorage.getItem('user'));
   }
 
-  setCart(cart: CartModel) {
+  setCart(cart: CartModel): void {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 

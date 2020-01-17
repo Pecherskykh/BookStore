@@ -10,7 +10,6 @@ using BookStore.BusinessLogic.Extensions.PrintingEditionsFilterExtensions;
 using BookStore.BusinessLogic.Models.PrintingEditionsFilterModel;
 using BookStore.BusinessLogic.Helpers.Interfaces;
 using static BookStore.BusinessLogic.Models.Enums.Enums;
-using System;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -53,11 +52,26 @@ namespace BookStore.BusinessLogic.Services
                 return resultModel;
             }
 
+            CheckPrintingEditionErrors(printingEdition, resultModel);
+
+            if (resultModel.Errors.Count > 0)
+            {
+                return resultModel;
+            }
+
             printingEdition.Price = (decimal)_convertCurrencyHelper.ConvertCurrency((double)printingEdition.Price, printingEdition.Currencys, Currencys.USD);
             printingEdition.Id = await _printingEditionRepository.CreateAsync(printingEdition.Map());
             if(printingEdition.Id == 0)
             {
                 resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionNotCreatedError);
+                return resultModel;
+            }
+            if (printingEdition.Authors.Items == null)
+            {
+                return resultModel;
+            }
+            if (printingEdition.Authors.Items == null)
+            {
                 return resultModel;
             }
             foreach (var author in printingEdition.Authors.Items)
@@ -79,6 +93,14 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.PrintingEditionModelItemIsEmptyError);
                 return resultModel;
             }
+
+            CheckPrintingEditionErrors(printingEdition, resultModel);
+
+            if (resultModel.Errors.Count > 0)
+            {
+                return resultModel;
+            }
+
             var result = await _printingEditionRepository.UpdateAsync(printingEdition.Map());
             if (!result)
             {
@@ -111,6 +133,24 @@ namespace BookStore.BusinessLogic.Services
                 ++count;
             }
             return resultModel;
+        }
+
+        private void CheckPrintingEditionErrors(PrintingEditionModelItem printingEdition, BaseModel resultModel)
+        {
+            if (string.IsNullOrWhiteSpace(printingEdition.Title))
+            {
+                resultModel.Errors.Add("Net title");
+            }
+
+            if (printingEdition.ProductType == 0)
+            {
+                resultModel.Errors.Add("Ne ustanovlen tip producta");
+            }
+
+            if (printingEdition.Currencys == 0)
+            {
+                resultModel.Errors.Add("Otsutstvuet valuta");
+            }
         }
 
         public async Task<BaseModel> RemoveAsync(PrintingEditionModelItem printingEdition)

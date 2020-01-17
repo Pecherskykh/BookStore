@@ -8,6 +8,9 @@ import { CartModel } from 'src/app/shared/models/Cart/cart-model';
 import { OrderItemModelItem } from 'src/app/shared/models/OrderItem/order-item-model-item';
 import { LocalStorage } from 'src/app/shared/services/local-storage';
 import { OrderItemModel } from 'src/app/shared/models/OrderItem/order-item-model';
+import { MatDialog } from '@angular/material';
+import { ErrorListComponent } from 'src/app/shared/components/error-list/error-list.component';
+import { Display } from 'src/app/shared/enums/display';
 
 @Component({
   selector: 'app-book-details',
@@ -27,15 +30,27 @@ export class BookDetailsComponent implements OnInit {
 
   constructor(private activateRoute: ActivatedRoute,
               private printingEditionService: PrintingEditionService,
-              private localStorage: LocalStorage) {
+              private localStorage: LocalStorage,
+              private dialog: MatDialog) {
 
     this.quantity = new FormControl(1);
     this.subscription = activateRoute.params.
     subscribe((params: number) => this.currentBookId = params['id']);
   }
 
+  showAdd() {
+    let user = this.localStorage.getUser();
+    if (user != null) {
+      document.getElementById('add').style.display = Display[Display.block];
+    }
+  }
+
   findById() {
     this.printingEditionService.findById(this.currentBookId).subscribe((data: PrintingEditionModelItem) => {
+      if (data.errors.length > 0) {
+        let dialogRef = this.dialog.open(ErrorListComponent, {data: data.errors});
+        return;
+      }
       this.printingEdition = data;
     });
   }
@@ -60,6 +75,7 @@ export class BookDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.showAdd();
     this.findById();
   }
 }

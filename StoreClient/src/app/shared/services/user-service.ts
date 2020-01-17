@@ -5,6 +5,7 @@ import {UserModelItem} from '../models/Users/user-model-item';
 import { Observable, from } from 'rxjs';
 import {UsersFilterModel} from 'src/app/shared/models/Users/users-filter-model';
 import { environment } from 'src/environments/environment';
+import { BaseModel } from '../models/Base/base-model';
 
 @Injectable()
 
@@ -19,16 +20,16 @@ export class UserService {
     );
   }
 
-  changeUserStatus(element: string) {
-    return this.http.get(`${environment.apiUrl}changeUserStatus?userId=${element}`);
+  changeUserStatus(element: string): Observable<BaseModel> {
+    return this.http.get<BaseModel>(`${environment.apiUrl}changeUserStatus?userId=${element}`);
   }
 
-  update(element: UserModelItem) {
-    return this.http.post(`${environment.apiUrl}user/update`, element);
+  update(element: UserModelItem): Observable<BaseModel> {
+    return this.http.post<BaseModel>(`${environment.apiUrl}user/update`, element);
   }
 
-  remove(element: UserModelItem) {
-    return this.http.post(`${environment.apiUrl}user/remove`, element);
+  remove(element: UserModelItem): Observable<BaseModel> {
+    return this.http.post<BaseModel>(`${environment.apiUrl}user/remove`, element);
   }
 
   testGet(): Observable<UserModelItem> {

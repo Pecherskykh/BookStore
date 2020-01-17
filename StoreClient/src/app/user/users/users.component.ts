@@ -12,6 +12,9 @@ import { RemoveComponent } from 'src/app/shared/components/remove/remove.compone
 import { DisplayedColumnsConstans } from 'src/app/shared/constans/displayed-columns-constans';
 import { UserConstans } from 'src/app/shared/constans/user-constans';
 import { BaseConstants } from 'src/app/shared/constans/base-constants';
+import { BaseModel } from 'src/app/shared/models/Base/base-model';
+import { ErrorListComponent } from 'src/app/shared/components/error-list/error-list.component';
+import { UserModel } from 'src/app/shared/models/Users/user-model';
 
 @Component({
   selector: 'app-users',
@@ -51,7 +54,11 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers() {
-    this.userService.getUsers(this.usersFilterModel).subscribe(data => {
+    this.userService.getUsers(this.usersFilterModel).subscribe((data: UserModel) => {
+      if (data.errors.length > 0) {
+        let dialogRef = this.dialog.open(ErrorListComponent, {data: data.errors});
+        return;
+      }
       this.count = data.count;
       this.items = data.items;
   });
@@ -103,7 +110,12 @@ getServerData(event: PageEvent) {
 }
 
   changeUserStatus(element: string) {
-    this.userService.changeUserStatus(element).subscribe();
+    this.userService.changeUserStatus(element).subscribe((data: UserModel) => {
+      if (data.errors.length > 0) {
+        let dialogRef = this.dialog.open(ErrorListComponent, {data: data.errors});
+        return;
+      }
+    });
 }
 
   remove(userModelItem: UserModelItem) {
@@ -111,7 +123,13 @@ getServerData(event: PageEvent) {
     ' ' + userModelItem.lastName}})
     .afterClosed().subscribe(data => {
       if (data) {
-        this.userService.remove(userModelItem).subscribe(() => this.getUsers());
+        this.userService.remove(userModelItem).subscribe((baseDate: BaseModel) => {
+          if (baseDate.errors.length > 0) {
+              let dialogRef = this.dialog.open(ErrorListComponent, {data: baseDate.errors});
+              return;
+            }
+          });
+        this.getUsers();
       }
     });
   }

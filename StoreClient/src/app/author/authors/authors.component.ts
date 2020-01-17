@@ -12,6 +12,8 @@ import { CreateUpdate } from 'src/app/shared/enums/create-update';
 import { DisplayedColumnsConstans } from 'src/app/shared/constans/displayed-columns-constans';
 import { BaseConstants } from 'src/app/shared/constans/base-constants';
 import { PaginationConstants } from 'src/app/shared/constans/pagination-constants';
+import { BaseModel } from 'src/app/shared/models/Base/base-model';
+import { ErrorListComponent } from 'src/app/shared/components/error-list/error-list.component';
 
 @Component({
   selector: 'app-authors',
@@ -22,7 +24,6 @@ import { PaginationConstants } from 'src/app/shared/constans/pagination-constant
 
 export class AuthorsComponent implements OnInit {
 
-  errors;
   pageSizeOptions: number[];
   displayedColumns: string[];
   searchByName: FormControl;
@@ -48,9 +49,12 @@ export class AuthorsComponent implements OnInit {
 
   getAuthors(): void {
     this.authorService.getData(this.baseFilterModel).subscribe((data: AuthorModel) => {
+      if (data.errors.length > 0) {
+        let dialogRef = this.dialog.open(ErrorListComponent, {data: data.errors});
+        return;
+      }
       this.items = data.items;
       this.amountPages = data.pageAmount;
-      this.errors = data.errors;
   });
   }
 
@@ -65,7 +69,13 @@ export class AuthorsComponent implements OnInit {
     let dialogRef = this.dialog.open(RemoveComponent, {data: {pageName: 'author', name: authorModelItem.name}})
     .afterClosed().subscribe(data => {
       if (data) {
-      this.authorService.remove(authorModelItem).subscribe(() => this.getAuthors());
+        this.authorService.remove(authorModelItem).subscribe((baseDate: BaseModel) => {
+          if (baseDate.errors.length > 0) {
+            let dialogRef = this.dialog.open(ErrorListComponent, {data: baseDate.errors});
+            return;
+          }
+          return this.getAuthors();
+        });
       }
     });
   }
