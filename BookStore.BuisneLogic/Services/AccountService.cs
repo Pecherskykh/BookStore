@@ -149,7 +149,7 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.PasswordResetTokenNotGeneratedError);
                 return resultModel;
             }
-            var password = _createPasswordHelper.CreatePassword(8);
+            var password = _createPasswordHelper.CreatePassword(9);
             var result = await _userRepository.ResetPasswordAsync(user, token, password);
             if (!result)
             {
@@ -171,13 +171,13 @@ namespace BookStore.BusinessLogic.Services
             var applicationUser = await _userRepository.FindByEmailAsync(loginModel.Email);
             if (applicationUser == null)
             {
-                resultModel.Errors.Add("Neorvilniy email ili parol");
+                resultModel.Errors.Add(Constants.ErrorConstants.WrongUsernameOrPassword);
                 return resultModel;
             }
             var result = await _userRepository.CheckUserAsync(applicationUser, loginModel.Password);
             if(!result)
             {
-                resultModel.Errors.Add("Neorvilniy email ili parol");
+                resultModel.Errors.Add(Constants.ErrorConstants.WrongUsernameOrPassword);
                 return resultModel;
             }
             resultModel = applicationUser.Map();

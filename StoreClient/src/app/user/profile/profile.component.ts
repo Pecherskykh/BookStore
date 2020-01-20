@@ -1,29 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { UserModelItem } from 'src/app/shared/models/Users/user-model-item';
 import { UserService } from 'src/app/shared/services/user-service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { BaseConstants } from 'src/app/shared/constans/base-constants';
 import { UserConstans } from 'src/app/shared/constans/user-constans';
 import { Display } from 'src/app/shared/enums/display';
+import { LocalStorage } from 'src/app/shared/services/local-storage';
+import { ErrorListComponent } from 'src/app/shared/components/error-list/error-list.component';
+import { MatDialog } from '@angular/material';
+import { BaseModel } from 'src/app/shared/models/Base/base-model';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
-  providers: [UserService]
+  providers: [UserService, LocalStorage]
 })
 export class ProfileComponent implements OnInit {
 
   user: UserModelItem;
 
-  profileForm;
+  profileForm: FormGroup;
+  passwordForm: FormGroup;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {
+  constructor(
+    private userService: UserService,
+    private formBuilder: FormBuilder,
+    private localStorage: LocalStorage,
+    private dialog: MatDialog
+    ) {
     this.user = new UserModelItem();
 
     this.profileForm = this.formBuilder.group({
-      currentPassword: BaseConstants.stringEmpty,
-      newPassword: BaseConstants.stringEmpty
+      firstName: new FormControl(BaseConstants.stringEmpty, [Validators.required]),
+      lastName: new FormControl(BaseConstants.stringEmpty, [Validators.required]),
+      email: new FormControl(BaseConstants.stringEmpty, [Validators.required, Validators.email])
+    });
+
+    this.passwordForm =  this.formBuilder.group({
+      currentPassword: new FormControl(BaseConstants.stringEmpty, [Validators.required, Validators.minLength(8),
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]),
+      newPassword: new FormControl(BaseConstants.stringEmpty, [Validators.required, Validators.minLength(8),
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]),
+      confirmPassword: new FormControl(BaseConstants.stringEmpty)
     });
   }
 
@@ -37,16 +56,45 @@ export class ProfileComponent implements OnInit {
     element.style.display = Display[Display.none];
   }
 
+  authentication(user: UserModelItem): void {
+    if (user.errors.length > 0) {
+      let dialogRef = this.dialog.open(ErrorListComponent, {data: user.errors});
+      return;
+    }
+    this.localStorage.setUser(user);
+    location.href = 'http://localhost:4200/user/profile';
+  }
+
   save() {
+    this.user.firstName = this.profileForm.value.firstName;
+    this.user.lastName = this.profileForm.value.lastName;
+    this.user.email = this.profileForm.value.email;
     this.user.currentPassword = this.profileForm.value.currentPassword;
     this.user.newPassword = this.profileForm.value.newPassword;
-    this.userService.update(this.user).subscribe();
+    this.userService.update(this.user).subscribe((data: BaseModel) => {
+      if (data.errors.length > 0) {
+        let dialogRef = this.dialog.open(ErrorListComponent, {data: data.errors});
+        return;
+      }
+      this.localStorage.setUser(this.user);
+      this.initUser();
+    });
+  }
+
+  initUser() {
+    this.user = this.localStorage.getUser();
+    if (this.user === null) {
+      location.href = 'http://localhost:4200/account/login';
+      return;
+    }
+    this.profileForm = this.formBuilder.group({
+      firstName: new FormControl(this.user.firstName, [Validators.required]),
+      lastName: new FormControl(this.user.lastName, [Validators.required]),
+      email: new FormControl(this.user.email, [Validators.required, Validators.email])
+    });
   }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem(UserConstans.user));
-    if (this.user === null) {
-      location.href = 'http://localhost:4200/account/login';
-    }
+    this.initUser();
   }
 }

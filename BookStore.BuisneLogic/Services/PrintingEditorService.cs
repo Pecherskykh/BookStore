@@ -139,17 +139,17 @@ namespace BookStore.BusinessLogic.Services
         {
             if (string.IsNullOrWhiteSpace(printingEdition.Title))
             {
-                resultModel.Errors.Add("Net title");
+                resultModel.Errors.Add(Constants.ErrorConstants.NoTitle);
             }
 
             if (printingEdition.ProductType == 0)
             {
-                resultModel.Errors.Add("Ne ustanovlen tip producta");
+                resultModel.Errors.Add(Constants.ErrorConstants.ProductTypeNotAssigned);
             }
 
             if (printingEdition.Currencys == 0)
             {
-                resultModel.Errors.Add("Otsutstvuet valuta");
+                resultModel.Errors.Add(Constants.ErrorConstants.NoCurrencyAssigned);
             }
         }
 

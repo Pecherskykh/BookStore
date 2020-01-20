@@ -67,17 +67,30 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
-            if (string.Equals(role, RoleEnum.Admin.ToString()))
+            if (string.Equals(role, RoleEnum.Admin.ToString()) && !string.Equals(role, user.Role))
             {
                 applicationUser.FirstName = user.FirstName;
                 applicationUser.LastName = user.LastName;                
+            }
+            if (string.Equals(role, RoleEnum.Admin.ToString()) && string.Equals(role, user.Role))
+            {
+                applicationUser.FirstName = user.FirstName;
+                applicationUser.LastName = user.LastName;
+                applicationUser.Email = user.Email;
+                if (!string.IsNullOrWhiteSpace(user.CurrentPassword) && !string.IsNullOrWhiteSpace(user.NewPassword))
+                {
+                    await _userRepository.ChangePasswordAsync(applicationUser, user.CurrentPassword, user.NewPassword);
+                }
             }
             if (string.Equals(role, RoleEnum.User.ToString()))
             {
                 applicationUser.FirstName = user.FirstName;
                 applicationUser.LastName = user.LastName;
                 applicationUser.Email = user.Email;
-                await _userRepository.ChangePasswordAsync(applicationUser, user.CurrentPassword, user.NewPassword);
+                if (!string.IsNullOrWhiteSpace(user.CurrentPassword) && !string.IsNullOrWhiteSpace(user.NewPassword))
+                {
+                    await _userRepository.ChangePasswordAsync(applicationUser, user.CurrentPassword, user.NewPassword);
+                }
             }
 
             var result = await _userRepository.UpdateAsync(applicationUser);

@@ -7,6 +7,7 @@
         {
             public const string RefreshTokenIsNotValidError = "Refresh token is not valid";
             public const string UserNotFoundError = "User not found";
+            public const string WrongUsernameOrPassword = "Wrong username or password";
             public const string UserIdIsEmptyError = "User id is empty";
             public const string UserEmailIsEmptyError = "User email Is empty";
             public const string UserNameIsEmptyError = "User name Is empty";
@@ -38,6 +39,9 @@
             public const string PrintingEditionIdIsZeroError = "PrintingEdition id is zero";
             public const string PrintingEditionNotFoundError = "PrintingEdition not found";
             public const string PrintingEditionModelItemIsEmptyError = "PrintingEditionModelItem is empty";
+            public const string NoTitle = "No title";
+            public const string ProductTypeNotAssigned = "Product type not assigned";
+            public const string NoCurrencyAssigned = "No currency assigned";
             public const string PrintingEditionNotCreatedError = "PrintingEdition not created";            
             //...
         }
