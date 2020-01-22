@@ -180,6 +180,11 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.WrongUsernameOrPassword);
                 return resultModel;
             }
+            if (applicationUser.LockoutEnabled)
+            {
+                resultModel.Errors.Add("User blocked");
+                return resultModel;
+            }
             resultModel = applicationUser.Map();
             resultModel.Role = await _userRepository.CheckRoleAsync(applicationUser.Id.ToString());
             return resultModel;

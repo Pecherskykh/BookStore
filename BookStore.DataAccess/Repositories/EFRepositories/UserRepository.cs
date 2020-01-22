@@ -134,11 +134,11 @@ namespace BookStore.DataAccess.Repositories.EFRepositories
             }  
             if (usersFilter.UserStatus == UserStatus.Active)
             {
-                users = users.Where(u => u.LockoutEnabled);
+                users = users.Where(u => !u.LockoutEnabled);
             }
             if (usersFilter.UserStatus == UserStatus.Blocked)
             {
-                users = users.Where(u => !u.LockoutEnabled);
+                users = users.Where(u => u.LockoutEnabled);
             }
             if(usersFilter.SortType == UserSortType.UserName)
             {

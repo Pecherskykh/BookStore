@@ -10,4 +10,5 @@ export class UserModelItem extends BaseModel {
   newPassword: string;
   currentPassword: string;
   role: string;
+  photo: string;
 }

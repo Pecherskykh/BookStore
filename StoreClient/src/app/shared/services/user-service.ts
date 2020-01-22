@@ -21,7 +21,7 @@ export class UserService {
   }
 
   changeUserStatus(element: string): Observable<BaseModel> {
-    return this.http.get<BaseModel>(`${environment.apiUrl}changeUserStatus?userId=${element}`);
+    return this.http.get<BaseModel>(`${environment.apiUrl}user/changeUserStatus?userId=${element}`);
   }
 
   update(element: UserModelItem): Observable<BaseModel> {

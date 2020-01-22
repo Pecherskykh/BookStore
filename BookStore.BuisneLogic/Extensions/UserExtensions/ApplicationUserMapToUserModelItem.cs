@@ -17,7 +17,8 @@ namespace BookStore.BusinessLogic.Extensions.UserExtensions
                 Email = user.Email,
                 LastName = user.LastName,
                 FirstName = user.FirstName,
-                Status = user.LockoutEnabled
+                Status = user.LockoutEnabled,
+                Photo = user.Photo
             };
         }
     }

@@ -27,7 +27,7 @@
                 </mat-select>
               </th>
               <td class="row row3" mat-cell *matCellDef="let element">
-                  <mat-slide-toggle [checked] = "element.status" (click)="changeUserStatus(element.id)"></mat-slide-toggle>
+                  <mat-slide-toggle [checked] = "!element.status" (click)="changeUserStatus(element.id)"></mat-slide-toggle>
               </td>
           </ng-container>
 

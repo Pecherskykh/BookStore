@@ -13,6 +13,7 @@
             public const string UserNameIsEmptyError = "User name Is empty";
             public const string UserModelItemIsEmptyError = "UserModelItem Is empty";
             public const string UsersFilterModelIsEmptyError = "UsersFilterModel Is empty";
+            public const string UserWithThatEmailAlreadyExistsError = "A user with that email already exists";
             public const string UserNotCreatedError = "User not created";
             public const string EmailConfirmationTokenNotGeneratedError = "Email confirmation token not generated";
             public const string PasswordResetTokenNotGeneratedError = "Password reset token not generated";

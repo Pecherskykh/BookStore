@@ -7,7 +7,8 @@
   <div class="right tools">
     <a href="http://localhost:4200/account/login" *ngIf = "user === null">Log in</a>
     <div class="tools" *ngIf = "user !== null">
-    <img class="user" src="assets/images/user.svg" [matMenuTriggerFor]="menu">
+    <img *ngIf = "user.photo === '' || user.photo === null" class="user" src="assets/images/user.svg" [matMenuTriggerFor]="menu">
+    <img *ngIf = "user.photo !== '' && user.photo !== null" class="photo" [src]="user.photo" [matMenuTriggerFor]="menu">
     <mat-menu #menu="matMenu">
       <a mat-menu-item *ngIf = "user.role === 'Admin'" href="http://localhost:4200/order/order-managment">Order managment</a>
       <a mat-menu-item *ngIf = "user.role === 'Admin'" href="http://localhost:4200/user/users">User mangement</a>

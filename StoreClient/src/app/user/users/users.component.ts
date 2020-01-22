@@ -110,7 +110,7 @@ getServerData(event: PageEvent) {
 }
 
   changeUserStatus(element: string) {
-    this.userService.changeUserStatus(element).subscribe((data: UserModel) => {
+    this.userService.changeUserStatus(element).subscribe((data: BaseModel) => {
       if (data.errors.length > 0) {
         let dialogRef = this.dialog.open(ErrorListComponent, {data: data.errors});
         return;

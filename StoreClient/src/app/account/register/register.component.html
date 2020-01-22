@@ -41,19 +41,26 @@
       </mat-error>
     </mat-form-field>
   </div>
-  <div class="form__row">
-      <span>Password</span>
-      <mat-form-field class="form__field">
-        <input matInput placeholder="At least 8 characters" type="password" formControlName = "newPassword">
-        <mat-error>
-          Password incorrect
-        </mat-error>
-      </mat-form-field>
-  </div>
-  <div class="form__row">
-    <span>Confirm password</span>
 
-  </div>
+  <div class="form__row">
+    <span>Password</span>
+    <mat-form-field class="form__field">
+      <input matInput placeholder="At least 8 characters" type="password" formControlName = "newPassword" required>
+      <mat-error>
+        Password incorrect
+      </mat-error>
+    </mat-form-field>
+</div>
+<div class="form__row">
+  <span>Confirm password</span>
+  <mat-form-field class="form__field">
+    <input matInput placeholder="At least 8 characters" type="password" formControlName = "confirmPassword" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="registerForm.hasError('notSame')">
+      Passwords do not match
+    </mat-error>
+  </mat-form-field>
+</div>
+
   <div class="form__footer">
       <button [disabled] = "!registerForm.valid" mat-raised-button class="form__signUpButton pointer button" (click)="signUp()">Sign Up your account</button>
   </div>

@@ -2,9 +2,11 @@
   <form [formGroup] = "profileForm">
       <h2 class="form__caption">My Profile</h2>
     <div class = "images__modal">
-      <img src="assets/images/photograph.svg" class="form__logo" alt="person">
+      <input *ngIf = "user.photo === '' || user.photo === null" type = 'image' src="assets/images/photograph.svg" (click) = "changePhoto()" class="form__logo" alt="person">
+      <input *ngIf = "user.photo !== '' && user.photo !== null" type = 'image' [src]="user.photo" (click) = "changePhoto()" class="form__logo">
       <img src="assets/images/pencil-edit-button.svg" alt="edit" class = "img__edit" (click) = "edit()">
     </div>
+    <input id ="change__photo" class="form__logo" type = 'file' (change) = "change($event)">
     <div class="form__row">
       <span>Your First name</span>
       <mat-form-field class="form__field">
@@ -55,13 +57,15 @@
     <div class="form__row">
       <span>Confirm new password</span>
       <mat-form-field class="form__field">
-        <input matInput placeholder="At least 8 characters" type="password">
-        <mat-error>
-          Password incorrect
+        <input matInput placeholder="At least 8 characters" type="password" formControlName = "confirmPassword" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="passwordForm.hasError('notSame')">
+          Passwords do not match
         </mat-error>
       </mat-form-field>
     </div>
-      <button [disabled] = "!profileForm.valid" mat-raised-button (click) = "save()">Save</button>
+    <div class="buttons">
+      <button [disabled] = "!(profileForm.valid && passwordForm.valid)" mat-raised-button (click) = "save()">Save</button>
       <button mat-raised-button (click) = "cansel()">Cansel</button>
+    </div>
     </div>
   </div>

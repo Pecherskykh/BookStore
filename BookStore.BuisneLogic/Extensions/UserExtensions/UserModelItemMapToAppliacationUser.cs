@@ -13,7 +13,8 @@ namespace BookStore.BusinessLogic.Extensions.UserExtensions
                 UserName = user.UserName,
                 Email = user.Email,
                 LastName = user.LastName,
-                FirstName = user.FirstName
+                FirstName = user.FirstName,
+                Photo = user.Photo
             };
         }
     }

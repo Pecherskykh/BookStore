@@ -9,6 +9,7 @@ import { LocalStorage } from 'src/app/shared/services/local-storage';
 import { ErrorListComponent } from 'src/app/shared/components/error-list/error-list.component';
 import { MatDialog } from '@angular/material';
 import { BaseModel } from 'src/app/shared/models/Base/base-model';
+import { MyErrorStateMatcher } from 'src/app/shared/services/my-error-state-matcher';
 
 @Component({
   selector: 'app-profile',
@@ -19,9 +20,10 @@ import { BaseModel } from 'src/app/shared/models/Base/base-model';
 export class ProfileComponent implements OnInit {
 
   user: UserModelItem;
-
   profileForm: FormGroup;
   passwordForm: FormGroup;
+  changePhotoDisplayNone: boolean;
+  matcher: MyErrorStateMatcher;
 
   constructor(
     private userService: UserService,
@@ -38,12 +40,45 @@ export class ProfileComponent implements OnInit {
     });
 
     this.passwordForm =  this.formBuilder.group({
-      currentPassword: new FormControl(BaseConstants.stringEmpty, [Validators.required, Validators.minLength(8),
+      currentPassword: new FormControl(BaseConstants.stringEmpty, [Validators.minLength(8),
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]),
-      newPassword: new FormControl(BaseConstants.stringEmpty, [Validators.required, Validators.minLength(8),
+      newPassword: new FormControl(BaseConstants.stringEmpty, [Validators.minLength(8),
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]),
       confirmPassword: new FormControl(BaseConstants.stringEmpty)
-    });
+    }, { validator: this.checkPasswords });
+
+    this.matcher = new MyErrorStateMatcher();
+    this.changePhotoDisplayNone = true;
+  }
+
+  checkPasswords(group: FormGroup) {
+    let pass = group.controls.newPassword.value;
+    let confirmPass = group.controls.confirmPassword.value;
+
+    return pass === confirmPass ? null : { notSame: true };
+  }
+
+  changePhoto(): void {
+    this.changePhotoDisplayNone = !this.changePhotoDisplayNone;
+    let element = document.getElementById('change__photo');
+
+    if (this.changePhotoDisplayNone) {
+      element.style.display = Display[Display.block];
+      return;
+    }
+
+    if (!this.changePhotoDisplayNone) {
+      element.style.display = Display[Display.none];
+      return;
+    }
+  }
+
+  change(event) {
+    debugger;
+    let file = event.target.files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    this.user.photo = reader.result.toString();
   }
 
   edit() {
@@ -69,15 +104,15 @@ export class ProfileComponent implements OnInit {
     this.user.firstName = this.profileForm.value.firstName;
     this.user.lastName = this.profileForm.value.lastName;
     this.user.email = this.profileForm.value.email;
-    this.user.currentPassword = this.profileForm.value.currentPassword;
-    this.user.newPassword = this.profileForm.value.newPassword;
+    this.user.currentPassword = this.passwordForm.value.currentPassword;
+    this.user.newPassword = this.passwordForm.value.newPassword;
     this.userService.update(this.user).subscribe((data: BaseModel) => {
       if (data.errors.length > 0) {
         let dialogRef = this.dialog.open(ErrorListComponent, {data: data.errors});
         return;
       }
       this.localStorage.setUser(this.user);
-      this.initUser();
+      location.reload();
     });
   }
 

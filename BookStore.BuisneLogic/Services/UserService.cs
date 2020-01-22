@@ -8,6 +8,7 @@ using BookStore.BusinessLogic.Services.Interfaces;
 using BookStore.DataAccess.Repositories.Interfaces;
 using System.Threading.Tasks;
 using static BookStore.BusinessLogic.Models.Enums.Enums;
+using BookStore.DataAccess.Entities;
 
 namespace BookStore.BusinessLogic.Services
 {
@@ -74,23 +75,11 @@ namespace BookStore.BusinessLogic.Services
             }
             if (string.Equals(role, RoleEnum.Admin.ToString()) && string.Equals(role, user.Role))
             {
-                applicationUser.FirstName = user.FirstName;
-                applicationUser.LastName = user.LastName;
-                applicationUser.Email = user.Email;
-                if (!string.IsNullOrWhiteSpace(user.CurrentPassword) && !string.IsNullOrWhiteSpace(user.NewPassword))
-                {
-                    await _userRepository.ChangePasswordAsync(applicationUser, user.CurrentPassword, user.NewPassword);
-                }
+                await UpdateProfileAsync(applicationUser, user);
             }
             if (string.Equals(role, RoleEnum.User.ToString()))
             {
-                applicationUser.FirstName = user.FirstName;
-                applicationUser.LastName = user.LastName;
-                applicationUser.Email = user.Email;
-                if (!string.IsNullOrWhiteSpace(user.CurrentPassword) && !string.IsNullOrWhiteSpace(user.NewPassword))
-                {
-                    await _userRepository.ChangePasswordAsync(applicationUser, user.CurrentPassword, user.NewPassword);
-                }
+                await UpdateProfileAsync(applicationUser, user);
             }
 
             var result = await _userRepository.UpdateAsync(applicationUser);
@@ -100,6 +89,18 @@ namespace BookStore.BusinessLogic.Services
                 return resultModel;
             }
             return resultModel;
+        }
+
+        private async Task UpdateProfileAsync(ApplicationUser applicationUser, UserModelItem user)
+        {
+            applicationUser.FirstName = user.FirstName;
+            applicationUser.LastName = user.LastName;
+            applicationUser.Email = user.Email;
+            applicationUser.Photo = user.Photo;
+            if (!string.IsNullOrWhiteSpace(user.CurrentPassword) && !string.IsNullOrWhiteSpace(user.NewPassword))
+            {
+                await _userRepository.ChangePasswordAsync(applicationUser, user.CurrentPassword, user.NewPassword);
+            }
         }
 
         public async Task<BaseModel> RemoveAsync(UserModelItem user)
