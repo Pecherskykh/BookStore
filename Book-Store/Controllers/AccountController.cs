@@ -10,6 +10,8 @@ using BookStore.Presentation.Helper.Interface;
 using BookStore.BusinessLogic.Common.Constants;
 using Microsoft.AspNetCore.Authorization;
 using BookStore.BusinessLogic.Models.Login;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BookStore.Presentation.Controllers
 {
@@ -77,7 +79,6 @@ namespace BookStore.Presentation.Controllers
             return Ok(result);
         }
 
-        [Authorize]
         [HttpGet("refreshTokens")]
         public async Task<IActionResult> RefreshTokens(string refreshToken)
         {
@@ -89,10 +90,9 @@ namespace BookStore.Presentation.Controllers
                 return Ok(resultModel);
             }
 
-            var userId = this.HttpContext.User.Claims
-               .FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
+            var userId = new JwtSecurityTokenHandler().ReadJwtToken(refreshToken).Claims.Where(x => x.Type.Contains("nameidentifier")).FirstOrDefault().Value;
 
-            var user = await _accountService.FindByNameAsync(userId);
+            var user = await _accountService.FindByIdAsync(userId);
 
             var encodedJwt = _jwtHelper.GenerateTokenModel(user);
 

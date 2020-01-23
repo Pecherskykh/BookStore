@@ -38,7 +38,9 @@ namespace BookStore.BusinessLogic.Services
                 resultModel.Errors.Add(Constants.ErrorConstants.UserNotFoundError);
                 return resultModel;
             }
-            return user.Map();
+            resultModel = user.Map();
+            resultModel.Role = await _userRepository.CheckRoleAsync(user.Id.ToString());
+            return resultModel;
         }
 
         public async Task<UserModelItem> FindByEmailAsync(string email)

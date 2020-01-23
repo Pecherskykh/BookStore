@@ -44,25 +44,9 @@ export class Interceptor implements HttpInterceptor {
     });
   }
 
-private handle401Error(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
-  if (!this.isRefreshing) {
-    this.isRefreshing = true;
-    this.refreshTokenSubject.next(null);
-
-    return this.authenticationService.refreshToken().pipe(
-      switchMap((token: any) => {
-        this.isRefreshing = false;
-        this.refreshTokenSubject.next(token.jwt);
-        return next.handle(this.addToken(request, token.jwt));
-      }));
-
-  } else {
-    return this.refreshTokenSubject.pipe(
-      filter(token => token != null),
-      take(1),
-      switchMap(jwt => {
-        return next.handle(this.addToken(request, jwt));
-      }));
+private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
+  debugger;
+  this.authenticationService.refreshToken().subscribe();
+  this.intercept(request, next);
   }
-}
 }

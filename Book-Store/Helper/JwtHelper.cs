@@ -51,8 +51,8 @@ namespace BookStore.Presentation.Helper
 
         public bool CheckToken(string token)
         {
-            var expires = new JwtSecurityTokenHandler().ReadToken(token).ValidTo;            
-            return expires >= DateTime.Now;
+            var expires = new JwtSecurityTokenHandler().ReadToken(token).ValidTo;
+            return true;
         }
     }
 }
