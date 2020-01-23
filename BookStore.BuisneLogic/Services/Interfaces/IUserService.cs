@@ -13,5 +13,6 @@ namespace BookStore.BusinessLogic.Services.Interfaces
         Task<BaseModel> RemoveAsync(UserModelItem user);
         Task<UserModel> GetUsersAsync(UsersFilterModel usersFilter);
         Task<BaseModel> ChangeUserStatus(string userId);
+        void DapperTest();
     }
 }

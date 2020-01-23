@@ -39,6 +39,7 @@ namespace BookStore.BusinessLogic.Init
             services.AddTransient<IPaymentRepository, PaymentRepository>();
             services.AddTransient<IPrintingEditionRepository, PrintingEditionRepository>();
             services.AddTransient<IAuthorInPrintingEditionRepository, AuthorInPrintingEditionRepository>();
+            services.AddTransient<TestDapper, DataAccess.Repositories.DapperRepositories.UserRepository>();
 
             services.AddTransient<IAccountServise, AccountService>();            
             services.AddTransient<IUserService, UserService>();

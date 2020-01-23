@@ -15,10 +15,12 @@ namespace BookStore.BusinessLogic.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly TestDapper _testDapper;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, TestDapper testDapper)
         {
             _userRepository = userRepository;
+            _testDapper = testDapper;
         }
 
         public async Task<BaseModel> CreateAsync(UserModelItem user)
@@ -156,6 +158,11 @@ namespace BookStore.BusinessLogic.Services
             user.LockoutEnabled = !user.LockoutEnabled;
             await _userRepository.UpdateAsync(user);
             return resultModel;
+        }
+
+        public void DapperTest()
+        {
+            _testDapper.GetUsers();
         }
     }
 }

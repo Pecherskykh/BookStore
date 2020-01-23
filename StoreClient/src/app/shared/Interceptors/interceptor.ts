@@ -46,7 +46,6 @@ export class Interceptor implements HttpInterceptor {
 
 private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
   debugger;
-  this.authenticationService.refreshToken().subscribe();
-  this.intercept(request, next);
+  this.authenticationService.refreshToken().subscribe(() => this.intercept(request, next));
   }
 }

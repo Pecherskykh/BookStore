@@ -147,3 +147,5 @@ C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookS
 C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.pdb
 C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\obj\Debug\netcoreapp3.0\BookStore.Presentation.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\bin\Debug\netcoreapp3.0\Dapper.dll
+C:\Users\Anuitex-180\Desktop\Book-Store\Book-Store\bin\Debug\netcoreapp3.0\Dapper.Contrib.dll

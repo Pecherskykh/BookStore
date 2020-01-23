@@ -47,8 +47,9 @@ namespace BookStore.Presentation.Controllers
         [HttpPost("getUsers")]
         public async Task<IActionResult> GetUsers(UsersFilterModel usersFilter)
         {
-            var users = await _userService.GetUsersAsync(usersFilter);
-            return Ok(users);
+            _userService.DapperTest();
+            //var users = await _userService.GetUsersAsync(usersFilter);
+            return Ok(new UserModel());
         }
 
         [HttpGet("changeUserStatus")]
