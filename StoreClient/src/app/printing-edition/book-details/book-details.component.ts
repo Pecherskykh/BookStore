@@ -34,8 +34,8 @@ export class BookDetailsComponent implements OnInit {
               private dialog: MatDialog) {
 
     this.quantity = new FormControl(1);
-    this.subscription = activateRoute.params.
-    subscribe((params: number) => this.currentBookId = params['id']);
+    /*this.subscription = activateRoute.params.
+    subscribe((params: number) => this.currentBookId = params['id']);*/
   }
 
   showAdd() {
