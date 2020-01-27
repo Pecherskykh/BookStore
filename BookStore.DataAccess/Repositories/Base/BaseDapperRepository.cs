@@ -1,30 +1,31 @@
-﻿using BookStore.DataAccess.Entities.Base;
+﻿using BookStore.DataAccess.Common.Constants;
+using BookStore.DataAccess.Entities.Base;
 using BookStore.DataAccess.Repositories.Interfaces;
-using Dapper;
 using Dapper.Contrib.Extensions;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace BookStore.DataAccess.Repositories.Base
 {
     public class BaseDapperRepository<TEntity> : IBaseEFRepository<TEntity> where TEntity : BaseEntity
     {
-        string connectionString = "Server=DESKTOP-4C8DBJI;Database=BookStore;Trusted_Connection=True;MultipleActiveResultSets=true";
+
+        private readonly string _connectionString;
 
         public BaseDapperRepository()
         {
-
+            _connectionString = Constants.DapperConstants.connectionString;
         }
+
 
         public async Task<IEnumerable<TEntity>> GetAsync()
         {
-            using (IDbConnection db = new SqlConnection(connectionString))
+            using (IDbConnection connection = new SqlConnection(_connectionString))
             {
-                return await db.GetAllAsync<TEntity>();
+                return await connection.GetAllAsync<TEntity>();
             }
         }
 
@@ -34,18 +35,18 @@ namespace BookStore.DataAccess.Repositories.Base
         }
         public async Task<TEntity> FindByIdAsync(long id)
         {
-            using (IDbConnection db = new SqlConnection(connectionString))
+            using (IDbConnection connection = new SqlConnection(_connectionString))
             {
-                return await db.GetAsync<TEntity>(id);
+                return await connection.GetAsync<TEntity>(id);
             }
         }
 
         public async Task<long> CreateAsync(TEntity item)
         {
             item.CreationDate = DateTime.Now;
-            using (IDbConnection db = new SqlConnection(connectionString))
+            using (IDbConnection connection = new SqlConnection(_connectionString))
             {
-                return await db.InsertAsync(item); 
+                return await connection.InsertAsync(item); 
             }
         }
 
@@ -55,16 +56,16 @@ namespace BookStore.DataAccess.Repositories.Base
         }
         public async Task<bool> UpdateAsync(TEntity item)
         {
-            using (IDbConnection db = new SqlConnection(connectionString))
+            using (IDbConnection connection = new SqlConnection(_connectionString))
             {
-                return await db.UpdateAsync(item);
+                return await connection.UpdateAsync(item);
             }
         }
         public async Task<bool> RemoveAsync(TEntity item)
         {
-            using (IDbConnection db = new SqlConnection(connectionString))
+            using (IDbConnection connection = new SqlConnection(_connectionString))
             {
-                return await db.DeleteAsync(item);
+                return await connection.DeleteAsync(item);
             }
         }
 

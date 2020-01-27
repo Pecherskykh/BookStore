@@ -14,6 +14,7 @@ using static BookStore.DataAccess.Entities.Enums.Enums;
 using BookStore.DataAccess.Models.OrderItems;
 using BookStore.DataAccess.Entities;
 using BookStore.DataAccess.Repositories.Base;
+using BookStore.DataAccess.Common.Constants;
 
 namespace BookStore.DataAccess.Repositories.DapperRepositories
 {
@@ -31,58 +32,51 @@ namespace BookStore.DataAccess.Repositories.DapperRepositories
 
     public class OrderRepository : BaseDapperRepository<Order>, IOrderRepository
     {
-        string connectionString = "Server=DESKTOP-4C8DBJI;Database=BookStore;Trusted_Connection=True;MultipleActiveResultSets=true";
+        private readonly string _connectionString;
+        public OrderRepository()
+        {
+            _connectionString = Constants.DapperConstants.connectionString;
+        }
 
         public async Task<OrderModel> GetOrdersAsync(OrdersFilterModel ordersFilterModel)
         {
-            List<Response> orders = new List<Response>();
-            using (IDbConnection db = new SqlConnection(connectionString))
-            {
-                var str = new StringBuilder(@"SELECT o.Id, o.CreationDate, o.UserName, o.Email, b.Type, b.Title, b.Count, o.Amount FROM
-                    (
-	                    SELECT Orders.Id, Orders.CreationDate, AspNetUsers.UserName, AspNetUsers.Email, Orders.Amount 
-	                    FROM Orders 
-	                    INNER JOIN AspNetUsers ON Orders.UserId = AspNetUsers.Id
-	                    WHERE Orders.IsRemoved = 0
-	                    AND AspNetUsers.FirstName LIKE '%%' OR AspNetUsers.LastName LIKE '%%' OR AspNetUsers.Email LIKE '%%'
-	                    ORDER BY Orders.Id
-	                    OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY
-                    ) AS o
-                    INNER JOIN
-                    (
-	                    SELECT OrderItems.OrderId, PrintingEditions.Type, PrintingEditions.Title, OrderItems.Count 
-	                    FROM OrderItems 
-	                    INNER JOIN PrintingEditions ON PrintingEditions.Id = OrderItems.PrintingEditionId
-                    ) AS b ON o.Id = b.OrderId;"
-                );
-                orders = db.Query<Response>(str.ToString()).ToList();
-            }
-
-            /*SELECT o.Id, o.CreationDate, o.UserName, o.Email, b.Type, b.Title, b.Count, o.Amount FROM
-                    (
-	                    SELECT Orders.Id, Orders.CreationDate, AspNetUsers.UserName, AspNetUsers.Email, Orders.Amount 
-	                    FROM Orders 
-	                    INNER JOIN AspNetUsers ON Orders.UserId = AspNetUsers.Id
-	                    WHERE Orders.IsRemoved = 0
-	                    AND AspNetUsers.FirstName LIKE '%%' OR AspNetUsers.LastName LIKE '%%' OR AspNetUsers.Email LIKE '%%'
-	                    ORDER BY Orders.Id
-	                    OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY
-                    ) AS o
-                    INNER JOIN
-                    (
-	                    SELECT OrderItems.OrderId, PrintingEditions.Type, PrintingEditions.Title, OrderItems.Count 
-	                    FROM OrderItems 
-	                    INNER JOIN PrintingEditions ON PrintingEditions.Id = OrderItems.PrintingEditionId
-                    ) AS b ON o.Id = b.OrderId;
-
-SELECT COUNT(Orders.Id) FROM Orders 
-	                    INNER JOIN AspNetUsers ON Orders.UserId = AspNetUsers.Id
-	                    WHERE Orders.IsRemoved = 0
-	                    AND AspNetUsers.FirstName LIKE '%%' OR AspNetUsers.LastName LIKE '%%' OR AspNetUsers.Email LIKE '%%';*/
+            var filter = new StringBuilder(@$"FROM Orders
+                        INNER JOIN AspNetUsers ON Orders.UserId = AspNetUsers.Id
+                        WHERE Orders.IsRemoved = 0
+	                    AND AspNetUsers.UserName LIKE '%{ordersFilterModel.SearchString}%' OR AspNetUsers.Email LIKE '%{ordersFilterModel.SearchString}%' ");
 
             var resulModel = new OrderModel();
-            resulModel.Count = 5;
+            var orders = new List<Response>();
+             var sqlQuery = new StringBuilder(@"SELECT o.Id, o.CreationDate, o.UserName, o.Email, b.Type, b.Title, b.Count, o.Amount FROM
+             (
+	            SELECT Orders.Id, Orders.CreationDate, AspNetUsers.UserName, AspNetUsers.Email, Orders.Amount ");
+            sqlQuery.Append(filter);
+            sqlQuery.Append("ORDER BY Orders.Id ");
+            sqlQuery.Append(@"OFFSET @pageCount * @pageSize ROWS FETCH NEXT @pageSize ROWS ONLY
+               ) AS o
+                    INNER JOIN
+                    (
+	                    SELECT OrderItems.OrderId, PrintingEditions.Type, PrintingEditions.Title, OrderItems.Count 
+	                    FROM OrderItems 
+	                    INNER JOIN PrintingEditions ON PrintingEditions.Id = OrderItems.PrintingEditionId
+                    ) AS b ON o.Id = b.OrderId;");
+            sqlQuery.Append("SELECT COUNT(Orders.Id) ");
+            sqlQuery.Append(filter);
 
+            using (IDbConnection connection = new SqlConnection(_connectionString))
+            {
+                using (var multi = await connection.QueryMultipleAsync(sqlQuery.ToString(),
+                    new
+                    {
+                        pageCount = ordersFilterModel.PageCount,
+                        pageSize = ordersFilterModel.PageSize
+                    }))
+                {
+                    orders = (await multi.ReadAsync<Response>()).ToList();
+                    resulModel.Count = await multi.ReadFirstAsync<int>();
+                }
+            }
+                                                               
             resulModel.Items = orders.GroupBy(x => x.Id).Select(o =>
             o.Select(
                 x => new OrderModelItem()
